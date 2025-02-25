@@ -6,3 +6,5 @@ build
 types
 .idea
 .vscode
+gh-pages
+gh-pages.pub
