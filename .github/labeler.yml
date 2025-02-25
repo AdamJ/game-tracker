@@ -1,0 +1,18 @@
+minor:
+  - src/components/**
+  - src/pages/**
+  - src/styles/**
+  - src/public/**
+  - src/*.ts
+  - index.html
+patch:
+  - package.json
+  - README.md
+  - tsconfig.json
+  - vite.config.ts
+  - swa-cli.config.json
+dependencies:
+  - package.json
+  - package-lock.json
+github-action:
+  - .github/**
