@@ -1,0 +1,49 @@
+name-template: 'v$RESOLVED_VERSION'
+tag-template: 'v$RESOLVED_VERSION'
+categories:
+  - title: 'Features/Enhancements'
+    labels:
+      - 'feature'
+      - 'enhancement'
+  - title: 'Fixes'
+    labels:
+      - 'bug'
+  - title: 'Maintenance'
+    labels:
+      - 'dependencies'
+exclude-labels:
+  - 'invalid'
+  - 'duplicate'
+  - 'wontfix'
+version-resolver:
+  major:
+    labels:
+      - 'feature'
+      - 'enhancement'
+      - 'major'
+  minor:
+    labels:
+      - 'bug'
+      - 'minor'
+  patch:
+    labels:
+      - 'dependencies'
+      - 'patch'
+      - 'github-action'
+  default: patch
+change-template: '- #$NUMBER $TITLE (@$AUTHOR)'
+template: |
+  ## Changes
+  $CHANGES
+
+  ## Contributors
+  $CONTRIBUTORS
+
+  ## Previous:
+  [$PREVIOUS_TAG](https://github.com/AdamJ/task-it/releases/tag/$PREVIOUS_TAG)
+
+  ### History
+  [All Tags](https://github.com/AdamJ/task-it/tags)
+  [All Releases](https://github.com/AdamJ/task-it/releases)
+no-changes-template: |
+  Nothing to see here...
