@@ -48,11 +48,15 @@
 
   <script>
     if ('serviceWorker' in navigator) {
-      window.onload = () => {
-        navigator.serviceWorker.register(
-          '/sw.js'
-        );
-      }
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/task-it/sw.js')
+          .then(registration => {
+            console.log('Service Worker registered: ', registration);
+          })
+          .catch(registrationError => {
+            console.log('Service Worker registration failed: ', registrationError);
+          });
+      });
     }
   </script>
 </body>
