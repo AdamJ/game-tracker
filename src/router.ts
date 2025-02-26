@@ -8,6 +8,10 @@ if (!(globalThis as any).URLPattern) {
 
 import { Router } from '@thepassle/app-tools/router.js';
 import { lazy } from '@thepassle/app-tools/router/plugins/lazy.js';
+import { offline } from '@thepassle/app-tools/router/plugins/offline.js';
+import { resetFocus } from '@thepassle/app-tools/router/plugins/resetFocus.js';
+import { scrollToTop } from '@thepassle/app-tools/router/plugins/scrollToTop.js';
+import { checkServiceWorkerUpdate } from '@thepassle/app-tools/router/plugins/checkServiceWorkerUpdate.js';
 
 // @ts-ignore
 import { title } from '@thepassle/app-tools/router/plugins/title.js';
@@ -16,7 +20,18 @@ import './pages/app-home.js';
 
 const baseURL: string = (import.meta as any).env.BASE_URL;
 
+console.log(baseURL);
+
 export const router = new Router({
+  plugins: [
+    /** Redirects to an offline page */
+    offline,
+    /** Checks for service worker updates on route navigations */
+    checkServiceWorkerUpdate,
+    scrollToTop,
+    resetFocus
+  ],
+  fallback: '/404',
     routes: [
       {
         path: resolveRouterPath(),
