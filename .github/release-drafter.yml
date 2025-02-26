@@ -33,16 +33,12 @@ version-resolver:
   default: patch
 change-template: '- #$NUMBER $TITLE (@$AUTHOR)'
 template: |
-  ## Changes
   $CHANGES
-
-  ## Contributors
+  ---
   $CONTRIBUTORS
-
-  ## Previous:
-  [$PREVIOUS_TAG](https://github.com/AdamJ/task-it/releases/tag/$PREVIOUS_TAG)
-
-  ### History
+  ---
+  Previous: [$PREVIOUS_TAG](https://github.com/AdamJ/task-it/releases/tag/$PREVIOUS_TAG)
+  ---
   [All Tags](https://github.com/AdamJ/task-it/tags)
   [All Releases](https://github.com/AdamJ/task-it/releases)
 no-changes-template: |
