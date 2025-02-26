@@ -1,4 +1,4 @@
-import{i as w,c as x,_ as s,d as f,b as S,n as l,S as k,x as h,D as H,k as Q,h as Z,j as $,A as tt,T as B,E as et,G as ot,l as P,w as y,F as st,H as it,L as I,e as _,q as d,f as Y,g as D,I as V,u as lt}from"./index-DhfFrN7m.js";/**
+import{i as w,c as x,_ as s,d as f,b as S,n as l,S as k,x as h,D as H,k as Q,h as Z,j as $,A as tt,T as B,E as et,G as ot,l as P,w as y,F as st,H as it,L as I,e as _,q as d,f as Y,g as D,I as V,u as lt}from"./index-oOAWB_B1.js";/**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
@@ -1056,4 +1056,4 @@ import{i as w,c as x,_ as s,d as f,b as S,n as l,S as k,x as h,D as H,k as Q,h a
         class=${_({"tab-panel":!0,"tab-panel--active":this.active})}
       ></slot>
     `}};z.styles=[x,$t];s([l({reflect:!0})],z.prototype,"name",2);s([l({type:Boolean,reflect:!0})],z.prototype,"active",2);s([y("active")],z.prototype,"handleActiveChange",1);z.define("sl-tab-panel");export{b as S,q as a,M as b,G as c,A as d,ct as f,N as g,Et as l,zt as p,J as s,Bt as u,W as w};
-//# sourceMappingURL=chunk.BWPPYEQO-b3smGtog.js.map
+//# sourceMappingURL=chunk.BWPPYEQO-Cj8htZ-g.js.map
