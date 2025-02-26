@@ -1,10 +1,8 @@
 import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
-import tailwindcss from '@tailwindcss/vite'
-
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/track-it",
+  base: "/task-it",
   build: {
     sourcemap: true,
     assetsDir: "code",
@@ -13,7 +11,6 @@ export default defineConfig({
     lib: false
   },
   plugins: [
-    tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
       strategies: "injectManifest",
