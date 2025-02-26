@@ -8,7 +8,7 @@ const __dirname = resolve()
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/task-it/",
+  base: "/",
   build: {
     sourcemap: true,
     assetsDir: "code",

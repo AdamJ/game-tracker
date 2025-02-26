@@ -1,7 +1,7 @@
 {
   "name": "track-it",
   "version": "0.0.0",
-  "homepage": "https://www.adamjolicoeur.com/task-it/",
+  "homepage": "https://www.adamjolicoeur.me",
   "description": "A set of random tools for game tracking.",
   "main": "index.js",
   "type": "module",
