@@ -2,7 +2,7 @@
   "author": "Adam J. Jolicoeur",
   "name": "task-it",
   "display": "standalone",
-  "start_url": "/task-it/",
+  "start_url": "/",
   "short_name": "TaskIt",
   "theme_color": "#E1477E",
   "description": "This is an app to track various things.",
@@ -66,7 +66,7 @@
       "name": "Open Dashboard",
       "short_name": "Dashboard",
       "description": "Open the dashboard page",
-      "url": "/dashboard",
+      "url": "/",
       "icons": [{ "src": "assets/icons/192x192.png", "sizes": "192x192" }]
     }
   ],
