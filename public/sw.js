@@ -57,4 +57,15 @@ const updateName = async (event) => {
     await self.widgets.updateByInstanceId(event.instanceId, payload);
 }
 
+// Workbox Precaching
 workbox.precaching.precacheAndRoute(self.__WB_MANIFEST || []);
+
+// Navigation Routing
+workbox.routing.registerRoute(
+  ({ request }) => request.mode === 'navigate',
+  async ({ event }) => {
+    const cache = await caches.open(workbox.precaching.getCacheKeyForURL('/index.html'));
+    const cachedResponse = await cache.match('/index.html');
+    return cachedResponse || fetch(event.request);
+  }
+);
