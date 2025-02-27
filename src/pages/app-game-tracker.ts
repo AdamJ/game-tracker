@@ -7,11 +7,13 @@ import '../components/standings-tracker'; // Import the component
 //   resolver: name => `https://cdn.jsdelivr.net/npm/mana-font@latest/svg/${name}.svg`,
 // });
 
-@customElement('app-dashboard')
+@customElement('app-standings')
 export class AppDashboard extends LitElement {
 // ... in your template:
   render() {
     return html`
+      <app-header ?enableBack="${true}"></app-header>
+      <br/>
       <h1>Game Tracker</h1>
       <standings-tracker></standings-tracker>
       <style>

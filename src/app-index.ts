@@ -10,15 +10,15 @@ import { router } from './router';
 export class AppIndex extends LitElement {
   static styles = css`
     main {
-      padding-left: 16px;
-      padding-right: 16px;
-      padding-bottom: 16px;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      padding-bottom: 1rem;
     }
-    app-dashboard {
+    app-standings {
       width: 800px;
     }
     @media (min-width: 1200px) {
-      app-dashboard {
+      app-standings {
         width: 1200px;
       }
     }

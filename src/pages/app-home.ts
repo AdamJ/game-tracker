@@ -2,8 +2,11 @@ import { LitElement, css, html } from 'lit';
 import { property, customElement } from 'lit/decorators.js';
 import { resolveRouterPath } from '../router';
 
+import '@shoelace-style/shoelace/dist/components/alert/alert.js';
 import '@shoelace-style/shoelace/dist/components/card/card.js';
 import '@shoelace-style/shoelace/dist/components/button/button.js';
+import '@shoelace-style/shoelace/dist/components/carousel/carousel.js';
+import '@shoelace-style/shoelace/dist/components/carousel-item/carousel-item.js';
 
 import { styles } from '../styles/shared-styles';
 
@@ -17,17 +20,14 @@ export class AppHome extends LitElement {
   static styles = [
     styles,
     css`
+
     #welcomeBar {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
-
-    #welcomeCard,
-    #infoCard {
-      padding: 18px;
-      padding-top: 0px;
+      // flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      grid-gap: 2rem;
+      flex-wrap: wrap;
     }
 
     sl-card::part(footer) {
@@ -35,24 +35,22 @@ export class AppHome extends LitElement {
       justify-content: flex-end;
     }
 
-    @media(min-width: 750px) {
-      sl-card {
-        width: 70vw;
-      }
-    }
+    // @media(min-width: 750px) {
+    //   sl-card {
+    //     width: 70vw;
+    //   }
+    // }
 
 
     @media (horizontal-viewport-segments: 2) {
       #welcomeBar {
+        display: flex;
         flex-direction: row;
         align-items: flex-start;
         justify-content: space-between;
       }
-
-      #welcomeCard {
-        margin-right: 64px;
-      }
     }
+}
   `];
 
   async firstUpdated() {
@@ -64,9 +62,9 @@ export class AppHome extends LitElement {
   share() {
     if ((navigator as any).share) {
       (navigator as any).share({
-        title: 'PWABuilder pwa-starter',
-        text: 'Check out the PWABuilder pwa-starter!',
-        url: 'https://github.com/pwa-builder/pwa-starter',
+        title: 'adamjolicoeur.me',
+        text: 'Check out the random web apps I build!',
+        url: 'https://github.com/adamj',
       });
     }
   }
@@ -75,64 +73,48 @@ export class AppHome extends LitElement {
     return html`
       <app-header></app-header>
 
-      <main>
+      <main style="max-width: 70%; margin: 0 auto;">
         <div id="welcomeBar">
-          <sl-card id="welcomeCard">
-            <div slot="header">
-              <h2>${this.message}</h2>
+          <sl-card>
+            <div slot="header">Game Tracker</div>
+            <p>For use with tracking games of Magic: The Gathering.</p>
+            <div slot="footer">
+              <sl-button href="${resolveRouterPath('game-tracker')}" variant="primary">View</sl-button>
             </div>
-
-            <p>
-              For more information on the PWABuilder pwa-starter, check out the
-              <a href="https://docs.pwabuilder.com/#/starter/quick-start">
-                documentation</a>.
-            </p>
-
-            <p id="mainInfo">
-              Welcome to the
-              <a href="https://pwabuilder.com">PWABuilder</a>
-              pwa-starter! Be sure to head back to
-              <a href="https://pwabuilder.com">PWABuilder</a>
-              when you are ready to ship this PWA to the Microsoft Store, Google Play
-              and the Apple App Store!
-            </p>
-
-            ${'share' in navigator
-              ? html`<sl-button slot="footer" variant="default" @click="${this.share}">
-                        <sl-icon slot="prefix" name="share"></sl-icon>
-                        Share this Starter!
-                      </sl-button>`
-              : null}
           </sl-card>
-
-          <sl-card id="infoCard">
-            <h2>Technology Used</h2>
-
-            <ul>
-              <li>
-                <a href="https://www.typescriptlang.org/">TypeScript</a>
-              </li>
-
-              <li>
-                <a href="https://lit.dev">lit</a>
-              </li>
-
-              <li>
-                <a href="https://shoelace.style/">Shoelace</a>
-              </li>
-
-              <li>
-                <a href="https://github.com/thepassle/app-tools/blob/master/router/README.md"
-                  >App Tools Router</a>
-              </li>
-            </ul>
+          <sl-card>
+            <div slot="header">Point Tracking</div>
+            <sl-alert variant="warning" open>
+              <strong>Work in progress</strong>
+            </sl-alert>
+            <p>A general tracker for points. Set the starting number and go from there. Each increase or decrease in points is tracked.
+            </p>
+            <div slot="footer">
+              <sl-button href="${resolveRouterPath('counter')}" variant="warning">View</sl-button>
+            </div>
           </sl-card>
-
-          <sl-button href="${resolveRouterPath('about')}" variant="text">Navigate to About</sl-button>
-          <sl-button href="${resolveRouterPath('counter')}" variant="default">Track Life Totals</sl-button>
-          <sl-button href="${resolveRouterPath('dashboard')}" variant="primary">Standings</sl-button>
+          <sl-card>
+            <p>Learn about these apps, resources used with them, and any other information available. If you like what you see, click the "share" button below!
+            </p>
+            <div slot="footer">
+              <sl-button href="${resolveRouterPath('about')}" variant="neutral" outline>About</sl-button>
+              ${'share' in navigator
+                ? html`
+                  <sl-button slot="footer" variant="neutral" outline @click="${this.share}">
+                    <sl-icon slot="prefix" name="share"></sl-icon>
+                      Share this site!
+                  </sl-button>
+                `: null
+              }
+            </div>
+          </sl-card>
         </div>
       </main>
+      <style>
+        sl-alert::part(base) {
+          background-color: var(--sl-color-warning-50);
+        }
+      </style>
     `;
   }
 }

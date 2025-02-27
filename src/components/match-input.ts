@@ -16,36 +16,63 @@ export class MatchInput extends LitElement {
   @property({ type: Array }) players: Player[] = [];
   @state() player1: string = '';
   @state() player2: string = '';
-  @state() matchResult: 'win' | 'loss' | 'draw' = 'win';
+  @state() winner: string | null = 'draw'; // Initialize to "draw"
 
   recordMatch() {
     if (this.player1 && this.player2 && this.player1 !== this.player2) {
-      this.dispatchEvent(new CustomEvent('match-recorded', { detail: { player1: this.player1, player2: this.player2, result: this.matchResult } }));
+      let result: 'win' | 'loss' | 'draw';
+      if (this.winner === 'draw') {
+        result = 'draw';
+      } else if (this.winner === this.player1) {
+        result = 'win';
+      } else {
+        result = 'loss';
+      }
+
+      this.dispatchEvent(
+        new CustomEvent('match-recorded', {
+          detail: {
+            player1: this.player1,
+            player2: this.player2,
+            result: result,
+            winner: this.winner, // include the winner in the details
+          },
+        })
+      );
     }
   }
 
   handlePlayer1Change(event: Event) {
     const select = event.target as HTMLSelectElement;
     this.player1 = select.value as string;
+    if (this.winner === this.player2 || this.winner === this.player1) {
+      this.winner = 'draw';
+    }
   }
 
   handlePlayer2Change(event: Event) {
     const select = event.target as HTMLSelectElement;
     this.player2 = select.value as string;
+        if (this.winner === this.player1 || this.winner === this.player2) {
+          this.winner = 'draw';
+        }
   }
 
-  handleMatchResultChange(event: Event) {
-    const select = event.target as HTMLSelectElement;
-    this.matchResult = select.value as 'win' | 'loss' | 'draw';
+  handleWinnerChange(event: Event) {
+    const radioGroup = event.target as HTMLInputElement;
+    this.winner = radioGroup.value === 'draw' ? 'draw' : radioGroup.value as string | null;
   }
 
   render() {
-
     // Dynamically generate options for Player 1
-    const player1Options = this.players.filter(player => player.name !== this.player2);
+    const player1Options = this.players.filter(
+      (player) => player.name !== this.player2
+    );
 
     // Dynamically generate options for Player 2
-    const player2Options = this.players.filter(player => player.name !== this.player1);
+    const player2Options = this.players.filter(
+      (player) => player.name !== this.player1
+    );
 
     return html`
       <form>
@@ -56,7 +83,10 @@ export class MatchInput extends LitElement {
           clearable
         >
           <sl-option value="">Select a player</sl-option>
-          ${player1Options.map(player => html`<sl-option value=${player.name}>${player.name}</sl-option>`)}
+          ${player1Options.map(
+            (player) =>
+              html`<sl-option value=${player.name}>${player.name}</sl-option>`
+          )}
         </sl-select>
         <br />
         <sl-select
@@ -66,28 +96,40 @@ export class MatchInput extends LitElement {
           clearable
         >
           <sl-option value="">Select a player</sl-option>
-          ${player2Options.map(player => html`<sl-option value=${player.name}>${player.name}</sl-option>`)}
+          ${player2Options.map(
+            (player) =>
+              html`<sl-option value=${player.name}>${player.name}</sl-option>`
+          )}
         </sl-select>
         <br />
-        <sl-radio-group size="medium" label="Result" help-text="Player 1 - win, loss, or draw?" name="result" value=${this.matchResult}
-          @sl-change=${this.handleMatchResultChange}>
-          <sl-radio-button variant="primary" value="win">
-              <sl-icon library="ms" name="u"></sl-icon>
-              Win
-            </sl-radio-button>
-            <sl-radio-button variant="error" value="loss">
-              <sl-icon library="ms" name="u"></sl-icon>
-              Loss
-            </sl-radio-button>
-            <sl-radio-button value="draw">
-              <div style="font-size: 1.125rem; color: #fff;">
-              <sl-icon library="ms" name="u"></sl-icon>
-              </div>
-              Draw
-            </sl-radio-button>
+        <sl-radio-group
+          size="medium"
+          label="Select a winner"
+          name="winner"
+          @sl-change=${this.handleWinnerChange}
+          value="${this.winner}"
+        >
+          <sl-radio-button
+            value=${this.player1}
+            ?disabled="${!this.player1 || !this.player2}"
+          >
+            ${this.player1}
+          </sl-radio-button>
+          <sl-radio-button
+            value=${this.player2}
+            ?disabled="${!this.player1 || !this.player2}"
+          >
+            ${this.player2}
+          </sl-radio-button>
+          <sl-radio-button
+            value="draw"
+            ?disabled="${!this.player1 || !this.player2}"
+          >
+            Draw
+          </sl-radio-button>
         </sl-radio-group>
         <br />
-        <sl-button variant="primary" @click=${this.recordMatch}>
+        <sl-button variant="success" outline @click=${this.recordMatch}>
           Record Result</sl-button>
       </form>
     `;
