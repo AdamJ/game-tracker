@@ -3,9 +3,10 @@ import { property, customElement } from 'lit/decorators.js';
 import { resolveRouterPath } from '../router';
 
 import '@shoelace-style/shoelace/dist/components/button/button.js';
+import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 @customElement('app-header')
 export class AppHeader extends LitElement {
-  @property({ type: String }) title = 'track-it';
+  @property({ type: String }) title = 'adamjolicoeur.me';
 
   @property({ type: Boolean}) enableBack: boolean = false;
 
@@ -14,10 +15,9 @@ export class AppHeader extends LitElement {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: var(--app-color-primary);
-      color: white;
-      padding: 12px;
-      padding-top: 4px;
+      background: transparent;
+      padding: .75rem;
+      padding-top: .75rem;
 
       position: fixed;
       left: env(titlebar-area-x, 0);
@@ -27,27 +27,20 @@ export class AppHeader extends LitElement {
       -webkit-app-region: drag;
     }
 
-    header h1 {
-      margin-top: 0;
-      margin-bottom: 0;
-      font-size: 12px;
-      font-weight: bold;
-    }
-
     nav a {
-      margin-left: 10px;
+      margin-left: .75rem;
     }
 
     #back-button-block {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 8px;
+      gap: .5rem;
     }
 
     @media(prefers-color-scheme: light) {
       header {
-        color: black;
+        color: var(--sl-color-neutral-950);
       }
 
       nav a {
@@ -59,13 +52,14 @@ export class AppHeader extends LitElement {
   render() {
     return html`
       <header>
-
-        <div id="back-button-block">
-          ${this.enableBack ? html`<sl-button size="small" href="${resolveRouterPath()}">
-            Back
-          </sl-button>` : null}
-
-          <h1>${this.title}</h1>
+      <div id="back-button-block">
+        ${this.enableBack ? html`
+          <sl-button variant="neutral" size="medium" href="${resolveRouterPath()}">
+            <sl-icon name="arrow-left"></sl-icon>
+          </sl-button>
+          ` : html
+          `${this.title}`
+        }
         </div>
       </header>
     `;

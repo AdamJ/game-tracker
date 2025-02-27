@@ -246,7 +246,7 @@ export class StandingsTracker extends LitElement {
 
     return html `
       <div style="display: flex; flex-direction: column; grid-gap: 1rem;">
-        <sl-details summary="Results" open>
+        <sl-details summary="Match Results" open>
           <match-input .players=${this.players.map(player => ({ name: player }))} @match-recorded=${(e: CustomEvent) => this.recordMatch(e.detail)}></match-input>
         </sl-details>
         <sl-tab-group active-tab=${this.activeTab}>

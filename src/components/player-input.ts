@@ -77,7 +77,7 @@ export class PlayerInput extends LitElement {
           </div>
         </div>
         <div style="display: flex; flex-direction: column; grid-gap: 1rem;">
-          <div style="display: flex; flex-direction: row; justify-content: flex-start; align-items: flex-start; width: 100%;">
+          <form class="input-validation-custom">
             <sl-input
               .value=${this.newPlayer}
               @sl-input=${this.handleInputChange}
@@ -88,16 +88,17 @@ export class PlayerInput extends LitElement {
               clearable
               autocomplete="off"
               help-text=${this.errorMessage}
-              class="label-on-left player-input"
-              style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem; width: 100%;"
+              class="player-input"
             >
               <sl-icon library="default" name="person" slot="prefix"></sl-icon>
             </sl-input>
+            <br />
             <sl-button type="submit" variant="primary" outline @click=${this.addPlayer} class="larger-icon">
               <sl-icon library="default" slot="prefix" name="person-fill-add"></sl-icon>
               Add Player
             </sl-button>
-          </div>
+          </form>
+          <p><strong>Players</strong></p>
           <div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: flex-start; grid-gap: .5rem; width: 100%;">
             ${this.players.map(player => html`
               <sl-tag removable @sl-remove=${() => this.removePlayer(player)}>
@@ -114,26 +115,8 @@ export class PlayerInput extends LitElement {
         .player-input::part(form-control-help-text) {
           color: var(--sl-color-danger-600);
         }
-        .label-on-left {
-          --label-width: 3.5rem;
-          --gap-width: .5rem;
-          color: var(--sl-color-neutral-900);
-          font-weight: var(--sl-font-weight-semibold);
-        }
-        .label-on-left + .label-on-left {
-          margin-top: var(--sl-spacing-medium);
-        }
-        .label-on-left::part(form-control) {
-          display: grid;
-          grid: auto / var(--label-width) 1fr;
-          gap: var(--sl-spacing-3x-small) var(--gap-width);
-          align-items: center;
-        }
-        .label-on-left::part(form-control-label) {
-          text-align: right;
-        }
-        .label-on-left::part(form-control-help-text) {
-          grid-column-start: 2;
+        .player-input::part(form-control-help-text)[attr="All fixed!"] {
+          color: var(--sl-color-success-600);
         }
       </style>
       `;

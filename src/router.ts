@@ -55,12 +55,12 @@ export const router = new Router({
         render: () => html`<app-counter></app-counter>`
       },
       {
-        path: resolveRouterPath('dashboard'),
+        path: resolveRouterPath('game-tracker'),
         title: 'Game Tracker',
         plugins: [
-          lazy(() => import('./pages/app-dashboard.js')),
+          lazy(() => import('./pages/app-game-tracker.js')),
         ],
-        render: () => html`<app-dashboard></app-dashboard>`
+        render: () => html`<app-standings></app-standings>`
       }
     ]
   });

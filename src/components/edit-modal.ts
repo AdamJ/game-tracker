@@ -12,17 +12,18 @@ interface Match {
   player1: string;
   player2: string;
   result: 'win' | 'loss' | 'draw';
+  winner: string | "draw" | null;
 }
 
 @customElement('edit-modal')
 export class EditModal extends LitElement {
   @property({ type: Object }) match: Match | null = null;
   @property({ type: Boolean }) isOpen: boolean = false;
-  @state() editedResult: 'win' | 'loss' | 'draw' = 'win';
+  @state() editedWinner: string | "draw" | null = 'draw'; // Track the winner directly
 
   open(match: Match) {
     this.match = match;
-    this.editedResult = match.result;
+    this.editedWinner = match.winner; // Initialize with the current winner
     this.isOpen = true;
   }
 
@@ -33,14 +34,27 @@ export class EditModal extends LitElement {
 
   confirm() {
     if (this.match) {
-      this.dispatchEvent(new CustomEvent('match-edited', { detail: { ...this.match, result: this.editedResult } }));
+      let result: 'win' | 'loss' | 'draw';
+        if (this.editedWinner === "draw") {
+          result = 'draw';
+        } else if (this.editedWinner === this.match.player1) {
+          result = 'win';
+        } else {
+          result = 'loss';
+        }
+      this.dispatchEvent(new CustomEvent('match-edited', {
+        detail: {
+          ...this.match,
+          result: result,
+          winner: this.editedWinner,
+        } }));
       this.close();
     }
   }
 
-  handleSelectChange(event: Event) {
-    const select = event.target as HTMLSelectElement;
-    this.editedResult = select.value as 'win' | 'loss' | 'draw';
+  handleWinnerChange(event: Event) {
+    const radioGroup = event.target as HTMLInputElement;
+    this.editedWinner = radioGroup.value === 'draw' ? 'draw' : radioGroup.value as string | null;
   }
 
   render() {
@@ -61,21 +75,29 @@ export class EditModal extends LitElement {
 
         </p>
         <div style="text-align: center;">
-          <sl-radio-group size="medium" help-text="Select the updated result" name="result" variant="default" value=${this.editedResult}
-            @sl-change=${this.handleSelectChange}>
-            <sl-radio-button variant="primary" value="win" class="larger-icon">
-              <sl-icon slot="prefix" name="trophy-fill"></sl-icon>
-              Win
-            </sl-radio-button>
-            <sl-radio-button variant="error" value="loss" class="larger-icon">
-              <sl-icon slot="prefix" name="person-x-fill"></sl-icon>
-              Loss
-            </sl-radio-button>
-            <sl-radio-button value="draw" class="larger-icon">
-              <sl-icon slot="prefix" name="person-lines-fill"></sl-icon>
-              Draw
-            </sl-radio-button>
-          </sl-radio-group>
+        <sl-radio-group
+          size="medium"
+          label="Select a winner"
+          name="winner"
+          @sl-change=${this.handleWinnerChange}
+          value="${this.editedWinner}"
+        >
+          <sl-radio-button
+            value=${this.match.player1}
+          >
+            ${this.match.player1}
+          </sl-radio-button>
+          <sl-radio-button
+            value=${this.match.player2}
+          >
+            ${this.match.player2}
+          </sl-radio-button>
+          <sl-radio-button
+            value="draw"
+          >
+            Draw
+          </sl-radio-button>
+        </sl-radio-group>
         </div>
         <sl-button slot="footer" variant="neutral" outline @click=${this.close}>
           Cancel

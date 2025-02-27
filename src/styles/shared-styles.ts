@@ -6,7 +6,7 @@ export const styles = css`
 
   main {
     margin-top: 34px;
-    padding: 12px;
+    padding: .75rem;
   }
   .display-flex {
     display: flex;

@@ -4,13 +4,16 @@
   "display": "standalone",
   "start_url": "/",
   "short_name": "TaskIt",
-  "theme_color": "#E1477E",
+  "theme_color": "#0065c4",
   "description": "This is an app to track various things.",
   "orientation": "any",
-  "background_color": "#E1477E",
-  "related_applications": [],
+  "background_color": "#ededed",
   "prefer_related_applications": false,
-  "display_override": ["window-controls-overlay"],
+  "display_override": [
+    "window-controls-overlay",
+    "standalone",
+    "minimal-ui"
+  ],
   "launch_handler": {
     "client_mode": "focus-existing"
   },
@@ -59,16 +62,8 @@
     "simple"
   ],
   "categories": [
-    "social"
-  ],
-  "shortcuts": [
-    {
-      "name": "Open Dashboard",
-      "short_name": "Dashboard",
-      "description": "Open the dashboard page",
-      "url": "/",
-      "icons": [{ "src": "assets/icons/192x192.png", "sizes": "192x192" }]
-    }
+    "games",
+    "utilities"
   ],
   "widgets": [
     {
@@ -90,6 +85,35 @@
           "sizes": "48x48"
         }
       ]
+    }
+  ],
+  "id": "TasksAndMore",
+  "dir": "ltr",
+  "lang": "en",
+  "handle_links": "preferred",
+  "shortcuts": [
+    {
+      "name": "Standings",
+      "url": "/standings",
+      "description": "Game standings and life tracker"
+    },
+    {
+      "name": "About",
+      "short_name": "About",
+      "url": "/about",
+      "description": "App updates available to you.",
+      "icons": [
+        {
+          "src": "assets/icons/icon_512.png",
+          "type": "image/png",
+          "purpose": "any"
+        }
+      ]
+    },
+    {
+      "name": "Counter",
+      "url": "/counter",
+      "description": "A general score tracker."
     }
   ]
 }

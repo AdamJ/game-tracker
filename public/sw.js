@@ -69,3 +69,17 @@ workbox.routing.registerRoute(
     return cachedResponse || fetch(event.request);
   }
 );
+
+self.addEventListener('push', (event) => {
+  event.waitUntil(
+    self.registration.showNotification('New Notification', {
+      body: 'Notification Body Text',
+      icon: 'assets/icons/icon_512.png',
+    })
+  )
+});
+self.addEventListener('notificationclick', (event) => {
+  event.notification.close();
+  var fullPath = self.location.origin + event.notification.data.path;
+  clients.openWindow(fullPath);
+});
