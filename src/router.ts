@@ -14,7 +14,6 @@ import { scrollToTop } from '@thepassle/app-tools/router/plugins/scrollToTop.js'
 import { checkServiceWorkerUpdate } from '@thepassle/app-tools/router/plugins/checkServiceWorkerUpdate.js';
 
 import './pages/app-home.js';
-import './pages/app-404.js';
 
 const baseURL: string = (import.meta as any).env.BASE_URL;
 
@@ -29,13 +28,8 @@ export const router = new Router({
     scrollToTop,
     resetFocus
   ],
-  fallback: '/404',
+  fallback: '/',
     routes: [
-      {
-        path: resolveRouterPath('404'),
-        title: '404 - Not Found',
-        render: () => html`<app-404></app-404>`
-      },
       {
         path: resolveRouterPath(),
         title: 'Home',
