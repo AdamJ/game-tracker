@@ -13,3 +13,11 @@ I wanted to make a task tracking app that kept data in the browser's cache, whic
 > **Disclaimer** Magic: The Gathering is © [Wizards of the Coast](https://company.wizards.com/en). This project is not affiliated nor produced nor endorsed by Wizards of the Coast.
 All card images, mana symbols, expansions and art related to Magic the Gathering is a property of Wizards of the Coast/Hasbro.
 This project may use the trademarks and other intellectual property of Wizards of the Coast LLC as permitted under Wizards' Fan Site Policy. MAGIC: THE GATHERING® is a trademark of Wizards of the Coast. For more information about Wizards of the Coast or any of Wizards' trademarks or other intellectual property, please visit their website at [https://company.wizards.com/](https://company.wizards.com/).
+
+---
+
+## PWA Builder Report Card
+
+> As of February 27, 2025
+
+![PWA Builder Report Card](public/assets/PWABuilder%20Report%20Card.png)

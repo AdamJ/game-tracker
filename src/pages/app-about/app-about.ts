@@ -52,6 +52,8 @@ export class AppAbout extends LitElement {
             This project may use the trademarks and other intellectual property of Wizards of the Coast LLC as permitted under Wizards' Fan Site Policy. MAGIC: THE GATHERING® is a trademark of Wizards of the Coast. For more information about Wizards of the Coast or any of Wizards' trademarks or other intellectual property, please visit their website at <a href="https://company.wizards.com/" target="blank">https://company.wizards.com/</a>.
           </p>
         </sl-alert>
+        <br/><br/>
+        <img src="/assets/PWABuilder%20Report%20Card.png" alt="PWA Builder Report Card" />
       </main>
       <style>
         sl-alert::part(base) {

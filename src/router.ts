@@ -31,7 +31,7 @@ export const router = new Router({
     scrollToTop,
     resetFocus
   ],
-  fallback: '/404',
+  fallback: '/',
     routes: [
       {
         path: resolveRouterPath(),
