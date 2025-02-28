@@ -1,4 +1,4 @@
-import{i as R,c as F,S as Pt,_ as a,n as c,b as B,L as be,e as V,x as b,d as S,f as Jt,g as Qt,w as A,h as G,p as wt,j as ee,k as U,l as j,m as ue,a as k,t as ye,r as ve,o as Dt,E as Be,q as Tt,T as Zt,u as zt,v as dt,F as Lt,H as Re,y as es,z as ts,A as ss,B as is,C as Ne,D as os,G as ls,I as ns,J as as,K as rs,M as cs}from"./index-5HPoY4-A.js";import{f as Rt,s as ds,S as hs,l as xt,u as _t}from"./chunk.BWPPYEQO-BbX6dszf.js";var ps=R`
+import{i as R,c as F,S as Pt,_ as a,n as c,b as B,L as be,e as V,x as b,d as S,f as Jt,g as Qt,w as A,h as G,p as wt,j as ee,k as U,l as j,m as ue,a as k,t as ye,r as ve,o as Dt,E as Be,q as Tt,T as Zt,u as zt,v as dt,F as Lt,H as Re,y as es,z as ts,A as ss,B as is,C as Ne,D as os,G as ls,I as ns,J as as,K as rs,M as cs}from"./index-TiD1mTKq.js";import{f as Rt,s as ds,S as hs,l as xt,u as _t}from"./chunk.BWPPYEQO-By-Mo5cG.js";var ps=R`
   :host {
     display: inline-block;
   }
@@ -310,7 +310,7 @@ import{i as R,c as F,S as Pt,_ as a,n as c,b as B,L as be,e as V,x as b,d as S,f
               <sl-icon library="default" name="person" slot="prefix"></sl-icon>
             </sl-input>
             <br />
-            <sl-button type="submit" variant="primary" outline @click=${this.addPlayer} class="larger-icon">
+            <sl-button type="button" variant="primary" outline @click=${this.addPlayer} class="larger-icon">
               <sl-icon library="default" slot="prefix" name="person-fill-add"></sl-icon>
               Add Player
             </sl-button>
@@ -1890,4 +1890,4 @@ import{i as R,c as F,S as Pt,_ as a,n as c,b as B,L as be,e as V,x as b,d as S,f
         }
       </style>
     `}};At=Fi([ye("app-standings")],At);export{At as AppDashboard};
-//# sourceMappingURL=app-game-tracker-7w4u7CjV.js.map
+//# sourceMappingURL=app-game-tracker-DhP0H2tl.js.map

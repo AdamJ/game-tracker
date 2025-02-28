@@ -1,4 +1,4 @@
-import{i as Gt,r as Kt,x as se,s as Qt,n as Ge,a as ee,t as kt}from"./index-5HPoY4-A.js";import"./chunk.BWPPYEQO-BbX6dszf.js";var fe=typeof globalThis<"u"?globalThis:typeof window<"u"?window:typeof global<"u"?global:typeof self<"u"?self:{};function Ht(h){return h&&h.__esModule&&Object.prototype.hasOwnProperty.call(h,"default")?h.default:h}function ue(h){throw new Error('Could not dynamically require "'+h+'". Please configure the dynamicRequireTargets or/and ignoreDynamicRequires option of @rollup/plugin-commonjs appropriately for this require call to work.')}var we={exports:{}};/*!
+import{i as Gt,r as Kt,x as se,s as Qt,n as Ge,a as ee,t as kt}from"./index-TiD1mTKq.js";import"./chunk.BWPPYEQO-By-Mo5cG.js";var fe=typeof globalThis<"u"?globalThis:typeof window<"u"?window:typeof global<"u"?global:typeof self<"u"?self:{};function Ht(h){return h&&h.__esModule&&Object.prototype.hasOwnProperty.call(h,"default")?h.default:h}function ue(h){throw new Error('Could not dynamically require "'+h+'". Please configure the dynamicRequireTargets or/and ignoreDynamicRequires option of @rollup/plugin-commonjs appropriately for this require call to work.')}var we={exports:{}};/*!
     localForage -- Offline Storage, Improved
     Version 1.10.0
     https://localforage.github.io/localForage
@@ -169,4 +169,4 @@ import{i as Gt,r as Kt,x as se,s as Qt,n as Ge,a as ee,t as kt}from"./index-5HPo
         </sl-card>
       </main>
     `}};V.styles=[Qt,qt];k([Ge({type:Object})],V.prototype,"player1",2);k([Ge({type:Object})],V.prototype,"player2",2);k([ee()],V.prototype,"gameResults",2);k([ee()],V.prototype,"playerName1",2);k([ee()],V.prototype,"playerName2",2);k([ee()],V.prototype,"initialLife",2);k([ee()],V.prototype,"player1Actions",2);k([ee()],V.prototype,"player2Actions",2);V=k([kt("app-counter")],V);export{V as AppCounter};
-//# sourceMappingURL=app-counter-CJibRMyO.js.map
+//# sourceMappingURL=app-counter-vyy4Ur0-.js.map
