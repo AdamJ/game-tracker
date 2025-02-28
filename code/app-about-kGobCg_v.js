@@ -1,4 +1,4 @@
-import{i as l,r as d,x as p,s as h,t as c}from"./index-TiD1mTKq.js";const m=l`
+import{i as l,r as d,x as p,s as h,t as c}from"./index-Cmvz1JtT.js";const m=l`
   @media(min-width: 1000px) {
 
   }
@@ -44,4 +44,4 @@ import{i as l,r as d,x as p,s as h,t as c}from"./index-TiD1mTKq.js";const m=l`
         }
       </style>
     `}};t.styles=[h,m];t=g([c("app-about")],t);export{t as AppAbout};
-//# sourceMappingURL=app-about-CCoS7gyG.js.map
+//# sourceMappingURL=app-about-kGobCg_v.js.map

@@ -38,7 +38,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mana-font@latest/css/mana.css">
 
 
-  <script type="module" crossorigin src="/code/index-TiD1mTKq.js"></script>
+  <script type="module" crossorigin src="/code/index-Cmvz1JtT.js"></script>
   <link rel="stylesheet" crossorigin href="/code/index-DYPoN_4Q.css">
 </head>
 
@@ -52,6 +52,23 @@
         navigator.serviceWorker.register('/sw.js')
           .then(registration => {
             console.log('Service Worker registered: ', registration);
+            if (Notification.permission !== "granted") {
+              Notification.requestPermission()
+                .then(permission => {
+                  if (permission === 'granted') {
+                    console.log("Notification Permission Granted")
+                    // Permission granted, you can show notifications
+                    // if(registration.active){
+                    //  registration.active.showNotification("Permission granted!")
+                    //}
+                  } else {
+                    console.log("Notification Permission not granted");
+                  }
+                })
+                .catch(error => {
+                  console.error('Error requesting notification permission:', error);
+                });
+            }
           })
           .catch(registrationError => {
             console.log('Service Worker registration failed: ', registrationError);

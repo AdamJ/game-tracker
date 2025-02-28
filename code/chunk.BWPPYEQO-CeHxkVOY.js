@@ -1,4 +1,4 @@
-import{i as _,c as w,_ as s,d as f,a as T,n as l,b as x,x as p,N as L,u as K,o as G,q as C,J as j,T as E,E as Y,O as X,v as W,w as v,F as J,H as Q,L as B,e as y,C as h,h as M,j as P,k as H,l as F,P as V,m as N,S as q,Q as Z,g as tt}from"./index-TiD1mTKq.js";var et=_`
+import{i as _,c as w,_ as s,d as f,a as T,n as l,b as x,x as p,N as L,u as K,o as G,q as C,J as j,T as E,E as Y,O as X,v as W,w as v,F as J,H as Q,L as B,e as y,C as h,h as M,j as P,k as H,l as F,P as V,m as N,S as q,Q as Z,g as tt}from"./index-Cmvz1JtT.js";var et=_`
   :host {
     display: inline-block;
   }
@@ -979,4 +979,4 @@ import{i as _,c as w,_ as s,d as f,a as T,n as l,b as x,x as p,N as L,u as K,o a
         class=${y({"tab-panel":!0,"tab-panel--active":this.active})}
       ></slot>
     `}};$.styles=[w,bt];s([l({reflect:!0})],$.prototype,"name",2);s([l({type:Boolean,reflect:!0})],$.prototype,"active",2);s([v("active")],$.prototype,"handleActiveChange",1);$.define("sl-tab-panel");export{A as S,lt as f,vt as l,U as s,yt as u};
-//# sourceMappingURL=chunk.BWPPYEQO-By-Mo5cG.js.map
+//# sourceMappingURL=chunk.BWPPYEQO-CeHxkVOY.js.map
