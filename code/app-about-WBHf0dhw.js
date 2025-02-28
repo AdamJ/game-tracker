@@ -1,8 +1,8 @@
-import{i as l,r as d,x as p,s as h,t as c}from"./index-DqP_DhNV.js";const m=l`
+import{i as l,r as d,x as p,s as h,t as c}from"./index-5HPoY4-A.js";const m=l`
   @media(min-width: 1000px) {
 
   }
-`;var b=Object.getOwnPropertyDescriptor,g=(r,s,n,o)=>{for(var a=o>1?void 0:o?b(s,n):s,t=r.length-1,i;t>=0;t--)(i=r[t])&&(a=i(a)||a);return a};let e=class extends d{render(){return p`
+`;var b=Object.getOwnPropertyDescriptor,g=(r,s,n,o)=>{for(var a=o>1?void 0:o?b(s,n):s,e=r.length-1,i;e>=0;e--)(i=r[e])&&(a=i(a)||a);return a};let t=class extends d{render(){return p`
       <app-header ?enableBack="${!0}"></app-header>
       <main>
         <h1>About</h1>
@@ -35,11 +35,13 @@ import{i as l,r as d,x as p,s as h,t as c}from"./index-DqP_DhNV.js";const m=l`
             This project may use the trademarks and other intellectual property of Wizards of the Coast LLC as permitted under Wizards' Fan Site Policy. MAGIC: THE GATHERING® is a trademark of Wizards of the Coast. For more information about Wizards of the Coast or any of Wizards' trademarks or other intellectual property, please visit their website at <a href="https://company.wizards.com/" target="blank">https://company.wizards.com/</a>.
           </p>
         </sl-alert>
+        <br/><br/>
+        <img src="/assets/PWABuilder%20Report%20Card.png" alt="PWA Builder Report Card" />
       </main>
       <style>
         sl-alert::part(base) {
           background-color: var(--sl-color-primary-50);
         }
       </style>
-    `}};e.styles=[h,m];e=g([c("app-about")],e);export{e as AppAbout};
-//# sourceMappingURL=app-about-DnpuO1L5.js.map
+    `}};t.styles=[h,m];t=g([c("app-about")],t);export{t as AppAbout};
+//# sourceMappingURL=app-about-WBHf0dhw.js.map
