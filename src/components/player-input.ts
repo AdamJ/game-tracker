@@ -13,7 +13,7 @@ export class PlayerInput extends LitElement {
   @state() newPlayer: string = '';
   @state() errorMessage: string = '';
 
-  addPlayer() {
+  addPlayer() { // Add the event parameter
     console.log('addPlayer called');
     if (this.newPlayer && this.validatePlayerName(this.newPlayer)) {
         this.dispatchEvent(new CustomEvent('player-added', { detail: this.newPlayer }));
@@ -93,7 +93,7 @@ export class PlayerInput extends LitElement {
               <sl-icon library="default" name="person" slot="prefix"></sl-icon>
             </sl-input>
             <br />
-            <sl-button type="submit" variant="primary" outline @click=${this.addPlayer} class="larger-icon">
+            <sl-button type="button" variant="primary" outline @click=${this.addPlayer} class="larger-icon">
               <sl-icon library="default" slot="prefix" name="person-fill-add"></sl-icon>
               Add Player
             </sl-button>
