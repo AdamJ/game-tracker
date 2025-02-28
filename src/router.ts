@@ -13,10 +13,8 @@ import { resetFocus } from '@thepassle/app-tools/router/plugins/resetFocus.js';
 import { scrollToTop } from '@thepassle/app-tools/router/plugins/scrollToTop.js';
 import { checkServiceWorkerUpdate } from '@thepassle/app-tools/router/plugins/checkServiceWorkerUpdate.js';
 
-// @ts-ignore
-import { title } from '@thepassle/app-tools/router/plugins/title.js';
-
 import './pages/app-home.js';
+import './pages/app-404.js';
 
 const baseURL: string = (import.meta as any).env.BASE_URL;
 
@@ -31,8 +29,13 @@ export const router = new Router({
     scrollToTop,
     resetFocus
   ],
-  fallback: '/',
+  fallback: '/404',
     routes: [
+      {
+        path: resolveRouterPath('404'),
+        title: '404 - Not Found',
+        render: () => html`<app-404></app-404>`
+      },
       {
         path: resolveRouterPath(),
         title: 'Home',
@@ -43,6 +46,7 @@ export const router = new Router({
         title: 'About',
         plugins: [
           lazy(() => import('./pages/app-about/app-about.js')),
+          ()=>{console.error('Failed to load app-about');}
         ],
         render: () => html`<app-about></app-about>`
       },
@@ -51,6 +55,7 @@ export const router = new Router({
         title: 'Counter',
         plugins: [
           lazy(() => import('./pages/app-counter/app-counter.js')),
+          ()=>{console.error('Failed to load app-counter');}
         ],
         render: () => html`<app-counter></app-counter>`
       },
@@ -59,6 +64,7 @@ export const router = new Router({
         title: 'Game Tracker',
         plugins: [
           lazy(() => import('./pages/app-game-tracker.js')),
+          ()=>{console.error('Failed to load app-standings');}
         ],
         render: () => html`<app-standings></app-standings>`
       }

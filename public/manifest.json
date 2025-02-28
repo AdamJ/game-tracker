@@ -54,6 +54,12 @@
       "src": "assets/screenshots/screen3.png",
       "sizes": "1584x951",
       "type": "image/png"
+    },
+    {
+      "src": "assets/screenshots/screen_wide.png",
+      "sizes": "2400x1221",
+      "type": "image/png",
+      "form_factor": "wide"
     }
   ],
   "features": [
@@ -95,7 +101,15 @@
     {
       "name": "Standings",
       "url": "/standings",
-      "description": "Game standings and life tracker"
+      "description": "Game standings and life tracker",
+      "icons": [
+        {
+          "src": "assets/icons/icon_96.png",
+          "type": "image/png",
+          "purpose": "any",
+          "sizes": "96x96"
+        }
+      ]
     },
     {
       "name": "About",
@@ -104,16 +118,25 @@
       "description": "App updates available to you.",
       "icons": [
         {
-          "src": "assets/icons/icon_512.png",
+          "src": "assets/icons/icon_96.png",
           "type": "image/png",
-          "purpose": "any"
+          "purpose": "any",
+          "sizes": "96x96"
         }
       ]
     },
     {
       "name": "Counter",
       "url": "/counter",
-      "description": "A general score tracker."
+      "description": "A general score tracker.",
+      "icons": [
+        {
+          "src": "assets/icons/icon_96.png",
+          "type": "image/png",
+          "purpose": "any",
+          "sizes": "96x96"
+        }
+      ]
     }
   ]
 }

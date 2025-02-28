@@ -14,8 +14,8 @@ interface Player {
 @customElement('match-input')
 export class MatchInput extends LitElement {
   @property({ type: Array }) players: Player[] = [];
-  @state() player1: string = '';
-  @state() player2: string = '';
+  @state() player1: string = ''; // Initialize to empty strings
+  @state() player2: string = ''; // Initialize to empty strings
   @state() winner: string | null = 'draw'; // Initialize to "draw"
 
   recordMatch() {
@@ -74,6 +74,11 @@ export class MatchInput extends LitElement {
       (player) => player.name !== this.player1
     );
 
+      // Check if both players are selected
+      const playersSelected = this.player1 !== '' && this.player2 !== '';
+      const playerOneValue = this.player1 === '' ? 'Player 1' : this.player1;
+      const playerTwoValue = this.player2 === '' ? 'Player 2' : this.player2;
+
     return html`
       <form>
         <sl-select
@@ -108,28 +113,32 @@ export class MatchInput extends LitElement {
           name="winner"
           @sl-change=${this.handleWinnerChange}
           value="${this.winner}"
+          aria-label="Win selector group"
         >
           <sl-radio-button
             value=${this.player1}
-            ?disabled="${!this.player1 || !this.player2}"
+            ?disabled="${!playersSelected}"
+            aria-label="select for player one"
           >
-            ${this.player1}
+            ${playerOneValue}
           </sl-radio-button>
           <sl-radio-button
             value=${this.player2}
-            ?disabled="${!this.player1 || !this.player2}"
+            ?disabled="${!playersSelected}"
+            aria-label="select for player two"
           >
-            ${this.player2}
+            ${playerTwoValue}
           </sl-radio-button>
           <sl-radio-button
             value="draw"
-            ?disabled="${!this.player1 || !this.player2}"
+            ?disabled="${!playersSelected}"
+            aria-label="select for a draw"
           >
             Draw
           </sl-radio-button>
         </sl-radio-group>
         <br />
-        <sl-button variant="success" outline @click=${this.recordMatch}>
+        <sl-button variant="success" outline @click=${this.recordMatch} ?disabled=${!playersSelected}>
           Record Result</sl-button>
       </form>
     `;
