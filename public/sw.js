@@ -70,13 +70,20 @@ workbox.routing.registerRoute(
   }
 );
 
-self.addEventListener('push', (event) => {
-  event.waitUntil(
-    self.registration.showNotification('New Notification', {
-      body: 'Notification Body Text',
-      icon: 'assets/icons/icon_512.png',
-    })
-  )
+self.addEventListener('push', function(event) {
+  console.log('[Service Worker] Push Received.');
+  if (Notification.permission === "granted") {
+    const data = event.data.json();
+    event.waitUntil(
+      self.registration.showNotification(data.title, {
+        body: data.body,
+        icon: '/assets/icons/icon_192.png', // Replace with your icon
+        tag: 'my-tag' // Optional: prevents multiple notifications with the same tag
+      })
+    );
+  } else {
+    console.log("notification permission not granted");
+  }
 });
 self.addEventListener('notificationclick', (event) => {
   event.notification.close();
