@@ -7,17 +7,17 @@ import '../icons/mtg-symbols';
 import { styles as sharedStyles } from '../../styles/shared-styles';
 import { styles } from '../../pages/app-counter/counter-styles';
 
-import '@shoelace-style/shoelace/dist/components/button/button.js';
-import '@shoelace-style/shoelace/dist/components/card/card.js';
-import '@shoelace-style/shoelace/dist/components/badge/badge.js';
-import '@shoelace-style/shoelace/dist/components/input/input.js';
-import '@shoelace-style/shoelace/dist/components/details/details.js';
-import '@shoelace-style/shoelace/dist/components/tab/tab.js';
-import '@shoelace-style/shoelace/dist/components/tab-group/tab-group.js';
-import '@shoelace-style/shoelace/dist/components/tab-panel/tab-panel.js';
-import '@shoelace-style/shoelace/dist/components/menu/menu.js';
-import '@shoelace-style/shoelace/dist/components/menu-item/menu-item.js';
-import '@shoelace-style/shoelace/dist/components/menu-label/menu-label.js';
+// import '@shoelace-style/shoelace/dist/components/button/button.js';
+// import '@shoelace-style/shoelace/dist/components/card/card.js';
+// import '@shoelace-style/shoelace/dist/components/badge/badge.js';
+// import '@shoelace-style/shoelace/dist/components/input/input.js';
+// import '@shoelace-style/shoelace/dist/components/details/details.js';
+// import '@shoelace-style/shoelace/dist/components/tab/tab.js';
+// import '@shoelace-style/shoelace/dist/components/tab-group/tab-group.js';
+// import '@shoelace-style/shoelace/dist/components/tab-panel/tab-panel.js';
+// import '@shoelace-style/shoelace/dist/components/menu/menu.js';
+// import '@shoelace-style/shoelace/dist/components/menu-item/menu-item.js';
+// import '@shoelace-style/shoelace/dist/components/menu-label/menu-label.js';
 
 interface Player {
   life: number;

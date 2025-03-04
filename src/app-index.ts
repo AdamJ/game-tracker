@@ -14,13 +14,10 @@ export class AppIndex extends LitElement {
       padding-right: 1rem;
       padding-bottom: 1rem;
     }
-    app-home,
-    app-standings,
-    app-counter {
+    app-home {
       width: 800px;
     }
     @media (min-width: 1200px) {
-      app-home,
       app-standings,
       app-counter {
         width: 1200px;

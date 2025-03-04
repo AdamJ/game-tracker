@@ -1,8 +1,8 @@
 import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
-import '@shoelace-style/shoelace/dist/components/dialog/dialog.js';
-import '@shoelace-style/shoelace/dist/components/button/button.js';
+// import '@shoelace-style/shoelace/dist/components/dialog/dialog.js';
+// import '@shoelace-style/shoelace/dist/components/button/button.js';
 
 @customElement('confirmation-modal')
 export class ConfirmationModal extends LitElement {

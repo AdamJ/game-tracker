@@ -17,6 +17,12 @@ import '@shoelace-style/shoelace/dist/components/dropdown/dropdown.js';
 import '@shoelace-style/shoelace/dist/components/menu/menu.js';
 import '@shoelace-style/shoelace/dist/components/menu-item/menu-item.js';
 import '@shoelace-style/shoelace/dist/components/tooltip/tooltip.js';
+import '@shoelace-style/shoelace/dist/components/input/input.js';
+import '@shoelace-style/shoelace/dist/components/tag/tag.js';
+import '@shoelace-style/shoelace/dist/components/alert/alert.js';
+import '@shoelace-style/shoelace/dist/components/card/card.js';
+import '@shoelace-style/shoelace/dist/components/badge/badge.js';
+import '@shoelace-style/shoelace/dist/components/spinner/spinner.js';
 
 interface Match {
   player1: string;
@@ -241,7 +247,10 @@ export class StandingsTracker extends LitElement {
 
   render() {
     if (this.isLoading) {
-      return html`<p>Loading...</p>`; // Loading indicator
+      return html`
+        <p>Loading...</p>
+        <sl-spinner style="font-size: 3rem;"></sl-spinner>
+      `; // Loading indicator
     }
 
     return html `
