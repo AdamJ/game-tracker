@@ -7,6 +7,7 @@ import '@shoelace-style/shoelace/dist/components/card/card.js';
 import '@shoelace-style/shoelace/dist/components/button/button.js';
 import '@shoelace-style/shoelace/dist/components/tooltip/tooltip.js';
 import '@shoelace-style/shoelace/dist/components/icon/icon.js';
+import '@shoelace-style/shoelace/dist/components/switch/switch.js';
 
 import { styles } from '../styles/shared-styles';
 
@@ -43,12 +44,19 @@ export class AppHome extends LitElement {
         align-items: center;
         justify-content: space-between;
       }
+      .font-toggle {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        z-index: 1000;
+      }
   `];
 
   async firstUpdated() {
     // this method is a lifecycle even in lit
     // for more info check out the lit docs https://lit.dev/docs/components/lifecycle/
     console.log('This is your home page');
+    this.applyInitialFont();
   }
 
   share() {
@@ -61,9 +69,72 @@ export class AppHome extends LitElement {
     }
   }
 
+  customFont = '"Grenze Gotisch", sans-serif';
+
+  updateSelectFonts() {
+    const selects = this.shadowRoot?.querySelectorAll('sl-select');
+    if (selects) {
+      selects.forEach((select: any) => {
+        select.style.fontFamily = getComputedStyle(document.documentElement).getPropertyValue('--sl-font-sans');
+        //you may need to get the shadowroot of the select, and change the internal elements, but css parts are prefered.
+      });
+    }
+  }
+
+  toggleFont(event: CustomEvent) {
+    const root = document.documentElement;
+    const useDefault = (event.target as any).checked;
+
+    if (useDefault) {
+      root.style.setProperty(
+        '--font-family',
+        'Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
+      );
+      root.style.setProperty(
+        '--sl-font-sans',
+        'Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
+      );
+      root.style.setProperty('--sl-font-mono', '"Doto", SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace');
+    } else {
+      root.style.setProperty('--font-family', this.customFont);
+      root.style.setProperty('--sl-font-sans', this.customFont);
+      root.style.setProperty('--sl-font-mono', '"Doto", SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace'); //replace with your monospace font.
+    }
+
+    localStorage.setItem('useDefaultFont', useDefault.toString());
+    this.updateSelectFonts();
+  }
+
+  applyInitialFont() {
+    const storedFontPreference = localStorage.getItem('useDefaultFont');
+    const root = document.documentElement;
+
+    if (storedFontPreference === 'true') {
+      root.style.setProperty(
+        '--font-family',
+        'Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
+      );
+      root.style.setProperty(
+        '--sl-font-sans',
+        'Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
+      );
+      root.style.setProperty('--sl-font-mono', '"Doto", SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace');
+      (this.shadowRoot?.querySelector('sl-switch') as any).checked = true;
+    } else {
+      root.style.setProperty('--font-family', this.customFont);
+      root.style.setProperty('--sl-font-sans', this.customFont);
+      root.style.setProperty('--sl-font-mono', '"Doto", SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace'); //replace with your monospace font.
+    }
+    this.updateSelectFonts();
+  }
+
   render() {
     return html`
       <app-header ?enableHeader="${true}"></app-header>
+
+      <div class="font-toggle">
+        <sl-switch @sl-change=${this.toggleFont}></sl-switch>
+      </div>
 
       <main class="main">
         <section>
