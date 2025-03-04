@@ -73,7 +73,7 @@ export class AppHome extends LitElement {
     return html`
       <app-header></app-header>
 
-      <main style="max-width: 70%; margin: 0 auto;">
+      <main class="main">
         <div id="welcomeBar">
           <sl-card>
             <div slot="header">Game Tracker</div>
@@ -83,11 +83,11 @@ export class AppHome extends LitElement {
             </div>
           </sl-card>
           <sl-card>
-            <div slot="header">Point Tracking</div>
+            <div slot="header">Match Tracking</div>
             <sl-alert variant="warning" open>
               <strong>Work in progress</strong>
             </sl-alert>
-            <p>A general tracker for points. Set the starting number and go from there. Each increase or decrease in points is tracked.
+            <p>A customized tracker for matches of 4 player games (such as Commander/EDH). While it does have a way to track standings, results, and general "gain/loss" each time the respective buttons are pressed, it is best used for individual matches.
             </p>
             <div slot="footer">
               <sl-button href="${resolveRouterPath('counter')}" variant="warning">View</sl-button>

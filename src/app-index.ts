@@ -9,16 +9,20 @@ import { router } from './router';
 @customElement('app-index')
 export class AppIndex extends LitElement {
   static styles = css`
-    main {
+    main, .main {
       padding-left: 1rem;
       padding-right: 1rem;
       padding-bottom: 1rem;
     }
-    app-standings {
+    app-home,
+    app-standings,
+    app-counter {
       width: 800px;
     }
     @media (min-width: 1200px) {
-      app-standings {
+      app-home,
+      app-standings,
+      app-counter {
         width: 1200px;
       }
     }

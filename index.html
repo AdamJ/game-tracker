@@ -30,18 +30,13 @@
   <link rel="manifest" href="manifest.json" />
 
   <!-- light mode and dark mode CSS -->
-  <link rel="stylesheet" media="(prefers-color-scheme:light)"
-    href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.0/dist/themes/light.css">
-  <link rel="stylesheet" media="(prefers-color-scheme:dark)"
-    href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.0/dist/themes/dark.css"
-    onload="document.documentElement.classList.add('sl-theme-dark');">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mana-font@latest/css/mana.css">
+  <link href="./assets/mana.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://early.webawesome.com/webawesome@3.0.0-alpha.11/dist/styles/themes/default.css" />
+  <link rel="stylesheet" href="https://early.webawesome.com/webawesome@3.0.0-alpha.11/dist/styles/webawesome.css" />
+  <script type="module" src="https://early.webawesome.com/webawesome@3.0.0-alpha.11/dist/webawesome.loader.js"></script>
 
-  <script type="module">
-    import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path.js';
-    setBasePath('https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.0/cdn/');
-  </script>
-
+    <link rel="stylesheet" href="https://early.webawesome.com/webawesome@3.0.0-alpha.11/dist/styles/themes/matter.css" />
+    <link rel="stylesheet" href="https://early.webawesome.com/webawesome@3.0.0-alpha.11/dist/styles/brand/blue.css" />
   <script type="module" src="/src/app-index.ts"></script>
 </head>
 
