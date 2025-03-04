@@ -12,7 +12,7 @@ export class AppDashboard extends LitElement {
       <h1>Game Tracker</h1>
       <standings-tracker></standings-tracker>
       <style>
-        wa-button::part(prefix) wa-icon {
+        sl-button::part(prefix) sl-icon {
           font-size: 1.125rem;
         }
       </style>

@@ -95,6 +95,13 @@ export const styles = css`
     border-top-left-radius: inherit;
     border-top-right-radius: inherit;
   }
+  sl-alert::part(base),
+  sl-tab::part(base),
+  sl-button::part(base),
+  sl-menu-label::part(base),
+  sl-menu-item::part(label) {
+    font-family: var(--font-family) !important;
+  }
   .ms {
     position: relative;
   }
@@ -122,6 +129,8 @@ export const styles = css`
     position: relative;
     text-align: center;
   }
+  sl-icon::part(svg) {
+  fill: orange;}
   .ms-loyalty-down.ms-4x,
   .ms-loyalty-up.ms-4x {
     top: -5px;
@@ -135,21 +144,30 @@ export const styles = css`
     color: #fff;
     display: inline-block;
     font-size: 0.5em;
-    font-family: "MPlantin, Garamond, Palatino, 'Times New Roman', Times, serif";
+    font-family: var(--font-family);
     position: absolute;
-    top: -1px;
-    left: 0;
     line-height: 2.25em;
     width: 100%;
+  }
+  .ms-saga-1::after,
+  .ms-saga-2::after,
+  .ms-saga-3::after,
+  .ms-saga-4::after {
+    top: -3px;
+    left: 1px;
   }
   .ms-loyalty-down::after {
     line-height: 2em;
   }
   .ms-loyalty-down::after {
     content: "-";
+    top: -1px;
+    left: 1px;
   }
   .ms-loyalty-up::after {
     content: "+";
+    top: -1px;
+    left: 1px;
   }
   .ms-saga-4::after {
     content: "4";

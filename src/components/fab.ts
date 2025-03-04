@@ -2,10 +2,10 @@ import { LitElement, html } from 'lit';
 import { property, customElement } from 'lit/decorators.js';
 import { resolveRouterPath } from '../router';
 
-import 'https://early.webawesome.com/webawesome@3.0.0-alpha.11/dist/components/button/button.js';
-import 'https://early.webawesome.com/webawesome@3.0.0-alpha.11/dist/components/icon/icon.js';
-import 'https://early.webawesome.com/webawesome@3.0.0-alpha.11/dist/components/icon-button/icon-button.js';
-import 'https://early.webawesome.com/webawesome@3.0.0-alpha.11/dist/components/drawer/drawer.js';
+import 'https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.0/cdn/components/button/button.js';
+import 'https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.0/cdn/components/icon/icon.js';
+import 'https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.0/cdn/components/icon-button/icon-button.js';
+import 'https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.0/cdn/components/drawer/drawer.js';
 
 @customElement('fab-drawer')
   export class FabDrawer extends LitElement {
@@ -27,7 +27,7 @@ import 'https://early.webawesome.com/webawesome@3.0.0-alpha.11/dist/components/d
       return html``;
     }
     return html `
-      <wa-drawer
+      <sl-drawer
         placement="top"
         label="Drawer"
         with-header
@@ -37,10 +37,10 @@ import 'https://early.webawesome.com/webawesome@3.0.0-alpha.11/dist/components/d
         ?open=${this.isOpen}
         @sl-after-close=${this.close}
       >
-        <wa-icon-button slot="header-actions" name="info-circle" href="${resolveRouterPath('about')}"></wa-icon-button>
+        <sl-icon-button slot="header-actions" name="info-circle" href="${resolveRouterPath('about')}"></sl-icon-button>
         ${this.message}
-        <wa-button slot="footer" variant="brand" data-drawer="close" @click=${this.close}>Close</wa-button>
-      </wa-drawer>
+        <sl-button slot="footer" variant="primary" data-drawer="close" @click=${this.close}>Close</sl-button>
+      </sl-drawer>
     `;
   }
 }

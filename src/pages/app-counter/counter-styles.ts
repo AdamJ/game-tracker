@@ -10,47 +10,47 @@ export const styles = css`
     --ms-mana-w: #fdfbce;
   }
 
-  wa-card.player-one::part(body),
-  wa-button.player-one::part(base) {
+  sl-card.player-one::part(base),
+  sl-button.player-one::part(base) {
     background-color: #f19b79;
-    color: var(--wa-color-gray-950);
+    color: var(--sl-color-neutral-950);
   }
-  wa-card.player-two::part(body),
-  wa-button.player-two::part(base) {
+  sl-card.player-two::part(base),
+  sl-button.player-two::part(base) {
     background-color: #bcdaf7;
-    color: var(--wa-color-gray-950);
+    color: var(--sl-color-neutral-950);
   }
-  wa-card.player-three::part(body),
-  wa-button.player-three::part(base) {
+  sl-card.player-three::part(base),
+  sl-button.player-three::part(base) {
     background-color: #9fcba6;
-    color: var(--wa-color-gray-950);
+    color: var(--sl-color-neutral-950);
   }
-  wa-card.player-four::part(body),
-  wa-button.player-four::part(base) {
+  sl-card.player-four::part(base),
+  sl-button.player-four::part(base) {
     background-color: #a7999e;
-    color: var(--wa-color-gray-950);
+    color: var(--sl-color-neutral-950);
   }
-  wa-card,
+  sl-card,
   .card {
     width: 100%;
     --border-radius: 0;
     --border-width: 0;
   }
-  wa-menu-item {
-    background-color: var(--wa-color-gray-50);
+  sl-menu-item {
+    background-color: var(--sl-color-neutral-50);
   }
-  wa-card::part(body) {
+  sl-card::part(base) {
     padding: 0 !important;
   }
   form {
     display: flex;
     flex-direction: column;
   }
-  wa-button::part(base) {
+  sl-button::part(base) {
     border-radius: 0;
     border: 0;
   }
-  wa-card::part(base) {
+  sl-card::part(base) {
     width: 100% !important;
   }
 `;
