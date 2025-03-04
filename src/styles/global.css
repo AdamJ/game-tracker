@@ -4,20 +4,62 @@
   Check here https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties for more info on using CSS variables.
 */
 
-@import url('https://early.webawesome.com/webawesome@3.0.0-alpha.11/dist/styles/color/bright.css');
+@import url('https://early.webawesome.com/webawesome@3.0.0-alpha.11/dist/styles/color/natural.css');
 
 :root {
-  .doto-800 {
+  .doto-500 {
     font-family: "Doto", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 800;
+    font-weight: 500;
     font-style: normal;
     font-variation-settings:
-      "ROND" 0;
+      "ROND" 100;
+  }
+  .doto-700 {
+    font-weight: 700;
+  }
+  .doto-800 {
+    font-weight: 800;
+  }
+  .doto-900 {
+    font-weight: 900;
   }
   --font-family: "Doto", sans-serif;
   --sl-font-sans: "Doto", sans-serif;
-  /* --sl-color-blue-50: var(--wa-color-blue-95);
+  --sl-font-mono: inherit;
+  --sl-font-serif: inherit;
+  --sl-font-weight-light: 500;
+  --sl-font-weight-normal: 700;
+  --sl-font-weight-semibold: 800;
+  --sl-font-weight-bold: 900;
+  --ms-mana-b: #a7999e;
+  --ms-mana-b-bg: #aca29a;
+  --ms-mana-c: #d0c6bb;
+  --ms-mana-c-bg: #beb9b2;
+  --ms-mana-g: #9fcba6;
+  --ms-mana-g-bg: #93b483;
+  --ms-mana-r: #f19b79;
+  --ms-mana-r-bg: #db8664;
+  --ms-mana-u: #bcdaf7;
+  --ms-mana-u-bg: #b5cde3;
+  --ms-mana-w: #fdfbce;
+  --ms-mana-w-bg: #f0f2c0;
+  @media (prefers-color-scheme: dark) {
+    --ms-mana-b: #574f52;
+    --ms-mana-b-bg: #5a5450;
+    --ms-mana-c: #7c756e;
+    --ms-mana-c-bg: #63605c;
+    --ms-mana-g: #59755e;
+    --ms-mana-g-bg: #4e6044;
+    --ms-mana-r: #9f644d;
+    --ms-mana-r-bg: #86513c;
+    --ms-mana-u: #7a8fa2;
+    --ms-mana-u-bg: #6e7e8d;
+    --ms-mana-w: #b0ae8d;
+    --ms-mana-w-bg: #a3a380;
+    --sl-input-color: var(--sl-color-neutral-100);
+  }
+  --sl-color-blue-50: var(--wa-color-blue-95);
   --sl-color-blue-100: var(--wa-color-blue-90);
   --sl-color-blue-200: var(--wa-color-blue-80);
   --sl-color-blue-300: var(--wa-color-blue-70);
@@ -173,12 +215,13 @@
   --sl-color-pink-700: var(--wa-color-pink-30);
   --sl-color-pink-800: var(--wa-color-pink-20);
   --sl-color-pink-900: var(--wa-color-pink-10);
-  --sl-color-pink-950: var(--wa-color-pink-05); */
+  --sl-color-pink-950: var(--wa-color-pink-05);
 
 }
 
 html, body {
   font-family: var(--font-family);
+  font-weight: var(--sl-font-weight-normal);
   padding: 0 1rem;
   height: calc(100vh - 2rem);
 }
@@ -198,8 +241,8 @@ app-index {
 
   html,
   body {
-    background-color: var(--sl-color-neutral-50);
-    color: var(--sl-color-neutral-950);
+    background-color: var(--sl-color-neutral-900);
+    color: var(--sl-color-neutral-100);
   }
 }
 
@@ -208,7 +251,7 @@ app-index {
   html,
   body {
     background-color: var(--sl-color-neutral-50);
-    color: var(--sl-color-neutral-950);
+    color: var(--sl-color-neutral-900);
   }
 }
 
