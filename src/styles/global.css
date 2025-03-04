@@ -4,11 +4,12 @@
   Check here https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties for more info on using CSS variables.
 */
 
-@import url('https://early.webawesome.com/webawesome@3.0.0-alpha.11/dist/styles/color/bright.css');
+@import url('https://early.webawesome.com/webawesome@3.0.0-alpha.11/dist/styles/themes/matter.css');
+@import url('https://early.webawesome.com/webawesome@3.0.0-alpha.11/dist/styles/brand/blue.css');
 
 :root {
   --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  --sl-color-blue-50: var(--wa-color-blue-95);
+  /* --sl-color-blue-50: var(--wa-color-blue-95);
   --sl-color-blue-100: var(--wa-color-blue-90);
   --sl-color-blue-200: var(--wa-color-blue-80);
   --sl-color-blue-300: var(--wa-color-blue-70);
@@ -44,19 +45,19 @@
   --sl-color-gray-900: var(--wa-color-gray-10);
   --sl-color-gray-950: var(--wa-color-gray-05);
 
-  --sl-color-neutral-0: var(--wa-color-gray-95);
-  --sl-color-neutral-50: var(--wa-color-gray-95);
-  --sl-color-neutral-100: var(--wa-color-gray-90);
-  --sl-color-neutral-200: var(--wa-color-gray-80);
-  --sl-color-neutral-300: var(--wa-color-gray-70);
-  --sl-color-neutral-400: var(--wa-color-gray-60);
-  --sl-color-neutral-500: var(--wa-color-gray-50);
-  --sl-color-neutral-600: var(--wa-color-gray-40);
-  --sl-color-neutral-700: var(--wa-color-gray-30);
-  --sl-color-neutral-800: var(--wa-color-gray-20);
-  --sl-color-neutral-900: var(--wa-color-gray-10);
-  --sl-color-neutral-950: var(--wa-color-gray-05);
-  --sl-color-neutral-1000: var(--wa-color-gray-05);
+  --sl-color-gray-0: var(--wa-color-gray-95);
+  --sl-color-gray-50: var(--wa-color-gray-95);
+  --sl-color-gray-100: var(--wa-color-gray-90);
+  --sl-color-gray-200: var(--wa-color-gray-80);
+  --sl-color-gray-300: var(--wa-color-gray-70);
+  --sl-color-gray-400: var(--wa-color-gray-60);
+  --sl-color-gray-500: var(--wa-color-gray-50);
+  --sl-color-gray-600: var(--wa-color-gray-40);
+  --sl-color-gray-700: var(--wa-color-gray-30);
+  --sl-color-gray-800: var(--wa-color-gray-20);
+  --sl-color-gray-900: var(--wa-color-gray-10);
+  --sl-color-gray-950: var(--wa-color-gray-05);
+  --sl-color-gray-1000: var(--wa-color-gray-05);
 
   --sl-color-red-50: var(--wa-color-red-95);
   --sl-color-red-100: var(--wa-color-red-90);
@@ -164,7 +165,7 @@
   --sl-color-pink-700: var(--wa-color-pink-30);
   --sl-color-pink-800: var(--wa-color-pink-20);
   --sl-color-pink-900: var(--wa-color-pink-10);
-  --sl-color-pink-950: var(--wa-color-pink-05);
+  --sl-color-pink-950: var(--wa-color-pink-05); */
 
 }
 
@@ -189,8 +190,8 @@ app-index {
 
   html,
   body {
-    background-color: var(--sl-color-neutral-50);
-    color: var(--sl-color-neutral-950);
+    background-color: var(--sl-color-gray-50);
+    color: var(--sl-color-gray-950);
   }
 }
 
@@ -198,11 +199,12 @@ app-index {
 
   html,
   body {
-    background-color: var(--sl-color-neutral-50);
-    color: var(--sl-color-neutral-950);
+    background-color: var(--sl-color-gray-50);
+    color: var(--sl-color-gray-950);
   }
 }
 
 .text-xlarge {
   font-size: 2rem;
 }
+

@@ -51,17 +51,19 @@ export class AppHeader extends LitElement {
 
   render() {
     return html`
-      <header>
-      <div id="back-button-block">
-        ${this.enableBack ? html`
-          <sl-button variant="neutral" size="medium" label="Back to start" href="${resolveRouterPath()}">
-            <sl-icon name="arrow-left"></sl-icon>
-          </sl-button>
-          ` : html
-          `${this.title}`
-        }
-        </div>
-      </header>
+      <nav>
+        <header>
+          <div id="back-button-block">
+          ${this.enableBack ? html`
+            <sl-button variant="neutral" size="medium" label="Back to start" href="${resolveRouterPath()}">
+              <sl-icon name="arrow-left"></sl-icon>
+            </sl-button>
+            ` : html
+            `${this.title}`
+          }
+          </div>
+        </header>
+      </nav>
     `;
   }
 }

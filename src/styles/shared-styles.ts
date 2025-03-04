@@ -4,8 +4,8 @@ import { css } from 'lit';
 // for an example of how to use this, check /pages/about-about.ts
 export const styles = css`
 
-  main {
-    margin-top: 34px;
+  main, .main {
+    margin-top: 1rem;
     padding: .75rem;
   }
   .display-flex {
@@ -94,5 +94,73 @@ export const styles = css`
   .list-group-item:first-child {
     border-top-left-radius: inherit;
     border-top-right-radius: inherit;
+  }
+  .ms {
+    position: relative;
+  }
+  .ms-2x {
+    font-size: 1.75em;
+  }
+  .ms-3x {
+    font-size: 2.25em;
+  }
+  .ms-4x {
+    font-size: 3em;
+  }
+  .ms-5x {
+    font-size: 3.75em;
+  }
+  .ms-6x {
+    font-size: 4.5em;
+  }
+  .ms-loyalty-up,
+  .ms-loyalty-down,
+  .ms-saga-1,
+  .ms-saga-2,
+  .ms-saga-3,
+  .ms-saga-4 {
+    position: relative;
+    text-align: center;
+  }
+  .ms-loyalty-down.ms-4x,
+  .ms-loyalty-up.ms-4x {
+    top: -5px;
+  }
+  .ms-loyalty-down::after,
+  .ms-loyalty-up::after,
+  .ms-saga-1::after,
+  .ms-saga-2::after,
+  .ms-saga-3::after,
+  .ms-saga-4::after {
+    color: #fff;
+    display: inline-block;
+    font-size: 0.5em;
+    font-family: "MPlantin, Garamond, Palatino, 'Times New Roman', Times, serif";
+    position: absolute;
+    top: -1px;
+    left: 0;
+    line-height: 2.25em;
+    width: 100%;
+  }
+  .ms-loyalty-down::after {
+    line-height: 2em;
+  }
+  .ms-loyalty-down::after {
+    content: "-";
+  }
+  .ms-loyalty-up::after {
+    content: "+";
+  }
+  .ms-saga-4::after {
+    content: "4";
+  }
+  .ms-saga-3::after {
+    content: "3";
+  }
+  .ms-saga-2::after {
+    content: "2";
+  }
+  .ms-saga-1::after {
+    content: "1";
   }
 `;
