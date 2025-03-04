@@ -116,7 +116,7 @@ export const styles = css`
     position: relative;
   }
   .ms-small::after {
-    top: 0 !important;
+    top: -2px !important;
   }
   .ms-2x {
     font-size: 1.75em;
@@ -164,8 +164,8 @@ export const styles = css`
   .ms-saga-2::after,
   .ms-saga-3::after,
   .ms-saga-4::after {
-    top: -3px;
-    left: 1px;
+    top: -5px;
+    left: 0;
   }
   .ms-loyalty-down::after {
     line-height: 2em;
