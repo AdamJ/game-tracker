@@ -38,11 +38,16 @@ export const styles = css`
   table thead tr th {
     border-bottom: 2px solid var(--sl-color-neutral-500);
     padding: .5rem .5rem;
-    background-color: inherit,
+    background-color: inherit;
     border-bottom-width: 1px;
   }
   .table-striped>tbody>tr:nth-of-type(even)>* {
-    background-color: var(--sl-color-neutral-100);
+    background-color: var(--sl-color-neutral-200);
+  }
+  @media (prefers-color-scheme: dark) {
+    .table-striped>tbody>tr:nth-of-type(even)>* {
+      background-color: var(--sl-color-neutral-700);
+    }
   }
   table>tbody,
   .table>tbody {
@@ -105,6 +110,9 @@ export const styles = css`
   .ms {
     position: relative;
   }
+  .ms-small::after {
+    top: 0 !important;
+  }
   .ms-2x {
     font-size: 1.75em;
   }
@@ -129,8 +137,6 @@ export const styles = css`
     position: relative;
     text-align: center;
   }
-  sl-icon::part(svg) {
-  fill: orange;}
   .ms-loyalty-down.ms-4x,
   .ms-loyalty-up.ms-4x {
     top: -5px;
@@ -141,7 +147,7 @@ export const styles = css`
   .ms-saga-2::after,
   .ms-saga-3::after,
   .ms-saga-4::after {
-    color: #fff;
+    color:  var(--ms-mana-w);
     display: inline-block;
     font-size: 0.5em;
     font-family: var(--font-family);
@@ -181,4 +187,23 @@ export const styles = css`
   .ms-saga-1::after {
     content: "1";
   }
+  .ms-g .ms-cost {
+    background-color: var(--ms-mana-g-bg);
+  }
+  .ms-u .ms-cost {
+    background-color: var(--ms-mana-u-bg);
+  }
+  .ms-w .ms-cost {
+    background-color: var(--ms-mana-w-bg);
+  }
+  .ms-r .ms-cost {
+    background-color: var(--ms-mana-r-bg);
+  }
+  .ms-b .ms-cost {
+    background-color: var(--ms-mana-b-bg);
+  }
+  .ms-c .ms-cost {
+    background-color: var(--ms-mana-c-bg);
+  }
+
 `;

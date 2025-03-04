@@ -37,14 +37,15 @@ export class AppCounter extends LitElement {
     return html`
       <app-header ?enableBack="${true}"></app-header>
       <match-tracker></match-tracker>
-      <sl-button variant="primary" size="large" class="fab" circle @click=${this.openFabDrawer}>
-        <sl-icon name="gear" label="settings"></sl-icon>
-      </sl-button>
-      <fab-drawer
-        .isOpen=${this.fabDrawerOpen}
-        message=${this.fabTab}
-        @close=${this.closeFabDrawer}
-      ></fab-drawer>
     `;
   }
 }
+
+// <sl-button variant="primary" size="large" class="fab" circle @click=${this.openFabDrawer}>
+// <sl-icon name="gear" label="settings"></sl-icon>
+// </sl-button>
+// <fab-drawer
+// .isOpen=${this.fabDrawerOpen}
+// message=${this.fabTab}
+// @close=${this.closeFabDrawer}
+// ></fab-drawer>

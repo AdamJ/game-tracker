@@ -518,7 +518,7 @@ export class MatchTracker extends LitElement {
                   @sl-change=${this.setInitialLifeTracker}
                   min="0"
                 >
-                  <sl-icon library="keyrune" name="s99" slot="prefix"></sl-icon>
+                  <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-1 ms-small"></sl-icon>
                 </sl-input>
               </form>
               <form>
@@ -531,7 +531,7 @@ export class MatchTracker extends LitElement {
                   value=${this.playerHandle1}
                   @sl-change=${(e: CustomEvent) => this.handlePlayerHandleChange(1, e)}
                 >
-                  <sl-icon library="keyrune" name="lea" slot="prefix"></sl-icon>
+                  <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-1 ms-small"></sl-icon>
                 </sl-input>
                 <sl-input
                   label="Player 2"
@@ -541,7 +541,7 @@ export class MatchTracker extends LitElement {
                   value=${this.playerHandle2}
                   @sl-change=${(e: CustomEvent) => this.handlePlayerHandleChange(2, e)}
                 >
-                  <sl-icon library="keyrune" name="leb" slot="prefix"></sl-icon>
+                  <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-2 ms-small"></sl-icon>
                 </sl-input>
               </form>
               <form>
@@ -553,7 +553,7 @@ export class MatchTracker extends LitElement {
                   value=${this.playerHandle3}
                   @sl-change=${(e: CustomEvent) => this.handlePlayerHandleChange(3, e)}
                 >
-                  <sl-icon library="keyrune" name="2ed" slot="prefix"></sl-icon>
+                  <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-3 ms-small"></sl-icon>
                 </sl-input>
                 <sl-input
                   label="Player 4"
@@ -563,7 +563,7 @@ export class MatchTracker extends LitElement {
                   value=${this.playerHandle4}
                   @sl-change=${(e: CustomEvent) => this.handlePlayerHandleChange(4, e)}
                 >
-                  <sl-icon library="keyrune" name="3ed" slot="prefix"></sl-icon>
+                  <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-4 ms-small"></sl-icon>
                 </sl-input>
               </form>
             </div>
@@ -583,13 +583,22 @@ export class MatchTracker extends LitElement {
             <div style="display: flex; width: 100%;>
               <div>
                 <sl-button-group label="Alignment">
-                  <sl-button size="medium" variant="neutral" class="player-one" @click=${() => this.recordResult(1)}><sl-icon slot="prefix" library="keyrune" name="3ed"></sl-icon>${this.playerHandle1} Wins</sl-button>
+                  <sl-button size="medium" variant="neutral" class="player-one" @click=${() => this.recordResult(1)}>
+                    <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-1 ms-small"></sl-icon>
+                    ${this.playerHandle1} Wins
+                  </sl-button>
                   <sl-button size="medium" class="player-two" @click=${() => this.recordResult(2)}>
-                    <sl-icon slot="prefix" library="keyrune" name="3ed"></sl-icon>
+                    <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-2 ms-small"></sl-icon>
                     ${this.playerHandle2} Wins
                   </sl-button>
-                  <sl-button size="medium" class="player-three" @click=${() => this.recordResult(3)}><sl-icon slot="prefix" library="keyrune" name="3ed"></sl-icon>${this.playerHandle3} Wins</sl-button>
-                  <sl-button size="medium" class="player-four" @click=${() => this.recordResult(4)}><sl-icon slot="prefix" library="keyrune" name="3ed"></sl-icon>${this.playerHandle4} Wins</sl-button>
+                  <sl-button size="medium" class="player-three" @click=${() => this.recordResult(3)}>
+                    <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-3 ms-small"></sl-icon>
+                    ${this.playerHandle3} Wins
+                  </sl-button>
+                  <sl-button size="medium" class="player-four" @click=${() => this.recordResult(4)}>
+                    <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-4 ms-small"></sl-icon>
+                    ${this.playerHandle4} Wins
+                  </sl-button>
                 </sl-button-group>
                 <style>
                   sl-button-group {

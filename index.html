@@ -2,37 +2,43 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <title>Track It (and more)</title>
 
   <base href="/" />
 
-  <!-- This meta viewport ensures the webpage's dimensions change according to the device it's on. This is called Responsive Web Design.-->
-  <meta name="viewport"
-    content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="A set of random tools for game tracking" />
+
+  <meta name="robots" content="noindex, nofollow">
 
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#181818" />
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f3f3f3" />
+  <!-- Same as <title> but focused for social media -->
+  <meta property="og:title" content="Track It (and more)" />
+
+  <!-- Canonical link of the page -->
+  <meta property="og:url" content="https://www.adamjolicoeur.me" />
+  <!-- Make sure description is less than 200 characters (for twitter) -->
+  <meta property="og:description" content="A set of random tools for game tracking">
+
+  <!-- Useful if your site displays content based on third-party items.
+      For example, you're IMDB doing reviews on movies and tv shows -->
+  <meta property="og:site_name" content="Track It (and more)">
+
+  <!-- https://ogp.me/#types -->
+  <meta property="og:type" content="website">
 
   <!-- These meta tags are Apple-specific, and set the web application to run in full-screen mode with a black status bar. Learn more at https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html-->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="track-it" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-
-  <!-- This tag is used by the track-it CLI to identify template projects. Don't remove if you are using the CLI. -->
   <meta name="pwa-starter-template-identity" content="pwa-starter"/>
 
-  <!-- Imports an icon to represent the document. -->
   <link rel="icon" href="/assets/icons/icon_24.png" type="image/png" />
-
-  <!-- Imports the manifest to represent the web application. A web app must have a manifest to be a PWA. -->
   <link rel="manifest" href="manifest.json" />
-
-  <!-- light mode and dark mode CSS -->
   <link href="./assets/mana.css" rel="stylesheet" type="text/css" />
   <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.0/cdn/shoelace-autoloader.js"></script>
-
   <link
     rel="stylesheet"
     media="(prefers-color-scheme:light)"
@@ -46,7 +52,8 @@
   />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Doto:wght,ROND@800,100&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Doto:wght,ROND@100..900,100&display=swap" rel="stylesheet">
+
   <script type="module" src="/src/app-index.ts"></script>
 </head>
 

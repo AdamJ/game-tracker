@@ -5,6 +5,7 @@ import { VitePWA } from 'vite-plugin-pwa';
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = resolve()
+const isProd = process.env.NODE_ENV === 'production';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -15,7 +16,8 @@ export default defineConfig({
     target: ["esnext"],
     outDir: "dist/",
     cssMinify: true,
-    lib: false
+    lib: false,
+    minify: isProd,
   },
   plugins: [
     VitePWA({
