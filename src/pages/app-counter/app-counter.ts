@@ -4,8 +4,6 @@ import '../../components/icons/mana-icon';
 import '../../components/icons/mtg-symbols';
 import '../../components/match-tracker/match-tracker'; // Import the component
 import '../../components/fab';
-// import '@shoelace-style/shoelace/dist/components/button/button.js';
-// import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 
 @customElement('app-counter')
 export class AppCounter extends LitElement {
