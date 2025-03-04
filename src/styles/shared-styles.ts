@@ -8,6 +8,9 @@ export const styles = css`
     margin-top: 1rem;
     padding: .75rem;
   }
+  sl-button, sl-button::part(base), sl-button::part(label), sl-card, sl-switch, sl-switch::part(base), sl-icon, sl-tooltip, sl-alert, sl-tab, sl-menu-label, sl-menu-item, sl-select, sl-radio-group, input, button {
+    font-family: var(--font-family) !important;
+  }
   .display-flex {
     display: flex;
   }
@@ -58,7 +61,7 @@ export const styles = css`
     background-color: inherit;
     border-bottom-width: 1px;
   }
-  sl-card {
+  sl-button {
     width: 100%;
   }
   .two-item-footer [slot="footer"] {
@@ -104,13 +107,6 @@ export const styles = css`
   .list-group-item:first-child {
     border-top-left-radius: inherit;
     border-top-right-radius: inherit;
-  }
-  sl-alert::part(base),
-  sl-tab::part(base),
-  sl-button::part(base),
-  sl-menu-label::part(base),
-  sl-menu-item::part(label) {
-    font-family: var(--font-family) !important;
   }
   .ms {
     position: relative;
