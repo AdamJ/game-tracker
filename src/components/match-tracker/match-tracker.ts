@@ -7,18 +7,17 @@ import '../icons/mtg-symbols';
 import { styles as sharedStyles } from '../../styles/shared-styles';
 import { styles } from '../../pages/app-counter/counter-styles';
 
-import 'https://early.webawesome.com/webawesome@3.0.0-alpha.11/dist/components/card/card.js';
-import 'https://early.webawesome.com/webawesome@3.0.0-alpha.11/dist/components/button/button.js';
-import 'https://early.webawesome.com/webawesome@3.0.0-alpha.11/dist/components/badge/badge.js';
-import 'https://early.webawesome.com/webawesome@3.0.0-alpha.11/dist/components/button-group/button-group.js';
-import 'https://early.webawesome.com/webawesome@3.0.0-alpha.11/dist/components/input/input.js';
-import 'https://early.webawesome.com/webawesome@3.0.0-alpha.11/dist/components/details/details.js';
-import 'https://early.webawesome.com/webawesome@3.0.0-alpha.11/dist/components/tab/tab.js';
-import 'https://early.webawesome.com/webawesome@3.0.0-alpha.11/dist/components/tab-group/tab-group.js';
-import 'https://early.webawesome.com/webawesome@3.0.0-alpha.11/dist/components/tab-panel/tab-panel.js';
-import 'https://early.webawesome.com/webawesome@3.0.0-alpha.11/dist/components/menu/menu.js';
-import 'https://early.webawesome.com/webawesome@3.0.0-alpha.11/dist/components/menu-item/menu-item.js';
-import 'https://early.webawesome.com/webawesome@3.0.0-alpha.11/dist/components/menu-label/menu-label.js';
+import '@shoelace-style/shoelace/dist/components/button/button.js';
+import '@shoelace-style/shoelace/dist/components/card/card.js';
+import '@shoelace-style/shoelace/dist/components/badge/badge.js';
+import '@shoelace-style/shoelace/dist/components/input/input.js';
+import '@shoelace-style/shoelace/dist/components/details/details.js';
+import '@shoelace-style/shoelace/dist/components/tab/tab.js';
+import '@shoelace-style/shoelace/dist/components/tab-group/tab-group.js';
+import '@shoelace-style/shoelace/dist/components/tab-panel/tab-panel.js';
+import '@shoelace-style/shoelace/dist/components/menu/menu.js';
+import '@shoelace-style/shoelace/dist/components/menu-item/menu-item.js';
+import '@shoelace-style/shoelace/dist/components/menu-label/menu-label.js';
 
 interface Player {
   life: number;
@@ -342,11 +341,11 @@ export class MatchTracker extends LitElement {
         const iconName = this.getPlayerIconVariant(log);
         const badgeName = this.getPlayerBadgeVariant(log);
         const logItem = html`
-          <wa-menu-item>
-            ${iconName ? html`<wa-icon slot="prefix" library="mana" name=${String(iconName)}></wa-icon>` : nothing}
+          <sl-menu-item>
+            ${iconName ? html`<sl-icon slot="prefix" library="mana" name=${String(iconName)}></sl-icon>` : nothing}
             ${log.action}
-            ${badgeName ? html`<wa-badge variant=${String(badgeName)} pill>1</wa-badge>` : nothing} life to <wa-badge variant="neutral">${log.life}</wa-badge>
-          </wa-menu-item>
+            ${badgeName ? html`<sl-badge variant=${String(badgeName)} pill>1</sl-badge>` : nothing} life to <sl-badge variant="neutral">${log.life}</sl-badge>
+          </sl-menu-item>
         `;
         // @ts-ignore
         playerLogItems.get(log.player)?.push(logItem);
@@ -356,110 +355,120 @@ export class MatchTracker extends LitElement {
     const playerMenuItems = [];
     for (const [player, logs] of playerLogItems) {
         playerMenuItems.push(html`
-           <wa-menu-label>${player}</wa-menu-label>
+           <sl-menu-label>${player}</sl-menu-label>
            ${logs.map(log => html`
             ${log}
            `)}
         `);
     }
+    // Empty state logic
+    const emptyState = html`
+      <sl-menu-item disabled>
+        <sl-icon slot="prefix" name="info-circle"></sl-icon>
+        No match actions to display.
+      </sl-menu-item>
+    `;
+
+    const menuContent = playerMenuItems.length > 0 ? playerMenuItems : emptyState;
+
     return html`
       <app-header ?enableBack="${true}"></app-header>
       <main>
       <div style="display: flex; flex-direction: column; grid-gap: 1rem;">
-        <wa-tab-group>
-          <wa-tab slot="nav" panel="total">Total</wa-tab>
-          <wa-tab slot="nav" panel="standings">Standings</wa-tab>
-          <wa-tab slot="nav" panel="results">Results</wa-tab>
-          <wa-tab slot="nav" panel="action-log">Log</wa-tab>
-          <wa-tab slot="nav" panel="setup">Setup</wa-tab>
-          <wa-tab-panel name="total">
+        <sl-tab-group>
+          <sl-tab slot="nav" panel="total">Total</sl-tab>
+          <sl-tab slot="nav" panel="standings">Standings</sl-tab>
+          <sl-tab slot="nav" panel="results">Results</sl-tab>
+          <sl-tab slot="nav" panel="action-log">Log</sl-tab>
+          <sl-tab slot="nav" panel="setup">Setup</sl-tab>
+          <sl-tab-panel name="total">
             <div style="display: flex; flex-direction: row; grid-gap:1; justify-content: around; flex-wrap: wrap;">
               <div style="width: 50%;">
-                <wa-card class="player-one" id="topLeft">
+                <sl-card class="player-one" id="topLeft">
                   <form style="position: relative;">
-                    <wa-button variant="default" size="large" class="life-counter player-one" @click=${() => this.updateLife(1, 1, 'Gain')}>
-                      <wa-icon library="mana" slot="prefix" name="loyalty-up" class="ms ms-loyalty-up ms-2x"></wa-icon>
+                    <sl-button variant="default" size="large" class="life-counter player-one" @click=${() => this.updateLife(1, 1, 'Gain')}>
+                      <sl-icon library="mana" slot="prefix" name="loyalty-up" class="ms ms-loyalty-up ms-2x"></sl-icon>
                       Gain
-                    </wa-button>
+                    </sl-button>
                     <p class="text-center ms-4x" style="line-height: normal; margin: 0;">
                       ${this.handle1.life}
                     </p>
-                    <wa-button variant="default" size="large" class="life-counter player-one" @click=${() => this.updateLife(1, -1, 'Lose')}>
-                      <wa-icon library="mana" slot="prefix" name="loyalty-down" class="ms ms-loyalty-down ms-2x"></wa-icon>
+                    <sl-button variant="default" size="large" class="life-counter player-one" @click=${() => this.updateLife(1, -1, 'Lose')}>
+                      <sl-icon library="mana" slot="prefix" name="loyalty-down" class="ms ms-loyalty-down ms-2x"></sl-icon>
                       Lose
-                    </wa-button>
+                    </sl-button>
                     <span style="position: absolute; right: 8px; bottom: 8px;">
-                      <wa-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-1 ms-4x"></wa-icon>
+                      <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-1 ms-4x"></sl-icon>
                     </span>
                   </form>
-                </wa-card>
-                <wa-card class="player-two" id="bottomLeft">
+                </sl-card>
+                <sl-card class="player-two" id="bottomLeft">
                   <form style="position: relative;">
-                    <wa-button variant="default" size="large" class="life-counter player-two" @click=${() => this.updateLife(2, 1, 'Gain')}>
-                      <wa-icon library="mana" slot="prefix" name="loyalty-up" class="ms ms-loyalty-up ms-2x"></wa-icon>
+                    <sl-button variant="default" size="large" class="life-counter player-two" @click=${() => this.updateLife(2, 1, 'Gain')}>
+                      <sl-icon library="mana" slot="prefix" name="loyalty-up" class="ms ms-loyalty-up ms-2x"></sl-icon>
                       Gain
-                    </wa-button>
+                    </sl-button>
                     <p class="text-center ms-4x" style="line-height: normal; margin: 0;">
                       ${this.handle2.life}
                     </p>
                     <span style="position: absolute; right: 8px; top: 8px;">
-                      <wa-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-2 ms-4x"></wa-icon>
+                      <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-2 ms-4x"></sl-icon>
                     </span>
-                    <wa-button variant="default" size="large" class="life-counter player-two" @click=${() => this.updateLife(2, -1, 'Lose')}>
-                      <wa-icon library="mana" slot="prefix" name="loyalty-down" class="ms ms-loyalty-down ms-2x"></wa-icon>
+                    <sl-button variant="default" size="large" class="life-counter player-two" @click=${() => this.updateLife(2, -1, 'Lose')}>
+                      <sl-icon library="mana" slot="prefix" name="loyalty-down" class="ms ms-loyalty-down ms-2x"></sl-icon>
                       Lose
-                    </wa-button>
+                    </sl-button>
                   </form>
-                </wa-card>
+                </sl-card>
               </div>
               <div style="width: 50%;">
-                <wa-card class="player-three" id="topRight">
+                <sl-card class="player-three" id="topRight">
                   <form style="position: relative;">
-                    <wa-button variant="default" size="large" class="life-counter player-three" @click=${() => this.updateLife(3, 1, 'Gain')}>
-                      <wa-icon library="mana" slot="prefix" name="loyalty-up" class="ms ms-loyalty-up ms-2x"></wa-icon>
+                    <sl-button variant="default" size="large" class="life-counter player-three" @click=${() => this.updateLife(3, 1, 'Gain')}>
+                      <sl-icon library="mana" slot="prefix" name="loyalty-up" class="ms ms-loyalty-up ms-2x"></sl-icon>
                       Gain
-                    </wa-button>
+                    </sl-button>
                     <p class="text-center ms-4x" style="line-height: normal; margin: 0;">
                       ${this.handle3.life}
                     </p>
-                    <wa-button variant="default" size="large" class="life-counter player-three" @click=${() => this.updateLife(3, -1, 'Lose')}>
-                      <wa-icon library="mana" slot="prefix" name="loyalty-down" class="ms ms-loyalty-down ms-2x"></wa-icon>
+                    <sl-button variant="default" size="large" class="life-counter player-three" @click=${() => this.updateLife(3, -1, 'Lose')}>
+                      <sl-icon library="mana" slot="prefix" name="loyalty-down" class="ms ms-loyalty-down ms-2x"></sl-icon>
                       Lose
-                    </wa-button>
+                    </sl-button>
                     <span style="position: absolute; left: 8px; bottom: 8px;">
-                      <wa-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-4 ms-4x"></wa-icon>
+                      <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-4 ms-4x"></sl-icon>
                     </span>
                   </form>
-                </wa-card>
-                <wa-card class="player-four" id="bottomRight">
+                </sl-card>
+                <sl-card class="player-four" id="bottomRight">
                   <form style="position: relative;">
-                    <wa-button variant="default" size="large" class="life-counter player-four" @click=${() => this.updateLife(4, 1, 'Gain')}>
-                      <wa-icon library="mana" slot="prefix" name="loyalty-up" class="ms ms-loyalty-up ms-2x"></wa-icon>
+                    <sl-button variant="default" size="large" class="life-counter player-four" @click=${() => this.updateLife(4, 1, 'Gain')}>
+                      <sl-icon library="mana" slot="prefix" name="loyalty-up" class="ms ms-loyalty-up ms-2x"></sl-icon>
                       Gain
-                    </wa-button>
+                    </sl-button>
                     <p class="text-center ms-4x" style="line-height: normal; margin: 0;">
                       ${this.handle4.life}
                     </p>
-                    <wa-button variant="default" outline size="large" class="life-counter player-four" @click=${() => this.updateLife(4, -1, 'Lose')}>
-                      <wa-icon library="mana" slot="prefix" name="loyalty-down" class="ms ms-loyalty-down ms-2x"></wa-icon>
+                    <sl-button variant="default" outline size="large" class="life-counter player-four" @click=${() => this.updateLife(4, -1, 'Lose')}>
+                      <sl-icon library="mana" slot="prefix" name="loyalty-down" class="ms ms-loyalty-down ms-2x"></sl-icon>
                       Lose
-                    </wa-button>
+                    </sl-button>
                     <span style="position: absolute; left: 8px; top: 8px;">
-                      <wa-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-3 ms-4x"></wa-icon>
+                      <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-3 ms-4x"></sl-icon>
                     </span>
                   </form>
-                </wa-card>
+                </sl-card>
               </div>
               <style>
-              wa-button.life-counter::part(base) {
+              sl-button.life-counter::part(base) {
                 height: 4rem;
                 justify-content: center;
                 line-height: 4rem;
               }
               </style>
             </div>
-          </wa-tab-panel>
-          <wa-tab-panel name="standings">
+          </sl-tab-panel>
+          <sl-tab-panel name="standings">
             <table class="border table-striped">
               <thead>
                 <tr>
@@ -496,91 +505,96 @@ export class MatchTracker extends LitElement {
                 </tr>
               </tbody>
             </table>
-          </wa-tab-panel>
-          <wa-tab-panel name="setup">
+          </sl-tab-panel>
+          <sl-tab-panel name="setup">
             <div style="display: flex; flex-direction: row; flex-wrap; wrap; gap: 1rem;">
               <form>
-                <wa-input
+                <sl-input
                   type="number"
                   label="Starting Life"
                   size="large"
                   type="number"
                   value=${this.initialLifeTracker}
-                  @wa-change=${this.setInitialLifeTracker}
+                  @sl-change=${this.setInitialLifeTracker}
                   min="0"
                 >
-                  <wa-icon library="keyrune" name="s99" slot="prefix"></wa-icon>
-                </wa-input>
+                  <sl-icon library="keyrune" name="s99" slot="prefix"></sl-icon>
+                </sl-input>
               </form>
               <form>
-                <wa-input
+                <sl-input
                   inputmode="text"
                   label="Player 1"
                   size="large"
                   clearable
                   placeholder="Add player name"
                   value=${this.playerHandle1}
-                  @wa-change=${(e: CustomEvent) => this.handlePlayerHandleChange(1, e)}
+                  @sl-change=${(e: CustomEvent) => this.handlePlayerHandleChange(1, e)}
                 >
-                  <wa-icon library="keyrune" name="lea" slot="prefix"></wa-icon>
-                </wa-input>
-                <wa-input
+                  <sl-icon library="keyrune" name="lea" slot="prefix"></sl-icon>
+                </sl-input>
+                <sl-input
                   label="Player 2"
                   size="large"
                   clearable
                   placeholder="Add player name"
                   value=${this.playerHandle2}
-                  @wa-change=${(e: CustomEvent) => this.handlePlayerHandleChange(2, e)}
+                  @sl-change=${(e: CustomEvent) => this.handlePlayerHandleChange(2, e)}
                 >
-                  <wa-icon library="keyrune" name="leb" slot="prefix"></wa-icon>
-                </wa-input>
+                  <sl-icon library="keyrune" name="leb" slot="prefix"></sl-icon>
+                </sl-input>
               </form>
               <form>
-                <wa-input
+                <sl-input
                   label="Player 3"
                   size="large"
                   clearable
                   placeholder="Add player name"
                   value=${this.playerHandle3}
-                  @wa-change=${(e: CustomEvent) => this.handlePlayerHandleChange(3, e)}
+                  @sl-change=${(e: CustomEvent) => this.handlePlayerHandleChange(3, e)}
                 >
-                  <wa-icon library="keyrune" name="2ed" slot="prefix"></wa-icon>
-                </wa-input>
-                <wa-input
+                  <sl-icon library="keyrune" name="2ed" slot="prefix"></sl-icon>
+                </sl-input>
+                <sl-input
                   label="Player 4"
                   size="large"
                   clearable
                   placeholder="Add player name"
                   value=${this.playerHandle4}
-                  @wa-change=${(e: CustomEvent) => this.handlePlayerHandleChange(4, e)}
+                  @sl-change=${(e: CustomEvent) => this.handlePlayerHandleChange(4, e)}
                 >
-                  <wa-icon library="keyrune" name="3ed" slot="prefix"></wa-icon>
-                </wa-input>
+                  <sl-icon library="keyrune" name="3ed" slot="prefix"></sl-icon>
+                </sl-input>
               </form>
             </div>
-            <wa-button @click=${this.exportToCSV}>Export to CSV</wa-button>
-          </wa-tab-panel>
-          <wa-tab-panel name="action-log">
-          <wa-menu>
-            ${playerMenuItems}
-          </wa-menu>
-          </wa-tab-panel>
-          <wa-tab-panel name="results">
+            <sl-button variant="neutral" outline style="width: 50%;" @click=${this.exportToCSV}>
+              Export to CSV
+              <sl-icon name="file-earmark-excel-fill" slot="suffix"></sl-icon>
+            </sl-button>
+          </sl-tab-panel>
+          <sl-tab-panel name="action-log">
+          <sl-menu>
+            <sl-menu>
+              ${menuContent}
+            </sl-menu>
+          </sl-menu>
+          </sl-tab-panel>
+          <sl-tab-panel name="results">
             <div style="display: flex; width: 100%;>
               <div>
-                <wa-button-group label="Alignment">
-                  <wa-button size="medium" variant="neutral" class="player-one" @click=${() => this.recordResult(1)}><wa-icon slot="prefix" library="keyrune" name="3ed"></wa-icon>${this.playerHandle1} Wins</wa-button>
-                  <wa-button size="medium" class="player-two" @click=${() => this.recordResult(2)}>
-                    <wa-icon slot="prefix" library="keyrune" name="3ed"></wa-icon>
+                <sl-button-group label="Alignment">
+                  <sl-button size="medium" variant="neutral" class="player-one" @click=${() => this.recordResult(1)}><sl-icon slot="prefix" library="keyrune" name="3ed"></sl-icon>${this.playerHandle1} Wins</sl-button>
+                  <sl-button size="medium" class="player-two" @click=${() => this.recordResult(2)}>
+                    <sl-icon slot="prefix" library="keyrune" name="3ed"></sl-icon>
                     ${this.playerHandle2} Wins
-                  </wa-button>
-                  <wa-button size="medium" class="player-three" @click=${() => this.recordResult(3)}><wa-icon slot="prefix" library="keyrune" name="3ed"></wa-icon>${this.playerHandle3} Wins</wa-button>
-                  <wa-button size="medium" class="player-four" @click=${() => this.recordResult(4)}><wa-icon slot="prefix" library="keyrune" name="3ed"></wa-icon>${this.playerHandle4} Wins</wa-button>
-                </wa-button-group>
+                  </sl-button>
+                  <sl-button size="medium" class="player-three" @click=${() => this.recordResult(3)}><sl-icon slot="prefix" library="keyrune" name="3ed"></sl-icon>${this.playerHandle3} Wins</sl-button>
+                  <sl-button size="medium" class="player-four" @click=${() => this.recordResult(4)}><sl-icon slot="prefix" library="keyrune" name="3ed"></sl-icon>${this.playerHandle4} Wins</sl-button>
+                </sl-button-group>
                 <style>
-                  wa-button-group {
+                  sl-button-group {
                   display: flex; flex-direction: row;}
-                  wa-button {
+                  sl-button {
                   width: 100%;}
                 </style>
               </div>
@@ -607,8 +621,8 @@ export class MatchTracker extends LitElement {
                 </tbody>
               </table>
             </div>
-          </wa-tab-panel>
-        </wa-tab-group>
+          </sl-tab-panel>
+        </sl-tab-group>
       </main>
     `;
   }
