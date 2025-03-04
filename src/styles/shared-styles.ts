@@ -61,6 +61,11 @@ export const styles = css`
   sl-card {
     width: 100%;
   }
+  .two-item-footer [slot="footer"] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
   .tab-card::part(base) {
     width: 100%;
   }

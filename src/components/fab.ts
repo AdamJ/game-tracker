@@ -2,10 +2,10 @@ import { LitElement, html } from 'lit';
 import { property, customElement } from 'lit/decorators.js';
 import { resolveRouterPath } from '../router';
 
-import '@shoelace-style/shoelace/dist/components/button/button.js';
-import '@shoelace-style/shoelace/dist/components/icon/icon.js';
-import '@shoelace-style/shoelace/dist/components/icon-button/icon-button.js';
-import '@shoelace-style/shoelace/dist/components/drawer/drawer.js';
+// import '@shoelace-style/shoelace/dist/components/button/button.js';
+// import '@shoelace-style/shoelace/dist/components/icon/icon.js';
+// import '@shoelace-style/shoelace/dist/components/icon-button/icon-button.js';
+// import '@shoelace-style/shoelace/dist/components/drawer/drawer.js';
 
 @customElement('fab-drawer')
   export class FabDrawer extends LitElement {
