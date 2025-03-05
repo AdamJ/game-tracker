@@ -59,13 +59,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@100..900&display=swap" rel="stylesheet">
 
-  <script type="module" src="/src/app-index.ts"></script>
-</head>
-
-<body>
-  <!-- Our app-index web component. This component is defined in src/pages/app-index.ts-->
-  <app-index></app-index>
-
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
@@ -96,6 +89,13 @@
       });
     }
   </script>
+</head>
+
+<body>
+  <!-- Our app-index web component. This component is defined in src/pages/app-index.ts-->
+  <my-app></my-app>
+  <script type="module" src="/src/main.ts"></script>
+
 </body>
 
 </html>

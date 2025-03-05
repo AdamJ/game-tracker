@@ -1,13 +1,13 @@
+// src/my-app.ts
 import { LitElement, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
-
 import './pages/app-home';
-import './components/header';
-import './styles/global.css';
+// import './components/header';
+// import './styles/global.css';
 import { router } from './router';
 
-@customElement('app-index')
-export class AppIndex extends LitElement {
+@customElement('my-app') // Updated custom element name
+export class MyApp extends LitElement { // Updated class name
   static styles = css`
     main, .main {
       padding-left: 1rem;
@@ -37,7 +37,6 @@ export class AppIndex extends LitElement {
   }
 
   render() {
-    // router config can be round in src/router.ts
     return router.render();
   }
 }

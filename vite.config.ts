@@ -31,10 +31,14 @@ export default defineConfig({
           '**/*.{html,js,css,json,png}',
         ],
       },
-      injectRegister: false,
+      injectRegister: null,
       manifest: false,
       devOptions: {
         enabled: true
+      },
+      workbox: {
+        cleanupOutdatedCaches: false,
+        sourcemap: true
       }
     })
   ],
