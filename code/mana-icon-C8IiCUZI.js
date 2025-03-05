@@ -1,4 +1,4 @@
-import{e as rs,i as A,d as T,S,x as f,f as Ht,g as at,_ as i,h as w,b as C,n as r,j as Jt,w as x,F as Mt,H as bt,k as I,o as E,l as Bt,m as Ae,p as B,L as R,q as ot,u as X,v as Q,y as ue,z as Nt,A as ls,B as Te,E as pe,C as Ie,T as Xe,D as Ee,G as me,I as gt,J as ns,K as cs,M as ds,N as hs,O as us,P as ps,Q as fs,R as ms,U as gs,V as bs,W as Fe,a as vs}from"./index-xiONplCN.js";/**
+import{e as rs,i as A,d as T,S,x as f,f as Ht,g as at,_ as i,h as w,b as C,n as r,j as Jt,w as x,F as Mt,H as bt,k as I,o as E,l as Bt,m as Ae,p as B,L as R,q as ot,u as X,v as Q,y as ue,z as Nt,A as ls,B as Te,E as pe,C as Ie,T as Xe,D as Ee,G as me,I as gt,J as ns,K as cs,M as ds,N as hs,O as us,P as ps,Q as fs,R as ms,U as gs,V as bs,W as Fe,a as vs}from"./index-fS9Hyv-A.js";/**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
@@ -5440,4 +5440,4 @@ import{e as rs,i as A,d as T,S,x as f,f as Ht,g as at,_ as i,h as w,b as C,n as 
             `:""}
       </div>
     `}};kt.styles=[T,Na];kt.dependencies={"sl-icon":at};i([w(".animated-image__animated")],kt.prototype,"animatedImage",2);i([C()],kt.prototype,"frozenFrame",2);i([C()],kt.prototype,"isLoaded",2);i([r()],kt.prototype,"src",2);i([r()],kt.prototype,"alt",2);i([r({type:Boolean,reflect:!0})],kt.prototype,"play",2);i([x("play",{waitUntilFirstUpdate:!0})],kt.prototype,"handlePlayChange",1);i([x("src")],kt.prototype,"handleSrcChange",1);kt.define("sl-animated-image");vs("mana",{resolver:t=>`https://cdn.jsdelivr.net/npm/mana-font@latest/svg/${t.replace(/^ms-/,"")}.svg`,mutator:t=>{t.setAttribute("fill","currentColor"),t.setAttribute("width","16px"),t.setAttribute("height","16px")}});
-//# sourceMappingURL=mana-icon-B9P4GdLl.js.map
+//# sourceMappingURL=mana-icon-C8IiCUZI.js.map

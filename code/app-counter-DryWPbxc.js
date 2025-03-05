@@ -1,4 +1,4 @@
-import{a as Zt,i as qe,s as er,n as Z,b as j,r as Re,E as Qe,x as W,t as Ae,c as tr}from"./index-xiONplCN.js";import"./mana-icon-B9P4GdLl.js";Zt("keyrune",{resolver:l=>`https://cdn.jsdelivr.net/npm/keyrune@latest/svg/${l.replace(/^ss-/,"")}.svg`,mutator:l=>{l.setAttribute("fill","currentColor"),l.setAttribute("width","1rem"),l.setAttribute("height","1rem")}});var fe=typeof globalThis<"u"?globalThis:typeof window<"u"?window:typeof global<"u"?global:typeof self<"u"?self:{};function rr(l){return l&&l.__esModule&&Object.prototype.hasOwnProperty.call(l,"default")?l.default:l}function ue(l){throw new Error('Could not dynamically require "'+l+'". Please configure the dynamicRequireTargets or/and ignoreDynamicRequires option of @rollup/plugin-commonjs appropriately for this require call to work.')}var Ie={exports:{}};/*!
+import{a as Zt,i as qe,s as er,n as Z,b as j,r as Re,E as Qe,x as W,t as Ae,c as tr}from"./index-fS9Hyv-A.js";import"./mana-icon-C8IiCUZI.js";Zt("keyrune",{resolver:l=>`https://cdn.jsdelivr.net/npm/keyrune@latest/svg/${l.replace(/^ss-/,"")}.svg`,mutator:l=>{l.setAttribute("fill","currentColor"),l.setAttribute("width","1rem"),l.setAttribute("height","1rem")}});var fe=typeof globalThis<"u"?globalThis:typeof window<"u"?window:typeof global<"u"?global:typeof self<"u"?self:{};function rr(l){return l&&l.__esModule&&Object.prototype.hasOwnProperty.call(l,"default")?l.default:l}function ue(l){throw new Error('Could not dynamically require "'+l+'". Please configure the dynamicRequireTargets or/and ignoreDynamicRequires option of @rollup/plugin-commonjs appropriately for this require call to work.')}var Ie={exports:{}};/*!
     localForage -- Offline Storage, Improved
     Version 1.10.0
     https://localforage.github.io/localForage
@@ -358,4 +358,4 @@ import{a as Zt,i as qe,s as er,n as Z,b as j,r as Re,E as Qe,x as W,t as Ae,c as
       z-index: 1000;
     }
   `;Ze([j()],de.prototype,"fabDrawerOpen",2);de=Ze([Ae("app-counter")],de);export{de as AppCounter};
-//# sourceMappingURL=app-counter-D5KE_biu.js.map
+//# sourceMappingURL=app-counter-DryWPbxc.js.map
