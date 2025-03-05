@@ -50,7 +50,7 @@
   --ms-mana-u-bg: #b5cde3;
   --ms-mana-w: #fdfbce;
   --ms-mana-w-bg: #f0f2c0;
-  @media (prefers-color-scheme: dark) {
+  /* @media (prefers-color-scheme: dark) {
     --ms-mana-b: #574f52;
     --ms-mana-b-bg: #5a5450;
     --ms-mana-c: #7c756e;
@@ -64,7 +64,7 @@
     --ms-mana-w: #b0ae8d;
     --ms-mana-w-bg: #a3a380;
     --sl-input-color: var(--sl-color-neutral-100);
-  }
+  } */
   --sl-color-blue-50: var(--wa-color-blue-95);
   --sl-color-blue-100: var(--wa-color-blue-90);
   --sl-color-blue-200: var(--wa-color-blue-80);
@@ -244,23 +244,23 @@ app-index {
   }
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
 
   html,
   body {
     background-color: var(--sl-color-neutral-900);
     color: var(--sl-color-neutral-100);
   }
-}
+} */
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) { */
 
   html,
   body {
     background-color: var(--sl-color-neutral-50);
     color: var(--sl-color-neutral-900);
   }
-}
+/* } */
 
 .text-xlarge {
   font-size: 2rem;

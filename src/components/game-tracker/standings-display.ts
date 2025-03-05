@@ -58,9 +58,19 @@ export class StandingsDisplay extends LitElement {
     th {
       background-color: var(--sl-color-neutral-200);
     }
-    // tbody tr:first-of-type {
-    //   background-color: var(--sl-color-primary-800);
-    //   color: var(--sl-color-neutral-50);
+    // @media (prefers-color-scheme: dark) {
+    //   sl-tab-panel sl-card::part(base), .card {
+    //     background-color: transparent !important;
+    //   }
+    //   th {
+    //     background-color: var(--sl-color-neutral-800);
+    //   }
+    //   tbody tr:nth-of-type(odd) {
+    //     background-color: var(--sl-color-neutral-600) !important;
+    //   }
+    //   tbody tr:nth-of-type(even) {
+    //     background-color: var(--sl-color-neutral-900) !important;
+    //   }
     // }
     tbody tr:nth-of-type(even) {
       background-color: var(--sl-color-neutral-100);

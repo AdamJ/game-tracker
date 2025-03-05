@@ -46,7 +46,7 @@ export class AppHome extends LitElement {
       }
       .font-toggle {
         position: fixed;
-        top: 1rem;
+        bottom: 1rem;
         right: 1rem;
         z-index: 1000;
       }
@@ -133,7 +133,9 @@ export class AppHome extends LitElement {
       <app-header ?enableHeader="${true}"></app-header>
 
       <div class="font-toggle">
-        <sl-switch @sl-change=${this.toggleFont}></sl-switch>
+        <sl-switch size="medium" @sl-change=${this.toggleFont}>
+          Toggle system font
+        </sl-switch>
       </div>
 
       <main class="main">
@@ -150,11 +152,6 @@ export class AppHome extends LitElement {
           <sl-card class="card-header two-item-footer work-in-progress">
             <div slot="header">
               Match Tracking
-              <sl-tooltip content="Work In Progress">
-                <sl-button variant="default" size="small" circle>
-                  <sl-icon name="exclamation-diamond-fill" label="Warning"></sl-icon>
-                </sl-button>
-              </sl-tooltip>
             </div>
             <p>
               A customized tracker for matches of 4 player games (such as Commander/EDH). While it does have a way to track standings, results, and general "gain/loss" each time the respective buttons are pressed, it is best used for individual matches.
