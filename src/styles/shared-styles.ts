@@ -47,11 +47,14 @@ export const styles = css`
   .table-striped>tbody>tr:nth-of-type(even)>* {
     background-color: var(--sl-color-neutral-200);
   }
-  @media (prefers-color-scheme: dark) {
-    .table-striped>tbody>tr:nth-of-type(even)>* {
-      background-color: var(--sl-color-neutral-700);
-    }
-  }
+  // @media (prefers-color-scheme: dark) {
+  //   .table-striped>tbody>tr:nth-of-type(even)>* {
+  //     background-color: var(--sl-color-neutral-700);
+  //   }
+  //   sl-card::part(base), .card {
+  //     background-color: transparent !important;
+  //   }
+  // }
   table>tbody,
   .table>tbody {
     vertical-align: inherit;

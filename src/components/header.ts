@@ -16,7 +16,7 @@ export class AppHeader extends LitElement {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: transparent;
+      background: linear-gradient(var(--sl-color-neutral-200), var(--sl-color-neutral-50));
       padding: .75rem;
       padding-top: .75rem;
 
@@ -26,6 +26,7 @@ export class AppHeader extends LitElement {
       height: env(titlebar-area-height, 30px);
       width: env(titlebar-area-width, 100%);
       -webkit-app-region: drag;
+      z-index: 10000;
     }
 
     #back-button-block {
@@ -51,8 +52,9 @@ export class AppHeader extends LitElement {
       <nav>
         <div id="back-button-block">
         ${this.enableBack ? html`
-          <sl-button variant="neutral" size="medium" circle aria-label="Back to start" label="Back to start" href="${resolveRouterPath()}">
-            <sl-icon name="arrow-left"></sl-icon>
+          <sl-button variant="default" size="medium" outline pill aria-label="Back to start" label="Back to start" href="${resolveRouterPath()}">
+            Back
+            <sl-icon slot="prefix" name="arrow-left"></sl-icon>
           </sl-button>
           ` : html
           ``
