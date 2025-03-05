@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["code/app-counter-BlNy43j9.js","code/mana-icon-BpBL9zAu.js","code/app-game-tracker-C6lJ4bK3.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["code/app-counter-D5KE_biu.js","code/mana-icon-B9P4GdLl.js","code/app-game-tracker-tuUzUvKu.js"])))=>i.map(i=>d[i]);
 (function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const i of document.querySelectorAll('link[rel="modulepreload"]'))r(i);new MutationObserver(i=>{for(const s of i)if(s.type==="childList")for(const n of s.addedNodes)n.tagName==="LINK"&&n.rel==="modulepreload"&&r(n)}).observe(document,{childList:!0,subtree:!0});function o(i){const s={};return i.integrity&&(s.integrity=i.integrity),i.referrerPolicy&&(s.referrerPolicy=i.referrerPolicy),i.crossOrigin==="use-credentials"?s.credentials="include":i.crossOrigin==="anonymous"?s.credentials="omit":s.credentials="same-origin",s}function r(i){if(i.ep)return;i.ep=!0;const s=o(i);fetch(i.href,s)}})();/**
  * @license
  * Copyright 2019 Google LLC
@@ -37,7 +37,7 @@ const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["code/app-counter-BlNy4
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */function Z(e,t){return(o,r,i)=>{const s=n=>n.renderRoot?.querySelector(e)??null;return zr(o,r,{get(){return s(this)}})}}const Or="modulepreload",Lr=function(e){return"/"+e},uo={},Qt=function(t,o,r){let i=Promise.resolve();if(o&&o.length>0){document.getElementsByTagName("link");const n=document.querySelector("meta[property=csp-nonce]"),l=n?.nonce||n?.getAttribute("nonce");i=Promise.allSettled(o.map(a=>{if(a=Lr(a),a in uo)return;uo[a]=!0;const c=a.endsWith(".css"),u=c?'[rel="stylesheet"]':"";if(document.querySelector(`link[href="${a}"]${u}`))return;const h=document.createElement("link");if(h.rel=c?"stylesheet":Or,c||(h.as="script"),h.crossOrigin="",h.href=a,l&&h.setAttribute("nonce",l),document.head.appendChild(h),c)return new Promise((m,f)=>{h.addEventListener("load",m),h.addEventListener("error",()=>f(new Error(`Unable to preload CSS for ${a}`)))})}))}function s(n){const l=new Event("vite:preloadError",{cancelable:!0});if(l.payload=n,window.dispatchEvent(l),!l.defaultPrevented)throw n}return i.then(n=>{for(const l of n||[])l.status==="rejected"&&s(l.reason);return t().catch(s)})},je=Symbol.for("app-tools::log::1.x");globalThis[je]={setDebug:Rr,debug:"window"in globalThis?new URL(window.location.href).searchParams.has("app-tools-debug"):!1};function Rr(e){globalThis[je].debug=!!e}function Br(e,t){globalThis[je].debug&&(console.groupCollapsed(`[app-tools] ${e}`),t&&console.log(t),console.groupEnd())}function Mr(e){return(t,o)=>{Br(`${e}: ${t}`,o)}}const at=Mr("router");class Ur extends Event{constructor(t){super("route-changed"),this.context=t}}class Dr extends EventTarget{context={params:{},query:{},title:"",url:new URL(window.location.href)};constructor(t){super(),this.config=t,this.routes=t.routes.map(o=>({...o,urlPattern:new URLPattern({pathname:o.path,baseURL:window.location.href,search:"*",hash:"*"})})),at("Initialized routes",this.routes),queueMicrotask(()=>{this.navigate(new URL(window.location.href),{replace:!0})}),window.addEventListener("popstate",this._onPopState),window.addEventListener("click",this._onAnchorClick)}uninstall(){window.removeEventListener("popstate",this._onPopState),window.removeEventListener("click",this._onAnchorClick)}get url(){return new URL(window.location.href)}get fallback(){return new URL(this.config?.fallback||this.baseUrl.href.substring(window.location.origin.length),this.baseUrl)}get baseUrl(){return new URL("./",document.baseURI)}render(){return at(`Rendering route ${this.context.url.pathname}${this.context.url.search}${this.context.url.hash}`,{context:this.context,route:this.route}),this.route?.render?.(this.context)}_matchRoute(t){for(const o of this.routes){const r=o.urlPattern.exec(t);if(r){const{title:i}=o,s=Object.fromEntries(new URLSearchParams(t.search)),n=r?.pathname?.groups??{};return this.context={url:t,title:typeof i=="function"?i({params:n,query:s,url:t}):i,params:n,query:s},o}}return at(`No route matched for ${t.pathname}${t.search}${t.hash}`,t),null}_notifyUrlChanged(){this.dispatchEvent(new Ur(this.context))}_onPopState=()=>{this.navigate(new URL(window.location.href),{backNav:!0})};_onAnchorClick=t=>{if(t.defaultPrevented||t.button!==0||t.metaKey||t.ctrlKey||t.shiftKey)return;const o=t.composedPath().find(s=>s.tagName==="A");if(!o||!o.href)return;const r=new URL(o.href);if(this.url.href===r.href||r.host!==window.location.host||o.hasAttribute("download")||o.href.includes("mailto:"))return;const i=o.getAttribute("target");i&&i!==""&&i!=="_self"||(t.preventDefault(),this.navigate(r))};_collectPlugins(t){return[...this.config?.plugins??[],...t?.plugins??[]]}async navigate(t,o={}){typeof t=="string"&&(t=new URL(t,this.baseUrl));let r=this._matchRoute(t)||this._matchRoute(this.fallback);at(`Navigating to ${t.pathname}${t.search}${t.hash}`,{context:this.context,route:this.route});let i=this._collectPlugins(r);for(const s of i)try{const n=await s?.shouldNavigate?.(this.context);n&&(await n.condition()||(t=new URL(n.redirect,this.baseUrl),r=this._matchRoute(t)||this._matchRoute(this.fallback),i=this._collectPlugins(r),at("Redirecting",{context:this.context,route:this.route})))}catch(n){throw at(`Plugin "${s.name}" error on shouldNavigate hook`,n),n}if(this.route=r,!this.route)throw new Error(`[ROUTER] No route or fallback matched for url ${t}`);for(const s of i)try{await s?.beforeNavigation?.(this.context)}catch(n){throw at(`Plugin "${s.name}" error on beforeNavigation hook`,n),n}o?.replace?window.history.replaceState(null,"",`${t.pathname}${t.search}${t.hash}`):o.backNav||window.history.pushState(null,"",`${t.pathname}${t.search}${t.hash}`),document.title=this.context.title,this._notifyUrlChanged();for(const s of i)try{await s?.afterNavigation?.(this.context)}catch(n){throw at(`Plugin "${s.name}" error on afterNavigation hook`,n),n}}}function Ce(e){return{name:"lazy",beforeNavigation:()=>{e()}}}function Fr(e="/offline"){return{name:"offline",shouldNavigate:()=>({condition:()=>navigator.onLine,redirect:e})}}const Ir=Fr(),po="app-tools",fo="1.x",mo="router-focus",Nr="position:absolute;top:0;width:1px;height:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);clip-path:inset(50%);margin:-1px;",Vr={name:"resetFocus",afterNavigation:({title:e})=>{let t=document.querySelector(`div[${po}][version="${fo}"]#${mo}`);t||(t=document.createElement("div"),t.setAttribute(po,""),t.setAttribute("version",fo),t.id=mo,t.setAttribute("tabindex","-1"),t.setAttribute("aria-live","polite"),t.setAttribute("style",Nr),t.addEventListener("blur",()=>{t?.style.setProperty("display","none")}),document.body.insertBefore(t,document.body.firstChild)),t.textContent=e,t.style.removeProperty("display"),t.focus()}},Hr={name:"scrollToTop",beforeNavigation:()=>{window.scrollTo(0,0)}},jr={name:"checkServiceWorkerUpdate",beforeNavigation:()=>{"serviceWorker"in navigator&&navigator.serviceWorker.getRegistration().then(e=>{e&&e.update()})}};globalThis.URLPattern||await Qt(()=>import("./index-DkuV2QLQ.js"),[]);const Bo="/";console.log(Bo);const go=new Dr({plugins:[Ir,jr,Hr,Vr],fallback:"/",routes:[{path:ct(),title:"Home",render:()=>C`<app-home></app-home>`},{path:ct("about"),title:"About",plugins:[Ce(()=>Qt(()=>import("./app-about-B6tRWFLU.js"),[])),()=>{console.error("Failed to load app-about")}],render:()=>C`<app-about></app-about>`},{path:ct("counter"),title:"Counter",plugins:[Ce(()=>Qt(()=>import("./app-counter-BlNy43j9.js"),__vite__mapDeps([0,1]))),()=>{console.error("Failed to load app-counter")}],render:()=>C`<app-counter></app-counter>`},{path:ct("game-tracker"),title:"Game Tracker",plugins:[Ce(()=>Qt(()=>import("./app-game-tracker-C6lJ4bK3.js"),__vite__mapDeps([2,1]))),()=>{console.error("Failed to load app-standings")}],render:()=>C`<app-standings></app-standings>`}]});function ct(e){var t=Bo;return e&&(t=t+e),t}var Wr=L`
+ */function Z(e,t){return(o,r,i)=>{const s=n=>n.renderRoot?.querySelector(e)??null;return zr(o,r,{get(){return s(this)}})}}const Or="modulepreload",Lr=function(e){return"/"+e},uo={},Qt=function(t,o,r){let i=Promise.resolve();if(o&&o.length>0){document.getElementsByTagName("link");const n=document.querySelector("meta[property=csp-nonce]"),l=n?.nonce||n?.getAttribute("nonce");i=Promise.allSettled(o.map(a=>{if(a=Lr(a),a in uo)return;uo[a]=!0;const c=a.endsWith(".css"),u=c?'[rel="stylesheet"]':"";if(document.querySelector(`link[href="${a}"]${u}`))return;const h=document.createElement("link");if(h.rel=c?"stylesheet":Or,c||(h.as="script"),h.crossOrigin="",h.href=a,l&&h.setAttribute("nonce",l),document.head.appendChild(h),c)return new Promise((m,f)=>{h.addEventListener("load",m),h.addEventListener("error",()=>f(new Error(`Unable to preload CSS for ${a}`)))})}))}function s(n){const l=new Event("vite:preloadError",{cancelable:!0});if(l.payload=n,window.dispatchEvent(l),!l.defaultPrevented)throw n}return i.then(n=>{for(const l of n||[])l.status==="rejected"&&s(l.reason);return t().catch(s)})},je=Symbol.for("app-tools::log::1.x");globalThis[je]={setDebug:Rr,debug:"window"in globalThis?new URL(window.location.href).searchParams.has("app-tools-debug"):!1};function Rr(e){globalThis[je].debug=!!e}function Br(e,t){globalThis[je].debug&&(console.groupCollapsed(`[app-tools] ${e}`),t&&console.log(t),console.groupEnd())}function Mr(e){return(t,o)=>{Br(`${e}: ${t}`,o)}}const at=Mr("router");class Ur extends Event{constructor(t){super("route-changed"),this.context=t}}class Dr extends EventTarget{context={params:{},query:{},title:"",url:new URL(window.location.href)};constructor(t){super(),this.config=t,this.routes=t.routes.map(o=>({...o,urlPattern:new URLPattern({pathname:o.path,baseURL:window.location.href,search:"*",hash:"*"})})),at("Initialized routes",this.routes),queueMicrotask(()=>{this.navigate(new URL(window.location.href),{replace:!0})}),window.addEventListener("popstate",this._onPopState),window.addEventListener("click",this._onAnchorClick)}uninstall(){window.removeEventListener("popstate",this._onPopState),window.removeEventListener("click",this._onAnchorClick)}get url(){return new URL(window.location.href)}get fallback(){return new URL(this.config?.fallback||this.baseUrl.href.substring(window.location.origin.length),this.baseUrl)}get baseUrl(){return new URL("./",document.baseURI)}render(){return at(`Rendering route ${this.context.url.pathname}${this.context.url.search}${this.context.url.hash}`,{context:this.context,route:this.route}),this.route?.render?.(this.context)}_matchRoute(t){for(const o of this.routes){const r=o.urlPattern.exec(t);if(r){const{title:i}=o,s=Object.fromEntries(new URLSearchParams(t.search)),n=r?.pathname?.groups??{};return this.context={url:t,title:typeof i=="function"?i({params:n,query:s,url:t}):i,params:n,query:s},o}}return at(`No route matched for ${t.pathname}${t.search}${t.hash}`,t),null}_notifyUrlChanged(){this.dispatchEvent(new Ur(this.context))}_onPopState=()=>{this.navigate(new URL(window.location.href),{backNav:!0})};_onAnchorClick=t=>{if(t.defaultPrevented||t.button!==0||t.metaKey||t.ctrlKey||t.shiftKey)return;const o=t.composedPath().find(s=>s.tagName==="A");if(!o||!o.href)return;const r=new URL(o.href);if(this.url.href===r.href||r.host!==window.location.host||o.hasAttribute("download")||o.href.includes("mailto:"))return;const i=o.getAttribute("target");i&&i!==""&&i!=="_self"||(t.preventDefault(),this.navigate(r))};_collectPlugins(t){return[...this.config?.plugins??[],...t?.plugins??[]]}async navigate(t,o={}){typeof t=="string"&&(t=new URL(t,this.baseUrl));let r=this._matchRoute(t)||this._matchRoute(this.fallback);at(`Navigating to ${t.pathname}${t.search}${t.hash}`,{context:this.context,route:this.route});let i=this._collectPlugins(r);for(const s of i)try{const n=await s?.shouldNavigate?.(this.context);n&&(await n.condition()||(t=new URL(n.redirect,this.baseUrl),r=this._matchRoute(t)||this._matchRoute(this.fallback),i=this._collectPlugins(r),at("Redirecting",{context:this.context,route:this.route})))}catch(n){throw at(`Plugin "${s.name}" error on shouldNavigate hook`,n),n}if(this.route=r,!this.route)throw new Error(`[ROUTER] No route or fallback matched for url ${t}`);for(const s of i)try{await s?.beforeNavigation?.(this.context)}catch(n){throw at(`Plugin "${s.name}" error on beforeNavigation hook`,n),n}o?.replace?window.history.replaceState(null,"",`${t.pathname}${t.search}${t.hash}`):o.backNav||window.history.pushState(null,"",`${t.pathname}${t.search}${t.hash}`),document.title=this.context.title,this._notifyUrlChanged();for(const s of i)try{await s?.afterNavigation?.(this.context)}catch(n){throw at(`Plugin "${s.name}" error on afterNavigation hook`,n),n}}}function Ce(e){return{name:"lazy",beforeNavigation:()=>{e()}}}function Fr(e="/offline"){return{name:"offline",shouldNavigate:()=>({condition:()=>navigator.onLine,redirect:e})}}const Ir=Fr(),po="app-tools",fo="1.x",mo="router-focus",Nr="position:absolute;top:0;width:1px;height:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);clip-path:inset(50%);margin:-1px;",Vr={name:"resetFocus",afterNavigation:({title:e})=>{let t=document.querySelector(`div[${po}][version="${fo}"]#${mo}`);t||(t=document.createElement("div"),t.setAttribute(po,""),t.setAttribute("version",fo),t.id=mo,t.setAttribute("tabindex","-1"),t.setAttribute("aria-live","polite"),t.setAttribute("style",Nr),t.addEventListener("blur",()=>{t?.style.setProperty("display","none")}),document.body.insertBefore(t,document.body.firstChild)),t.textContent=e,t.style.removeProperty("display"),t.focus()}},Hr={name:"scrollToTop",beforeNavigation:()=>{window.scrollTo(0,0)}},jr={name:"checkServiceWorkerUpdate",beforeNavigation:()=>{"serviceWorker"in navigator&&navigator.serviceWorker.getRegistration().then(e=>{e&&e.update()})}};globalThis.URLPattern||await Qt(()=>import("./index-DkuV2QLQ.js"),[]);const Bo="/";console.log(Bo);const go=new Dr({plugins:[Ir,jr,Hr,Vr],fallback:"/",routes:[{path:ct(),title:"Home",render:()=>C`<app-home></app-home>`},{path:ct("about"),title:"About",plugins:[Ce(()=>Qt(()=>import("./app-about-CNY-ppXC.js"),[])),()=>{console.error("Failed to load app-about")}],render:()=>C`<app-about></app-about>`},{path:ct("counter"),title:"Counter",plugins:[Ce(()=>Qt(()=>import("./app-counter-D5KE_biu.js"),__vite__mapDeps([0,1]))),()=>{console.error("Failed to load app-counter")}],render:()=>C`<app-counter></app-counter>`},{path:ct("game-tracker"),title:"Game Tracker",plugins:[Ce(()=>Qt(()=>import("./app-game-tracker-tuUzUvKu.js"),__vite__mapDeps([2,1]))),()=>{console.error("Failed to load app-standings")}],render:()=>C`<app-standings></app-standings>`}]});function ct(e){var t=Bo;return e&&(t=t+e),t}var Wr=L`
   :host {
     display: inline-block;
     color: var(--sl-color-neutral-600);
@@ -1653,11 +1653,14 @@ const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["code/app-counter-BlNy4
   .table-striped>tbody>tr:nth-of-type(even)>* {
     background-color: var(--sl-color-neutral-200);
   }
-  @media (prefers-color-scheme: dark) {
-    .table-striped>tbody>tr:nth-of-type(even)>* {
-      background-color: var(--sl-color-neutral-700);
-    }
-  }
+  // @media (prefers-color-scheme: dark) {
+  //   .table-striped>tbody>tr:nth-of-type(even)>* {
+  //     background-color: var(--sl-color-neutral-700);
+  //   }
+  //   sl-card::part(base), .card {
+  //     background-color: transparent !important;
+  //   }
+  // }
   table>tbody,
   .table>tbody {
     vertical-align: inherit;
@@ -1817,7 +1820,9 @@ const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["code/app-counter-BlNy4
       <app-header ?enableHeader="${!0}"></app-header>
 
       <div class="font-toggle">
-        <sl-switch @sl-change=${this.toggleFont}></sl-switch>
+        <sl-switch size="medium" @sl-change=${this.toggleFont}>
+          Toggle system font
+        </sl-switch>
       </div>
 
       <main class="main">
@@ -1834,11 +1839,6 @@ const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["code/app-counter-BlNy4
           <sl-card class="card-header two-item-footer work-in-progress">
             <div slot="header">
               Match Tracking
-              <sl-tooltip content="Work In Progress">
-                <sl-button variant="default" size="small" circle>
-                  <sl-icon name="exclamation-diamond-fill" label="Warning"></sl-icon>
-                </sl-button>
-              </sl-tooltip>
             </div>
             <p>
               A customized tracker for matches of 4 player games (such as Commander/EDH). While it does have a way to track standings, results, and general "gain/loss" each time the respective buttons are pressed, it is best used for individual matches.
@@ -1895,7 +1895,7 @@ const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["code/app-counter-BlNy4
       }
       .font-toggle {
         position: fixed;
-        top: 1rem;
+        bottom: 1rem;
         right: 1rem;
         z-index: 1000;
       }
@@ -1903,8 +1903,9 @@ const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["code/app-counter-BlNy4
       <nav>
         <div id="back-button-block">
         ${this.enableBack?C`
-          <sl-button variant="neutral" size="medium" circle aria-label="Back to start" label="Back to start" href="${ct()}">
-            <sl-icon name="arrow-left"></sl-icon>
+          <sl-button variant="default" size="medium" outline pill aria-label="Back to start" label="Back to start" href="${ct()}">
+            Back
+            <sl-icon slot="prefix" name="arrow-left"></sl-icon>
           </sl-button>
           `:C``}
         ${this.enableHeader?C`
@@ -1924,7 +1925,7 @@ const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["code/app-counter-BlNy4
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: transparent;
+      background: linear-gradient(var(--sl-color-neutral-200), var(--sl-color-neutral-50));
       padding: .75rem;
       padding-top: .75rem;
 
@@ -1934,6 +1935,7 @@ const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["code/app-counter-BlNy4
       height: env(titlebar-area-height, 30px);
       width: env(titlebar-area-width, 100%);
       -webkit-app-region: drag;
+      z-index: 10000;
     }
 
     #back-button-block {
@@ -1958,4 +1960,4 @@ const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["code/app-counter-BlNy4
       }
     }
   `;Ue=$s([He("app-index")],Ue);export{ft as A,Fo as B,gt as C,Do as D,E,Ko as F,$ as G,ve as H,le as I,Ci as J,ee as K,Yt as L,Ls as M,Os as N,Ke as O,hi as P,Ts as Q,Es as R,M as S,N as T,P as U,w as V,vi as W,d as _,As as a,zt as b,ct as c,ot as d,zr as e,ms as f,j as g,Z as h,L as i,fs as j,X as k,gs as l,Yo as m,p as n,A as o,be as p,de as q,dt as r,bs as s,He as t,ae as u,ce as v,J as w,C as x,Ps as y,U as z};
-//# sourceMappingURL=index-DQ-E6myY.js.map
+//# sourceMappingURL=index-xiONplCN.js.map

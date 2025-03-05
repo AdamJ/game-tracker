@@ -1,4 +1,4 @@
-import{b as o,n as d,t as h,r as y,x as n,i as C}from"./index-DQ-E6myY.js";import"./mana-icon-BpBL9zAu.js";var _=Object.defineProperty,E=Object.getOwnPropertyDescriptor,w=(e,t,s,l)=>{for(var a=l>1?void 0:l?E(t,s):t,r=e.length-1,i;r>=0;r--)(i=e[r])&&(a=(l?i(t,s,a):i(a))||a);return l&&a&&_(t,s,a),a};let m=class extends y{constructor(){super(...arguments),this.players=[],this.newPlayer="",this.errorMessage=""}addPlayer(){if(console.log("addPlayer called"),this.newPlayer&&this.validatePlayerName(this.newPlayer)){this.dispatchEvent(new CustomEvent("player-added",{detail:this.newPlayer})),this.newPlayer="";const e=this.shadowRoot.querySelector("sl-input");e&&(e.helpText="")}else{const e=this.shadowRoot.querySelector("sl-input");e&&(e.helpText=this.errorMessage)}}handleInputChange(e){const t=e.target;this.newPlayer=t.value;const s=this.shadowRoot.querySelector("sl-input");s&&(this.validatePlayerName(this.newPlayer)?s.helpText="":s.helpText=this.errorMessage)}validatePlayerName(e){const t=/^[a-zA-Z0-9]+$/.test(e);return console.log("isValid:",t),t?(this.errorMessage="",!0):(this.errorMessage="Enter a Name containing only letters or numbers with no spaces or special characters.",!1)}removePlayer(e){this.dispatchEvent(new CustomEvent("remove-player",{detail:e}))}clearAllPlayers(){this.dispatchEvent(new CustomEvent("clear-all-players"))}render(){return n`
+import{b as o,n as d,t as h,r as y,x as n,i as C}from"./index-xiONplCN.js";import"./mana-icon-B9P4GdLl.js";var _=Object.defineProperty,E=Object.getOwnPropertyDescriptor,w=(e,t,s,l)=>{for(var a=l>1?void 0:l?E(t,s):t,r=e.length-1,i;r>=0;r--)(i=e[r])&&(a=(l?i(t,s,a):i(a))||a);return l&&a&&_(t,s,a),a};let m=class extends y{constructor(){super(...arguments),this.players=[],this.newPlayer="",this.errorMessage=""}addPlayer(){if(console.log("addPlayer called"),this.newPlayer&&this.validatePlayerName(this.newPlayer)){this.dispatchEvent(new CustomEvent("player-added",{detail:this.newPlayer})),this.newPlayer="";const e=this.shadowRoot.querySelector("sl-input");e&&(e.helpText="")}else{const e=this.shadowRoot.querySelector("sl-input");e&&(e.helpText=this.errorMessage)}}handleInputChange(e){const t=e.target;this.newPlayer=t.value;const s=this.shadowRoot.querySelector("sl-input");s&&(this.validatePlayerName(this.newPlayer)?s.helpText="":s.helpText=this.errorMessage)}validatePlayerName(e){const t=/^[a-zA-Z0-9]+$/.test(e);return console.log("isValid:",t),t?(this.errorMessage="",!0):(this.errorMessage="Enter a Name containing only letters or numbers with no spaces or special characters.",!1)}removePlayer(e){this.dispatchEvent(new CustomEvent("remove-player",{detail:e}))}clearAllPlayers(){this.dispatchEvent(new CustomEvent("clear-all-players"))}render(){return n`
       <sl-card>
         <div slot="header">
           <div style="display: flex; justify-content: space-between; align-items: center;">
@@ -149,9 +149,19 @@ import{b as o,n as d,t as h,r as y,x as n,i as C}from"./index-DQ-E6myY.js";impor
     th {
       background-color: var(--sl-color-neutral-200);
     }
-    // tbody tr:first-of-type {
-    //   background-color: var(--sl-color-primary-800);
-    //   color: var(--sl-color-neutral-50);
+    // @media (prefers-color-scheme: dark) {
+    //   sl-tab-panel sl-card::part(base), .card {
+    //     background-color: transparent !important;
+    //   }
+    //   th {
+    //     background-color: var(--sl-color-neutral-800);
+    //   }
+    //   tbody tr:nth-of-type(odd) {
+    //     background-color: var(--sl-color-neutral-600) !important;
+    //   }
+    //   tbody tr:nth-of-type(even) {
+    //     background-color: var(--sl-color-neutral-900) !important;
+    //   }
     // }
     tbody tr:nth-of-type(even) {
       background-color: var(--sl-color-neutral-100);
@@ -346,4 +356,4 @@ import{b as o,n as d,t as h,r as y,x as n,i as C}from"./index-DQ-E6myY.js";impor
         }
       </style>
     `}};S=U([h("app-standings")],S);export{S as AppDashboard};
-//# sourceMappingURL=app-game-tracker-C6lJ4bK3.js.map
+//# sourceMappingURL=app-game-tracker-tuUzUvKu.js.map
