@@ -29,3 +29,11 @@ jobs:
 
     - name: Build project
       run: npm run build
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3.9.3
+      with:
+        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        publish_dir: ./dist
+        publish_branch: gh-pages
+        commit_message: ${{ github.event.head_commit.message }}
