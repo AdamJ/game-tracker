@@ -8,11 +8,13 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-        - uses: actions/checkout@v3.6.0
+        - uses: actions/checkout@v4
         - name: Setup Node
-          uses: actions/setup-node@v3.8.1
+          uses: actions/setup-node@v4
           with:
-            node-version: '22.x'
+            node-version: '20.x'
+          env:
+            NODE_AUTH_TOKEN: ${{secrets.NODE_AUTH_TOKENS}}
         - name: Install dependencies using a safe clean install, build and test
           run: |
             npm ci --ignore-scripts
