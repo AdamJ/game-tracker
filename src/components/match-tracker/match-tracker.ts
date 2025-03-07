@@ -1,8 +1,9 @@
-import { LitElement, html, nothing } from 'lit';
+import { LitElement, html, css, nothing } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import localForage from 'localforage';
 import '../icons/mana-icon';
 import '../icons/mtg-symbols';
+import '@shoelace-style/shoelace/dist/components/button/button.js';
 
 import { styles as sharedStyles } from '../../styles/shared-styles';
 import { styles } from '../../pages/app-counter/counter-styles';
@@ -70,7 +71,39 @@ export class MatchTracker extends LitElement {
 
   static styles = [
     sharedStyles,
-    styles
+    styles,
+    css`
+      table thead tr th {
+        border-bottom: 1px solid var(--sl-color-neutral-500);
+        padding: .5rem;
+        background-color: inherit;
+        border-bottom-width: 1px;
+      }
+      .table-striped tbody tr:nth-of-type(even)>* {
+        background-color: var(--sl-color-neutral-100) !important;
+      }
+      .table-striped {
+          width: 100%;
+          border-collapse: collapse;
+      }
+      .table-striped td, .table-striped th {
+          padding: 8px;
+          text-align: left;
+      }
+      .form-2-column {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .form-player-input {
+        width: 100%;
+      }
+      @media (min-width: 1000px) {
+        .form-2-column {
+          flex-direction: row;
+        }
+      }
+    `
   ]
   @state() playerLogs: LogEntry[] = [];
 
@@ -361,16 +394,16 @@ export class MatchTracker extends LitElement {
 
     return html`
       <app-header ?enableBack="${true}"></app-header>
-      <main>
+      <main style="padding-bottom: 5rem;">
       <div style="display: flex; flex-direction: column; grid-gap: 1rem;">
         <sl-tab-group>
-          <sl-tab slot="nav" panel="total">Total</sl-tab>
-          <sl-tab slot="nav" panel="standings">Standings</sl-tab>
-          <sl-tab slot="nav" panel="results">Results</sl-tab>
-          <sl-tab slot="nav" panel="action-log">Log</sl-tab>
-          <sl-tab slot="nav" panel="setup">Setup</sl-tab>
+          <sl-tab slot="nav" panel="total" class="hide-at-800">Total</sl-tab>
+          <sl-tab slot="nav" panel="standings" class="hide-at-800">Standings</sl-tab>
+          <sl-tab slot="nav" panel="results"class="hide-at-800">Results</sl-tab>
+          <sl-tab slot="nav" panel="action-log" class="hide-at-800">Log</sl-tab>
+          <sl-tab slot="nav" panel="setup" class="hide-at-800">Setup</sl-tab>
           <sl-tab-panel name="total">
-            <div style="display: flex; flex-direction: row; grid-gap:1; justify-content: around; flex-wrap: wrap;">
+            <div style="display: flex; flex-direction: row;justify-content: around; flex-wrap: wrap;">
               <div style="width: 50%;">
                 <sl-card class="player-one" id="topLeft">
                   <form style="position: relative;">
@@ -385,31 +418,11 @@ export class MatchTracker extends LitElement {
                       <sl-icon library="mana" slot="prefix" name="loyalty-down" class="ms ms-loyalty-down ms-2x"></sl-icon>
                       Lose
                     </sl-button>
-                    <span style="position: absolute; right: 8px; bottom: 8px;">
+                    <span class="hide-at-800" style="position: absolute; right: 8px; bottom: 8px;">
                       <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-1 ms-4x"></sl-icon>
                     </span>
                   </form>
                 </sl-card>
-                <sl-card class="player-two" id="bottomLeft">
-                  <form style="position: relative;">
-                    <sl-button variant="default" size="large" class="life-counter player-two" @click=${() => this.updateLife(2, 1, 'Gain')}>
-                      <sl-icon library="mana" slot="prefix" name="loyalty-up" class="ms ms-loyalty-up ms-2x"></sl-icon>
-                      Gain
-                    </sl-button>
-                    <p class="text-center ms-4x" style="line-height: normal; margin: 0;">
-                      ${this.handle2.life}
-                    </p>
-                    <span style="position: absolute; right: 8px; top: 8px;">
-                      <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-2 ms-4x"></sl-icon>
-                    </span>
-                    <sl-button variant="default" size="large" class="life-counter player-two" @click=${() => this.updateLife(2, -1, 'Lose')}>
-                      <sl-icon library="mana" slot="prefix" name="loyalty-down" class="ms ms-loyalty-down ms-2x"></sl-icon>
-                      Lose
-                    </sl-button>
-                  </form>
-                </sl-card>
-              </div>
-              <div style="width: 50%;">
                 <sl-card class="player-three" id="topRight">
                   <form style="position: relative;">
                     <sl-button variant="default" size="large" class="life-counter player-three" @click=${() => this.updateLife(3, 1, 'Gain')}>
@@ -423,8 +436,28 @@ export class MatchTracker extends LitElement {
                       <sl-icon library="mana" slot="prefix" name="loyalty-down" class="ms ms-loyalty-down ms-2x"></sl-icon>
                       Lose
                     </sl-button>
-                    <span style="position: absolute; left: 8px; bottom: 8px;">
-                      <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-4 ms-4x"></sl-icon>
+                    <span class="hide-at-800" style="position: absolute; right: 8px; top: 8px;">
+                      <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-3 ms-4x"></sl-icon>
+                    </span>
+                  </form>
+                </sl-card>
+              </div>
+              <div style="width: 50%;">
+                <sl-card class="player-two" id="bottomLeft">
+                  <form style="position: relative;">
+                    <sl-button variant="default" size="large" class="life-counter player-two" @click=${() => this.updateLife(2, 1, 'Gain')}>
+                      <sl-icon library="mana" slot="prefix" name="loyalty-up" class="ms ms-loyalty-up ms-2x"></sl-icon>
+                      Gain
+                    </sl-button>
+                    <p class="text-center ms-4x" style="line-height: normal; margin: 0;">
+                      ${this.handle2.life}
+                    </p>
+                    <sl-button variant="default" size="large" class="life-counter player-two" @click=${() => this.updateLife(2, -1, 'Lose')}>
+                      <sl-icon library="mana" slot="prefix" name="loyalty-down" class="ms ms-loyalty-down ms-2x"></sl-icon>
+                      Lose
+                    </sl-button>
+                    <span class="hide-at-800" style="position: absolute; left: 8px; bottom: 8px;">
+                      <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-2 ms-4x"></sl-icon>
                     </span>
                   </form>
                 </sl-card>
@@ -441,8 +474,8 @@ export class MatchTracker extends LitElement {
                       <sl-icon library="mana" slot="prefix" name="loyalty-down" class="ms ms-loyalty-down ms-2x"></sl-icon>
                       Lose
                     </sl-button>
-                    <span style="position: absolute; left: 8px; top: 8px;">
-                      <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-3 ms-4x"></sl-icon>
+                    <span class="hide-at-800" style="position: absolute; left: 8px; top: 8px;">
+                      <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-4 ms-4x"></sl-icon>
                     </span>
                   </form>
                 </sl-card>
@@ -495,25 +528,29 @@ export class MatchTracker extends LitElement {
             </table>
           </sl-tab-panel>
           <sl-tab-panel name="setup">
-            <div style="display: flex; flex-direction: row; flex-wrap; wrap; gap: 1rem;">
-              <form>
-                <sl-input
-                  type="number"
-                  label="Starting Life"
-                  size="large"
-                  type="number"
-                  value=${this.initialLifeTracker}
-                  @sl-change=${this.setInitialLifeTracker}
-                  min="0"
-                >
-                  <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-1 ms-small"></sl-icon>
-                </sl-input>
-              </form>
-              <form>
+            <div style="display: flex; flex-direction: row; justify-content: center; margin-bottom: .5rem;">
+              <sl-input
+                type="number"
+                label="Starting Life"
+                size="medium"
+                pill
+                help-text="Enter a number greater than 0"
+                type="number"
+                value=${this.initialLifeTracker}
+                @sl-change=${this.setInitialLifeTracker}
+                min="0"
+                style="width: 25%; text-align: center;"
+              >
+                <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-1 ms-small"></sl-icon>
+              </sl-input>
+            </div>
+            <div class="form-2-column">
+              <form class="form-player-input">
                 <sl-input
                   inputmode="text"
                   label="Player 1"
-                  size="large"
+                  size="medium"
+                  pill
                   clearable
                   placeholder="Add player name"
                   value=${this.playerHandle1}
@@ -522,31 +559,34 @@ export class MatchTracker extends LitElement {
                   <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-1 ms-small"></sl-icon>
                 </sl-input>
                 <sl-input
-                  label="Player 2"
-                  size="large"
-                  clearable
-                  placeholder="Add player name"
-                  value=${this.playerHandle2}
-                  @sl-change=${(e: CustomEvent) => this.handlePlayerHandleChange(2, e)}
-                >
-                  <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-2 ms-small"></sl-icon>
-                </sl-input>
-              </form>
-              <form>
-                <sl-input
                   label="Player 3"
-                  size="large"
+                  size="medium"
                   clearable
+                  pill
                   placeholder="Add player name"
                   value=${this.playerHandle3}
                   @sl-change=${(e: CustomEvent) => this.handlePlayerHandleChange(3, e)}
                 >
                   <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-3 ms-small"></sl-icon>
                 </sl-input>
+              </form>
+              <form class="form-player-input">
+                <sl-input
+                  label="Player 2"
+                  size="medium"
+                  clearable
+                  pill
+                  placeholder="Add player name"
+                  value=${this.playerHandle2}
+                  @sl-change=${(e: CustomEvent) => this.handlePlayerHandleChange(2, e)}
+                >
+                  <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-2 ms-small"></sl-icon>
+                </sl-input>
                 <sl-input
                   label="Player 4"
-                  size="large"
+                  size="medium"
                   clearable
+                  pill
                   placeholder="Add player name"
                   value=${this.playerHandle4}
                   @sl-change=${(e: CustomEvent) => this.handlePlayerHandleChange(4, e)}
@@ -555,71 +595,79 @@ export class MatchTracker extends LitElement {
                 </sl-input>
               </form>
             </div>
-            <sl-button variant="neutral" outline style="width: 50%;" @click=${this.exportToCSV}>
-              Export to CSV
-              <sl-icon name="file-earmark-excel-fill" slot="suffix"></sl-icon>
-            </sl-button>
-          </sl-tab-panel>
-          <sl-tab-panel name="action-log">
-          <sl-menu>
-            <sl-menu>
-              ${menuContent}
-            </sl-menu>
-          </sl-menu>
-          </sl-tab-panel>
-          <sl-tab-panel name="results">
-            <div style="display: flex; width: 100%;>
-              <div>
-                <sl-button-group label="Alignment">
-                  <sl-button size="medium" variant="neutral" class="player-one" @click=${() => this.recordResult(1)}>
-                    <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-1 ms-small"></sl-icon>
-                    ${this.playerHandle1} Wins
-                  </sl-button>
-                  <sl-button size="medium" class="player-two" @click=${() => this.recordResult(2)}>
-                    <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-2 ms-small"></sl-icon>
-                    ${this.playerHandle2} Wins
-                  </sl-button>
-                  <sl-button size="medium" class="player-three" @click=${() => this.recordResult(3)}>
-                    <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-3 ms-small"></sl-icon>
-                    ${this.playerHandle3} Wins
-                  </sl-button>
-                  <sl-button size="medium" class="player-four" @click=${() => this.recordResult(4)}>
-                    <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-4 ms-small"></sl-icon>
-                    ${this.playerHandle4} Wins
-                  </sl-button>
-                </sl-button-group>
-                <style>
-                  sl-button-group {
-                  display: flex; flex-direction: row;}
-                  sl-button {
-                  width: 100%;}
-                </style>
-              </div>
-              <table bordered table-striped>
-                <thead>
-                  <tr>
-                    <th>${this.playerHandle1}</th>
-                    <th>${this.playerHandle2}</th>
-                    <th>${this.playerHandle3}</th>
-                    <th>${this.playerHandle4}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  ${this.matchResults.map(
-                    (result) => html`
-                      <tr>
-                        <td>${result.player1Outcome}</td>
-                        <td>${result.player2Outcome}</td>
-                        <td>${result.player3Outcome}</td>
-                        <td>${result.player4Outcome}</td>
-                      </tr>
-                    `
-                  )}
-                </tbody>
-              </table>
+            <div style="display: flex; flex-direction: row; justify-content: center; padding-top: 1rem;">
+              <sl-button variant="success" outline pill style="width: 25%;" @click=${this.exportToCSV}>
+                Export to CSV
+                <sl-icon name="file-earmark-excel-fill" slot="suffix"></sl-icon>
+              </sl-button>
             </div>
           </sl-tab-panel>
+          <sl-tab-panel name="action-log">
+            <sl-menu>
+              <sl-menu>
+                ${menuContent}
+              </sl-menu>
+            </sl-menu>
+          </sl-tab-panel>
+          <sl-tab-panel name="results">
+            <sl-button-group label="Alignment">
+              <sl-button size="medium" pill class="player-one" @click=${() => this.recordResult(1)}>
+                Winner
+              </sl-button>
+              <sl-button size="medium" pill class="player-two" @click=${() => this.recordResult(2)}>
+                Winner
+              </sl-button>
+              <sl-button size="medium" pill class="player-three" @click=${() => this.recordResult(3)}>
+                Winner
+              </sl-button>
+              <sl-button size="medium" pill class="player-four" @click=${() => this.recordResult(4)}>
+                Winner
+              </sl-button>
+            </sl-button-group>
+            <table class="border table-striped">
+              <thead>
+                <tr>
+                  <th>
+                    <sl-tooltip content="Click for winner">
+                      <sl-icon-button name="trophy-fill" label="Winner" @click=${() => this.recordResult(1)}></sl-icon-button>
+                    </sl-tooltip>
+                    ${this.playerHandle1}
+                  <th>
+                    <sl-tooltip content="Click for winner">
+                      <sl-icon-button name="trophy-fill" label="Winner" @click=${() => this.recordResult(2)}></sl-icon-button>
+                    </sl-tooltip>
+                    ${this.playerHandle2}
+                  </th>
+                  <th>
+                    <sl-tooltip content="Click for winner">
+                      <sl-icon-button name="trophy-fill" label="Winner" @click=${() => this.recordResult(3)}></sl-icon-button>
+                    </sl-tooltip>
+                    ${this.playerHandle3}
+                  </th>
+                  <th>
+                    <sl-tooltip content="Click for winner">
+                      <sl-icon-button name="trophy-fill" label="Winner" @click=${() => this.recordResult(4)}></sl-icon-button>
+                    </sl-tooltip>
+                    ${this.playerHandle4}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                ${this.matchResults.map(
+                  (result) => html`
+                    <tr>
+                      <td>${result.player1Outcome}</td>
+                      <td>${result.player2Outcome}</td>
+                      <td>${result.player3Outcome}</td>
+                      <td>${result.player4Outcome}</td>
+                    </tr>
+                  `
+                )}
+              </tbody>
+            </table>
+          </sl-tab-panel>
         </sl-tab-group>
+        </div>
       </main>
     `;
   }

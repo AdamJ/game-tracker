@@ -24,6 +24,8 @@ import '@shoelace-style/shoelace/dist/components/card/card.js';
 import '@shoelace-style/shoelace/dist/components/badge/badge.js';
 import '@shoelace-style/shoelace/dist/components/spinner/spinner.js';
 
+import { styles as sharedStyles } from '../../styles/shared-styles';
+
 interface Match {
   player1: string;
   player2: string;
@@ -41,6 +43,9 @@ interface Standing {
 
 @customElement('standings-tracker')
 export class StandingsTracker extends LitElement {
+
+  static styles = sharedStyles;
+
   @state() activeTab: string = 'standings'; // Initial active tab
   @state() players: string[] = [];
   @state() matchHistory: Match[] = JSON.parse(localStorage.getItem('matchHistory') || '[]');
@@ -234,9 +239,9 @@ export class StandingsTracker extends LitElement {
 
   clearStandingsConfirmed() {
     this.standings = [];
-    this.players = [];
+    // this.players = [];
     localStorage.removeItem('matchHistory'); // Remove the old localStorage
-    localStorage.removeItem('players'); // remove the old players data
+    // localStorage.removeItem('players'); // remove the old players data
     this.requestUpdate();
     this.closeConfirmationModal();
   }
@@ -269,19 +274,22 @@ export class StandingsTracker extends LitElement {
                   Match Standings
                   <sl-button-group label="game actions">
                     <sl-tooltip content="Export Standings">
-                      <sl-button variant="success" outline label="export standings" @click=${this.exportStandings}>
-                        <sl-icon library="default" name="file-earmark-excel-fill" label="Export Standings"></sl-icon>
+                      <sl-button variant="success" size="small" outline pill label="export standings" @click=${this.exportStandings}>
+                        <sl-icon slot="prefix" library="default" name="file-earmark-excel-fill" label="Export Standings"></sl-icon>
+                        Export <span class="hide-at-800">Standings</span>
+                      </sl-button>
+                    </sl-tooltip>
+                    <sl-tooltip content="Clear Standings">
+                      <sl-button variant="warning" size="small" outline pill label="action to clear standings"  @click=${this.clearStandingsConfirmed}>
+                        <sl-icon slot="prefix" library="default" name="trash-fill" label="Clear Standings"></sl-icon>
+                        <span class="hide-at-800">Clear</span> Standings
                       </sl-button>
                     </sl-tooltip>
                     <sl-tooltip content="Clear All Data">
-                      <sl-button variant="warning" outline label="action to clear standings" @click=${this.clearStandingsConfirmed}>
-                        <sl-icon library="default" name="trash-fill" label="Clear Standings"></sl-icon>
+                      <sl-button variant="danger" size="small" outline pill label="launch a modal to confirm clearing of match data" @click=${this.openConfirmationModal}>
+                      <sl-icon slot="prefix" library="default" name="trash-fill" label="Clear All Data"></sl-icon>
+                      <span class="hide-at-800">Clear All</span> Data
                       </sl-button>
-                    </sl-tooltip>
-                    <sl-tooltip content="Clear Data">
-                      <sl-button variant="danger" outline label="launch a modal to confirm clearing of match data" @click=${this.openConfirmationModal}>
-                        <sl-icon library="default" name="exclamation-triangle-fill" label="Clear Data"></sl-icon>
-                       </sl-button>
                     </sl-tooltip>
                   </sl-button-group>
                 </div>
@@ -292,11 +300,12 @@ export class StandingsTracker extends LitElement {
           <sl-tab-panel name="history">
             <sl-card>
               <div slot="header">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; grid-gap: .5rem; width: 100%;">
                   Match History
                   <sl-tooltip content="Export Results">
-                    <sl-button variant="success" outline label="export match results" @click=${this.exportMatchResults}>
-                      <sl-icon library="default" name="file-earmark-excel-fill" label="Export Results"></sl-icon>
+                    <sl-button variant="success" size="small" outline pill label="export match results" @click=${this.exportMatchResults}>
+                      <sl-icon slot="prefix" library="default" name="file-earmark-excel-fill" label="Export Results"></sl-icon>
+                      Export <span class="hide-at-800">Standings</span>
                     </sl-button>
                   </sl-tooltip>
                 </div>
@@ -322,6 +331,9 @@ export class StandingsTracker extends LitElement {
         @close=${this.closeConfirmationModal}
       ></confirmation-modal>
       <style>
+        sl-details::part(base) {
+          border-radius: 1rem;
+        }
         sl-card {
           width: 100%;
         }

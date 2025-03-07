@@ -21,34 +21,40 @@ export class AppHome extends LitElement {
   static styles = [
     styles,
     css`
-      main, .main {
+      .main {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: flex-start;
         grid-gap: 1rem;
-        margin-top: 3rem;
       }
       sl-card::part(footer) {
         display: flex;
         justify-content: flex-end;
       }
       sl-card {
-        max-width: 350px;
+        max-width: 300px;
+      }
+      sl-card::part(base) {
+        background-color: var(--special-color-white);
+        min-height: 350px;
+        justify-content: space-between;
+        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.14), 0px 0px 2px 0px rgba(0, 0, 0, 0.12);
+        border-radius: 1rem 1rem 1rem 0;
       }
       sl-card [slot='header'] {
         font-weight: var(--sl-font-weight-bold);
       }
-      .card-header [slot='header'] {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
       .font-toggle {
         position: fixed;
-        bottom: 1rem;
-        right: 1rem;
-        z-index: 1000;
+        bottom: 4rem;
+        left: 1rem;
+        z-index: 10000;
+        padding: 0.5rem .5rem .75rem;
+        background-color: var(--sl-color-neutral-50);
+        color: var(--sl-color-neutral-900);
+        border: 1px solid var(--sl-color-primary-700);
+        border-radius: var(--sl-input-height-medium);
       }
   `];
 
@@ -69,7 +75,7 @@ export class AppHome extends LitElement {
     }
   }
 
-  customFont = '"Grenze Gotisch", sans-serif';
+  customFont = '"Oswald", sans-serif';
 
   updateSelectFonts() {
     const selects = this.shadowRoot?.querySelectorAll('sl-select');
@@ -88,17 +94,17 @@ export class AppHome extends LitElement {
     if (useDefault) {
       root.style.setProperty(
         '--font-family',
-        'Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
+        '"Grenze Gotisch", sans-serif'
       );
       root.style.setProperty(
         '--sl-font-sans',
-        'Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
+        '"Grenze Gotisch", sans-serif'
       );
-      root.style.setProperty('--sl-font-mono', '"Doto", SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace');
+      root.style.setProperty('--sl-font-mono', 'Menlo, monospace');
     } else {
       root.style.setProperty('--font-family', this.customFont);
       root.style.setProperty('--sl-font-sans', this.customFont);
-      root.style.setProperty('--sl-font-mono', '"Doto", SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace'); //replace with your monospace font.
+      root.style.setProperty('--sl-font-mono', 'Menlo, monospace'); //replace with your monospace font.
     }
 
     localStorage.setItem('useDefaultFont', useDefault.toString());
@@ -112,76 +118,107 @@ export class AppHome extends LitElement {
     if (storedFontPreference === 'true') {
       root.style.setProperty(
         '--font-family',
-        'Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
+        '"Grenze Gotisch", sans-serif'
       );
       root.style.setProperty(
         '--sl-font-sans',
-        'Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
+        '"Grenze Gotisch", sans-serif'
       );
-      root.style.setProperty('--sl-font-mono', '"Doto", SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace');
+      root.style.setProperty('--sl-font-mono', 'Menlo, monospace');
       (this.shadowRoot?.querySelector('sl-switch') as any).checked = true;
     } else {
       root.style.setProperty('--font-family', this.customFont);
       root.style.setProperty('--sl-font-sans', this.customFont);
-      root.style.setProperty('--sl-font-mono', '"Doto", SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace'); //replace with your monospace font.
+      root.style.setProperty('--sl-font-mono', 'Menlo, monospace'); //replace with your monospace font.
     }
     this.updateSelectFonts();
   }
 
   render() {
     return html`
-      <app-header ?enableHeader="${true}"></app-header>
+      <app-header ?enableShare="${true}"></app-header>
 
       <div class="font-toggle">
         <sl-switch size="medium" @sl-change=${this.toggleFont}>
-          Toggle system font
+          Toggle fancy font
         </sl-switch>
       </div>
 
-      <main class="main">
-        <section>
-          <sl-card class="two-item-footer ready">
-            <div slot="header">Game Tracker</div>
-            <p>For use with tracking games of Magic: The Gathering.</p>
-            <div slot="footer">
-              <sl-button href="${resolveRouterPath('game-tracker')}" variant="primary">Let's Play</sl-button>
-            </div>
-          </sl-card>
-        </section>
-        <section>
-          <sl-card class="card-header two-item-footer work-in-progress">
-            <div slot="header">
-              Match Tracking
-            </div>
-            <p>
-              A customized tracker for matches of 4 player games (such as Commander/EDH). While it does have a way to track standings, results, and general "gain/loss" each time the respective buttons are pressed, it is best used for individual matches.
-            </p>
-            <div slot="footer">
-              <sl-button href="${resolveRouterPath('counter')}" variant="warning" outline>Let's Play</sl-button>
-            </div>
-          </sl-card>
-        </section>
-        <section>
-          <sl-card>
-            <p>Learn about these apps, resources used with them, and any other information available. If you like what you see, click the "share" button at the top of the page!
-            </p>
-            <div slot="footer">
-              <sl-button href="${resolveRouterPath('about')}" variant="neutral" outline>About</sl-button>
-            </div>
-          </sl-card>
-        </section>
+      <main style="padding-bottom: 5rem;">
+        <sl-alert variant="primary" open closable>
+          <sl-icon slot="icon" name="info-circle"></sl-icon>
+          Select from one of the gaming trackers below. Each is designated by a ribbon indicating the expected use case.
+        </sl-alert>
+        <content class="main">
+          <section>
+            <sl-card style="position: relative;">
+              <div slot="header">Tournament Tracker</div>
+              <p>For use with tracking games of Magic: The Gathering.</p>
+              <div class="ribbon ribbon ribbon-top-right">
+                <span class="primary">
+                  Tournament
+                </span>
+              </div>
+              <div slot="footer">
+                <sl-button href="${resolveRouterPath('game-tracker')}" variant="primary" pill outline>Start</sl-button>
+              </div>
+            </sl-card>
+          </section>
+          <section>
+            <sl-card class="card-header two-item-footer" style="position: relative;">
+              <div slot="header">
+                EDH Event Tracking
+              </div>
+              <p>
+                A customized tracker for matches of 4 player games such as Commander/EDH.
+              </p>
+              <div class="ribbon ribbon ribbon-top-right">
+                <span class="edh">
+                  4 player
+                </span>
+              </div>
+              <div slot="footer">
+                <sl-button href="${resolveRouterPath('counter')}" variant="warning" pill outline>Start</sl-button>
+              </div>
+            </sl-card>
+          </section>
+          <section>
+            <sl-card class="card-header two-item-footer" style="position: relative;">
+              <div slot="header">
+                Head to Head Counter
+              </div>
+              <p>
+                A simplified life counter for head-to-head matches. Each "side" is designed to face the user to provide clearest view.
+              </p>
+              <div class="ribbon ribbon ribbon-top-right">
+                <span class="colorless">
+                  Coming Soon
+                </span>
+              </div>
+              <div slot="footer">
+                <sl-button href="${resolveRouterPath('counter')}" variant="neutral" pill disabled>Start</sl-button>
+              </div>
+            </sl-card>
+          </section>
+        </content>
       </main>
       <style>
-        sl-alert::part(base) {
-          background-color: var(--sl-color-warning-50);
-        }
         sl-card.work-in-progress::part(base) {
           border-color: var(--sl-color-warning-600);
         }
         sl-card.ready::part(base) {
           border-color: var(--sl-color-brand-600);
         }
+        sl-card::part(footer) {
+          padding: .5rem;
+        }
       </style>
+      <script>
+        const alert = document.querySelector('.alert-closable');
+        alert.addEventListener('sl-after-hide', () => {
+          setTimeout(() => (alert.open = true), 2000);
+        });
+      </script>
     `;
   }
 }

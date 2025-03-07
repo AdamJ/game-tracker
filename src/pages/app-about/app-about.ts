@@ -18,8 +18,8 @@ export class AppAbout extends LitElement {
 
   render() {
     return html`
-      <app-header ?enableBack="${true}"></app-header>
-      <main>
+      <app-header ?enableBack="${true}" ?enableShare=${true}></app-header>
+      <main style="padding-bottom: 5rem;">
         <h1>About</h1>
         <section style="display: flex; flex-direction: row; grid-gap: 1rem; align-items: flex-start; flex-wrap: wrap;">
           <sl-alert open>

@@ -1,28 +1,38 @@
 import { LitElement, css, html } from 'lit';
-import { property, customElement } from 'lit/decorators.js';
+import { property, customElement, state } from 'lit/decorators.js';
 import { resolveRouterPath } from '../router';
 
-// import '@shoelace-style/shoelace/dist/components/button/button.js';
-// import '@shoelace-style/shoelace/dist/components/icon/icon.js';
+import './about-modal.js';
+
 @customElement('app-header')
 export class AppHeader extends LitElement {
+  @state() aboutModalOpen = false;
   @property({ type: String }) title = 'adamjolicoeur.me';
 
   @property({ type: Boolean}) enableBack: boolean = false;
-  @property({ type: Boolean}) enableHeader: boolean = false;
+  @property({ type: Boolean}) enableShare: boolean = false;
+
+  openAboutModal() {
+    this.aboutModalOpen = true;
+  }
+
+  closeAboutModal() {
+    this.aboutModalOpen = false;
+  }
 
   static styles = css`
     nav {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
-      background: linear-gradient(var(--sl-color-neutral-200), var(--sl-color-neutral-50));
+      // background: linear-gradient(var(--sl-color-primary-200), var(--sl-color-primary-50));
+      background: var(--sl-color-primary-700);
       padding: .75rem;
       padding-top: .75rem;
 
       position: fixed;
       left: env(titlebar-area-x, 0);
-      top: env(titlebar-area-y, 0);
+      bottom: env(titlebar-area-y, 0);
       height: env(titlebar-area-height, 30px);
       width: env(titlebar-area-width, 100%);
       -webkit-app-region: drag;
@@ -52,28 +62,33 @@ export class AppHeader extends LitElement {
       <nav>
         <div id="back-button-block">
         ${this.enableBack ? html`
-          <sl-button variant="default" size="medium" outline pill aria-label="Back to start" label="Back to start" href="${resolveRouterPath()}">
+          <sl-button variant="primary" size="small" pill aria-label="Back to start" label="Back to start" href="${resolveRouterPath()}" style="position: absolute; left: 1rem;">
             Back
             <sl-icon slot="prefix" name="arrow-left"></sl-icon>
           </sl-button>
           ` : html
           ``
         }
-        ${this.enableHeader ? html`
+        ${this.enableShare ? html`
           ${'share' in navigator
             ? html`
-              <div style=" width: 25%; position: absolute; right: 1rem; top: 1rem;">
-                <sl-button slot="footer" variant="primary" size="small" outline @click="${this.share}">
+                <sl-button slot="footer" variant="default" size="small" pill @click="${this.share}">
                   <sl-icon slot="prefix" name="share"></sl-icon>
                     Share this site!
                 </sl-button>
-              </div>
             `: null
           }
+              <sl-button variant="default" size="small" pill @click="${this.openAboutModal}">About</sl-button>
         ` : html
         ``
         }
         </div>
+        <about-modal
+          .isOpen=${this.aboutModalOpen}
+          message="Learn about these apps, resources used with them, and any other information available. If you like what you see, click the "share" button at the top of the page!"
+          @confirm=${resolveRouterPath('about')}
+          @close=${this.closeAboutModal}
+        ></about-modal>
       </nav>
     `;
   }
