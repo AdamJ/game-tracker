@@ -81,6 +81,7 @@ export class MatchInput extends LitElement {
           @sl-change=${this.handlePlayer1Change}
           label="Player 1"
           clearable
+          pill
         >
           <sl-option value="">Select a player</sl-option>
           ${player1Options.map(
@@ -94,6 +95,7 @@ export class MatchInput extends LitElement {
           @sl-change=${this.handlePlayer2Change}
           label="Player 2"
           clearable
+          pill
         >
           <sl-option value="">Select a player</sl-option>
           ${player2Options.map(
@@ -114,26 +116,29 @@ export class MatchInput extends LitElement {
             value=${this.player1}
             ?disabled="${!playersSelected}"
             aria-label="select for player one"
+            pill
           >
             ${playerOneValue}
-          </sl-radio-button>
-          <sl-radio-button
-            value=${this.player2}
-            ?disabled="${!playersSelected}"
-            aria-label="select for player two"
-          >
-            ${playerTwoValue}
           </sl-radio-button>
           <sl-radio-button
             value="draw"
             ?disabled="${!playersSelected}"
             aria-label="select for a draw"
+            pill
           >
             Draw
           </sl-radio-button>
+          <sl-radio-button
+            value=${this.player2}
+            ?disabled="${!playersSelected}"
+            aria-label="select for player two"
+            pill
+          >
+            ${playerTwoValue}
+          </sl-radio-button>
         </sl-radio-group>
         <br />
-        <sl-button variant="success" outline @click=${this.recordMatch} ?disabled=${!playersSelected}>
+        <sl-button variant="success" outline pill @click=${this.recordMatch} ?disabled=${!playersSelected}>
           Record Result</sl-button>
       </form>
     `;

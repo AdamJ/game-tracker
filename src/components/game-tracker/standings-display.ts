@@ -1,6 +1,8 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
+import { styles as sharedStyles } from '../../styles/shared-styles';
+
 interface Standing {
   name: string;
   wins: number;
@@ -14,66 +16,37 @@ interface Standing {
 export class StandingsDisplay extends LitElement {
   @property({ type: Array }) standings: Standing[] = [];
 
+  static styles = [
+    sharedStyles,
+    css`
+  `];
+
   render() {
     return html`
-      <table>
+      <table class="border table-striped">
         <thead>
           <tr>
-            <th>Player</th>
+            <th style="text-align: left;">Player</th>
             <th>Wins</th>
             <th>Losses</th>
             <th>Draws</th>
             <th>Points</th>
-            <th>Win Percentage</th>
+            <th class="hide-at-800">Win Percentage</th>
           </tr>
         </thead>
         <tbody>
           ${this.standings.map(standing => html`
             <tr>
               <td>${standing.name}</td>
-              <td>${standing.wins}</td>
-              <td>${standing.losses}</td>
-              <td>${standing.draws}</td>
-              <td>${standing.points}</td>
-              <td>${standing.winPercentage || 0}</td>
+              <td style="text-align: center;">${standing.wins}</td>
+              <td style="text-align: center;">${standing.losses}</td>
+              <td style="text-align: center;">${standing.draws}</td>
+              <td style="text-align: center;">${standing.points}</td>
+              <td class="hide-at-800" style="text-align: center;">${standing.winPercentage || 0}</td>
             </tr>
           `)}
         </tbody>
       </table>
     `;
   }
-
-  static styles = css`
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    th, td {
-      border: 1px solid var(--sl-color-neutral-700);
-      padding: 8px;
-      text-align: left;
-    }
-
-    th {
-      background-color: var(--sl-color-neutral-200);
-    }
-    // @media (prefers-color-scheme: dark) {
-    //   sl-tab-panel sl-card::part(base), .card {
-    //     background-color: transparent !important;
-    //   }
-    //   th {
-    //     background-color: var(--sl-color-neutral-800);
-    //   }
-    //   tbody tr:nth-of-type(odd) {
-    //     background-color: var(--sl-color-neutral-600) !important;
-    //   }
-    //   tbody tr:nth-of-type(even) {
-    //     background-color: var(--sl-color-neutral-900) !important;
-    //   }
-    // }
-    tbody tr:nth-of-type(even) {
-      background-color: var(--sl-color-neutral-100);
-    }
-  `;
 }

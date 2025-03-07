@@ -8,9 +8,10 @@ export class AppDashboard extends LitElement {
   render() {
     return html`
       <app-header ?enableBack="${true}"></app-header>
-      <br/>
-      <h1>Game Tracker</h1>
-      <standings-tracker></standings-tracker>
+      <main style="padding-bottom: 5rem;">
+        <h1>Tournament Tracker</h1>
+        <standings-tracker></standings-tracker>
+      </main>
       <style>
         sl-button::part(prefix) sl-icon {
           font-size: 1.125rem;

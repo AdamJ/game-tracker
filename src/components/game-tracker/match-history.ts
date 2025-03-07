@@ -42,9 +42,13 @@ export class MatchHistory extends LitElement {
       return 'loss';
     }
   }
+
+
   render() {
+
     return html`
       <sl-menu>
+
         ${this.matchHistory.map(
           (match, index) => html`
             <sl-menu-item>
@@ -59,7 +63,7 @@ export class MatchHistory extends LitElement {
                 <sl-icon name="${this.getPlayerIconVariant(match.player1, match)}"></sl-icon>
                 <span style="padding-left: 2px;">${this.getPlayerResultString(match.player1, match)}</span>
               </sl-badge>
-                &nbsp; ${match.player1} vs
+                ${match.player1} vs
               <sl-badge
                 pill
                 variant="${this.getPlayerBadgeVariant(

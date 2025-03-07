@@ -21,10 +21,18 @@
     font-weight: 400;
     font-style: normal;
   }
-  --font-family: "Grenze Gotisch", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  --sl-font-sans: "Grenze Gotisch", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  --sl-font-mono: "Doto", SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
-  --sl-font-serif: "Grenze Gotisch", Georgia, "Times New Roman", serif;
+  .oswald {
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+  --font-family: "Oswald", sans-serif;
+  --sl-font-sans: "Oswald", sans-serif;
+  --sl-font-mono: "Oswald", sans-serif;
+  --sl-font-serif: "Oswald", sans-serif;
+  --special-color-white: #fff;
+  --special-color-black: #000;
   --sl-font-weight-light: 400;
   --sl-font-weight-normal: 400;
   --sl-font-weight-semibold: 700;
@@ -38,18 +46,18 @@
   --sl-font-size-2x-large: 2.25rem;
   --sl-font-size-3x-large: 3rem;
   --sl-font-size-4x-large: 4.5rem;
-  --ms-mana-b: #a7999e;
-  --ms-mana-b-bg: #aca29a;
-  --ms-mana-c: #d0c6bb;
+  /* --ms-mana-b: #a7999e; */
+  --ms-mana-b-bg: #383431;
+  /* --ms-mana-c: #d0c6bb; */
   --ms-mana-c-bg: #beb9b2;
-  --ms-mana-g: #9fcba6;
-  --ms-mana-g-bg: #93b483;
-  --ms-mana-r: #f19b79;
-  --ms-mana-r-bg: #db8664;
-  --ms-mana-u: #bcdaf7;
-  --ms-mana-u-bg: #b5cde3;
-  --ms-mana-w: #fdfbce;
-  --ms-mana-w-bg: #f0f2c0;
+  /* --ms-mana-g: #9fcba6; */
+  --ms-mana-g-bg: #3d684b;
+  /* --ms-mana-r: #f19b79; */
+  --ms-mana-r-bg: #c6553e;
+  /* --ms-mana-u: #bcdaf7; */
+  --ms-mana-u-bg: #3b6ba0;
+  /* --ms-mana-w: #fdfbce; */
+  --ms-mana-w-bg: #fff;
   /* @media (prefers-color-scheme: dark) {
     --ms-mana-b: #574f52;
     --ms-mana-b-bg: #5a5450;
@@ -230,7 +238,13 @@ html, body {
   font-weight: var(--sl-font-weight-normal);
   font-size: 18px;
   padding: 0 1rem;
-  height: calc(100vh - 2rem);
+  /* height: calc(100vh - 3rem); */
+  /* height: 100vh; */
+}
+@media (max-width: 800px) {
+  html, body, .main {
+    padding: 0 !important;
+  }
 }
 
 app-index {
