@@ -1,4 +1,4 @@
-import{i as n,r as d,x as c,s as p,t as h}from"./index-fS9Hyv-A.js";import"https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.0/cdn/components/format-date/format-date.js";const m=n`
+import{i as n,r as d,x as c,s as p,t as h}from"./index-D6hjxC-e.js";import"https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.0/cdn/components/format-date/format-date.js";const m=n`
   .scorecard {
     max-width: 500px;
   }
@@ -6,8 +6,8 @@ import{i as n,r as d,x as c,s as p,t as h}from"./index-fS9Hyv-A.js";import"https
     background-color: var(--sl-color-primary-50);
   }
 `;var f=Object.getOwnPropertyDescriptor,w=(r,s,l,i)=>{for(var a=i>1?void 0:i?f(s,l):s,t=r.length-1,o;t>=0;t--)(o=r[t])&&(a=o(a)||a);return a};let e=class extends d{render(){return c`
-      <app-header ?enableBack="${!0}"></app-header>
-      <main>
+      <app-header ?enableBack="${!0}" ?enableShare=${!0}></app-header>
+      <main style="padding-bottom: 5rem;">
         <h1>About</h1>
         <section style="display: flex; flex-direction: row; grid-gap: 1rem; align-items: flex-start; flex-wrap: wrap;">
           <sl-alert open>
@@ -91,4 +91,4 @@ import{i as n,r as d,x as c,s as p,t as h}from"./index-fS9Hyv-A.js";import"https
         }
       </style>
     `}};e.styles=[p,m];e=w([h("app-about")],e);export{e as AppAbout};
-//# sourceMappingURL=app-about-mbdtWU-z.js.map
+//# sourceMappingURL=app-about-XAjcDvi2.js.map
