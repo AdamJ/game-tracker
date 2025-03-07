@@ -20,7 +20,8 @@
       "isolatedModules": true,
       "types": [
           "vite-plugin-pwa/client",
-          "vite/client"
+          "vite/client",
+          "unplugin-fonts/client"
       ]
   },
   "include": ["src/**/*.ts", "router.d.ts"],
