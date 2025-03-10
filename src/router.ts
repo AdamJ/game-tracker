@@ -61,6 +61,15 @@ export const router = new Router({
           ()=>{console.error('Failed to load app-standings');}
         ],
         render: () => html`<app-standings></app-standings>`
+      },
+      {
+        path: resolveRouterPath('pvp-tracker'),
+        title: 'PVP Tracker',
+        plugins: [
+          lazy(() => import('./pages/app-pvp/app-pvp.js')),
+          ()=>{console.error('Failed to load pvp-tracker');}
+        ],
+        render: () => html`<app-pvp></app-pvp>`
       }
     ]
   });
