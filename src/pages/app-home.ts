@@ -186,10 +186,10 @@ export class AppHome extends LitElement {
           <section>
             <sl-card class="card-header two-item-footer" style="position: relative;">
               <div slot="header">
-                Head to Head Counter
+                PVP Counter
               </div>
               <p>
-                A simplified life counter for head-to-head matches. Each "side" is designed to face the user to provide clearest view.
+                A simplified life counter for PVP (head-to-head) matches. Each "side" is designed to face the user to provide clearest view.
               </p>
               <div class="ribbon ribbon ribbon-top-right">
                 <span class="colorless">
@@ -197,7 +197,7 @@ export class AppHome extends LitElement {
                 </span>
               </div>
               <div slot="footer">
-                <sl-button href="${resolveRouterPath('counter')}" variant="neutral" pill disabled>Start</sl-button>
+                <sl-button href="${resolveRouterPath('pvp-tracker')}" variant="neutral" pill>Start</sl-button>
               </div>
             </sl-card>
           </section>

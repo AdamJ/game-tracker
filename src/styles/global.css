@@ -4,7 +4,10 @@
   Check here https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties for more info on using CSS variables.
 */
 
-@import url('https://early.webawesome.com/webawesome@3.0.0-alpha.11/dist/styles/color/natural.css');
+/* @import url('https://early.webawesome.com/webawesome@3.0.0-alpha.11/dist/styles/color/natural.css'); */
+@import url('https://early.webawesome.com/webawesome@3.0.0-alpha.11/dist/styles/themes/matter.css');
+@import url('https://early.webawesome.com/webawesome@3.0.0-alpha.11/dist/styles/color/vogue.css');
+@import url('https://early.webawesome.com/webawesome@3.0.0-alpha.11/dist/styles/brand/blue.css');
 
 :root {
   .grenze-gotisch {
