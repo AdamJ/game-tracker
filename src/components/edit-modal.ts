@@ -88,18 +88,18 @@ export class EditModal extends LitElement {
             ${this.match.player1}
           </sl-radio-button>
           <sl-radio-button
-            value=${this.match.player2}
-          >
-            ${this.match.player2}
-          </sl-radio-button>
-          <sl-radio-button
             value="draw"
           >
             Draw
           </sl-radio-button>
+          <sl-radio-button
+            value=${this.match.player2}
+          >
+            ${this.match.player2}
+          </sl-radio-button>
         </sl-radio-group>
         </div>
-        <sl-button slot="footer" variant="neutral" outline @click=${this.close}>
+        <sl-button slot="footer" variant="default" outline @click=${this.close}>
           Cancel
         </sl-button>
         <sl-button slot="footer" variant="success" @click=${this.confirm}>

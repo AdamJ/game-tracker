@@ -389,12 +389,12 @@ export class MatchTracker extends LitElement {
       <main style="padding-bottom: 5rem;">
       <div style="display: flex; flex-direction: column; grid-gap: 1rem;">
         <sl-tab-group>
-          <sl-tab slot="nav" panel="total" class="hide-at-800">Total</sl-tab>
+          <sl-tab slot="nav" panel="tracker" class="hide-at-800">Tracker</sl-tab>
           <sl-tab slot="nav" panel="standings" class="hide-at-800">Standings</sl-tab>
           <sl-tab slot="nav" panel="results" class="hide-at-800">Results</sl-tab>
           <sl-tab slot="nav" panel="action-log" class="hide-at-800">Log</sl-tab>
           <sl-tab slot="nav" panel="setup" class="hide-at-800">Setup</sl-tab>
-          <sl-tab-panel name="total">
+          <sl-tab-panel name="tracker">
             <div style="display: flex; flex-direction: row;justify-content: around; flex-wrap: wrap;">
               <div style="width: 50%;">
                 <sl-card class="player-one" id="topLeft">
@@ -602,20 +602,22 @@ export class MatchTracker extends LitElement {
             </sl-menu>
           </sl-tab-panel>
           <sl-tab-panel name="results">
-            <sl-button-group label="Alignment">
-              <sl-button size="medium" pill class="player-one" @click=${() => this.recordResult(1)}>
-                Winner
-              </sl-button>
-              <sl-button size="medium" pill class="player-two" @click=${() => this.recordResult(2)}>
-                Winner
-              </sl-button>
-              <sl-button size="medium" pill class="player-three" @click=${() => this.recordResult(3)}>
-                Winner
-              </sl-button>
-              <sl-button size="medium" pill class="player-four" @click=${() => this.recordResult(4)}>
-                Winner
-              </sl-button>
-            </sl-button-group>
+            <div style="display: flex; justify-content: flex-end; align-items: center;">
+              <sl-button-group label="Alignment">
+                <sl-button size="medium" pill class="player-one-winner" @click=${() => this.recordResult(1)}>
+                  Winner
+                </sl-button>
+                <sl-button size="medium" pill class="player-two-winner" @click=${() => this.recordResult(2)}>
+                  Winner
+                </sl-button>
+                <sl-button size="medium" pill class="player-three-winner" @click=${() => this.recordResult(3)}>
+                  Winner
+                </sl-button>
+                <sl-button size="medium" pill class="player-four-winner" @click=${() => this.recordResult(4)}>
+                  Winner
+                </sl-button>
+              </sl-button-group>
+            </div>
             <table class="border table-striped">
               <thead>
                 <tr>

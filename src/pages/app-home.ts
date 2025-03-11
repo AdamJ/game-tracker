@@ -12,6 +12,7 @@ import '@shoelace-style/shoelace/dist/components/switch/switch.js';
 import { sharedStyles } from '../styles/shared-styles';
 import { shoelaceStyles } from '../styles/shoelace-styles';
 import { ribbonStyles } from '../styles/ribbon-styles';
+import { alertStyles } from '../styles/alert-styles';
 
 @customElement('app-home')
 export class AppHome extends LitElement {
@@ -24,6 +25,7 @@ export class AppHome extends LitElement {
     sharedStyles,
     shoelaceStyles,
     ribbonStyles,
+    alertStyles,
     css`
       .main {
         display: flex;
@@ -196,7 +198,7 @@ export class AppHome extends LitElement {
               </p>
               <div class="ribbon ribbon ribbon-top-right">
                 <span class="colorless">
-                  Coming Soon
+                  1 v 1
                 </span>
               </div>
               <div slot="footer">

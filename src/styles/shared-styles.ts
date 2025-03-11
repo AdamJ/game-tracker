@@ -3,7 +3,20 @@ import { css } from 'lit';
 // these styles can be imported from any component
 // for an example of how to use this, check /pages/about-about.ts
 export const sharedStyles = css`
-
+  main {
+    padding: .5rem;
+  }
+  a {
+    color: var(--sl-color-primary-500);
+  }
+  a:hover,
+  a:active,
+  a:focus {
+    color: var(--sl-color-primary-700);
+  }
+  a:visited {
+    color: var(--sl-color-violet-800);
+  }
   .main {
     padding: .75rem;
   }

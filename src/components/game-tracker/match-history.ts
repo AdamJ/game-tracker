@@ -49,12 +49,10 @@ export class MatchHistory extends LitElement {
     }
   }
 
-
   render() {
 
     return html`
       <sl-menu>
-
         ${this.matchHistory.map(
           (match, index) => html`
             <sl-menu-item>
@@ -64,27 +62,23 @@ export class MatchHistory extends LitElement {
                   match.player1,
                   match
                 )}"
-                style="width: 3rem;"
               >
-                <sl-icon name="${this.getPlayerIconVariant(match.player1, match)}"></sl-icon>
-                <span style="padding-left: 2px;">${this.getPlayerResultString(match.player1, match)}</span>
+                <span>${this.getPlayerResultString(match.player1, match)}</span>
               </sl-badge>
-                ${match.player1} vs
+                ${match.player1} vs ${match.player2}
               <sl-badge
                 pill
                 variant="${this.getPlayerBadgeVariant(
                   match.player2,
                   match
                 )}"
-                style="width: 3rem;"
               >
-              <sl-icon name="${this.getPlayerIconVariant(match.player2, match)}"></sl-icon>
-                <span style="padding-left: 2px;">${this.getPlayerResultString(match.player2, match)}</span>
+                <span>${this.getPlayerResultString(match.player2, match)}</span>
               </sl-badge>
-                 ${match.player2}
               <sl-button
                 slot="suffix"
-                variant="neutral"
+                variant="default"
+                outline
                 @click=${() => this.editMatch(index)}
                 >Edit</sl-button
               >

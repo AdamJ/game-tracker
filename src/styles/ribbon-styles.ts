@@ -29,19 +29,19 @@ export const ribbonStyles = css`
     text-align: center;
   }
   .ribbon span.primary {
-    background-color: var(--ms-mana-u-bg);
+    background-color: var(--sl-color-primary-200);
   }
   .ribbon span.neutral {
-    background-color: var(--ms-mana-b-bg);
+    background-color: var(--sl-color-neutral-200);
   }
   .ribbon span.danger {
-    background-color: var(--ms-mana-r-bg);
+    background-color: var(--sl-color-danger-200);
   }
   .ribbon span.warning {
     background-color: var(--sl-color-warning-600);
   }
   .ribbon span.colorless {
-    background-color: #beb9b2;
+    background-color: var(--sl-color-neutral-200);
   }
   .ribbon span.edh {
     // background: linear-gradient(112deg, var(--ms-mana-w-bg) 0%, var(--ms-mana-u-bg) 25%, var(--ms-mana-b-bg) 50%, var(--ms-mana-r-bg) 75%, var(--ms-mana-g-bg) 100%);
