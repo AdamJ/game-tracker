@@ -1,4 +1,4 @@
-import{e as Ze,i as A,d as I,S as $,x as g,f as Bt,g as st,_ as i,h as k,b as C,n as o,j as Yt,w as x,F as Mt,H as kt,k as T,o as L,l as Rt,m as Ce,p as W,L as R,q as ft,u as at,v as nt,y as ne,z as Xt,A as _e,B as Je,C as $e,E as ce,D as Se,T as Ue,G as ze,I as he,J as At,K as ts,M as es,N as ss,O as is,P as as,Q as rs,R as os,U as ls,V as fe,W as me,X as ns,Y as cs,Z as ds,$ as Ee,a as hs}from"./index-BXgxrI9R.js";/**
+import{e as Ze,i as A,d as I,S as $,x as g,f as Bt,g as st,_ as i,h as k,b as C,n as o,j as Yt,w as x,F as Mt,H as kt,k as T,o as L,l as Rt,m as Ce,p as W,L as R,q as ft,u as at,v as nt,y as ne,z as Xt,A as _e,B as Je,C as $e,E as ce,D as Se,T as Ue,G as ze,I as he,J as At,K as ts,M as es,N as ss,O as is,P as as,Q as rs,R as os,U as ls,V as fe,W as me,X as ns,Y as cs,Z as ds,$ as Ee,a as hs}from"./index-Bzm2RTzS.js";/**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
@@ -5279,4 +5279,4 @@ import{e as Ze,i as A,d as I,S as $,x as g,f as Bt,g as st,_ as i,h as k,b as C,
             `:""}
       </div>
     `}};xt.styles=[I,Cr];xt.dependencies={"sl-icon":st};i([k(".animated-image__animated")],xt.prototype,"animatedImage",2);i([C()],xt.prototype,"frozenFrame",2);i([C()],xt.prototype,"isLoaded",2);i([o()],xt.prototype,"src",2);i([o()],xt.prototype,"alt",2);i([o({type:Boolean,reflect:!0})],xt.prototype,"play",2);i([x("play",{waitUntilFirstUpdate:!0})],xt.prototype,"handlePlayChange",1);i([x("src")],xt.prototype,"handleSrcChange",1);xt.define("sl-animated-image");hs("mana",{resolver:t=>`https://cdn.jsdelivr.net/npm/mana-font@latest/svg/${t.replace(/^ms-/,"")}.svg`,mutator:t=>{t.setAttribute("fill","currentColor"),t.setAttribute("width","16px"),t.setAttribute("height","16px")}});
-//# sourceMappingURL=mana-icon-Dyz4Zc6B.js.map
+//# sourceMappingURL=mana-icon-BcFlKUxF.js.map

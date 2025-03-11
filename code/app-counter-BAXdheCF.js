@@ -1,4 +1,4 @@
-import{a as Zt,i as Re,s as er,n as Z,b as Y,r as Ae,E as Xe,x as j,t as Te,c as tr}from"./index-BXgxrI9R.js";import"./mana-icon-Dyz4Zc6B.js";Zt("keyrune",{resolver:l=>`https://cdn.jsdelivr.net/npm/keyrune@latest/svg/${l.replace(/^ss-/,"")}.svg`,mutator:l=>{l.setAttribute("fill","currentColor"),l.setAttribute("width","1rem"),l.setAttribute("height","1rem")}});var ue=typeof globalThis<"u"?globalThis:typeof window<"u"?window:typeof global<"u"?global:typeof self<"u"?self:{};function rr(l){return l&&l.__esModule&&Object.prototype.hasOwnProperty.call(l,"default")?l.default:l}function fe(l){throw new Error('Could not dynamically require "'+l+'". Please configure the dynamicRequireTargets or/and ignoreDynamicRequires option of @rollup/plugin-commonjs appropriately for this require call to work.')}var Ie={exports:{}};/*!
+import{a as Zt,i as Re,s as er,n as Z,b as Y,r as Ae,E as Xe,x as j,t as Te,c as tr}from"./index-Bzm2RTzS.js";import"./mana-icon-BcFlKUxF.js";Zt("keyrune",{resolver:l=>`https://cdn.jsdelivr.net/npm/keyrune@latest/svg/${l.replace(/^ss-/,"")}.svg`,mutator:l=>{l.setAttribute("fill","currentColor"),l.setAttribute("width","1rem"),l.setAttribute("height","1rem")}});var ue=typeof globalThis<"u"?globalThis:typeof window<"u"?window:typeof global<"u"?global:typeof self<"u"?self:{};function rr(l){return l&&l.__esModule&&Object.prototype.hasOwnProperty.call(l,"default")?l.default:l}function fe(l){throw new Error('Could not dynamically require "'+l+'". Please configure the dynamicRequireTargets or/and ignoreDynamicRequires option of @rollup/plugin-commonjs appropriately for this require call to work.')}var Ie={exports:{}};/*!
     localForage -- Offline Storage, Improved
     Version 1.10.0
     https://localforage.github.io/localForage
@@ -421,4 +421,4 @@ import{a as Zt,i as Re,s as er,n as Z,b as Y,r as Ae,E as Xe,x as j,t as Te,c as
       z-index: 1000;
     }
   `;Ze([Y()],de.prototype,"fabDrawerOpen",2);de=Ze([Te("app-counter")],de);export{de as AppCounter};
-//# sourceMappingURL=app-counter-CbpGSE_W.js.map
+//# sourceMappingURL=app-counter-BAXdheCF.js.map

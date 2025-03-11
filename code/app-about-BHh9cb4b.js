@@ -1,4 +1,4 @@
-import{i as n,r as d,x as c,s as p,t as h}from"./index-BXgxrI9R.js";import"https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.0/cdn/components/format-date/format-date.js";const m=n`
+import{i as n,r as d,x as c,s as p,t as h}from"./index-Bzm2RTzS.js";import"https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.0/cdn/components/format-date/format-date.js";const m=n`
   .scorecard {
     max-width: 500px;
   }
@@ -91,4 +91,4 @@ import{i as n,r as d,x as c,s as p,t as h}from"./index-BXgxrI9R.js";import"https
         }
       </style>
     `}};e.styles=[p,m];e=w([h("app-about")],e);export{e as AppAbout};
-//# sourceMappingURL=app-about-BLaDQX7G.js.map
+//# sourceMappingURL=app-about-BHh9cb4b.js.map
