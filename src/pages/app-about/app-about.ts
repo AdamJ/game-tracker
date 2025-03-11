@@ -3,9 +3,9 @@ import { customElement } from 'lit/decorators.js';
 
 // You can also import styles from another file
 // if you prefer to keep your CSS separate from your component
-import { styles } from './about-styles';
+import { aboutStyles } from './about-styles';
 
-import { styles as sharedStyles } from '../../styles/shared-styles'
+import { sharedStyles } from '../../styles/shared-styles'
 
 import "https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.0/cdn/components/format-date/format-date.js";
 
@@ -13,7 +13,7 @@ import "https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.0/cdn/compone
 export class AppAbout extends LitElement {
   static styles = [
     sharedStyles,
-    styles
+    aboutStyles
   ]
 
   render() {

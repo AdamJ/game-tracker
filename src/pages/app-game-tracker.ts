@@ -9,7 +9,6 @@ export class AppDashboard extends LitElement {
     return html`
       <app-header ?enableBack="${true}"></app-header>
       <main style="padding-bottom: 5rem;">
-        <h1>Tournament Tracker</h1>
         <standings-tracker></standings-tracker>
       </main>
       <style>

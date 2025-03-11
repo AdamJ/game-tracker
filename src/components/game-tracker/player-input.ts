@@ -1,11 +1,18 @@
-import { LitElement, html } from 'lit';
+import { LitElement, html, css } from 'lit';
 import { state, customElement, property } from 'lit/decorators.js';
 
-import { styles as sharedStyles } from '../../styles/shared-styles';
+import { sharedStyles } from '../../styles/shared-styles';
+import { shoelaceStyles } from '../../styles/shoelace-styles';
 
 @customElement('player-input')
 export class PlayerInput extends LitElement {
-  static styles = sharedStyles;
+  static styles = [
+    sharedStyles,
+    shoelaceStyles,
+    css `
+
+    `
+  ]
 
   @property({ type: Array }) players: string[] = [];
   @state() newPlayer: string = '';
@@ -63,57 +70,59 @@ export class PlayerInput extends LitElement {
 
   render() {
     return html`
-      <sl-card>
-        <div slot="header">
-          <div style="display: flex; justify-content: space-between; align-items: center;">
-            Player Setup
-            <sl-tooltip content="Clear Player List">
-              <sl-button label="clear player list" variant="warning" size="small" pill outline @click=${this.clearAllPlayers}>
-                <sl-icon slot="prefix" library="default" name="trash-fill" label="Clear Standings">
-                </sl-icon>
-                <span class="hide-at-800">Clear</span> Players
-              </sl-button>
-            </sl-tooltip>
-          </div>
-        </div>
-        <div style="display: flex; flex-direction: row; grid-gap: .5rem; justify-content: space-between; flex-wrap: wrap;">
-          <form class="input-validation-custom">
-            <sl-input
-              .value=${this.newPlayer}
-              @sl-input=${this.handleInputChange}
-              spellcheck="true"
-              name="name"
-              label="Name"
-              pill
-              required
-              clearable
-              autocomplete="off"
-              help-text=${this.errorMessage}
-              class="player-input"
-              style="width: 25rem;"
-            >
-              <sl-icon library="default" name="person" slot="prefix"></sl-icon>
-            </sl-input>
-            <sl-button type="button" variant="primary" pill outline @click=${this.addPlayer} class="larger-icon">
-              <sl-icon library="default" slot="prefix" name="person-fill-add"></sl-icon>
-              Add Player
+      <div slot="header">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          Player Setup
+          <sl-tooltip content="Clear Player List">
+            <sl-button label="clear player list" variant="warning" size="small" pill @click=${this.clearAllPlayers}>
+              <sl-icon slot="prefix" library="default" name="trash-fill" label="Clear Standings">
+              </sl-icon>
+              <span class="hide-at-800">Clear</span> Players
             </sl-button>
-          </form>
-          <div>
-            <p style="margin-top: .25rem; margin-bottom: .25rem;">
-              <strong>Players</strong>
-            </p>
-            <div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: flex-start; grid-gap: .5rem; width: 100%;">
-              ${this.players.map(player => html`
-                <sl-tag removable @sl-remove=${() => this.removePlayer(player)}>
-                  ${player}
-                </sl-tag>
-              `)}
-            </div>
+          </sl-tooltip>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: row; grid-gap: .5rem; justify-content: space-between; flex-wrap: wrap;">
+        <form class="input-validation-custom">
+          <sl-input
+            .value=${this.newPlayer}
+            @sl-input=${this.handleInputChange}
+            spellcheck="true"
+            name="name"
+            label="Name"
+            pill
+            required
+            clearable
+            autocomplete="off"
+            help-text=${this.errorMessage}
+            class="player-input"
+            style="width: 25rem;"
+          >
+            <sl-icon library="default" name="person" slot="prefix"></sl-icon>
+          </sl-input>
+          <sl-button type="button" variant="primary" pill @click=${this.addPlayer} class="larger-icon">
+            <sl-icon library="default" slot="prefix" name="person-fill-add"></sl-icon>
+            Add Player
+          </sl-button>
+        </form>
+        <div>
+          <p style="margin-top: .25rem; margin-bottom: .25rem;">
+            <strong>Players</strong>
+          </p>
+          <div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: flex-start; grid-gap: .5rem; width: 100%;">
+            ${this.players.map(player => html`
+              <sl-tag removable @sl-remove=${() => this.removePlayer(player)}>
+                ${player}
+              </sl-tag>
+            `)}
           </div>
         </div>
-      </sl-card>
+      </div>
       <style>
+        sl-tab-panel {
+          margin-left: 1rem;
+          margin-right: 1rem;
+        }
         sl-card {
           width: 100%;
         }

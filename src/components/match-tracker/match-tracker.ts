@@ -4,9 +4,13 @@ import localForage from 'localforage';
 import '../icons/mana-icon';
 import '../icons/mtg-symbols';
 import '@shoelace-style/shoelace/dist/components/button/button.js';
+import '@shoelace-style/shoelace/dist/components/card/card.js';
 
-import { styles as sharedStyles } from '../../styles/shared-styles';
-import { styles } from '../../pages/app-counter/counter-styles';
+import { sharedStyles } from '../../styles/shared-styles';
+import { shoelaceStyles } from '../../styles/shoelace-styles';
+import { counterStyles } from '../../pages/app-counter/counter-styles';
+import { tableStyles } from '../../styles/table-styles';
+import { manaStyles } from '../../styles/mana-styles';
 
 interface Player {
   life: number;
@@ -71,25 +75,11 @@ export class MatchTracker extends LitElement {
 
   static styles = [
     sharedStyles,
-    styles,
+    shoelaceStyles,
+    tableStyles,
+    counterStyles,
+    manaStyles,
     css`
-      table thead tr th {
-        border-bottom: 1px solid var(--sl-color-neutral-500);
-        padding: .5rem;
-        background-color: inherit;
-        border-bottom-width: 1px;
-      }
-      .table-striped tbody tr:nth-of-type(even)>* {
-        background-color: var(--sl-color-neutral-100) !important;
-      }
-      .table-striped {
-          width: 100%;
-          border-collapse: collapse;
-      }
-      .table-striped td, .table-striped th {
-          padding: 8px;
-          text-align: left;
-      }
       .form-2-column {
         display: flex;
         flex-direction: column;
@@ -97,6 +87,8 @@ export class MatchTracker extends LitElement {
       }
       .form-player-input {
         width: 100%;
+        margin-right: 1rem;
+        margin-left: 1rem;
       }
       @media (min-width: 1000px) {
         .form-2-column {
@@ -399,7 +391,7 @@ export class MatchTracker extends LitElement {
         <sl-tab-group>
           <sl-tab slot="nav" panel="total" class="hide-at-800">Total</sl-tab>
           <sl-tab slot="nav" panel="standings" class="hide-at-800">Standings</sl-tab>
-          <sl-tab slot="nav" panel="results"class="hide-at-800">Results</sl-tab>
+          <sl-tab slot="nav" panel="results" class="hide-at-800">Results</sl-tab>
           <sl-tab slot="nav" panel="action-log" class="hide-at-800">Log</sl-tab>
           <sl-tab slot="nav" panel="setup" class="hide-at-800">Setup</sl-tab>
           <sl-tab-panel name="total">
@@ -596,7 +588,7 @@ export class MatchTracker extends LitElement {
               </form>
             </div>
             <div style="display: flex; flex-direction: row; justify-content: center; padding-top: 1rem;">
-              <sl-button variant="success" outline pill style="width: 25%;" @click=${this.exportToCSV}>
+              <sl-button variant="success" pill style="width: 25%;" @click=${this.exportToCSV}>
                 Export to CSV
                 <sl-icon name="file-earmark-excel-fill" slot="suffix"></sl-icon>
               </sl-button>

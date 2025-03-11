@@ -10,9 +10,10 @@ import '@shoelace-style/shoelace/dist/components/drawer/drawer.js';
 import '@shoelace-style/shoelace/dist/components/tree/tree';
 import '@shoelace-style/shoelace/dist/components/tree-item/tree-item';
 
-import { styles as sharedStyles } from '../../styles/shared-styles';
-import { styles } from '../../pages/app-counter/counter-styles';
-import { styles as pvpStyles } from './pvp-styles';
+import { sharedStyles } from '../../styles/shared-styles';
+import { shoelaceStyles } from '../../styles/shoelace-styles';
+import { counterStyles } from '../../pages/app-counter/counter-styles';
+import { pvpStyles } from './pvp-styles';
 
 interface Side {
   points: number;
@@ -70,7 +71,8 @@ export class MatchTracker extends LitElement {
 
   static styles = [
     sharedStyles,
-    styles,
+    shoelaceStyles,
+    counterStyles,
     pvpStyles,
     css`
       @media screen and (min-width: 600px) {

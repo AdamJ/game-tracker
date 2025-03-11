@@ -1,7 +1,9 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
-import { styles as sharedStyles } from '../../styles/shared-styles';
+import { sharedStyles } from '../../styles/shared-styles';
+import { shoelaceStyles } from '../../styles/shoelace-styles';
+import { tableStyles } from '../../styles/table-styles';
 
 interface Standing {
   name: string;
@@ -18,6 +20,8 @@ export class StandingsDisplay extends LitElement {
 
   static styles = [
     sharedStyles,
+    shoelaceStyles,
+    tableStyles,
     css`
   `];
 

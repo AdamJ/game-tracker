@@ -9,7 +9,9 @@ import '@shoelace-style/shoelace/dist/components/tooltip/tooltip.js';
 import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 import '@shoelace-style/shoelace/dist/components/switch/switch.js';
 
-import { styles } from '../styles/shared-styles';
+import { sharedStyles } from '../styles/shared-styles';
+import { shoelaceStyles } from '../styles/shoelace-styles';
+import { ribbonStyles } from '../styles/ribbon-styles';
 
 @customElement('app-home')
 export class AppHome extends LitElement {
@@ -19,7 +21,9 @@ export class AppHome extends LitElement {
   @property() message = 'Welcome!';
 
   static styles = [
-    styles,
+    sharedStyles,
+    shoelaceStyles,
+    ribbonStyles,
     css`
       .main {
         display: flex;
@@ -36,7 +40,6 @@ export class AppHome extends LitElement {
         max-width: 300px;
       }
       sl-card::part(base) {
-        background-color: var(--special-color-white);
         min-height: 350px;
         justify-content: space-between;
         box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.14), 0px 0px 2px 0px rgba(0, 0, 0, 0.12);
@@ -161,7 +164,7 @@ export class AppHome extends LitElement {
                 </span>
               </div>
               <div slot="footer">
-                <sl-button href="${resolveRouterPath('game-tracker')}" variant="primary" pill outline>Start</sl-button>
+                <sl-button href="${resolveRouterPath('game-tracker')}" variant="primary" pill>Start</sl-button>
               </div>
             </sl-card>
           </section>
@@ -179,7 +182,7 @@ export class AppHome extends LitElement {
                 </span>
               </div>
               <div slot="footer">
-                <sl-button href="${resolveRouterPath('counter')}" variant="warning" pill outline>Start</sl-button>
+                <sl-button href="${resolveRouterPath('counter')}" variant="warning" pill>Start</sl-button>
               </div>
             </sl-card>
           </section>

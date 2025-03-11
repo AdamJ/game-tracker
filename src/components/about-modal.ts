@@ -5,10 +5,16 @@ import { resolveRouterPath } from '../router';
 import '@shoelace-style/shoelace/dist/components/dialog/dialog.js';
 import '@shoelace-style/shoelace/dist/components/button/button.js';
 
+import { shoelaceStyles } from '../styles/shoelace-styles';
+
 @customElement('about-modal')
 export class AboutModal extends LitElement {
   @property({ type: Boolean }) isOpen: boolean = false;
   @property({ type: String }) message: string = '';
+
+  static styles = [
+    shoelaceStyles
+  ]
 
   open(message: string) {
     this.message = message;

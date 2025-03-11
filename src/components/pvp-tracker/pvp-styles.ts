@@ -1,6 +1,6 @@
 import { css } from 'lit';
 
-export const styles = css`
+export const pvpStyles = css`
   @media screen and (min-width: 600px) {
     .pvp-tracker {
       display: flex;
