@@ -147,7 +147,8 @@ export class AppHome extends LitElement {
       <main style="padding-bottom: 5rem;">
         <sl-alert variant="primary" open closable>
           <sl-icon slot="icon" name="info-circle"></sl-icon>
-          Select from one of the gaming trackers below. Each is designated by a ribbon indicating the expected use case.
+          <strong>Looking for my portfolio site?</strong><br />
+          Visit <a href="https://www.adamjolicoeur.com" target="blank" alt="Link to adamjolicoeur.com">www.adamjolicoeur.com</a> to view all of my designs, demos, and more!
         </sl-alert>
         <content class="main">
           <section>
