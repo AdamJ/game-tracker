@@ -2,6 +2,9 @@ import { LitElement, html } from 'lit';
 import { state, customElement, property } from 'lit/decorators.js';
 import '../icons/mana-icon.js';
 
+import { shoelaceStyles } from '../../styles/shoelace-styles.js';
+import { gameTrackerStyles } from './game-tracker-styles.js';
+
 interface Player {
   name: string;
 }
@@ -12,6 +15,11 @@ export class MatchInput extends LitElement {
   @state() player1: string = ''; // Initialize to empty strings
   @state() player2: string = ''; // Initialize to empty strings
   @state() winner: string | null = 'draw'; // Initialize to "draw"
+
+  static styles = [
+    shoelaceStyles,
+    gameTrackerStyles
+  ]
 
   recordMatch() {
     if (this.player1 && this.player2 && this.player1 !== this.player2) {
@@ -82,6 +90,7 @@ export class MatchInput extends LitElement {
           label="Player 1"
           clearable
           pill
+          class="ios-select"
         >
           <sl-option value="">Select a player</sl-option>
           ${player1Options.map(
@@ -111,34 +120,35 @@ export class MatchInput extends LitElement {
           @sl-change=${this.handleWinnerChange}
           value="${this.winner}"
           aria-label="Win selector group"
+          style="display: flex; flex-direction: row;"
         >
-          <sl-radio-button
+          <sl-radio
             value=${this.player1}
             ?disabled="${!playersSelected}"
             aria-label="select for player one"
             pill
           >
             ${playerOneValue}
-          </sl-radio-button>
-          <sl-radio-button
+          </sl-radio>
+          <sl-radio
             value="draw"
             ?disabled="${!playersSelected}"
             aria-label="select for a draw"
             pill
           >
             Draw
-          </sl-radio-button>
-          <sl-radio-button
+          </sl-radio>
+          <sl-radio
             value=${this.player2}
             ?disabled="${!playersSelected}"
             aria-label="select for player two"
             pill
           >
             ${playerTwoValue}
-          </sl-radio-button>
+          </sl-radio>
         </sl-radio-group>
         <br />
-        <sl-button variant="success" outline pill @click=${this.recordMatch} ?disabled=${!playersSelected}>
+        <sl-button variant="success" pill @click=${this.recordMatch} ?disabled=${!playersSelected}>
           Record Result</sl-button>
       </form>
     `;

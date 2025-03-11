@@ -1,6 +1,6 @@
 import { css } from 'lit';
 
-export const styles = css`
+export const counterStyles = css`
 
   sl-card.player-one::part(base),
   sl-button.player-one::part(base) {
@@ -56,9 +56,6 @@ export const styles = css`
   }
   sl-card::part(base) {
     width: 100% !important;
-  }
-    .table-striped>tbody>tr:nth-of-type(even)>* {
-    background-color: var(--sl-color-neutral-50) !important;
   }
     /* @media (prefers-color-scheme: dark) {} */
     /* @media (min-width: 1200px) {} */

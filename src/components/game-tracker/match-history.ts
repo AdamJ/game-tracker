@@ -1,6 +1,8 @@
 import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
+import { shoelaceStyles } from '../../styles/shoelace-styles';
+
 interface Match {
   player1: string;
   player2: string;
@@ -11,6 +13,10 @@ interface Match {
 @customElement('match-history')
 export class MatchHistory extends LitElement {
   @property({ type: Array }) matchHistory: Match[] = [];
+
+  static styles = [
+    shoelaceStyles
+  ]
 
   editMatch(index: number) {
     this.dispatchEvent(new CustomEvent('edit-match', { detail: index }));
@@ -79,7 +85,6 @@ export class MatchHistory extends LitElement {
               <sl-button
                 slot="suffix"
                 variant="neutral"
-                outline
                 @click=${() => this.editMatch(index)}
                 >Edit</sl-button
               >
