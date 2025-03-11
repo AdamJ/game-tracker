@@ -1,11 +1,11 @@
 {
   "author": "Adam J. Jolicoeur",
-  "name": "task-it",
+  "name": "Track-It",
   "display": "standalone",
   "start_url": "/",
-  "short_name": "TaskIt",
+  "short_name": "TrackIt",
   "theme_color": "#212121",
-  "description": "This is an app to track various things.",
+  "description": "An app for tracking game standings, life totals, and points.",
   "orientation": "any",
   "background_color": "#212121",
   "prefer_related_applications": false,
@@ -93,7 +93,7 @@
       ]
     }
   ],
-  "id": "TasksAndMore",
+  "id": "TrackIt",
   "dir": "ltr",
   "lang": "en",
   "handle_links": "preferred",
@@ -101,7 +101,7 @@
     {
       "name": "Standings",
       "url": "/standings",
-      "description": "Game standings and life tracker",
+      "description": "For tracking tournament standings and head-to-head match-ups.",
       "icons": [
         {
           "src": "assets/icons/icon_96.png",
@@ -115,7 +115,7 @@
       "name": "About",
       "short_name": "About",
       "url": "/about",
-      "description": "App updates available to you.",
+      "description": "Information about this app and any disclaimers.",
       "icons": [
         {
           "src": "assets/icons/icon_96.png",
@@ -128,7 +128,20 @@
     {
       "name": "Counter",
       "url": "/counter",
-      "description": "A general score tracker.",
+      "description": "A score tracker for Commander/EDH gameplay.",
+      "icons": [
+        {
+          "src": "assets/icons/icon_96.png",
+          "type": "image/png",
+          "purpose": "any",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "PVP Tracker",
+      "url": "/pvp-tracker",
+      "description": "For tracking life totals for PVP gameplay.",
       "icons": [
         {
           "src": "assets/icons/icon_96.png",

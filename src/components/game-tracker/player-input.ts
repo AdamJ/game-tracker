@@ -70,19 +70,7 @@ export class PlayerInput extends LitElement {
 
   render() {
     return html`
-      <div slot="header">
-        <div style="display: flex; justify-content: space-between; align-items: center;">
-          Player Setup
-          <sl-tooltip content="Clear Player List">
-            <sl-button label="clear player list" variant="warning" size="small" pill @click=${this.clearAllPlayers}>
-              <sl-icon slot="prefix" library="default" name="trash-fill" label="Clear Standings">
-              </sl-icon>
-              <span class="hide-at-800">Clear</span> Players
-            </sl-button>
-          </sl-tooltip>
-        </div>
-      </div>
-      <div style="display: flex; flex-direction: row; grid-gap: .5rem; justify-content: space-between; flex-wrap: wrap;">
+      <div style="display: flex; flex-direction: row; justify-content: space-between; flex-wrap: wrap;">
         <form class="input-validation-custom">
           <sl-input
             .value=${this.newPlayer}
@@ -105,9 +93,9 @@ export class PlayerInput extends LitElement {
             Add Player
           </sl-button>
         </form>
-        <div>
+        <div style="display: flex; flex-direction: column; grid-gap: .5rem; width: 50%;">
           <p style="margin-top: .25rem; margin-bottom: .25rem;">
-            <strong>Players</strong>
+            <strong>Player List</strong>
           </p>
           <div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: flex-start; grid-gap: .5rem; width: 100%;">
             ${this.players.map(player => html`
@@ -137,6 +125,7 @@ export class PlayerInput extends LitElement {
           flex-direction: column;
           align-items: flex-start;
           gap: .5rem;
+          width: 50%;
         }
       </style>
       `;

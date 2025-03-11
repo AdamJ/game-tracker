@@ -17,8 +17,12 @@ export class MyApp extends LitElement { // Updated class name
     }
     @media (min-width: 1200px) {
       app-standings,
-      app-counter {
+      app-counter,
+      app-about,
+      app-home {
         width: 1200px;
+        display: block;
+        margin: 0 auto;
       }
     }
   `;

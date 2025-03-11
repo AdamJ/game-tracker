@@ -14,6 +14,8 @@ import { sharedStyles } from '../../styles/shared-styles';
 import { shoelaceStyles } from '../../styles/shoelace-styles';
 import { counterStyles } from '../../pages/app-counter/counter-styles';
 import { pvpStyles } from './pvp-styles';
+import { tableStyles } from '../../styles/table-styles';
+import { alertStyles } from '../../styles/alert-styles';
 
 interface Side {
   points: number;
@@ -73,11 +75,31 @@ export class MatchTracker extends LitElement {
     sharedStyles,
     shoelaceStyles,
     counterStyles,
+    tableStyles,
+    alertStyles,
     pvpStyles,
     css`
+      @media screen and (max-width: 595px) {
+        .pvp-tracker,
+        .side-one,
+        .side-two,
+        sl-card::part(base) {
+          height: 45vh !important;
+        }
+        .card-form > p {
+          font-size: calc(16px * 3);
+        }
+       .settings-fab {
+          position: absolute;
+          display: block;
+          top: 50%;
+          right: 50%;
+          width: 28px;
+        }
+      }
       @media screen and (min-width: 600px) {
         main {
-          height: 90vh;
+          height: 90vh !important;
         }
         .pvp-tracker,
         .side-one,
@@ -105,33 +127,41 @@ export class MatchTracker extends LitElement {
           flex-direction: row;
           justify-content: center;
           align-items: center;
+          grid-gap: 1rem;
         }
         sl-button.reset-points-button::part(base) {
           margin-top: 1rem;
         }
         sl-drawer {
-          --size: 50vh !important;
+          --size: 75vh !important;
         }
       }
-        .pvp-tracker,
-        .side-one,
-        .side-two,
-        sl-card::part(base) {
-          height: 100%;
-        }
-        sl-card::part(body) {
-          height: 100%;
-          display: flex;
-          justify-content: center;
-        }
-      sl-drawer {
-        --size: 90vh;
+      .pvp-tracker,
+      .side-one,
+      .side-two,
+      sl-card::part(base) {
+        height: 100%;
+        align-items: center;
+        align-content: center;
+        color: var(--sl-color-neutral-50);
       }
+      sl-button [slot="prefix"] {
+        color: var(--sl-color-neutral-50) !important;
+      }
+      sl-card::part(body) {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+      }
+      // sl-drawer {
+      //   --size: 90vh;
+      // }
       .settings-fab {
         position: absolute;
-        right: 1rem;
-        bottom: 1.5rem;
-        z-index: 100000;
+        display: block;
+        top: 50%;
+        right: 50%;
+        width: 16px;
       }
     `
   ]
@@ -343,14 +373,18 @@ export class MatchTracker extends LitElement {
         <sl-card class="side-one">
           <form class="card-form" style="position: relative;">
             <sl-button variant="default" size="large" class="life-counter side-one" @click=${() => this.updatePoints(1, 1, 'Plus')}>
-              <sl-icon library="mana" slot="prefix" name="loyalty-up" class="ms ms-loyalty-up ms-2x"></sl-icon>
+              <span style="font-size: 1.75rem; color: var(--sl-color-neutral-950);">
+                <sl-icon slot="prefix" name="shield-fill-plus"></sl-icon>
+              </span>
               Plus
             </sl-button>
             <p class="text-center ms-4x" style="line-height: normal; margin: 0;">
               ${this.side1.points}
             </p>
             <sl-button variant="default" size="large" class="life-counter side-one" @click=${() => this.updatePoints(1, -1, 'Minus')}>
-              <sl-icon library="mana" slot="prefix" name="loyalty-down" class="ms ms-loyalty-down ms-2x"></sl-icon>
+              <span style="font-size: 1.75rem; color: var(--sl-color-neutral-950);">
+                <sl-icon slot="prefix" name="shield-fill-minus"></sl-icon>
+              </span>
               Minus
             </sl-button>
           </form>
@@ -358,14 +392,18 @@ export class MatchTracker extends LitElement {
         <sl-card class="side-two">
           <form class="card-form" style="position: relative;">
             <sl-button variant="default" size="large" class="life-counter side-two" @click=${() => this.updatePoints(2, 1, 'Plus')}>
-              <sl-icon library="mana" slot="prefix" name="loyalty-up" class="ms ms-loyalty-up ms-2x"></sl-icon>
+              <span style="font-size: 1.75rem; color: orange;">
+                <sl-icon slot="prefix" name="shield-fill-plus"></sl-icon>
+              </span>
               Plus
             </sl-button>
             <p class="text-center ms-4x" style="line-height: normal; margin: 0;">
               ${this.side2.points}
             </p>
             <sl-button variant="default" size="large" class="life-counter side-two" @click=${() => this.updatePoints(2, -1, 'Minus')}>
-              <sl-icon library="mana" slot="prefix" name="loyalty-down" class="ms ms-loyalty-down ms-2x"></sl-icon>
+              <span style="font-size: 1.75rem; color: var(--sl-color-neutral-50);">
+                <sl-icon slot="prefix" name="shield-fill-minus"></sl-icon>
+              </span>
               Minus
             </sl-button>
           </form>
@@ -402,15 +440,27 @@ export class MatchTracker extends LitElement {
             Starting points have been reset to ${this.initialPointsTracker}.
           </sl-alert>
           <h3>History</h3>
-          <sl-tree class="tree-with-lines">
+          <sl-tree class="tree-with-lines" style="color: var(--sl-color-neutral-50);">
             ${menuContent}
           </sl-tree>
         <sl-button slot="footer" variant="primary" pill @click=${this.closeDrawer}>Close</sl-button>
       </sl-drawer>
-
-      <sl-button variant="neutral" size="large" circle class="settings-fab" @click=${this.toggleDrawer}>
-        <sl-icon name="gear" label="settings"></sl-icon>
-      </sl-button>
+      <div class="fab-container">
+        <sl-button variant="neutral" size="large" circle class="settings-fab" @click=${this.toggleDrawer}>
+          <sl-icon name="gear" label="settings"></sl-icon>
+        </sl-button>
+      </div>
+      <style>
+        .fab-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          /* height: 60px; */
+          position: absolute;
+          top: calc( 50% - 24px );
+          right: 51%;
+        }
+      </style>
 
       </main>
   `}

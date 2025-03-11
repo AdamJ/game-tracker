@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="sl-theme-dark">
 
 <head>
   <meta charset="UTF-8" />
@@ -13,8 +13,8 @@
   <meta name="robots" content="noindex, nofollow">
 
   <!--<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#181818" /> -->
-  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f3f3f3" />
-  <meta name="color-scheme" content="light" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#f3f3f3" />
+  <meta name="color-scheme" content="dark" />
   <!-- Same as <title> but focused for social media -->
   <meta property="og:title" content="Track It (and more)" />
 
@@ -39,7 +39,7 @@
   <link rel="icon" href="/assets/icons/icon_24.png" type="image/png" />
   <link rel="manifest" href="manifest.json" />
   <link href="./assets/mana.min.css" rel="stylesheet" type="text/css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.0/cdn/themes/light.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.0/cdn/themes/dark.css" />
   <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.0/cdn/shoelace-autoloader.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -81,7 +81,7 @@
 <body>
   <div class="background-image"></div>
   <!-- Our app-index web component. This component is defined in src/pages/app-index.ts-->
-  <my-app></my-app>
+  <my-app style="position: relative;"></my-app>
   <script type="module" src="/src/main.ts"></script>
 
 </body>

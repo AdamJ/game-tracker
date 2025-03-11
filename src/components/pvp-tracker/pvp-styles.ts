@@ -26,32 +26,15 @@ export const pvpStyles = css`
   }
   sl-card.side-one::part(base),
   sl-button.side-one::part(base) {
-    background-color: var(--ms-mana-b-bg);
+    background-color: var(--ms-mana-p-bg);
     color: var(--sl-color-neutral-50);
     border: 0;
   }
   sl-card.side-two::part(base),
   sl-button.side-two::part(base) {
-    background-color: var(--ms-mana-c-bg);
-    color: var(--sl-color-neutral-900);
+    background-color: var(--ms-mana-b-bg);
+    color: var(--sl-color-neutral-100);
     border: 0;
-  }
-  table thead tr th {
-    border-bottom: 1px solid var(--sl-color-neutral-500);
-    padding: .5rem;
-    background-color: inherit;
-    border-bottom-width: 1px;
-  }
-  .table-striped tbody tr:nth-of-type(even)>* {
-    background-color: var(--sl-color-neutral-100) !important;
-  }
-  .table-striped {
-      width: 100%;
-      border-collapse: collapse;
-  }
-  .table-striped td, .table-striped th {
-      padding: 8px;
-      text-align: left;
   }
   .form-2-column {
     display: flex;
