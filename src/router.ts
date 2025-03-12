@@ -63,13 +63,13 @@ export const router = new Router({
         render: () => html`<app-standings></app-standings>`
       },
       {
-        path: resolveRouterPath('pvp-tracker'),
-        title: 'PVP Counter',
+        path: resolveRouterPath('standard-tracker'),
+        title: 'Standard Counter',
         plugins: [
-          lazy(() => import('./pages/app-pvp/app-pvp.js')),
-          ()=>{console.error('Failed to load pvp-tracker');}
+          lazy(() => import('./pages/app-standard/app-standard.js')),
+          ()=>{console.error('Failed to load standard-tracker');}
         ],
-        render: () => html`<app-pvp></app-pvp>`
+        render: () => html`<app-standard></app-standard>`
       }
     ]
   });

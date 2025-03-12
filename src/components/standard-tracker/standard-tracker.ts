@@ -13,7 +13,7 @@ import '@shoelace-style/shoelace/dist/components/tree-item/tree-item';
 import { sharedStyles } from '../../styles/shared-styles';
 import { shoelaceStyles } from '../../styles/shoelace-styles';
 import { counterStyles } from '../../pages/app-counter/counter-styles';
-import { pvpStyles } from './pvp-styles';
+import { standardStyles } from './standard-styles';
 import { tableStyles } from '../../styles/table-styles';
 import { alertStyles } from '../../styles/alert-styles';
 
@@ -43,7 +43,7 @@ interface LogEntry {
   points: number;
 }
 
-@customElement('pvp-tracker')
+@customElement('standard-tracker')
 export class MatchTracker extends LitElement {
   @property({ type: Object }) side1: Side = { points: 20 };
   @property({ type: Object }) side2: Side = { points: 20 };
@@ -77,10 +77,10 @@ export class MatchTracker extends LitElement {
     counterStyles,
     tableStyles,
     alertStyles,
-    pvpStyles,
+    standardStyles,
     css`
       @media screen and (max-width: 595px) {
-        .pvp-tracker,
+        .standard-tracker,
         .side-one,
         .side-two,
         sl-card::part(base) {
@@ -101,7 +101,7 @@ export class MatchTracker extends LitElement {
         main {
           height: calc(100vh - 55px) !important
         }
-        .pvp-tracker,
+        .standard-tracker,
         .side-one,
         .side-two,
         sl-card::part(base) {
@@ -136,7 +136,7 @@ export class MatchTracker extends LitElement {
           --size: 75vh !important;
         }
       }
-      .pvp-tracker,
+      .standard-tracker,
       .side-one,
       .side-two,
       sl-card::part(base) {
@@ -366,7 +366,7 @@ export class MatchTracker extends LitElement {
   return html`
     <app-header ?enableBack="${true}"></app-header>
     <main style="height: 100%; padding: 0; margin: 0 .5rem; margin-top: 55px;">
-      <div class="pvp-tracker">
+      <div class="standard-tracker">
         <sl-card class="side-one">
           <form class="card-form" style="position: relative;">
             <sl-button variant="default" size="large" class="life-counter side-one" @click=${() => this.updatePoints(1, 1, 'Plus')}>

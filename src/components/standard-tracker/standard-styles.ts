@@ -1,8 +1,8 @@
 import { css } from 'lit';
 
-export const pvpStyles = css`
+export const standardStyles = css`
   @media screen and (min-width: 600px) {
-    .pvp-tracker {
+    .standard-tracker {
       display: flex;
       flex-direction: row;
       justify-content: space-evenly;

@@ -41,23 +41,28 @@
   ],
   "screenshots": [
     {
-      "src": "assets/screenshots/screen.png",
-      "sizes": "1584x951",
+      "src": "assets/screenshots/screenshot_home.png",
+      "sizes": "1440x1024",
       "type": "image/png"
     },
     {
-      "src": "assets/screenshots/screen2.png",
-      "sizes": "1584x951",
+      "src": "assets/screenshots/screenshot_tournament.png",
+      "sizes": "1440x1024",
       "type": "image/png"
     },
     {
-      "src": "assets/screenshots/screen3.png",
-      "sizes": "1584x951",
+      "src": "assets/screenshots/screenshot_edh.png",
+      "sizes": "1440x1024",
       "type": "image/png"
     },
     {
-      "src": "assets/screenshots/screen_wide.png",
-      "sizes": "2400x1221",
+      "src": "assets/screenshots/screenshot_standard.png",
+      "sizes": "1440x1024",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/screenshots/screenshot_wide.png",
+      "sizes": "2400x1200",
       "type": "image/png",
       "form_factor": "wide"
     }
@@ -139,9 +144,9 @@
       ]
     },
     {
-      "name": "PVP Tracker",
-      "url": "/pvp-tracker",
-      "description": "For tracking life totals for PVP gameplay.",
+      "name": "Standard Tracker",
+      "url": "/standard-tracker",
+      "description": "For tracking life totals for standard gameplay.",
       "icons": [
         {
           "src": "assets/icons/icon_96.png",
