@@ -1,9 +1,6 @@
 import { css } from 'lit';
 
 export const shoelaceStyles = css`
-  // sl-tab-group::part(tabs) {
-  //   border-bottom: .25rem solid var(--sl-color-neutral-300);
-  // }
   sl-button, sl-button::part(base), sl-button::part(label), sl-card, sl-switch, sl-switch::part(base), sl-icon, sl-tooltip, sl-alert, sl-tab, sl-menu-label, sl-menu-item, sl-select, sl-radio-group, input, button {
     font-family: var(--font-family), sans-serif !important;
   }
@@ -52,6 +49,7 @@ export const shoelaceStyles = css`
     // color: #fff;
     margin-left: .5rem;
     margin-right: .5rem;
+    padding: .75rem 1rem;
   }
   sl-tab-panel {
     margin-top: .25rem;

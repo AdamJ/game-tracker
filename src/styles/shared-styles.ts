@@ -92,4 +92,15 @@ export const sharedStyles = css`
     border-top-left-radius: inherit;
     border-top-right-radius: inherit;
   }
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  @media (max-width: 950px) {
+    .page-header {
+      justify-content: flex-end;
+      padding: .5rem 0;
+    }
+  }
 `;

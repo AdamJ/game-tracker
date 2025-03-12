@@ -141,13 +141,13 @@ export class AppHome extends LitElement {
 
   render() {
     return html`
-      <app-header ?enableShare="${true}"></app-header>
+      <app-header ?enableShare="${true}" ?enableAbout=${true}></app-header>
 
-      <div class="font-toggle">
+      <!--<div class="font-toggle">
         <sl-switch size="medium" @sl-change=${this.toggleFont}>
           Toggle fancy font
         </sl-switch>
-      </div>
+      </div>-->
 
       <main style="padding-bottom: 5rem;">
         <sl-alert variant="primary" open closable>
@@ -166,7 +166,7 @@ export class AppHome extends LitElement {
                 </span>
               </div>
               <div slot="footer">
-                <sl-button href="${resolveRouterPath('game-tracker')}" variant="primary" pill>Start</sl-button>
+                <sl-button href="${resolveRouterPath('game-tracker')}" variant="default" pill>Start</sl-button>
               </div>
             </sl-card>
           </section>
@@ -184,7 +184,7 @@ export class AppHome extends LitElement {
                 </span>
               </div>
               <div slot="footer">
-                <sl-button href="${resolveRouterPath('counter')}" variant="warning" pill>Start</sl-button>
+                <sl-button href="${resolveRouterPath('counter')}" variant="default" pill>Start</sl-button>
               </div>
             </sl-card>
           </section>
@@ -202,7 +202,7 @@ export class AppHome extends LitElement {
                 </span>
               </div>
               <div slot="footer">
-                <sl-button href="${resolveRouterPath('pvp-tracker')}" variant="neutral" pill>Start</sl-button>
+                <sl-button href="${resolveRouterPath('pvp-tracker')}" variant="default" pill>Start</sl-button>
               </div>
             </sl-card>
           </section>
