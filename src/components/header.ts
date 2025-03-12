@@ -54,8 +54,10 @@ export class AppHeader extends LitElement {
   render() {
     return html`
       <nav>
-        <div style="margin-left: 1rem; width: 100%;">${document.title}</div>
-        <!--<div id="back-button-block">-->
+        <div style="display: flex; align-items: center; margin-left: 1rem; width: 100%;">
+          <img src="./assets/icons/48x48.png" width="48px" alt="App icon" />
+          ${document.title}
+        </div>
         <sl-button-group label="Navigation" style="margin-right: 1rem;">
         ${this.enableBack ? html`
           <sl-button variant="default" size="small" pill aria-label="Back to start" label="Back to start" href="${resolveRouterPath()}">
@@ -85,8 +87,6 @@ export class AppHeader extends LitElement {
           ``
         }
         </sl-button-group>
-        <div></div>
-        <!--</div>-->
         <about-modal
           .isOpen=${this.aboutModalOpen}
           message="Learn about this site, resources used to create it, and various disclaimers. If you like what you see, be sure to click the share button!"

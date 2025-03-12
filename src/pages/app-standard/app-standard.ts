@@ -2,9 +2,9 @@ import { LitElement, css, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import '../../components/icons/mana-icon';
 import '../../components/icons/mtg-symbols';
-import '../../components/pvp-tracker/pvp-tracker'; // Import the component
+import '../../components/standard-tracker/standard-tracker'; // Import the component
 
-@customElement('app-pvp')
+@customElement('app-standard')
 export class PvpCounter extends LitElement {
   static styles = css`
     sl-button.fab {
@@ -17,7 +17,7 @@ export class PvpCounter extends LitElement {
   render() {
     return html`
       <app-header ?enableBack="${true}"></app-header>
-      <pvp-tracker></pvp-tracker>
+      <standard-tracker></standard-tracker>
     `;
   }
 }
