@@ -12,21 +12,32 @@ export class MyApp extends LitElement { // Updated class name
       padding-right: 1rem;
       padding-bottom: 1rem;
     }
-    app-standings,
-    app-counter,
-    app-about,
-    app-home {
-      width: 800px;
-      padding-top: 55px;
+    @media (max-width: 800px) {
+      app-standings,
+      app-counter,
+      app-about,
+      app-home {
+        padding-top: 0 !important;
+      }
+    }
+    @media (max-width: 1200px) {
+      app-standings,
+      app-counter,
+      app-about,
+      app-home {
+        display: block;
+        padding-top: 55px;
+      }
     }
     @media (min-width: 1200px) {
       app-standings,
       app-counter,
       app-about,
       app-home {
-        width: 1200px;
+        max-width: 1200px;
         display: block;
         margin: 0 auto;
+        padding-top: 55px;
       }
     }
   `;

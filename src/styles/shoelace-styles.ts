@@ -44,9 +44,7 @@ export const shoelaceStyles = css`
   }
   sl-tab::part(base),
   sl-tab.ios-tab::part(base) {
-    // background: linear-gradient(0deg, rgba(94, 94, 94, 0.18) 0%, rgba(94, 94, 94, 0.18) 100%), rgba(255, 255, 255, 0.2);
     border-radius: 1rem;
-    // color: #fff;
     margin-left: .5rem;
     margin-right: .5rem;
     padding: .75rem 1rem;

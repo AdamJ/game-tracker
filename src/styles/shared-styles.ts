@@ -94,13 +94,8 @@ export const sharedStyles = css`
   }
   .page-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
-  }
-  @media (max-width: 950px) {
-    .page-header {
-      justify-content: flex-end;
-      padding: .5rem 0;
-    }
+    padding: .5rem 0;
   }
 `;

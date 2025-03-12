@@ -23,7 +23,6 @@ export class AppAbout extends LitElement {
     return html`
       <app-header ?enableBack="${true}" ?enableShare=${true} ?enableAbout=${false}></app-header>
       <main>
-        <h1>About</h1>
         <section>
           <div class="details-group-example">
             <sl-details summary="DISCLAIMER" open>
