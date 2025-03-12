@@ -1,13 +1,13 @@
 {
   "author": "Adam J. Jolicoeur",
-  "name": "task-it",
+  "name": "Game Tracker",
   "display": "standalone",
   "start_url": "/",
-  "short_name": "TaskIt",
-  "theme_color": "#0065c4",
-  "description": "This is an app to track various things.",
+  "short_name": "GameTracker",
+  "theme_color": "#212121",
+  "description": "Tracking games of Magic: The Gathering and other TCG scores.",
   "orientation": "any",
-  "background_color": "#ededed",
+  "background_color": "#212121",
   "prefer_related_applications": false,
   "display_override": [
     "window-controls-overlay",
@@ -41,23 +41,28 @@
   ],
   "screenshots": [
     {
-      "src": "assets/screenshots/screen.png",
-      "sizes": "1584x951",
+      "src": "assets/screenshots/screenshot_home.png",
+      "sizes": "1440x1024",
       "type": "image/png"
     },
     {
-      "src": "assets/screenshots/screen2.png",
-      "sizes": "1584x951",
+      "src": "assets/screenshots/screenshot_tournament.png",
+      "sizes": "1440x1024",
       "type": "image/png"
     },
     {
-      "src": "assets/screenshots/screen3.png",
-      "sizes": "1584x951",
+      "src": "assets/screenshots/screenshot_edh.png",
+      "sizes": "1440x1024",
       "type": "image/png"
     },
     {
-      "src": "assets/screenshots/screen_wide.png",
-      "sizes": "2400x1221",
+      "src": "assets/screenshots/screenshot_standard.png",
+      "sizes": "1440x1024",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/screenshots/screenshot_wide.png",
+      "sizes": "2400x1200",
       "type": "image/png",
       "form_factor": "wide"
     }
@@ -93,7 +98,7 @@
       ]
     }
   ],
-  "id": "TasksAndMore",
+  "id": "GameTracker",
   "dir": "ltr",
   "lang": "en",
   "handle_links": "preferred",
@@ -101,7 +106,7 @@
     {
       "name": "Standings",
       "url": "/standings",
-      "description": "Game standings and life tracker",
+      "description": "For tracking tournament standings and head-to-head match-ups.",
       "icons": [
         {
           "src": "assets/icons/icon_96.png",
@@ -115,7 +120,7 @@
       "name": "About",
       "short_name": "About",
       "url": "/about",
-      "description": "App updates available to you.",
+      "description": "Information about this app including disclaimers.",
       "icons": [
         {
           "src": "assets/icons/icon_96.png",
@@ -128,7 +133,20 @@
     {
       "name": "Counter",
       "url": "/counter",
-      "description": "A general score tracker.",
+      "description": "A score tracker for Commander/EDH gameplay.",
+      "icons": [
+        {
+          "src": "assets/icons/icon_96.png",
+          "type": "image/png",
+          "purpose": "any",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Standard Tracker",
+      "url": "/standard-tracker",
+      "description": "For tracking life totals for standard gameplay.",
       "icons": [
         {
           "src": "assets/icons/icon_96.png",

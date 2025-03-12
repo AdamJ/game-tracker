@@ -1,62 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="sl-theme-dark">
 
 <head>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
-  <link rel="preload" as="style" onload="this.rel=&#39;stylesheet&#39;" href="https://fonts.googleapis.com?family=&quot;Oswald&quot;&amp;family=&quot;Oswald&quot;:wght@0,400;1,200;2,500;3,700&amp;display=swap">
-
   <meta charset="UTF-8" />
-  <title>Track It (and more)</title>
+  <title>Game Tracker</title>
 
   <base href="/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="A set of random tools for game tracking" />
+  <meta name="description" content="Tracking games of Magic: The Gathering and other TCG scores." />
 
   <meta name="robots" content="noindex, nofollow">
 
   <!--<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#181818" /> -->
-  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f3f3f3" />
-  <meta name="color-scheme" content="light" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#181818" />
+  <meta name="color-scheme" content="dark" />
   <!-- Same as <title> but focused for social media -->
-  <meta property="og:title" content="Track It (and more)" />
+  <meta property="og:title" content="Game Tracker" />
 
   <!-- Canonical link of the page -->
   <meta property="og:url" content="https://www.adamjolicoeur.me" />
   <!-- Make sure description is less than 200 characters (for twitter) -->
-  <meta property="og:description" content="A set of random tools for game tracking">
+  <meta property="og:description" content="Tracking games of Magic: The Gathering and other TCG scores.">
 
   <!-- Useful if your site displays content based on third-party items.
       For example, you're IMDB doing reviews on movies and tv shows -->
-  <meta property="og:site_name" content="Track It (and more)">
+  <meta property="og:site_name" content="Game Tracker">
 
   <!-- https://ogp.me/#types -->
   <meta property="og:type" content="website">
 
   <!-- These meta tags are Apple-specific, and set the web application to run in full-screen mode with a black status bar. Learn more at https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html-->
   <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-title" content="track-it" />
+  <meta name="apple-mobile-web-app-title" content="Game Tracker" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <meta name="pwa-starter-template-identity" content="pwa-starter"/>
 
   <link rel="icon" href="/assets/icons/icon_24.png" type="image/png" />
   <link rel="manifest" href="manifest.json" />
   <link href="./assets/mana.min.css" rel="stylesheet" type="text/css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.0/cdn/themes/light.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.0/cdn/themes/dark.css" />
   <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.0/cdn/shoelace-autoloader.js"></script>
-  <!--<link
-    rel="stylesheet"
-    media="(prefers-color-scheme:light)"
-    href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.0/cdn/themes/light.css"
-  />
-  <link
-    rel="stylesheet"
-    media="(prefers-color-scheme:dark)"
-    href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.0/cdn/themes/dark.css"
-    onload="document.documentElement.classList.add('sl-theme-dark');"
-  /> -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@100..900&display=swap" rel="stylesheet">
 
   <script>
@@ -89,13 +75,14 @@
       });
     }
   </script>
-  <script type="module" crossorigin src="/code/index-Bzm2RTzS.js"></script>
-  <link rel="stylesheet" crossorigin href="/code/index-C-v1X0sY.css">
+  <script type="module" crossorigin src="/code/index-BcZRJ4Ia.js"></script>
+  <link rel="stylesheet" crossorigin href="/code/index-FP2EpF5Q.css">
 </head>
 
 <body>
+  <div class="background-image"></div>
   <!-- Our app-index web component. This component is defined in src/pages/app-index.ts-->
-  <my-app></my-app>
+  <my-app style="position: relative;"></my-app>
 
 </body>
 
