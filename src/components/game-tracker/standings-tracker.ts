@@ -266,7 +266,6 @@ export class StandingsTracker extends LitElement {
 
     return html `
       <div class="page-header">
-        <h1 class="hide-at-800">Tournament Tracker</h1>
         <sl-button-group label="game actions">
           <sl-tooltip content="Export Standings">
             <sl-button variant="success" size="small" pill label="export standings" @click=${this.exportStandings}>

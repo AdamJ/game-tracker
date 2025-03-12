@@ -55,7 +55,7 @@ export class AppHeader extends LitElement {
     return html`
       <nav>
         <div style="display: flex; align-items: center; margin-left: 1rem; width: 100%;">
-          <img src="./assets/icons/48x48.png" width="48px" alt="App icon" />
+          <img src="./assets/icons/icon_base.png" width="48px" alt="App icon" />
           ${document.title}
         </div>
         <sl-button-group label="Navigation" style="margin-right: 1rem;">
