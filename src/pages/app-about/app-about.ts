@@ -57,7 +57,7 @@ export class AppAbout extends LitElement {
             </sl-details>
             <sl-details summary="PWA Scorecard" open>
               <div style="display: flex; flex-direction: row; grid-gap: 1rem;">
-                <div>
+                <div class="hide-at-800">
                   <img
                     src="/assets/PWAReportCard.png"
                     alt="PWA Builder Scorecard"

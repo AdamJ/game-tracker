@@ -115,7 +115,7 @@
       "name": "About",
       "short_name": "About",
       "url": "/about",
-      "description": "Information about this app and any disclaimers.",
+      "description": "Information about this app including disclaimers.",
       "icons": [
         {
           "src": "assets/icons/icon_96.png",

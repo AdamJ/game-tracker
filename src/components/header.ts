@@ -39,13 +39,6 @@ export class AppHeader extends LitElement {
       -webkit-app-region: drag;
       z-index: 10000;
     }
-
-    // #back-button-block {
-    //   display: flex;
-    //   justify-content: space-between;
-    //   align-items: center;
-    //   gap: .5rem;
-    // }
   `;
 
   share() {
