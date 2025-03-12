@@ -368,7 +368,7 @@ export class MatchTracker extends LitElement {
 
   return html`
     <app-header ?enableBack="${true}"></app-header>
-    <main>
+    <main style="height: 100%; padding: 0;">
       <div class="pvp-tracker">
         <sl-card class="side-one">
           <form class="card-form" style="position: relative;">
@@ -446,19 +446,24 @@ export class MatchTracker extends LitElement {
         <sl-button slot="footer" variant="primary" pill @click=${this.closeDrawer}>Close</sl-button>
       </sl-drawer>
       <div class="fab-container">
-        <sl-button variant="neutral" size="large" circle class="settings-fab" @click=${this.toggleDrawer}>
+        <sl-button variant="neutral" size="large" circle @click=${this.toggleDrawer}>
           <sl-icon name="gear" label="settings"></sl-icon>
         </sl-button>
       </div>
       <style>
+        @media screen and (max-width: 600px) {
+          .fab-container {
+            top: calc(50vh - 72px) !important;
+          }
+        }
         .fab-container {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          /* height: 60px; */
           position: absolute;
-          top: calc( 50% - 24px );
-          right: 51%;
+          height: 56px;
+          width: 56px;
+          top: calc(50% - 24px);
+          right: calc(50vw - 1.5rem);
+          box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, .5);
+          border-radius: 50%;
         }
       </style>
 

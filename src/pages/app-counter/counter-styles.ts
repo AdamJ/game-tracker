@@ -6,6 +6,15 @@ export const counterStyles = css`
       --track-width: 0;
       --track-color: transparent;
     }
+    sl-card.player-one::part(base),
+    sl-card.player-two::part(base),
+    sl-card.player-three::part(base),
+    sl-card.player-four::part(base) {
+      height: 40vh;
+    }
+    sl-card::part(body) {
+      height: 100%;
+    }
   }
   sl-card.player-one::part(base),
   sl-button.player-one::part(base),

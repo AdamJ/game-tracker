@@ -71,7 +71,7 @@ export class PlayerInput extends LitElement {
   render() {
     return html`
       <div style="display: flex; flex-direction: row; justify-content: space-between; flex-wrap: wrap;">
-        <form class="input-validation-custom">
+        <form class="input-validation-custom" >
           <sl-input
             .value=${this.newPlayer}
             @sl-input=${this.handleInputChange}
@@ -84,7 +84,7 @@ export class PlayerInput extends LitElement {
             autocomplete="off"
             help-text=${this.errorMessage}
             class="player-input"
-            style="width: 25rem;"
+            style="min-width: 20rem;"
           >
             <sl-icon library="default" name="person" slot="prefix"></sl-icon>
           </sl-input>
@@ -93,7 +93,7 @@ export class PlayerInput extends LitElement {
             Add Player
           </sl-button>
         </form>
-        <div style="display: flex; flex-direction: column; grid-gap: .5rem; width: 50%;">
+        <div style="display: flex; flex-direction: column; grid-gap: .5rem; flex: 1;">
           <p style="margin-top: .25rem; margin-bottom: .25rem;">
             <strong>Player List</strong>
           </p>
@@ -125,7 +125,7 @@ export class PlayerInput extends LitElement {
           flex-direction: column;
           align-items: flex-start;
           gap: .5rem;
-          width: 50%;
+          flex: 1;
         }
       </style>
       `;

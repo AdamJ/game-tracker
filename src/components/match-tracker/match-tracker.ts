@@ -398,7 +398,7 @@ export class MatchTracker extends LitElement {
             <div style="display: flex; flex-direction: row;justify-content: around; flex-wrap: wrap;">
               <div style="width: 50%;">
                 <sl-card class="player-one" id="topLeft">
-                  <form style="position: relative;">
+                  <form style="position: relative; height: 100%; justify-content: space-between;">
                     <sl-button variant="default" size="large" class="life-counter player-one" @click=${() => this.updateLife(1, 1, 'Gain')}>
                       <sl-icon library="mana" slot="prefix" name="loyalty-up" class="ms ms-loyalty-up ms-2x"></sl-icon>
                       Gain
@@ -416,7 +416,7 @@ export class MatchTracker extends LitElement {
                   </form>
                 </sl-card>
                 <sl-card class="player-three" id="topRight">
-                  <form style="position: relative;">
+                  <form style="position: relative; height: 100%; justify-content: space-between;">
                     <sl-button variant="default" size="large" class="life-counter player-three" @click=${() => this.updateLife(3, 1, 'Gain')}>
                       <sl-icon library="mana" slot="prefix" name="loyalty-up" class="ms ms-loyalty-up ms-2x"></sl-icon>
                       Gain
@@ -436,7 +436,7 @@ export class MatchTracker extends LitElement {
               </div>
               <div style="width: 50%;">
                 <sl-card class="player-two" id="bottomLeft">
-                  <form style="position: relative;">
+                  <form style="position: relative; height: 100%; justify-content: space-between;">
                     <sl-button variant="default" size="large" class="life-counter player-two" @click=${() => this.updateLife(2, 1, 'Gain')}>
                       <sl-icon library="mana" slot="prefix" name="loyalty-up" class="ms ms-loyalty-up ms-2x"></sl-icon>
                       Gain
@@ -454,7 +454,7 @@ export class MatchTracker extends LitElement {
                   </form>
                 </sl-card>
                 <sl-card class="player-four" id="bottomRight">
-                  <form style="position: relative;">
+                  <form style="position: relative; height: 100%; justify-content: space-between;">
                     <sl-button variant="default" size="large" class="life-counter player-four" @click=${() => this.updateLife(4, 1, 'Gain')}>
                       <sl-icon library="mana" slot="prefix" name="loyalty-up" class="ms ms-loyalty-up ms-2x"></sl-icon>
                       Gain

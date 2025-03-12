@@ -265,32 +265,33 @@ export class StandingsTracker extends LitElement {
     }
 
     return html `
+      <div class="page-header">
+        <h1 class="hide-at-800">Tournament Tracker</h1>
+        <sl-button-group label="game actions">
+          <sl-tooltip content="Export Standings">
+            <sl-button variant="success" size="small" pill label="export standings" @click=${this.exportStandings}>
+              <sl-icon slot="prefix" library="default" name="file-earmark-excel-fill" label="Export Standings"></sl-icon>
+              Export <span class="hide-at-800">Standings</span>
+            </sl-button>
+          </sl-tooltip>
+          <sl-tooltip content="Clear Standings">
+            <sl-button variant="warning" size="small" pill label="action to clear standings"  @click=${this.clearStandingsConfirmed}>
+              <sl-icon slot="prefix" library="default" name="trash-fill" label="Clear Standings"></sl-icon>
+              <span class="hide-at-800">Clear</span> Standings
+            </sl-button>
+          </sl-tooltip>
+          <sl-tooltip content="Clear All Data">
+            <sl-button variant="danger" size="small" pill label="launch a modal to confirm clearing of match data" @click=${this.openConfirmationModal}>
+            <sl-icon slot="prefix" library="default" name="trash-fill" label="Clear All Data"></sl-icon>
+            <span class="hide-at-800">Clear All</span> Data
+            </sl-button>
+          </sl-tooltip>
+        </sl-button-group>
+      </div>
       <div style="display: flex; flex-direction: column; grid-gap: 1rem;">
         <sl-details summary="Match Results" open>
           <match-input .players=${this.players.map(player => ({ name: player }))} @match-recorded=${(e: CustomEvent) => this.recordMatch(e.detail)}></match-input>
         </sl-details>
-        <div style="display: flex; justify-content: flex-end; align-items: center;">
-          <sl-button-group label="game actions">
-            <sl-tooltip content="Export Standings">
-              <sl-button variant="success" size="small" pill label="export standings" @click=${this.exportStandings}>
-                <sl-icon slot="prefix" library="default" name="file-earmark-excel-fill" label="Export Standings"></sl-icon>
-                Export <span class="hide-at-800">Standings</span>
-              </sl-button>
-            </sl-tooltip>
-            <sl-tooltip content="Clear Standings">
-              <sl-button variant="warning" size="small" pill label="action to clear standings"  @click=${this.clearStandingsConfirmed}>
-                <sl-icon slot="prefix" library="default" name="trash-fill" label="Clear Standings"></sl-icon>
-                <span class="hide-at-800">Clear</span> Standings
-              </sl-button>
-            </sl-tooltip>
-            <sl-tooltip content="Clear All Data">
-              <sl-button variant="danger" size="small" pill label="launch a modal to confirm clearing of match data" @click=${this.openConfirmationModal}>
-              <sl-icon slot="prefix" library="default" name="trash-fill" label="Clear All Data"></sl-icon>
-              <span class="hide-at-800">Clear All</span> Data
-              </sl-button>
-            </sl-tooltip>
-          </sl-button-group>
-        </div>
         <sl-tab-group active-tab=${this.activeTab}>
           <sl-tab slot="nav" panel="standings" class="ios-tab">Standings</sl-tab>
           <sl-tab slot="nav" panel="history" class="ios-tab">History</sl-tab>
