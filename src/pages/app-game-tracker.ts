@@ -8,7 +8,7 @@ export class AppDashboard extends LitElement {
   render() {
     return html`
       <app-header ?enableBack="${true}"></app-header>
-      <main style="padding-bottom: 5rem;">
+      <main style="padding-bottom: 5rem; margin: 0 .5rem">
         <standings-tracker></standings-tracker>
       </main>
       <style>

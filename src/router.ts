@@ -46,7 +46,7 @@ export const router = new Router({
       },
       {
         path: resolveRouterPath('counter'),
-        title: 'Counter',
+        title: 'EDH Event Tracker',
         plugins: [
           lazy(() => import('./pages/app-counter/app-counter.js')),
           ()=>{console.error('Failed to load app-counter');}
@@ -55,7 +55,7 @@ export const router = new Router({
       },
       {
         path: resolveRouterPath('game-tracker'),
-        title: 'Game Tracker',
+        title: 'Tournament Tracker',
         plugins: [
           lazy(() => import('./pages/app-game-tracker.js')),
           ()=>{console.error('Failed to load app-standings');}
@@ -64,7 +64,7 @@ export const router = new Router({
       },
       {
         path: resolveRouterPath('pvp-tracker'),
-        title: 'PVP Tracker',
+        title: 'PVP Counter',
         plugins: [
           lazy(() => import('./pages/app-pvp/app-pvp.js')),
           ()=>{console.error('Failed to load pvp-tracker');}

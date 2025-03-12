@@ -368,7 +368,7 @@ export class MatchTracker extends LitElement {
 
   return html`
     <app-header ?enableBack="${true}"></app-header>
-    <main style="height: 100%; padding: 0;">
+    <main style="height: 100%; padding: 0; margin: 0 .5rem;">
       <div class="pvp-tracker">
         <sl-card class="side-one">
           <form class="card-form" style="position: relative;">
