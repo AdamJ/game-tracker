@@ -27,14 +27,14 @@ export class AppHeader extends LitElement {
   static styles = css`
     nav {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       background: var(--sl-color-neutral-100);
 
       position: fixed;
       left: env(titlebar-area-x, 0);
-      bottom: env(titlebar-area-y, 0);
-      height: env(titlebar-area-height, 75px);
+      top: env(titlebar-area-y, 0);
+      height: env(titlebar-area-height, 50px);
       width: env(titlebar-area-width, 100%);
       -webkit-app-region: drag;
       z-index: 10000;
@@ -54,8 +54,9 @@ export class AppHeader extends LitElement {
   render() {
     return html`
       <nav>
+        <div style="margin-left: 1rem; width: 100%;">${document.title}</div>
         <!--<div id="back-button-block">-->
-        <sl-button-group label="Navigation">
+        <sl-button-group label="Navigation" style="margin-right: 1rem;">
         ${this.enableBack ? html`
           <sl-button variant="default" size="small" pill aria-label="Back to start" label="Back to start" href="${resolveRouterPath()}">
             <sl-icon slot="prefix" name="house"></sl-icon>
@@ -84,6 +85,7 @@ export class AppHeader extends LitElement {
           ``
         }
         </sl-button-group>
+        <div></div>
         <!--</div>-->
         <about-modal
           .isOpen=${this.aboutModalOpen}

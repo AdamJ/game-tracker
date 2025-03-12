@@ -12,8 +12,12 @@ export class MyApp extends LitElement { // Updated class name
       padding-right: 1rem;
       padding-bottom: 1rem;
     }
+    app-standings,
+    app-counter,
+    app-about,
     app-home {
       width: 800px;
+      padding-top: 55px;
     }
     @media (min-width: 1200px) {
       app-standings,

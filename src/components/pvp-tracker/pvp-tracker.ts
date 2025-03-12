@@ -99,7 +99,7 @@ export class MatchTracker extends LitElement {
       }
       @media screen and (min-width: 600px) {
         main {
-          height: 90vh !important;
+          height: calc(100vh - 55px) !important
         }
         .pvp-tracker,
         .side-one,
@@ -153,9 +153,6 @@ export class MatchTracker extends LitElement {
         display: flex;
         justify-content: center;
       }
-      // sl-drawer {
-      //   --size: 90vh;
-      // }
       .settings-fab {
         position: absolute;
         display: block;
@@ -368,7 +365,7 @@ export class MatchTracker extends LitElement {
 
   return html`
     <app-header ?enableBack="${true}"></app-header>
-    <main style="height: 100%; padding: 0; margin: 0 .5rem;">
+    <main style="height: 100%; padding: 0; margin: 0 .5rem; margin-top: 55px;">
       <div class="pvp-tracker">
         <sl-card class="side-one">
           <form class="card-form" style="position: relative;">

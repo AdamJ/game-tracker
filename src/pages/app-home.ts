@@ -73,9 +73,9 @@ export class AppHome extends LitElement {
   share() {
     if ((navigator as any).share) {
       (navigator as any).share({
-        title: 'adamjolicoeur.me',
-        text: 'Check out the random web apps I build!',
-        url: 'https://github.com/adamj',
+        title: 'Game Tracker',
+        text: 'Tracking games of Magic: The Gathering and other TCG scores.',
+        url: 'https://www.adamjolicoeur.me',
       });
     }
   }
