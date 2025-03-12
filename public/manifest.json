@@ -1,6 +1,6 @@
 {
   "author": "Adam J. Jolicoeur",
-  "name": "Game-Tracker",
+  "name": "Game Tracker",
   "display": "standalone",
   "start_url": "/",
   "short_name": "GameTracker",

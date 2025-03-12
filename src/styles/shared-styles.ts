@@ -6,6 +6,9 @@ export const sharedStyles = css`
   main {
     padding: .5rem;
   }
+  .main {
+    padding: .75rem;
+  }
   a {
     color: var(--sl-color-primary-500);
   }
@@ -16,9 +19,6 @@ export const sharedStyles = css`
   }
   a:visited {
     color: var(--sl-color-violet-800);
-  }
-  .main {
-    padding: .75rem;
   }
   @media (max-width: 950px) {
     .hide-at-800,

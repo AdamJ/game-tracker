@@ -1,8 +1,8 @@
 {
-  "name": "track-it",
+  "name": "game-tracker",
   "version": "0.0.0",
   "homepage": "https://www.adamjolicoeur.me",
-  "description": "A set of random tools for game tracking.",
+  "description": "Tracking games of Magic: The Gathering and other TCG scores.",
   "main": "index.js",
   "type": "module",
   "scripts": {
