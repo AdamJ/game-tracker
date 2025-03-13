@@ -1,6 +1,9 @@
-import{s as O,a as f,i as S,n as d,b as o,r as h,x as n,t as y}from"./index-B7vRkuqV.js";import{t as H}from"./table-styles-DsIhBWBb.js";import"./chunk.CVHNT5ZP-COaYDSXg.js";var I=Object.defineProperty,j=Object.getOwnPropertyDescriptor,x=(e,t,s,l)=>{for(var a=l>1?void 0:l?j(t,s):t,r=e.length-1,i;r>=0;r--)(i=e[r])&&(a=(l?i(t,s,a):i(a))||a);return l&&a&&I(t,s,a),a};let m=class extends h{constructor(){super(...arguments),this.players=[],this.newPlayer="",this.errorMessage=""}addPlayer(){if(console.log("addPlayer called"),this.newPlayer&&this.validatePlayerName(this.newPlayer)){this.dispatchEvent(new CustomEvent("player-added",{detail:this.newPlayer})),this.newPlayer="";const e=this.shadowRoot.querySelector("sl-input");e&&(e.helpText="")}else{const e=this.shadowRoot.querySelector("sl-input");e&&(e.helpText=this.errorMessage)}}handleInputChange(e){const t=e.target;this.newPlayer=t.value;const s=this.shadowRoot.querySelector("sl-input");s&&(this.validatePlayerName(this.newPlayer)?s.helpText="":s.helpText=this.errorMessage)}validatePlayerName(e){const t=/^[a-zA-Z0-9]+$/.test(e);return console.log("isValid:",t),t?(this.errorMessage="",!0):(this.errorMessage="Enter a Name containing only letters or numbers with no spaces or special characters.",!1)}removePlayer(e){this.dispatchEvent(new CustomEvent("remove-player",{detail:e}))}clearAllPlayers(){this.dispatchEvent(new CustomEvent("clear-all-players"))}render(){return n`
+import{s as O,a as f,i as S,n as d,b as o,r as h,x as n,t as y}from"./index-zlDiaMpD.js";import{t as H}from"./table-styles-Cnx7C_mH.js";import"./chunk.CVHNT5ZP-ClrhBmZw.js";var I=Object.defineProperty,j=Object.getOwnPropertyDescriptor,x=(e,t,s,l)=>{for(var a=l>1?void 0:l?j(t,s):t,r=e.length-1,i;r>=0;r--)(i=e[r])&&(a=(l?i(t,s,a):i(a))||a);return l&&a&&I(t,s,a),a};let m=class extends h{constructor(){super(...arguments),this.players=[],this.newPlayer="",this.errorMessage=""}handleSubmit(e){e.preventDefault(),this.addPlayer()}addPlayer(){if(console.log("addPlayer called"),this.newPlayer&&this.validatePlayerName(this.newPlayer)){this.dispatchEvent(new CustomEvent("player-added",{detail:this.newPlayer})),this.newPlayer="";const e=this.shadowRoot.querySelector("sl-input");e&&(e.helpText="")}else{const e=this.shadowRoot.querySelector("sl-input");e&&(e.helpText=this.errorMessage)}}handleInputChange(e){const t=e.target;this.newPlayer=t.value;const s=this.shadowRoot.querySelector("sl-input");s&&(this.validatePlayerName(this.newPlayer)?s.helpText="":s.helpText=this.errorMessage)}validatePlayerName(e){const t=/^[a-zA-Z0-9]+$/.test(e);return console.log("isValid:",t),t?(this.errorMessage="",!0):(this.errorMessage="Enter a Name containing only letters or numbers with no spaces or special characters.",!1)}removePlayer(e){this.dispatchEvent(new CustomEvent("remove-player",{detail:e}))}clearAllPlayers(){this.dispatchEvent(new CustomEvent("clear-all-players"))}render(){return n`
       <div style="display: flex; flex-direction: row; justify-content: space-between; flex-wrap: wrap;">
-        <form class="input-validation-custom" >
+        <form
+          class="input-validation-custom"
+          @submit=${this.handleSubmit}
+        >
           <sl-input
             .value=${this.newPlayer}
             @sl-input=${this.handleInputChange}
@@ -10,6 +13,7 @@ import{s as O,a as f,i as S,n as d,b as o,r as h,x as n,t as y}from"./index-B7vR
             pill
             required
             clearable
+            autofocus
             autocomplete="off"
             help-text=${this.errorMessage}
             class="player-input"
@@ -17,7 +21,13 @@ import{s as O,a as f,i as S,n as d,b as o,r as h,x as n,t as y}from"./index-B7vR
           >
             <sl-icon library="default" name="person" slot="prefix"></sl-icon>
           </sl-input>
-          <sl-button type="button" variant="primary" pill @click=${this.addPlayer} class="larger-icon">
+          <sl-button
+            type="button"
+            variant="primary"
+            pill
+            @click=${this.addPlayer}
+            class="larger-icon"
+          >
             <sl-icon library="default" slot="prefix" name="person-fill-add"></sl-icon>
             Add Player
           </sl-button>
@@ -71,7 +81,7 @@ import{s as O,a as f,i as S,n as d,b as o,r as h,x as n,t as y}from"./index-B7vR
     flex-direction: row;
     grid-gap: 1rem;
   }
-`;var R=Object.defineProperty,A=Object.getOwnPropertyDescriptor,v=(e,t,s,l)=>{for(var a=l>1?void 0:l?A(t,s):t,r=e.length-1,i;r>=0;r--)(i=e[r])&&(a=(l?i(t,s,a):i(a))||a);return l&&a&&R(t,s,a),a};let u=class extends h{constructor(){super(...arguments),this.players=[],this.player1="",this.player2="",this.winner="draw"}recordMatch(){if(this.player1&&this.player2&&this.player1!==this.player2){let e;this.winner==="draw"?e="draw":this.winner===this.player1?e="win":e="loss",this.dispatchEvent(new CustomEvent("match-recorded",{detail:{player1:this.player1,player2:this.player2,result:e,winner:this.winner}}))}}handlePlayer1Change(e){const t=e.target;this.player1=t.value,(this.winner===this.player2||this.winner===this.player1)&&(this.winner="draw")}handlePlayer2Change(e){const t=e.target;this.player2=t.value,(this.winner===this.player1||this.winner===this.player2)&&(this.winner="draw")}handleWinnerChange(e){const t=e.target;this.winner=t.value==="draw"?"draw":t.value}render(){const e=this.players.filter(r=>r.name!==this.player2),t=this.players.filter(r=>r.name!==this.player1),s=this.player1!==""&&this.player2!=="",l=this.player1===""?"Player 1":this.player1,a=this.player2===""?"Player 2":this.player2;return n`
+`;var R=Object.defineProperty,A=Object.getOwnPropertyDescriptor,b=(e,t,s,l)=>{for(var a=l>1?void 0:l?A(t,s):t,r=e.length-1,i;r>=0;r--)(i=e[r])&&(a=(l?i(t,s,a):i(a))||a);return l&&a&&R(t,s,a),a};let u=class extends h{constructor(){super(...arguments),this.players=[],this.player1="",this.player2="",this.winner="draw"}recordMatch(){if(this.player1&&this.player2&&this.player1!==this.player2){let e;this.winner==="draw"?e="draw":this.winner===this.player1?e="win":e="loss",this.dispatchEvent(new CustomEvent("match-recorded",{detail:{player1:this.player1,player2:this.player2,result:e,winner:this.winner}}))}}handlePlayer1Change(e){const t=e.target;this.player1=t.value,(this.winner===this.player2||this.winner===this.player1)&&(this.winner="draw")}handlePlayer2Change(e){const t=e.target;this.player2=t.value,(this.winner===this.player1||this.winner===this.player2)&&(this.winner="draw")}handleWinnerChange(e){const t=e.target;this.winner=t.value==="draw"?"draw":t.value}render(){const e=this.players.filter(r=>r.name!==this.player2),t=this.players.filter(r=>r.name!==this.player1),s=this.player1!==""&&this.player2!=="",l=this.player1===""?"Player 1":this.player1,a=this.player2===""?"Player 2":this.player2;return n`
       <form>
         <sl-select
           value=${this.player1}
@@ -134,7 +144,7 @@ import{s as O,a as f,i as S,n as d,b as o,r as h,x as n,t as y}from"./index-B7vR
         <sl-button variant="success" pill @click=${this.recordMatch} ?disabled=${!s}>
           Record Result</sl-button>
       </form>
-    `}};u.styles=[f,_];v([d({type:Array})],u.prototype,"players",2);v([o()],u.prototype,"player1",2);v([o()],u.prototype,"player2",2);v([o()],u.prototype,"winner",2);u=v([y("match-input")],u);var z=Object.defineProperty,N=Object.getOwnPropertyDescriptor,E=(e,t,s,l)=>{for(var a=l>1?void 0:l?N(t,s):t,r=e.length-1,i;r>=0;r--)(i=e[r])&&(a=(l?i(t,s,a):i(a))||a);return l&&a&&z(t,s,a),a};let b=class extends h{constructor(){super(...arguments),this.standings=[]}render(){return n`
+    `}};u.styles=[f,_];b([d({type:Array})],u.prototype,"players",2);b([o()],u.prototype,"player1",2);b([o()],u.prototype,"player2",2);b([o()],u.prototype,"winner",2);u=b([y("match-input")],u);var z=Object.defineProperty,N=Object.getOwnPropertyDescriptor,E=(e,t,s,l)=>{for(var a=l>1?void 0:l?N(t,s):t,r=e.length-1,i;r>=0;r--)(i=e[r])&&(a=(l?i(t,s,a):i(a))||a);return l&&a&&z(t,s,a),a};let v=class extends h{constructor(){super(...arguments),this.standings=[]}render(){return n`
       <table class="border table-striped">
         <thead>
           <tr>
@@ -159,8 +169,8 @@ import{s as O,a as f,i as S,n as d,b as o,r as h,x as n,t as y}from"./index-B7vR
           `)}
         </tbody>
       </table>
-    `}};b.styles=[O,f,H,S`
-  `];E([d({type:Array})],b.prototype,"standings",2);b=E([y("standings-display")],b);var W=Object.defineProperty,T=Object.getOwnPropertyDescriptor,P=(e,t,s,l)=>{for(var a=l>1?void 0:l?T(t,s):t,r=e.length-1,i;r>=0;r--)(i=e[r])&&(a=(l?i(t,s,a):i(a))||a);return l&&a&&W(t,s,a),a};let g=class extends h{constructor(){super(...arguments),this.match=null,this.isOpen=!1,this.editedWinner="draw"}open(e){this.match=e,this.editedWinner=e.winner,this.isOpen=!0}close(){this.dispatchEvent(new CustomEvent("close")),this.isOpen=!1}confirm(){if(this.match){let e;this.editedWinner==="draw"?e="draw":this.editedWinner===this.match.player1?e="win":e="loss",this.dispatchEvent(new CustomEvent("match-edited",{detail:{...this.match,result:e,winner:this.editedWinner}})),this.close()}}handleWinnerChange(e){const t=e.target;this.editedWinner=t.value==="draw"?"draw":t.value}render(){return!this.isOpen||!this.match?n``:n`
+    `}};v.styles=[O,f,H,S`
+  `];E([d({type:Array})],v.prototype,"standings",2);v=E([y("standings-display")],v);var W=Object.defineProperty,T=Object.getOwnPropertyDescriptor,P=(e,t,s,l)=>{for(var a=l>1?void 0:l?T(t,s):t,r=e.length-1,i;r>=0;r--)(i=e[r])&&(a=(l?i(t,s,a):i(a))||a);return l&&a&&W(t,s,a),a};let g=class extends h{constructor(){super(...arguments),this.match=null,this.isOpen=!1,this.editedWinner="draw"}open(e){this.match=e,this.editedWinner=e.winner,this.isOpen=!0}close(){this.dispatchEvent(new CustomEvent("close")),this.isOpen=!1}confirm(){if(this.match){let e;this.editedWinner==="draw"?e="draw":this.editedWinner===this.match.player1?e="win":e="loss",this.dispatchEvent(new CustomEvent("match-edited",{detail:{...this.match,result:e,winner:this.editedWinner}})),this.close()}}handleWinnerChange(e){const t=e.target;this.editedWinner=t.value==="draw"?"draw":t.value}render(){return!this.isOpen||!this.match?n``:n`
       <sl-dialog
         label="Edit Results"
         ?open=${this.isOpen}
@@ -342,4 +352,4 @@ import{s as O,a as f,i as S,n as d,b as o,r as h,x as n,t as y}from"./index-B7vR
         }
       </style>
     `}};C=G([y("app-standings")],C);export{C as AppDashboard};
-//# sourceMappingURL=app-game-tracker-CL28HkKb.js.map
+//# sourceMappingURL=app-game-tracker-Ba9MQq31.js.map

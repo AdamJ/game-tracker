@@ -1,4 +1,4 @@
-import{i as u,h as y,k as m,_ as s,e as a,n as l,w as f,u as p,S as b,L as _,v as r,y as d,z as n,A as h,M as c,m as w,x as g}from"./index-B7vRkuqV.js";var v=u`
+import{i as u,h as y,k as m,_ as s,e as a,n as l,w as f,u as p,S as b,L as _,v as r,y as d,z as n,A as h,M as c,m as w,x as g}from"./index-zlDiaMpD.js";var v=u`
   :host {
     display: block;
   }
@@ -114,4 +114,4 @@ import{i as u,h as y,k as m,_ as s,e as a,n as l,w as f,u as p,S as b,L as _,v a
         </div>
       </details>
     `}};t.styles=[y,v];t.dependencies={"sl-icon":m};s([a(".details")],t.prototype,"details",2);s([a(".details__header")],t.prototype,"header",2);s([a(".details__body")],t.prototype,"body",2);s([a(".details__expand-icon-slot")],t.prototype,"expandIconSlot",2);s([l({type:Boolean,reflect:!0})],t.prototype,"open",2);s([l()],t.prototype,"summary",2);s([l({type:Boolean,reflect:!0})],t.prototype,"disabled",2);s([f("open",{waitUntilFirstUpdate:!0})],t.prototype,"handleOpenChange",1);p("details.show",{keyframes:[{height:"0",opacity:"0"},{height:"auto",opacity:"1"}],options:{duration:250,easing:"linear"}});p("details.hide",{keyframes:[{height:"auto",opacity:"1"},{height:"0",opacity:"0"}],options:{duration:250,easing:"linear"}});t.define("sl-details");
-//# sourceMappingURL=chunk.CVHNT5ZP-COaYDSXg.js.map
+//# sourceMappingURL=chunk.CVHNT5ZP-ClrhBmZw.js.map
