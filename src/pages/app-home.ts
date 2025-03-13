@@ -73,7 +73,7 @@ export class AppHome extends LitElement {
   share() {
     if ((navigator as any).share) {
       (navigator as any).share({
-        title: 'Game Tracker',
+        title: 'Moonsilver Waypoints',
         text: 'Tracking games of Magic: The Gathering and other TCG scores.',
         url: 'https://www.adamjolicoeur.me',
       });
