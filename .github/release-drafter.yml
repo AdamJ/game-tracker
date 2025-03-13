@@ -1,14 +1,14 @@
 name-template: 'v$RESOLVED_VERSION'
 tag-template: 'v$RESOLVED_VERSION'
 categories:
-  - title: 'Features/Enhancements'
+  - title: 'feat:'
     labels:
       - 'feature'
       - 'enhancement'
-  - title: 'Fixes'
+  - title: 'fix:'
     labels:
       - 'bug'
-  - title: 'Maintenance'
+  - title: 'patch:'
     labels:
       - 'dependencies'
 exclude-labels:
@@ -18,11 +18,10 @@ exclude-labels:
 version-resolver:
   major:
     labels:
-      - 'feature'
-      - 'enhancement'
       - 'major'
   minor:
     labels:
+      - 'enhancement'
       - 'bug'
       - 'minor'
   patch:

@@ -6,7 +6,6 @@ minor:
   - src/*.ts
   - index.html
 patch:
-  - package.json
   - README.md
   - tsconfig.json
   - vite.config.ts
