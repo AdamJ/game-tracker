@@ -1,4 +1,4 @@
-import{f as Yr,i as zr}from"./index-BcZRJ4Ia.js";Yr("keyrune",{resolver:C=>`https://cdn.jsdelivr.net/npm/keyrune@latest/svg/${C.replace(/^ss-/,"")}.svg`,mutator:C=>{C.setAttribute("fill","currentColor"),C.setAttribute("width","1rem"),C.setAttribute("height","1rem")}});var ne=typeof globalThis<"u"?globalThis:typeof window<"u"?window:typeof global<"u"?global:typeof self<"u"?self:{};function Wr(C){return C&&C.__esModule&&Object.prototype.hasOwnProperty.call(C,"default")?C.default:C}function oe(C){throw new Error('Could not dynamically require "'+C+'". Please configure the dynamicRequireTargets or/and ignoreDynamicRequires option of @rollup/plugin-commonjs appropriately for this require call to work.')}var me={exports:{}};/*!
+import{f as Yr,i as zr}from"./index-B7vRkuqV.js";Yr("keyrune",{resolver:C=>`https://cdn.jsdelivr.net/npm/keyrune@latest/svg/${C.replace(/^ss-/,"")}.svg`,mutator:C=>{C.setAttribute("fill","currentColor"),C.setAttribute("width","1rem"),C.setAttribute("height","1rem")}});var ne=typeof globalThis<"u"?globalThis:typeof window<"u"?window:typeof global<"u"?global:typeof self<"u"?self:{};function Wr(C){return C&&C.__esModule&&Object.prototype.hasOwnProperty.call(C,"default")?C.default:C}function oe(C){throw new Error('Could not dynamically require "'+C+'". Please configure the dynamicRequireTargets or/and ignoreDynamicRequires option of @rollup/plugin-commonjs appropriately for this require call to work.')}var me={exports:{}};/*!
     localForage -- Offline Storage, Improved
     Version 1.10.0
     https://localforage.github.io/localForage
@@ -87,4 +87,4 @@ import{f as Yr,i as zr}from"./index-BcZRJ4Ia.js";Yr("keyrune",{resolver:C=>`http
     /* @media (prefers-color-scheme: dark) {} */
     /* @media (min-width: 1200px) {} */
 `;export{Gr as c,kr as l};
-//# sourceMappingURL=counter-styles-Dq4kG4Qc.js.map
+//# sourceMappingURL=counter-styles-CZcKHYrP.js.map
