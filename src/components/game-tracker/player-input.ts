@@ -18,6 +18,11 @@ export class PlayerInput extends LitElement {
   @state() newPlayer: string = '';
   @state() errorMessage: string = '';
 
+  handleSubmit(event: Event) {
+    event.preventDefault(); // Prevent the default form submission behavior (page refresh)
+    this.addPlayer();
+  }
+
   addPlayer() { // Add the event parameter
     console.log('addPlayer called');
     if (this.newPlayer && this.validatePlayerName(this.newPlayer)) {
@@ -71,7 +76,10 @@ export class PlayerInput extends LitElement {
   render() {
     return html`
       <div style="display: flex; flex-direction: row; justify-content: space-between; flex-wrap: wrap;">
-        <form class="input-validation-custom" >
+        <form
+          class="input-validation-custom"
+          @submit=${this.handleSubmit}
+        >
           <sl-input
             .value=${this.newPlayer}
             @sl-input=${this.handleInputChange}
@@ -81,6 +89,7 @@ export class PlayerInput extends LitElement {
             pill
             required
             clearable
+            autofocus
             autocomplete="off"
             help-text=${this.errorMessage}
             class="player-input"
@@ -88,7 +97,13 @@ export class PlayerInput extends LitElement {
           >
             <sl-icon library="default" name="person" slot="prefix"></sl-icon>
           </sl-input>
-          <sl-button type="button" variant="primary" pill @click=${this.addPlayer} class="larger-icon">
+          <sl-button
+            type="button"
+            variant="primary"
+            pill
+            @click=${this.addPlayer}
+            class="larger-icon"
+          >
             <sl-icon library="default" slot="prefix" name="person-fill-add"></sl-icon>
             Add Player
           </sl-button>
