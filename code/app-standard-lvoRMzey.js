@@ -1,4 +1,4 @@
-import{i as h,s as y,a as v,d as w,n as m,b as l,e as f,r as g,x as c,t as b}from"./index-zlDiaMpD.js";import{t as x}from"./table-styles-Cnx7C_mH.js";import{c as P,l as u}from"./counter-styles-DU0bTR9z.js";import"./chunk.CVHNT5ZP-ClrhBmZw.js";const $=h`
+import{i as h,s as y,a as v,d as w,n as m,b as l,e as f,r as g,x as c,t as b}from"./index-CxDbH6Bh.js";import{t as x}from"./table-styles-OhS32des.js";import{c as P,l as u}from"./counter-styles-Cs3ffNtQ.js";const $=h`
   @media screen and (min-width: 600px) {
     .standard-tracker {
       display: flex;
@@ -276,4 +276,4 @@ import{i as h,s as y,a as v,d as w,n as m,b as l,e as f,r as g,x as c,t as b}fro
       z-index: 1000;
     }
   `;p=O([b("app-standard")],p);export{p as PvpCounter};
-//# sourceMappingURL=app-standard-Zn9Kn8Jz.js.map
+//# sourceMappingURL=app-standard-lvoRMzey.js.map

@@ -1,4 +1,4 @@
-import{s as O,a as f,i as S,n as d,b as o,r as h,x as n,t as y}from"./index-zlDiaMpD.js";import{t as H}from"./table-styles-Cnx7C_mH.js";import"./chunk.CVHNT5ZP-ClrhBmZw.js";var I=Object.defineProperty,j=Object.getOwnPropertyDescriptor,x=(e,t,s,l)=>{for(var a=l>1?void 0:l?j(t,s):t,r=e.length-1,i;r>=0;r--)(i=e[r])&&(a=(l?i(t,s,a):i(a))||a);return l&&a&&I(t,s,a),a};let m=class extends h{constructor(){super(...arguments),this.players=[],this.newPlayer="",this.errorMessage=""}handleSubmit(e){e.preventDefault(),this.addPlayer()}addPlayer(){if(console.log("addPlayer called"),this.newPlayer&&this.validatePlayerName(this.newPlayer)){this.dispatchEvent(new CustomEvent("player-added",{detail:this.newPlayer})),this.newPlayer="";const e=this.shadowRoot.querySelector("sl-input");e&&(e.helpText="")}else{const e=this.shadowRoot.querySelector("sl-input");e&&(e.helpText=this.errorMessage)}}handleInputChange(e){const t=e.target;this.newPlayer=t.value;const s=this.shadowRoot.querySelector("sl-input");s&&(this.validatePlayerName(this.newPlayer)?s.helpText="":s.helpText=this.errorMessage)}validatePlayerName(e){const t=/^[a-zA-Z0-9]+$/.test(e);return console.log("isValid:",t),t?(this.errorMessage="",!0):(this.errorMessage="Enter a Name containing only letters or numbers with no spaces or special characters.",!1)}removePlayer(e){this.dispatchEvent(new CustomEvent("remove-player",{detail:e}))}clearAllPlayers(){this.dispatchEvent(new CustomEvent("clear-all-players"))}render(){return n`
+import{s as O,a as f,i as S,n as d,b as o,r as h,x as n,t as y}from"./index-CxDbH6Bh.js";import{t as H}from"./table-styles-OhS32des.js";var I=Object.defineProperty,j=Object.getOwnPropertyDescriptor,x=(e,t,s,l)=>{for(var a=l>1?void 0:l?j(t,s):t,r=e.length-1,i;r>=0;r--)(i=e[r])&&(a=(l?i(t,s,a):i(a))||a);return l&&a&&I(t,s,a),a};let m=class extends h{constructor(){super(...arguments),this.players=[],this.newPlayer="",this.errorMessage=""}handleSubmit(e){e.preventDefault(),this.addPlayer()}addPlayer(){if(console.log("addPlayer called"),this.newPlayer&&this.validatePlayerName(this.newPlayer)){this.dispatchEvent(new CustomEvent("player-added",{detail:this.newPlayer})),this.newPlayer="";const e=this.shadowRoot.querySelector("sl-input");e&&(e.helpText="")}else{const e=this.shadowRoot.querySelector("sl-input");e&&(e.helpText=this.errorMessage)}}handleInputChange(e){const t=e.target;this.newPlayer=t.value;const s=this.shadowRoot.querySelector("sl-input");s&&(this.validatePlayerName(this.newPlayer)?s.helpText="":s.helpText=this.errorMessage)}validatePlayerName(e){const t=/^[a-zA-Z0-9]+$/.test(e);return console.log("isValid:",t),t?(this.errorMessage="",!0):(this.errorMessage="Enter a Name containing only letters or numbers with no spaces or special characters.",!1)}removePlayer(e){this.dispatchEvent(new CustomEvent("remove-player",{detail:e}))}clearAllPlayers(){this.dispatchEvent(new CustomEvent("clear-all-players"))}render(){return n`
       <div style="display: flex; flex-direction: row; justify-content: space-between; flex-wrap: wrap;">
         <form
           class="input-validation-custom"
@@ -271,24 +271,18 @@ import{s as O,a as f,i as S,n as d,b as o,r as h,x as n,t as y}from"./index-zlDi
       `:n`
       <div class="page-header">
         <sl-button-group label="game actions">
-          <sl-tooltip content="Export Standings">
-            <sl-button variant="success" size="small" pill label="export standings" @click=${this.exportStandings}>
-              <sl-icon slot="prefix" library="default" name="file-earmark-excel-fill" label="Export Standings"></sl-icon>
-              Export <span class="hide-at-800">Standings</span>
-            </sl-button>
-          </sl-tooltip>
-          <sl-tooltip content="Clear Standings">
-            <sl-button variant="warning" size="small" pill label="action to clear standings"  @click=${this.clearStandingsConfirmed}>
-              <sl-icon slot="prefix" library="default" name="trash-fill" label="Clear Standings"></sl-icon>
-              <span class="hide-at-800">Clear</span> Standings
-            </sl-button>
-          </sl-tooltip>
-          <sl-tooltip content="Clear All Data">
-            <sl-button variant="danger" size="small" pill label="launch a modal to confirm clearing of match data" @click=${this.openConfirmationModal}>
-            <sl-icon slot="prefix" library="default" name="trash-fill" label="Clear All Data"></sl-icon>
-            <span class="hide-at-800">Clear All</span> Data
-            </sl-button>
-          </sl-tooltip>
+          <sl-button variant="success" size="small" pill label="export standings" @click=${this.exportStandings}>
+            <sl-icon slot="prefix" library="default" name="file-earmark-excel-fill" label="Export Standings"></sl-icon>
+            Export <span class="hide-at-800">Standings</span>
+          </sl-button>
+          <sl-button variant="warning" size="small" pill label="action to clear standings"  @click=${this.clearStandingsConfirmed}>
+            <sl-icon slot="prefix" library="default" name="trash-fill" label="Clear Standings"></sl-icon>
+            <span class="hide-at-800">Clear</span> Standings
+          </sl-button>
+          <sl-button variant="danger" size="small" pill label="launch a modal to confirm clearing of match data" @click=${this.openConfirmationModal}>
+          <sl-icon slot="prefix" library="default" name="trash-fill" label="Clear All Data"></sl-icon>
+          <span class="hide-at-800">Clear All</span> Data
+          </sl-button>
         </sl-button-group>
       </div>
       <div style="display: flex; flex-direction: column; grid-gap: 1rem;">
@@ -352,4 +346,4 @@ import{s as O,a as f,i as S,n as d,b as o,r as h,x as n,t as y}from"./index-zlDi
         }
       </style>
     `}};C=G([y("app-standings")],C);export{C as AppDashboard};
-//# sourceMappingURL=app-game-tracker-Ba9MQq31.js.map
+//# sourceMappingURL=app-game-tracker-CbShkh2-.js.map
