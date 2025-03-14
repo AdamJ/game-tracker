@@ -6,6 +6,7 @@ import '@shoelace-style/shoelace/dist/components/button/button.js';
 import '@shoelace-style/shoelace/dist/components/button-group/button-group.js';
 
 import './about-modal.js';
+import { sharedStyles } from '../styles/shared-styles';
 
 @customElement('app-header')
 export class AppHeader extends LitElement {
@@ -24,7 +25,9 @@ export class AppHeader extends LitElement {
     this.aboutModalOpen = false;
   }
 
-  static styles = css`
+  static styles = [
+    sharedStyles,
+    css`
     nav {
       display: flex;
       justify-content: space-between;
@@ -39,7 +42,8 @@ export class AppHeader extends LitElement {
       -webkit-app-region: drag;
       z-index: 10000;
     }
-  `;
+  `]
+  ;
 
   share() {
     if ((navigator as any).share) {

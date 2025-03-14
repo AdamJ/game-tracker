@@ -21,16 +21,9 @@ export const sharedStyles = css`
     color: var(--sl-color-violet-800);
   }
   @media (max-width: 950px) {
-    .hide-at-800,
-    .main {
-      flex-direction: column !important;
-    }
     .hide-at-800 {
+      flex-direction: column !important;
       display: none !important;
-    }
-    sl-card, sl-card::part(base) {
-      max-width: 100% !important;
-      width: 100% !important;
     }
   }
   .display-flex {
@@ -97,5 +90,8 @@ export const sharedStyles = css`
     justify-content: flex-end;
     align-items: center;
     padding: .5rem 0;
+  }
+  sl-drawer::part(base) {
+    top: 36px !important;
   }
 `;

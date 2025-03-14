@@ -80,6 +80,9 @@ export class MatchTracker extends LitElement {
     counterStyles,
     manaStyles,
     css`
+      sl-input::part(form-control-help-text) {
+        color: var(--sl-color-neutral-700);
+      }
       .form-2-column {
         display: flex;
         flex-direction: column;
@@ -622,26 +625,14 @@ export class MatchTracker extends LitElement {
               <thead>
                 <tr>
                   <th>
-                    <sl-tooltip content="Click for winner">
-                      <sl-icon-button name="trophy-fill" label="Winner" @click=${() => this.recordResult(1)}></sl-icon-button>
-                    </sl-tooltip>
                     ${this.playerHandle1}
                   <th>
-                    <sl-tooltip content="Click for winner">
-                      <sl-icon-button name="trophy-fill" label="Winner" @click=${() => this.recordResult(2)}></sl-icon-button>
-                    </sl-tooltip>
                     ${this.playerHandle2}
                   </th>
                   <th>
-                    <sl-tooltip content="Click for winner">
-                      <sl-icon-button name="trophy-fill" label="Winner" @click=${() => this.recordResult(3)}></sl-icon-button>
-                    </sl-tooltip>
                     ${this.playerHandle3}
                   </th>
                   <th>
-                    <sl-tooltip content="Click for winner">
-                      <sl-icon-button name="trophy-fill" label="Winner" @click=${() => this.recordResult(4)}></sl-icon-button>
-                    </sl-tooltip>
                     ${this.playerHandle4}
                   </th>
                 </tr>
