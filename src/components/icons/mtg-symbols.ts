@@ -1,4 +1,4 @@
-import { registerIconLibrary } from '@shoelace-style/shoelace/dist/utilities/icon-library.js';
+import { registerIconLibrary } from '@shoelace-style/shoelace';
 
 registerIconLibrary('keyrune', {
   resolver: name => {
@@ -7,7 +7,7 @@ registerIconLibrary('keyrune', {
   },
   mutator: svg => {
     svg.setAttribute('fill', 'currentColor');
-    svg.setAttribute('width', '1rem');
-    svg.setAttribute('height', '1rem');
+    svg.setAttribute('width', '16px');
+    svg.setAttribute('height', '16px');
   }
 });

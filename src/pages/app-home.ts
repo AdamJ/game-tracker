@@ -8,17 +8,18 @@ import '@shoelace-style/shoelace/dist/components/button/button.js';
 import '@shoelace-style/shoelace/dist/components/tooltip/tooltip.js';
 import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 import '@shoelace-style/shoelace/dist/components/switch/switch.js';
+import '../components/icons/tabler';
+import '../components/icons/mtg-symbols';
 
 import { sharedStyles } from '../styles/shared-styles';
 import { shoelaceStyles } from '../styles/shoelace-styles';
 import { ribbonStyles } from '../styles/ribbon-styles';
 import { alertStyles } from '../styles/alert-styles';
+import { homeStyles } from '../styles/home-styles';
 
 @customElement('app-home')
 export class AppHome extends LitElement {
 
-  // For more information on using properties and state in lit
-  // check out this link https://lit.dev/docs/components/properties/
   @property() message = 'Welcome!';
 
   static styles = [
@@ -26,6 +27,7 @@ export class AppHome extends LitElement {
     shoelaceStyles,
     ribbonStyles,
     alertStyles,
+    homeStyles,
     css`
       .main {
         display: flex;
@@ -34,17 +36,9 @@ export class AppHome extends LitElement {
         justify-content: flex-start;
         grid-gap: 1rem;
       }
-      sl-card::part(footer) {
-        display: flex;
-        justify-content: flex-end;
-      }
-      sl-card {
-        max-width: 300px;
-      }
       sl-card::part(base) {
-        min-height: 350px;
         justify-content: space-between;
-        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.14), 0px 0px 2px 0px rgba(0, 0, 0, 0.12);
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 0 2px 0 rgba(0, 0, 0, 0.12);
         border-radius: 1rem 1rem 1rem 0;
       }
       sl-card [slot='header'] {
@@ -87,7 +81,6 @@ export class AppHome extends LitElement {
     if (selects) {
       selects.forEach((select: any) => {
         select.style.fontFamily = getComputedStyle(document.documentElement).getPropertyValue('--sl-font-sans');
-        //you may need to get the shadowroot of the select, and change the internal elements, but css parts are prefered.
       });
     }
   }
@@ -109,7 +102,7 @@ export class AppHome extends LitElement {
     } else {
       root.style.setProperty('--font-family', this.customFont);
       root.style.setProperty('--sl-font-sans', this.customFont);
-      root.style.setProperty('--sl-font-mono', 'Menlo, monospace'); //replace with your monospace font.
+      root.style.setProperty('--sl-font-mono', 'Menlo, monospace');
     }
 
     localStorage.setItem('useDefaultFont', useDefault.toString());
@@ -134,7 +127,7 @@ export class AppHome extends LitElement {
     } else {
       root.style.setProperty('--font-family', this.customFont);
       root.style.setProperty('--sl-font-sans', this.customFont);
-      root.style.setProperty('--sl-font-mono', 'Menlo, monospace'); //replace with your monospace font.
+      root.style.setProperty('--sl-font-mono', 'Menlo, monospace');
     }
     this.updateSelectFonts();
   }
@@ -150,33 +143,34 @@ export class AppHome extends LitElement {
       </div>-->
 
       <main style="padding-bottom: 5rem;">
-        <sl-alert variant="primary" open closable>
-          <sl-icon slot="icon" name="info-circle"></sl-icon>
-          <strong>Looking for my portfolio site?</strong><br />
-          Visit <a href="https://www.adamjolicoeur.com" target="blank" alt="Link to adamjolicoeur.com">www.adamjolicoeur.com</a> to view all of my designs, demos, and more!
-        </sl-alert>
         <content class="main">
           <section>
             <sl-card style="position: relative;">
-              <div slot="header">Tournament Tracker</div>
-              <p>For use with tracking games of Magic: The Gathering.</p>
+              <div slot="header">Tournament</div>
+              <!-- <p class="game-intro">For use with tracking games of Magic: The Gathering.</p> -->
+              <p class="card-icon">
+                <sl-icon src="/assets/svg/xlcu.svg" style="font-size: 4rem;"></sl-icon>
+              </p>
               <div class="ribbon ribbon ribbon-top-right">
                 <span class="primary">
                   Tournament
                 </span>
               </div>
               <div slot="footer">
-                <sl-button href="${resolveRouterPath('game-tracker')}" variant="default" pill>Start</sl-button>
+                <sl-button href="${resolveRouterPath('game-tracker')}" variant="neutral" pill class="custom-button">Play</sl-button>
               </div>
             </sl-card>
           </section>
           <section>
-            <sl-card class="card-header two-item-footer" style="position: relative;">
+            <sl-card class="card-header" style="position: relative;">
               <div slot="header">
-                EDH Event Tracking
+                EDH
               </div>
-              <p>
+              <!-- <p class="game-intro">
                 A customized tracker for matches of 4 player games such as Commander/EDH.
+              </p> -->
+              <p class="card-icon">
+                <sl-icon src="/assets/svg/cmd.svg" style="font-size: 4rem;"></sl-icon>
               </p>
               <div class="ribbon ribbon ribbon-top-right">
                 <span class="edh">
@@ -184,17 +178,20 @@ export class AppHome extends LitElement {
                 </span>
               </div>
               <div slot="footer">
-                <sl-button href="${resolveRouterPath('counter')}" variant="default" pill>Start</sl-button>
+                <sl-button href="${resolveRouterPath('counter')}" variant="neutral" pill class="custom-button">Play</sl-button>
               </div>
             </sl-card>
           </section>
           <section>
-            <sl-card class="card-header two-item-footer" style="position: relative;">
+            <sl-card class="card-header" style="position: relative;">
               <div slot="header">
-                Standard Counter
+                Standard
               </div>
-              <p>
+              <!-- <p class="game-intro">
                 A simplified life counter for standard (head-to-head) matches. Each "side" is designed to face the user to provide the clearest view of their life total.
+              </p> -->
+              <p class="card-icon">
+                <sl-icon src="/assets/svg/bcore.svg"></sl-icon>
               </p>
               <div class="ribbon ribbon ribbon-top-right">
                 <span class="colorless">
@@ -202,7 +199,7 @@ export class AppHome extends LitElement {
                 </span>
               </div>
               <div slot="footer">
-                <sl-button href="${resolveRouterPath('standard-tracker')}" variant="default" pill>Start</sl-button>
+                <sl-button href="${resolveRouterPath('standard-tracker')}" variant="neutral" pill class="custom-button">Play</sl-button>
               </div>
             </sl-card>
           </section>
@@ -219,12 +216,6 @@ export class AppHome extends LitElement {
           padding: .5rem;
         }
       </style>
-      <script>
-        const alert = document.querySelector('.alert-closable');
-        alert.addEventListener('sl-after-hide', () => {
-          setTimeout(() => (alert.open = true), 2000);
-        });
-      </script>
     `;
   }
 }

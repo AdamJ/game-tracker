@@ -4,6 +4,24 @@ export const shoelaceStyles = css`
   sl-button, sl-button::part(base), sl-button::part(label), sl-card, sl-switch, sl-switch::part(base), sl-icon, sl-tooltip, sl-alert, sl-tab, sl-menu-label, sl-menu-item, sl-select, sl-radio-group, input, button {
     font-family: var(--font-family), sans-serif !important;
   }
+  sl-button.custom-button::part(base) {
+    border-radius: 1rem 0;
+    border: 1px solid var(--windows-stroke-glass-specular);
+    background: var(--Windows-Glass);
+    background-blend-mode: luminosity;
+    backdrop-filter: blur(50px);
+    color: var(--sl-color-neutral-900);
+  }
+  sl-button.custom-button::part(base):hover,
+  sl-button.custom-button::part(base):active {
+    color: var(--sl-color-primary-700);
+    box-shadow: 0px -0.5px 1px 0px rgba(255, 255, 255, 0.30) inset, 0px -0.5px 1px 0px rgba(255, 255, 255, 0.25) inset, 1px 1.5px 4px 0px rgba(0, 0, 0, 0.08) inset, 1px 1.5px 4px 0px rgba(0, 0, 0, 0.10) inset;
+    border-color: var(--sl-color-primary-700);
+  }
+  sl-button.custom-button::part(base):focus {
+    color: var(--sl-color-primary-700);
+    border-color: var(--sl-color-primary-700);
+  }
   sl-tab-group {
     --indicator-color: var(--sl-color-primary-500);
     --track-width: 4px;
