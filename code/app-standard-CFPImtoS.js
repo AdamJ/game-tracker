@@ -1,4 +1,4 @@
-import{i as h,s as y,a as v,d as w,n as m,b as l,e as f,r as g,x as c,t as b}from"./index-CxDbH6Bh.js";import{t as x}from"./table-styles-OhS32des.js";import{c as P,l as u}from"./counter-styles-Cs3ffNtQ.js";const $=h`
+import{i as h,s as y,a as v,d as w,n as m,b as l,e as f,r as g,x as c,t as b}from"./index-S6l8xIAg.js";import{t as x}from"./table-styles-Ds3dNdqY.js";import{c as P,l as u}from"./counter-styles-CBsLK_Xj.js";const $=h`
   @media screen and (min-width: 600px) {
     .standard-tracker {
       display: flex;
@@ -130,7 +130,6 @@ import{i as h,s as y,a as v,d as w,n as m,b as l,e as f,r as g,x as c,t as b}fro
               type="number"
               label="Starting Points"
               size="medium"
-              autofocus
               pill
               placeholder="Starting points must be greater than 0"
               type="number"
@@ -182,7 +181,7 @@ import{i as h,s as y,a as v,d as w,n as m,b as l,e as f,r as g,x as c,t as b}fro
         }
       </style>
 
-      </main>
+    </main>
   `}};r.styles=[y,v,P,x,w,$,h`
       @media screen and (max-width: 595px) {
         .standard-tracker,
@@ -276,4 +275,4 @@ import{i as h,s as y,a as v,d as w,n as m,b as l,e as f,r as g,x as c,t as b}fro
       z-index: 1000;
     }
   `;p=O([b("app-standard")],p);export{p as PvpCounter};
-//# sourceMappingURL=app-standard-lvoRMzey.js.map
+//# sourceMappingURL=app-standard-CFPImtoS.js.map
