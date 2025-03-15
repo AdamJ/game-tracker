@@ -2,6 +2,32 @@ importScripts(
     'https://storage.googleapis.com/workbox-cdn/releases/7.3.0/workbox-sw.js'
 );
 
+import { warmStrategyCache, offlineFallback } from 'workbox-recipes';
+import { StaleWhileRevalidate } from 'workbox-strategies';
+import { cleanupOutdatedCaches } from 'workbox-precaching'
+
+import { clientsClaim } from 'workbox-core'
+
+cleanupOutdatedCaches()
+
+warmStrategyCache({
+  urls: ['/index.html', '/'],
+  strategy: pageCache,
+});
+
+// Set up page cache
+const pageCache = new CacheFirst({
+  cacheName: 'page-cache',
+  plugins: [
+    new CacheableResponsePlugin({
+      statuses: [0, 200],
+    }),
+    new ExpirationPlugin({
+      maxAgeSeconds: 30 * 24 * 60 * 60,
+    }),
+  ],
+});
+
 // This is your Service Worker, you can put any of your custom Service Worker
 // code in this file, above the `precacheAndRoute` line.
 
@@ -57,9 +83,6 @@ const updateName = async (event) => {
     await self.widgets.updateByInstanceId(event.instanceId, payload);
 }
 
-// Workbox Precaching
-workbox.precaching.precacheAndRoute(self.__WB_MANIFEST || []);
-
 // Navigation Routing
 workbox.routing.registerRoute(
   ({ request }) => request.mode === 'navigate',
@@ -90,3 +113,32 @@ self.addEventListener('notificationclick', (event) => {
   var fullPath = self.location.origin + event.notification.data.path;
   clients.openWindow(fullPath);
 });
+
+// Set up offline fallback
+offlineFallback({
+  pageFallback: '/offline.html',
+});
+
+// Set up asset cache
+registerRoute(
+  ({ request }) => ['style', 'script', 'worker'].includes(request.destination),
+  new StaleWhileRevalidate({
+    cacheName: 'asset-cache',
+    plugins: [
+      new CacheableResponsePlugin({
+        statuses: [0, 200],
+      }),
+    ],
+  }),
+);
+
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'SKIP_WAITING')
+    self.skipWaiting()
+})
+
+self.skipWaiting()
+clientsClaim()
+
+// Workbox Precaching
+workbox.precaching.precacheAndRoute(self.__WB_MANIFEST || []);
