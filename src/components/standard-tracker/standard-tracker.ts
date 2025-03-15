@@ -412,7 +412,6 @@ export class MatchTracker extends LitElement {
               type="number"
               label="Starting Points"
               size="medium"
-              autofocus
               pill
               placeholder="Starting points must be greater than 0"
               type="number"
@@ -464,6 +463,6 @@ export class MatchTracker extends LitElement {
         }
       </style>
 
-      </main>
+    </main>
   `}
 }

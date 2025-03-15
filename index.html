@@ -44,37 +44,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@100..900&display=swap" rel="stylesheet">
-
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
-          .then(registration => {
-            console.log('Service Worker registered: ', registration);
-            if (Notification.permission !== "granted") {
-              Notification.requestPermission()
-                .then(permission => {
-                  if (permission === 'granted') {
-                    console.log("Notification Permission Granted")
-                    // Permission granted, you can show notifications
-                    // if(registration.active){
-                    //  registration.active.showNotification("Permission granted!")
-                    //}
-                  } else {
-                    console.log("Notification Permission not granted");
-                  }
-                })
-                .catch(error => {
-                  console.error('Error requesting notification permission:', error);
-                });
-            }
-          })
-          .catch(registrationError => {
-            console.log('Service Worker registration failed: ', registrationError);
-          });
-      });
-    }
-  </script>
 </head>
 
 <body>

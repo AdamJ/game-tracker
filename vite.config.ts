@@ -1,9 +1,9 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path'
-import { fileURLToPath } from 'url'
+// import { fileURLToPath } from 'url'
 import { VitePWA } from 'vite-plugin-pwa';
 
-const __filename = fileURLToPath(import.meta.url)
+// const __filename = fileURLToPath(import.meta.url)
 const __dirname = resolve()
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -18,13 +18,20 @@ export default defineConfig({
     cssMinify: true,
     lib: false,
     minify: isProd,
+    emptyOutDir: false,
+    rollupOptions: {
+      input: {
+        index: resolve(__dirname, 'index.html'),
+        offline: resolve(__dirname, 'offline.html'),
+      },
+    },
   },
   plugins: [
     VitePWA({
       registerType: 'autoUpdate',
       strategies: "injectManifest",
       injectManifest: {
-        swSrc: 'public/sw.js',
+        swSrc: 'public/main.js',
         swDest: 'dist/sw.js',
         globDirectory: 'dist',
         globPatterns: [
@@ -37,7 +44,7 @@ export default defineConfig({
         enabled: true
       },
       workbox: {
-        cleanupOutdatedCaches: false,
+        cleanupOutdatedCaches: true,
         sourcemap: true
       }
     })
