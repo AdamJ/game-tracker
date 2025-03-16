@@ -1,4 +1,4 @@
-import{i as h,s as y,a as v,d as w,n as m,b as l,e as f,r as g,x as c,t as b}from"./index-S6l8xIAg.js";import{t as x}from"./table-styles-Ds3dNdqY.js";import{c as P,l as u}from"./counter-styles-CBsLK_Xj.js";const $=h`
+import{i as h,s as y,a as v,d as w,n as m,b as l,e as f,r as g,x as c,t as b}from"./index-Bx8p0w65.js";import{t as x}from"./table-styles-39A4y3mC.js";import{c as P,l as u}from"./counter-styles-Dt_Mrgo7.js";const $=h`
   @media screen and (min-width: 600px) {
     .standard-tracker {
       display: flex;
@@ -172,8 +172,8 @@ import{i as h,s as y,a as v,d as w,n as m,b as l,e as f,r as g,x as c,t as b}fro
         }
         .fab-container {
           position: absolute;
-          height: 56px;
-          width: 56px;
+          // height: 56px;
+          // width: 56px;
           top: calc(50% - 24px);
           right: calc(50vw - 1.5rem);
           box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, .5);
@@ -275,4 +275,4 @@ import{i as h,s as y,a as v,d as w,n as m,b as l,e as f,r as g,x as c,t as b}fro
       z-index: 1000;
     }
   `;p=O([b("app-standard")],p);export{p as PvpCounter};
-//# sourceMappingURL=app-standard-CFPImtoS.js.map
+//# sourceMappingURL=app-standard-t7y6znfd.js.map
