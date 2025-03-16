@@ -1,9 +1,6 @@
 import { css } from 'lit';
 
 export const shoelaceStyles = css`
-  sl-button, sl-button::part(base), sl-button::part(label), sl-card, sl-switch, sl-switch::part(base), sl-icon, sl-tooltip, sl-alert, sl-tab, sl-menu-label, sl-menu-item, sl-select, sl-radio-group, input, button {
-    font-family: var(--font-family), sans-serif !important;
-  }
   sl-button.custom-button::part(base) {
     border-radius: 1rem 0;
     border: 1px solid var(--windows-stroke-glass-specular);
@@ -24,27 +21,35 @@ export const shoelaceStyles = css`
   }
   sl-tab-group {
     --indicator-color: var(--sl-color-primary-500);
-    --track-width: 4px;
+    --track-width: 0;
     --track-color: var(--sl-color-neutral-500);
   }
-  sl-tab {
+  sl-tab-group::part(tabs) {
+    background: var(--Views-Recessed-Material-View);
+    padding-top: .25rem;
     padding-bottom: .25rem;
+    border-radius: 1rem;
+  }
+  sl-tab-group::part(nav) {
+    width: fit-content !important;
   }
   sl-details::part(base),
   sl-card::part(base),
-  sl-tab::part(base),
   sl-tab-panel::part(base) {
     border-radius: 1rem;
     border: 1px solid var(--windows-stroke-glass-specular);
     background: var(--Windows-Glass);
     background-blend-mode: luminosity;
 
-    /* Blur */
+    /* Blur
     backdrop-filter: blur(50px);
+    */
+    backdrop-filter: blur(10px);
   }
   sl-tab::part(base) {
     border-color: transparent;
-    color: rgba(255,255,255,.8);
+    background: var(--Controls-Idle, linear-gradient(0deg, rgba(94, 94, 94, 0.18) 0%, rgba(94, 94, 94, 0.18) 100%), rgba(255, 255, 255, 0.07));
+    background-blend-mode: color-dodge, normal;
   }
   sl-tab::part(base):hover {
     border-color: var(--sl-color-primary-500);
@@ -74,8 +79,8 @@ export const shoelaceStyles = css`
     padding: 1rem;
   }
   sl-tag::part(base) {
-    border-radius: 0.5rem;
-    background: linear-gradient(0deg, rgba(87, 87, 87, 0.04) 0%, rgba(87, 87, 87, 0.04) 100%), rgba(255, 255, 255, 0.07);
+    border-radius: 0.625rem;
+    background: var(--Windows-Glass);
     background-blend-mode: color-dodge, lighten;
     color: rgba(255, 255, 255, 0.96) !important;
     text-align: center;
@@ -85,5 +90,11 @@ export const shoelaceStyles = css`
   }
   sl-tree-item::part(base) {
     color: var(--sl-color-neutral-950);
+  }
+  sl-input::part(base) {
+    border-radius: 0.75rem;
+    background: var(--Recessed, linear-gradient(0deg, rgba(0, 0, 0, 0.10) 0%, rgba(0, 0, 0, 0.10) 100%), rgba(208, 208, 208, 0.50));
+    background-blend-mode: luminosity, color-burn;
+    box-shadow: 0px -0.5px 1px 0px rgba(255, 255, 255, 0.30) inset, 0px -0.5px 1px 0px rgba(255, 255, 255, 0.25) inset, 1px 1.5px 4px 0px rgba(0, 0, 0, 0.08) inset, 1px 1.5px 4px 0px rgba(0, 0, 0, 0.10) inset;
   }
 `;

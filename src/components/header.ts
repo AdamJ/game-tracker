@@ -32,7 +32,7 @@ export class AppHeader extends LitElement {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: var(--sl-color-neutral-100);
+      background: var(--Views-Recessed-Material-View);
 
       position: fixed;
       left: env(titlebar-area-x, 0);
@@ -84,7 +84,7 @@ export class AppHeader extends LitElement {
         ``
         }
         ${this.enableAbout ? html`
-            <sl-button variant="default" size="small" pill @click="${this.openAboutModal}">
+            <sl-button variant="default" size="small" pill href="${resolveRouterPath('about')}">
               About
             </sl-button>
           ` : html

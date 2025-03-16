@@ -44,7 +44,7 @@ export const manaStyles = css`
   color:  var(--special-color-white);
   display: inline-block;
   font-size: 0.5em;
-  font-family: var(--font-family);
+  font-family: var(--sl-font-sans);
   position: absolute;
   line-height: 2.25em;
   width: 100%;

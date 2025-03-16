@@ -1,9 +1,8 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path'
-// import { fileURLToPath } from 'url'
 import { VitePWA } from 'vite-plugin-pwa';
+import Icons from 'unplugin-icons/vite'
 
-// const __filename = fileURLToPath(import.meta.url)
 const __dirname = resolve()
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -27,6 +26,9 @@ export default defineConfig({
     },
   },
   plugins: [
+    Icons({
+      autoInstall: true,
+    }),
     VitePWA({
       registerType: 'autoUpdate',
       strategies: "injectManifest",

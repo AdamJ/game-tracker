@@ -61,7 +61,6 @@ export class AppHome extends LitElement {
     // this method is a lifecycle even in lit
     // for more info check out the lit docs https://lit.dev/docs/components/lifecycle/
     console.log('This is your home page');
-    this.applyInitialFont();
   }
 
   share() {
@@ -74,73 +73,9 @@ export class AppHome extends LitElement {
     }
   }
 
-  customFont = '"Oswald", sans-serif';
-
-  updateSelectFonts() {
-    const selects = this.shadowRoot?.querySelectorAll('sl-select');
-    if (selects) {
-      selects.forEach((select: any) => {
-        select.style.fontFamily = getComputedStyle(document.documentElement).getPropertyValue('--sl-font-sans');
-      });
-    }
-  }
-
-  toggleFont(event: CustomEvent) {
-    const root = document.documentElement;
-    const useDefault = (event.target as any).checked;
-
-    if (useDefault) {
-      root.style.setProperty(
-        '--font-family',
-        '"Grenze Gotisch", sans-serif'
-      );
-      root.style.setProperty(
-        '--sl-font-sans',
-        '"Grenze Gotisch", sans-serif'
-      );
-      root.style.setProperty('--sl-font-mono', 'Menlo, monospace');
-    } else {
-      root.style.setProperty('--font-family', this.customFont);
-      root.style.setProperty('--sl-font-sans', this.customFont);
-      root.style.setProperty('--sl-font-mono', 'Menlo, monospace');
-    }
-
-    localStorage.setItem('useDefaultFont', useDefault.toString());
-    this.updateSelectFonts();
-  }
-
-  applyInitialFont() {
-    const storedFontPreference = localStorage.getItem('useDefaultFont');
-    const root = document.documentElement;
-
-    if (storedFontPreference === 'true') {
-      root.style.setProperty(
-        '--font-family',
-        '"Grenze Gotisch", sans-serif'
-      );
-      root.style.setProperty(
-        '--sl-font-sans',
-        '"Grenze Gotisch", sans-serif'
-      );
-      root.style.setProperty('--sl-font-mono', 'Menlo, monospace');
-      (this.shadowRoot?.querySelector('sl-switch') as any).checked = true;
-    } else {
-      root.style.setProperty('--font-family', this.customFont);
-      root.style.setProperty('--sl-font-sans', this.customFont);
-      root.style.setProperty('--sl-font-mono', 'Menlo, monospace');
-    }
-    this.updateSelectFonts();
-  }
-
   render() {
     return html`
       <app-header ?enableShare="${true}" ?enableAbout=${true}></app-header>
-
-      <!--<div class="font-toggle">
-        <sl-switch size="medium" @sl-change=${this.toggleFont}>
-          Toggle fancy font
-        </sl-switch>
-      </div>-->
 
       <main style="padding-bottom: 5rem;">
         <content class="main">
