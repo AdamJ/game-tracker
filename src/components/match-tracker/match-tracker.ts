@@ -1,5 +1,5 @@
 import { LitElement, html, css, nothing } from 'lit';
-import { customElement, property, state } from 'lit/decorators.js';
+import { customElement, property, state, query } from 'lit/decorators.js';
 import localForage from 'localforage';
 import '../icons/mana-icon';
 import '../icons/mtg-symbols';
@@ -48,17 +48,20 @@ interface LogEntry {
 
 @customElement('match-tracker')
 export class MatchTracker extends LitElement {
-  @property({ type: Object }) handle1: Player = { life: 20 };
-  @property({ type: Object }) handle2: Player = { life: 20 };
-  @property({ type: Object }) handle3: Player = { life: 20 };
-  @property({ type: Object }) handle4: Player = { life: 20 };
+  @property({ type: Object }) handle1: Player = { life: 40 };
+  @property({ type: Object }) handle2: Player = { life: 40 };
+  @property({ type: Object }) handle3: Player = { life: 40 };
+  @property({ type: Object }) handle4: Player = { life: 40 };
 
   @state() matchResults: MatchResult[] = []; // Array to store game results
   @state() playerHandle1: string = "Player 1";
   @state() playerHandle2: string = "Player 2";
   @state() playerHandle3: string = "Player 3";
   @state() playerHandle4: string = "Player 4";
-  @state() initialLifeTracker: number = 20;
+  @state() initialLifeTracker: number = 40;
+  @state() isAlertOpen = false; //Add a state to track if the drawer is open.
+
+  @query('.alert-closable') alert: any; // Query for the drawer element
 
   private storageKey = 'playerData'; // Key for localForage
 
@@ -93,9 +96,15 @@ export class MatchTracker extends LitElement {
         margin-right: 1rem;
         margin-left: 1rem;
       }
-      @media (min-width: 1000px) {
+      @media (min-width: 900px) {
         .form-2-column {
           flex-direction: row;
+        }
+      }
+      @media (max-width: 900px) {
+        .form-player-input {
+          margin-right: 0;
+          margin-left: 0;
         }
       }
     `
@@ -240,7 +249,15 @@ export class MatchTracker extends LitElement {
 
     this.matchResults = [...this.matchResults, newResult];
     this.saveToStorage();
-    this.resetGame(); // Reset the game for a new round
+    this.resetLife(); // Reset the game for a new round
+  }
+
+  private closeAlert(){
+    this.isAlertOpen = false;
+  }
+  private resetWithAlert(){
+    this.resetGame();
+    this.isAlertOpen = true;
   }
 
   private resetGame() {
@@ -248,6 +265,19 @@ export class MatchTracker extends LitElement {
       this.handle2 = { life: this.initialLifeTracker };
       this.handle3 = { life: this.initialLifeTracker };
       this.handle4 = { life: this.initialLifeTracker };
+      this.playerLogs = [];
+      this.playerHandle1 = "Player 1";
+      this.playerHandle2 = "Player 2";
+      this.playerHandle3 = "Player 3";
+      this.playerHandle4 = "Player 4";
+      this.matchResults = [];
+  }
+  private resetLife() {
+      this.handle1 = { life: this.initialLifeTracker };
+      this.handle2 = { life: this.initialLifeTracker };
+      this.handle3 = { life: this.initialLifeTracker };
+      this.handle4 = { life: this.initialLifeTracker };
+      this.playerLogs = [];
   }
 
   private saveToStorage() {
@@ -284,7 +314,7 @@ export class MatchTracker extends LitElement {
         this.playerHandle2Actions = data.playerHandle2Actions || [];
         this.playerHandle3Actions = data.playerHandle3Actions || [];
         this.playerHandle4Actions = data.playerHandle4Actions || [];
-        // this.playerLogs = data.playerLogs;
+        this.playerLogs = data.playerLogs;
       }
     }).catch(console.error);
   }
@@ -392,11 +422,11 @@ export class MatchTracker extends LitElement {
       <main style="padding-bottom: 5rem;">
       <div style="display: flex; flex-direction: column; grid-gap: 1rem;">
         <sl-tab-group>
-          <sl-tab slot="nav" panel="tracker" class="hide-at-800">Tracker</sl-tab>
-          <sl-tab slot="nav" panel="standings" class="hide-at-800">Standings</sl-tab>
-          <sl-tab slot="nav" panel="results" class="hide-at-800">Results</sl-tab>
-          <sl-tab slot="nav" panel="action-log" class="hide-at-800">Log</sl-tab>
-          <sl-tab slot="nav" panel="setup" class="hide-at-800">Setup</sl-tab>
+          <sl-tab slot="nav" panel="tracker">Tracker</sl-tab>
+          <sl-tab slot="nav" panel="standings">Standings</sl-tab>
+          <sl-tab slot="nav" panel="results">Results</sl-tab>
+          <sl-tab slot="nav" panel="action-log">Log</sl-tab>
+          <sl-tab slot="nav" panel="setup">Setup</sl-tab>
           <sl-tab-panel name="tracker">
             <div style="display: flex; flex-direction: row;justify-content: around; flex-wrap: wrap;">
               <div style="width: 50%;">
@@ -523,6 +553,10 @@ export class MatchTracker extends LitElement {
             </table>
           </sl-tab-panel>
           <sl-tab-panel name="setup">
+            <sl-alert variant="primary" open duration="1500" closable class="alert-closable" ?open=${this.isAlertOpen} @sl-after-hide=${this.closeAlert}>
+              <sl-icon slot="icon" name="info-circle"></sl-icon>
+              Resetting game data.
+            </sl-alert>
             <div style="display: flex; flex-direction: row; justify-content: center; margin-bottom: .5rem;">
               <sl-input
                 type="number"
@@ -536,13 +570,12 @@ export class MatchTracker extends LitElement {
                 min="0"
                 style="width: 25%; text-align: center;"
               >
-                <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-1 ms-small"></sl-icon>
               </sl-input>
             </div>
             <div class="form-2-column">
               <form class="form-player-input">
                 <sl-input
-                  inputmode="text"
+                  type="text"
                   label="Player 1"
                   size="medium"
                   pill
@@ -554,6 +587,7 @@ export class MatchTracker extends LitElement {
                   <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-1 ms-small"></sl-icon>
                 </sl-input>
                 <sl-input
+                  type="text"
                   label="Player 3"
                   size="medium"
                   clearable
@@ -567,6 +601,7 @@ export class MatchTracker extends LitElement {
               </form>
               <form class="form-player-input">
                 <sl-input
+                  type="text"
                   label="Player 2"
                   size="medium"
                   clearable
@@ -578,6 +613,7 @@ export class MatchTracker extends LitElement {
                   <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-2 ms-small"></sl-icon>
                 </sl-input>
                 <sl-input
+                  type="text"
                   label="Player 4"
                   size="medium"
                   clearable
@@ -590,10 +626,14 @@ export class MatchTracker extends LitElement {
                 </sl-input>
               </form>
             </div>
-            <div style="display: flex; flex-direction: row; justify-content: center; padding-top: 1rem;">
-              <sl-button variant="success" pill style="width: 25%;" @click=${this.exportToCSV}>
+            <div style="display: flex; flex-direction: row; justify-content: center; padding-top: 1rem; gap: 1rem;">
+              <sl-button variant="success" pill @click=${this.exportToCSV}>
+                <sl-icon name="file-earmark-excel-fill" slot="prefix"></sl-icon>
                 Export to CSV
-                <sl-icon name="file-earmark-excel-fill" slot="suffix"></sl-icon>
+              </sl-button>
+              <sl-button variant="danger" pill @click=${this.resetWithAlert}>
+                <sl-icon name="x-square-fill" slot="prefix"></sl-icon>
+                Reset All
               </sl-button>
             </div>
           </sl-tab-panel>

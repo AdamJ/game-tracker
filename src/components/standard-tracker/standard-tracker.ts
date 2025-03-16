@@ -454,8 +454,8 @@ export class MatchTracker extends LitElement {
         }
         .fab-container {
           position: absolute;
-          height: 56px;
-          width: 56px;
+          // height: 56px;
+          // width: 56px;
           top: calc(50% - 24px);
           right: calc(50vw - 1.5rem);
           box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, .5);

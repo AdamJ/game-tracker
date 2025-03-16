@@ -23,7 +23,7 @@ export const ribbonStyles = css`
     padding: 1rem 0;
     box-shadow: 0 5px 10px rgba(0,0,0,.1);
     color: #fff;
-    font: 700 18px/1 var(--font-family);
+    font: 700 14px/1 var(--sl-font-sans);
     text-shadow: 0 1px 1px rgba(0,0,0,.2);
     text-transform: uppercase;
     text-align: center;

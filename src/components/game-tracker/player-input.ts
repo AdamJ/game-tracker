@@ -75,7 +75,7 @@ export class PlayerInput extends LitElement {
 
   render() {
     return html`
-      <div style="display: flex; flex-direction: row; justify-content: space-between; flex-wrap: wrap;">
+      <div style="display: flex; flex-direction: row; justify-content: space-between; flex-wrap: wrap; grid-gap: 1rem;">
         <form
           class="input-validation-custom"
           @submit=${this.handleSubmit}
