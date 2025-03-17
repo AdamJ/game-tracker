@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Moonsilver Waypoints is Offline!</title>
+    <!-- Inline the page's stylesheet. -->
+    <style>
+      body {
+        font-family: helvetica, arial, sans-serif;
+        margin: 2em;
+      }
+
+      h1 {
+        font-style: italic;
+        color: #373fff;
+      }
+
+      p {
+        margin-block: 1rem;
+      }
+
+      button {
+        display: block;
+      }
+    </style>
+    <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Tracking games of Magic: The Gathering and other TCG scores." />
+  </head>
+  <body>
+    <h1>You are offline</h1>
+    <p>Click the button below to try reloading.</p>
+    <button type="button">⤾ Reload</button>
+    <script>
+      // Manual reload feature.
+      document.querySelector("button").addEventListener("click", () => {
+        window.location.reload();
+      });
+    </script>
+  </body>
+</html>
