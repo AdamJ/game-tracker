@@ -60,6 +60,26 @@ const updateName = async (event) => {
 // Workbox Precaching
 workbox.precaching.precacheAndRoute(self.__WB_MANIFEST || []);
 
+// Cache data
+workbox.routing.registerRoute(
+  ({url}) => url.pathname.startsWith('/data'),
+  new workbox.strategies.CacheFirst()
+);
+// Cache app images
+workbox.routing.registerRoute(
+  ({url}) => url.pathname.startsWith('/assets'),
+  new workbox.strategies.CacheFirst()
+);
+
+// Cache app CSS and JS files
+workbox.routing.registerRoute(
+  ({request}) => request.destination === 'script' ||
+  request.destination === 'style' ||
+  request.destination === 'module', // Cache dynamically imported modules
+  new workbox.strategies.StaleWhileRevalidate()
+);
+
+
 // Navigation Routing
 workbox.routing.registerRoute(
   ({ request }) => request.mode === 'navigate',

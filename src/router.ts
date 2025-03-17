@@ -9,12 +9,12 @@ if (!(globalThis as any).URLPattern) {
 import { Router } from '@thepassle/app-tools/router.js';
 import { appName } from '@thepassle/app-tools/router/plugins/appName.js';
 import { lazy } from '@thepassle/app-tools/router/plugins/lazy.js';
-import { offline } from '@thepassle/app-tools/router/plugins/offline.js';
 import { resetFocus } from '@thepassle/app-tools/router/plugins/resetFocus.js';
 import { scrollToTop } from '@thepassle/app-tools/router/plugins/scrollToTop.js';
 import { checkServiceWorkerUpdate } from '@thepassle/app-tools/router/plugins/checkServiceWorkerUpdate.js';
 
 import './pages/app-home.js';
+import './pages/offline.js';
 
 const baseURL: string = (import.meta as any).env.BASE_URL;
 
@@ -22,15 +22,12 @@ const baseURL: string = (import.meta as any).env.BASE_URL;
 
 export const router = new Router({
   plugins: [
-    /** Redirects to an offline page */
-    offline,
     /** Checks for service worker updates on route navigation */
     checkServiceWorkerUpdate,
     scrollToTop,
     resetFocus,
     appName('Moonsilver Waypoints -'),
   ],
-  fallback: '/404',
   routes: [
     {
       path: resolveRouterPath(),
@@ -42,10 +39,6 @@ export const router = new Router({
       title: 'About',
       plugins: [
         lazy(() => import('./pages/app-about/app-about.js')),
-        offline,
-        ()=>{
-          console.error('Failed to load About');
-        }
       ],
       render: () => html`<app-about></app-about>`
     },
@@ -54,10 +47,6 @@ export const router = new Router({
       title: 'EDH Event Tracker',
       plugins: [
         lazy(() => import('./pages/app-counter/app-counter.js')),
-        offline,
-        ()=>{
-          console.error('Failed to load EDH Event Tracker');
-        }
       ],
       render: () => html`<app-counter></app-counter>`
     },
@@ -66,10 +55,6 @@ export const router = new Router({
       title: 'Tournament Tracker',
       plugins: [
         lazy(() => import('./pages/app-game-tracker.js')),
-        offline,
-        ()=>{
-          console.error('Failed to load Tournament Tracker');
-        }
       ],
       render: () => html`<app-standings></app-standings>`
     },
@@ -78,10 +63,6 @@ export const router = new Router({
       title: 'Standard Counter',
       plugins: [
         lazy(() => import('./pages/app-standard/app-standard.js')),
-        offline,
-        ()=>{
-          console.error('Failed to load Standard Counter');
-        }
       ],
       render: () => html`<app-standard></app-standard>`
     },
@@ -89,11 +70,6 @@ export const router = new Router({
       path: 'offline.html',
       title: 'Offline',
       render: () => html`<offline-page></offline-page>`
-    },
-    {
-      path: '/404',
-      title: 'Not found',
-      render: () => html`<404-page><h1>This page was not found!</h1></404-page>`
     }
   ]
 });

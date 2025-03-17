@@ -40,36 +40,6 @@
   <link href="/assets/mana.min.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/dark.css" />
   <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
-          .then(registration => {
-            console.log('Service Worker registered: ', registration);
-            if (Notification.permission !== "granted") {
-              Notification.requestPermission()
-                .then(permission => {
-                  if (permission === 'granted') {
-                    console.log("Notification Permission Granted")
-                    // Permission granted, you can show notifications
-                    // if(registration.active){
-                    //  registration.active.showNotification("Permission granted!")
-                    //}
-                  } else {
-                    console.log("Notification Permission not granted");
-                  }
-                })
-                .catch(error => {
-                  console.error('Error requesting notification permission:', error);
-                });
-            }
-          })
-          .catch(registrationError => {
-            console.log('Service Worker registration failed: ', registrationError);
-          });
-      });
-    }
-  </script>
 </head>
 
 <body>
@@ -77,6 +47,15 @@
   <!-- Our app-index web component. This component is defined in src/pages/app-index.ts-->
   <my-app style="position: relative;"></my-app>
   <script type="module" src="/src/main.ts"></script>
+
+  <!-- Shoelace Modal -->
+  <sl-dialog label="Install App" class="install-dialog">
+    <p>
+      Moonsilver Waypoints is available as an app. Click the "install" button below to get started.
+    </p>
+    <sl-button slot="footer" variant="primary" class="install-button">Install</sl-button>
+  </sl-dialog>
+
 </body>
 
 </html>

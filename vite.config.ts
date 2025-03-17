@@ -33,7 +33,7 @@ export default defineConfig({
         swDest: 'dist/sw.js',
         globDirectory: 'dist',
         globPatterns: [
-          '**/*.{html,js,css,json,png,jpg}',
+          '**/*.{html,js,css,json,png,jpg, svg}',
         ],
       },
       injectRegister: null,
