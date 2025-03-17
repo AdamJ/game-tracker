@@ -1,8 +1,10 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path'
+import { fileURLToPath } from 'url'
 import { VitePWA } from 'vite-plugin-pwa';
 import Icons from 'unplugin-icons/vite'
 
+const __filename = fileURLToPath(import.meta.url)
 const __dirname = resolve()
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -18,12 +20,6 @@ export default defineConfig({
     lib: false,
     minify: isProd,
     emptyOutDir: false,
-    rollupOptions: {
-      input: {
-        index: resolve(__dirname, 'index.html'),
-        offline: resolve(__dirname, 'offline.html'),
-      },
-    },
   },
   plugins: [
     Icons({
@@ -33,7 +29,7 @@ export default defineConfig({
       registerType: 'autoUpdate',
       strategies: "injectManifest",
       injectManifest: {
-        swSrc: 'public/main.js',
+        swSrc: 'public/sw.js',
         swDest: 'dist/sw.js',
         globDirectory: 'dist',
         globPatterns: [
