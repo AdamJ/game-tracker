@@ -1,3 +1,4 @@
+// src/pages/app-home.ts
 import { LitElement, css, html } from 'lit';
 import { property, customElement } from 'lit/decorators.js';
 import { resolveRouterPath } from '../router';
@@ -10,6 +11,7 @@ import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 import '@shoelace-style/shoelace/dist/components/switch/switch.js';
 import '../components/icons/tabler';
 import '../components/icons/mtg-symbols';
+import "../components/header";
 
 import { sharedStyles } from '../styles/shared-styles';
 import { shoelaceStyles } from '../styles/shoelace-styles';

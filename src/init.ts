@@ -17,12 +17,40 @@ if (Notification.permission !== "granted") {
     });
 }
 
-// Manual Service Worker Registration
+// Manual Service Worker Registration with Update Handling
 if (PROD && 'serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/sw.js', { scope: './' })
       .then(registration => {
         console.log('Service worker registered:', registration);
+
+        // Track any updates to the service worker.
+        registration.addEventListener("updatefound", () => {
+          console.log("Service Worker update found!");
+          const newWorker = registration.installing;
+          if(newWorker){
+            newWorker.addEventListener('statechange', () => {
+              if (newWorker.state === 'installed') {
+                  console.log("New service worker is installed, letting user know.");
+                // New content is available.
+                showUpdateUI(registration);
+              }
+            })
+          }
+        });
+        // Remove this section of code.
+        // Track if a page is being controlled by a new service worker.
+        // navigator.serviceWorker.addEventListener("controllerchange", () => {
+        //   console.log("New Service Worker is controlling the page, reloading page.");
+        //   window.location.reload();
+        // });
+
+        // If there is already a service worker waiting, let the user know.
+        if(registration.waiting){
+          console.log("There is a waiting service worker.");
+          showUpdateUI(registration);
+        }
+
       })
       .catch(error => {
         console.error('Service worker registration failed:', error);
@@ -38,7 +66,7 @@ let deferredPrompt: any;
 window.addEventListener('load', () => {
   const dialog = document.querySelector('.install-dialog') as HTMLDialogElement;
   // Handle the click of the install button inside the modal
-  if(dialog) {
+  if (dialog) {
     dialog.addEventListener('sl-request-close', () => {
       console.log('Modal close requested');
     });
@@ -82,7 +110,25 @@ window.addEventListener('beforeinstallprompt', (event) => {
   }
 });
 
-
 window.addEventListener('appinstalled', () => {
   console.log('PWA installed!');
 });
+
+// --- Update UI ---
+function showUpdateUI(registration: ServiceWorkerRegistration) {
+  console.log("Attempting to show the update ui to the user.");
+  const updateDialog = document.querySelector('.update-dialog') as HTMLDialogElement;
+  if (updateDialog) {
+    (updateDialog as any).show(); // show the update dialog
+    const updateButton = updateDialog.querySelector('.update-button') as HTMLButtonElement;
+    if (updateButton) {
+      updateButton.addEventListener('click', () => {
+        if(registration.waiting){
+          console.log("Telling waiting service worker to skip waiting.");
+          registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+        }
+        (updateDialog as any).hide(); // hide the update dialog
+      });
+    }
+  }
+}

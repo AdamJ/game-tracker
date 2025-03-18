@@ -98,11 +98,24 @@ self.addEventListener('push', function (event) {
       })
     );
   } else {
-    console.log("notification permission not granted");
+    console.log("Notification permission has been denied");
   }
 });
+
 self.addEventListener('notificationclick', (event) => {
   event.notification.close();
   var fullPath = self.location.origin + event.notification.data.path;
   clients.openWindow(fullPath);
+});
+
+// Update notification events
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    console.log("Skip waiting was called in the service worker.");
+    self.skipWaiting();
+  }
+});
+
+self.addEventListener("install", (event) => {
+  console.log("Service Worker install:", event)
 });

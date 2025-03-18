@@ -9,25 +9,13 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="description" content="Tracking games of Magic: The Gathering and other TCG scores." />
-
   <meta name="robots" content="noindex, nofollow">
-
-  <!--<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#181818" /> -->
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#181818" />
   <meta name="color-scheme" content="dark" />
-  <!-- Same as <title> but focused for social media -->
   <meta property="og:title" content="Moonsilver Waypoints" />
-
-  <!-- Canonical link of the page -->
   <meta property="og:url" content="https://www.adamjolicoeur.me" />
-  <!-- Make sure description is less than 200 characters (for twitter) -->
   <meta property="og:description" content="Tracking games of Magic: The Gathering and other TCG scores.">
-
-  <!-- Useful if your site displays content based on third-party items.
-      For example, you're IMDB doing reviews on movies and tv shows -->
   <meta property="og:site_name" content="Moonsilver Waypoints">
-
-  <!-- https://ogp.me/#types -->
   <meta property="og:type" content="website">
 
   <!-- These meta tags are Apple-specific, and set the web application to run in full-screen mode with a black status bar. Learn more at https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html-->
@@ -40,22 +28,125 @@
   <link href="/assets/mana.min.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/dark.css" />
   <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>
+  <style>
+    /* Hide the message by default */
+    .safari-ios-message {
+      display: none;
+    }
+
+    /* Show it when the 'safari-ios' class is added to the body */
+    body.safari-ios .safari-ios-message {
+      position: absolute;
+      z-index: 10000;
+      display: block;
+    }
+    body.safari-ios .safari-ios-message p {
+      text-align: center;
+      padding: 1rem;
+    }
+    .hide {
+      display: none;
+    }
+  </style>
 </head>
 
 <body>
+  <div class="safari-ios-message">
+    <sl-card>
+      <p>
+        It looks like you're using Safari on iOS. To use this web-app, tap the "Share"
+        button below, then select "Add to Home Screen".
+        <span class="result"></span>
+      </p>
+      <sl-button variant="primary" id="share-sheet">Share</sl-button>
+    </sl-card>
+    <br /><br />
+    <sl-card>
+      <p>
+        Having issues? Click "clear cache" to clear all cache, local storage, and refresh the site.
+        <br />
+      </p>
+      <sl-button slot="footer" variant="primary" id="clear-cache">Clear Cache</sl-button>
+    </sl-card>
+  </div>
+
   <div class="background-image"></div>
-  <!-- Our app-index web component. This component is defined in src/pages/app-index.ts-->
   <my-app style="position: relative;"></my-app>
   <script type="module" src="/src/main.ts"></script>
 
-  <!-- Shoelace Modal -->
   <sl-dialog label="Install App" class="install-dialog">
     <p>
-      Moonsilver Waypoints is available as an app. Click the "install" button below to get started.
+      Moonsilver Waypoints is now available as an installable web-app! Click the "install" button below to get started.
     </p>
     <sl-button slot="footer" variant="primary" class="install-button">Install</sl-button>
   </sl-dialog>
 
+  <sl-dialog label="Update Dialog" class="update-dialog">
+    <p>A new version of the app is available!</p>
+    <sl-button slot="footer" variant="primary" class="update-button">Update Now</sl-button>
+  </sl-dialog>
+
+  <!--
+  -- Add a listener that adds 'safari-ios' to the <body> so that the message to install the site as a local 'app' (i.e. Add to Home Screen) displays only for iOS Safari users.
+  -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const isIphone = /iPhone/i.test(navigator.userAgent);
+      const isStandalone = window.navigator.standalone || window.matchMedia('(display-mode: standalone)').matches;
+
+        if (isIphone && !isStandalone) {
+            document.body.classList.add("safari-ios");
+        }
+    });
+
+    document.getElementById("clear-cache").addEventListener("click", function () {
+      window.location.href = window.location.pathname + "?nocache=" + new Date().getTime();
+      window.localStorage.clear();
+      alert("Browser cache and local storage has been cleared.");
+    });
+
+    // Check if the Web Share API is supported
+    if (navigator.share) {
+      // Only create the shareData object if the Web Share API is supported
+      const shareData = {
+        title: "Moonsilver Waypoints",
+        text: "Check out this great app for tracking Magic: The Gathering games!",
+        url: "https://www.adamjolicoeur.me/",
+      };
+
+      // Get the share button and the result paragraph
+      const shareButton = document.getElementById("share-sheet");
+      const resultPara = document.querySelector(".result");
+
+      // If the button or paragraph is missing, log an error and return early
+      if (!shareButton || !resultPara) {
+        console.error("Error: Share button or result paragraph not found in the DOM.");
+      }
+
+      // Add a click event listener to the share button
+      shareButton.addEventListener("click", async () => {
+        try {
+          // Attempt to use the Web Share API
+          await navigator.share(shareData);
+
+          // If sharing is successful, update the result paragraph
+          resultPara.textContent = "Shared successfully!";
+        } catch (err) {
+          // If an error occurs during sharing, update the result paragraph with the error
+          if (err.name === "AbortError") {
+              resultPara.textContent = "Sharing was canceled.";
+          } else {
+              resultPara.textContent = `Error: ${err}`;
+          }
+          console.error("Sharing failed:", err); // Log the error to the console
+        }
+      });
+    } else {
+      // If navigator.share is not supported, log a message to the console and hide the "Share" button
+      console.warn("Web Share API not supported in this browser.");
+      document.getElementById("share-sheet").classList.add("hide");
+    }
+  </script>
 </body>
 
 </html>
