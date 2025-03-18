@@ -1,4 +1,4 @@
-import{f as e,i as r}from"./index-B3-eFWlZ.js";e("mana",{resolver:t=>`https://cdn.jsdelivr.net/npm/mana-font@latest/svg/${t.replace(/^ms-/,"")}.svg`,mutator:t=>{t.setAttribute("fill","currentColor"),t.setAttribute("width","16px"),t.setAttribute("height","16px")}});const i=r`
+import{f as e,i as r}from"./index-y65XhjPs.js";e("mana",{resolver:t=>`https://cdn.jsdelivr.net/npm/mana-font@latest/svg/${t.replace(/^ms-/,"")}.svg`,mutator:t=>{t.setAttribute("fill","currentColor"),t.setAttribute("width","16px"),t.setAttribute("height","16px")}});const i=r`
   table {
     width: 100%;
     border-spacing: 0 !important;
@@ -26,4 +26,4 @@ import{f as e,i as r}from"./index-B3-eFWlZ.js";e("mana",{resolver:t=>`https://cd
     border-bottom-width: 1px;
   }
 `;export{i as t};
-//# sourceMappingURL=table-styles-Bfv1yFiB.js.map
+//# sourceMappingURL=table-styles-CHJI-RG3.js.map

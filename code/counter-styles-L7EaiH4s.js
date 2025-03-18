@@ -1,4 +1,4 @@
-import{i as Ur}from"./index-B3-eFWlZ.js";var ne=typeof globalThis<"u"?globalThis:typeof window<"u"?window:typeof global<"u"?global:typeof self<"u"?self:{};function Yr(W){return W&&W.__esModule&&Object.prototype.hasOwnProperty.call(W,"default")?W.default:W}function oe(W){throw new Error('Could not dynamically require "'+W+'". Please configure the dynamicRequireTargets or/and ignoreDynamicRequires option of @rollup/plugin-commonjs appropriately for this require call to work.')}var me={exports:{}};/*!
+import{i as Ur}from"./index-y65XhjPs.js";var ne=typeof globalThis<"u"?globalThis:typeof window<"u"?window:typeof global<"u"?global:typeof self<"u"?self:{};function Yr(W){return W&&W.__esModule&&Object.prototype.hasOwnProperty.call(W,"default")?W.default:W}function oe(W){throw new Error('Could not dynamically require "'+W+'". Please configure the dynamicRequireTargets or/and ignoreDynamicRequires option of @rollup/plugin-commonjs appropriately for this require call to work.')}var me={exports:{}};/*!
     localForage -- Offline Storage, Improved
     Version 1.10.0
     https://localforage.github.io/localForage
@@ -87,4 +87,4 @@ import{i as Ur}from"./index-B3-eFWlZ.js";var ne=typeof globalThis<"u"?globalThis
     /* @media (prefers-color-scheme: dark) {} */
     /* @media (min-width: 1200px) {} */
 `;export{Gr as c,Qr as l};
-//# sourceMappingURL=counter-styles-Dev5ZCt_.js.map
+//# sourceMappingURL=counter-styles-L7EaiH4s.js.map
