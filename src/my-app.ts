@@ -4,8 +4,8 @@ import { customElement } from 'lit/decorators.js';
 import './pages/app-home';
 import { router } from './router';
 
-@customElement('my-app') // Updated custom element name
-export class MyApp extends LitElement { // Updated class name
+@customElement('my-app')
+export class MyApp extends LitElement {
   static styles = css`
     main, .main {
       padding-left: 1rem;
@@ -42,8 +42,11 @@ export class MyApp extends LitElement { // Updated class name
     }
   `;
 
-  firstUpdated() {
+  constructor() {
+    super();
+    // console.log('MyApp: constructor called');
     router.addEventListener('route-changed', () => {
+      // console.log('MyApp: route-changed event received', e);
       if ("startViewTransition" in document) {
         (document as any).startViewTransition(() => this.requestUpdate());
       }
@@ -54,6 +57,12 @@ export class MyApp extends LitElement { // Updated class name
   }
 
   render() {
-    return router.render();
+    // console.log("MyApp: render called");
+    const result = router.render();
+    //log what the render function is returning
+    // console.log('MyApp: router.render() result:', result);
+    // New log statement
+    // console.log('MyApp: router.render() result type:', typeof result);
+    return result;
   }
 }

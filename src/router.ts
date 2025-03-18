@@ -32,7 +32,10 @@ export const router = new Router({
     {
       path: resolveRouterPath(),
       title: 'Home',
-      render: () => html`<app-home></app-home>`
+      render: () => {
+        console.log("Router: Rendering app-home");
+        return html`<app-home></app-home>`;
+      }
     },
     {
       path: resolveRouterPath('about'),
@@ -69,7 +72,10 @@ export const router = new Router({
     {
       path: 'offline.html',
       title: 'Offline',
-      render: () => html`<offline-page></offline-page>`
+      render: () => {
+        console.log("Router: Rendering offline-page");
+        return html`<offline-page></offline-page>`
+      }
     }
   ]
 });
@@ -81,6 +87,9 @@ export const router = new Router({
 
   export function resolveRouterPath(unresolvedPath?: string) {
     var resolvedPath = baseURL;
+    if(!resolvedPath.startsWith("/")){
+        resolvedPath = "/" + resolvedPath;
+    }
     if(unresolvedPath) {
       resolvedPath = resolvedPath + unresolvedPath;
     }

@@ -48,7 +48,7 @@ export class AppHeader extends LitElement {
   share() {
     if ((navigator as any).share) {
       (navigator as any).share({
-        title: 'GameTracker',
+        title: 'Moonsilver Waypoints',
         text: 'Tracking games of Magic: The Gathering and other TCG scores.',
         url: 'https://www.adamjolicoeur.me',
       });
@@ -63,6 +63,7 @@ export class AppHeader extends LitElement {
           ${document.title}
         </div>
         <sl-button-group label="Navigation" style="margin-right: 1rem;">
+
         ${this.enableBack ? html`
           <sl-button variant="default" size="small" pill aria-label="Back to start" label="Back to start" href="${resolveRouterPath()}">
             <sl-icon slot="prefix" name="house"></sl-icon>
