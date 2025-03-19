@@ -16,8 +16,9 @@ export class PvpCounter extends LitElement {
   `;
   render() {
     return html`
-      <app-header ?enableBack="${true}"></app-header>
+      <!-- <app-header ?enableBack="${true}"></app-header> -->
       <standard-tracker></standard-tracker>
+      <app-navigation></app-navigation>
     `;
   }
 }

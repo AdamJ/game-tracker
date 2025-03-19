@@ -28,6 +28,7 @@
   <link href="/assets/mana.min.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/dark.css" />
   <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>
+
   <style>
     /* Hide the message by default */
     .safari-ios-message {
@@ -58,7 +59,6 @@
         button below, then select "Add to Home Screen".
         <span class="result"></span>
       </p>
-      <sl-button variant="primary" id="share-sheet">Share</sl-button>
     </sl-card>
     <br /><br />
     <sl-card>
@@ -104,48 +104,6 @@
       window.localStorage.clear();
       alert("Browser cache and local storage has been cleared.");
     });
-
-    // Check if the Web Share API is supported
-    if (navigator.share) {
-      // Only create the shareData object if the Web Share API is supported
-      const shareData = {
-        title: "Moonsilver Waypoints",
-        text: "Check out this great app for tracking Magic: The Gathering games!",
-        url: "https://www.adamjolicoeur.me/",
-      };
-
-      // Get the share button and the result paragraph
-      const shareButton = document.getElementById("share-sheet");
-      const resultPara = document.querySelector(".result");
-
-      // If the button or paragraph is missing, log an error and return early
-      if (!shareButton || !resultPara) {
-        console.error("Error: Share button or result paragraph not found in the DOM.");
-      }
-
-      // Add a click event listener to the share button
-      shareButton.addEventListener("click", async () => {
-        try {
-          // Attempt to use the Web Share API
-          await navigator.share(shareData);
-
-          // If sharing is successful, update the result paragraph
-          resultPara.textContent = "Shared successfully!";
-        } catch (err) {
-          // If an error occurs during sharing, update the result paragraph with the error
-          if (err.name === "AbortError") {
-              resultPara.textContent = "Sharing was canceled.";
-          } else {
-              resultPara.textContent = `Error: ${err}`;
-          }
-          console.error("Sharing failed:", err); // Log the error to the console
-        }
-      });
-    } else {
-      // If navigator.share is not supported, log a message to the console and hide the "Share" button
-      console.warn("Web Share API not supported in this browser.");
-      document.getElementById("share-sheet").classList.add("hide");
-    }
   </script>
 </body>
 

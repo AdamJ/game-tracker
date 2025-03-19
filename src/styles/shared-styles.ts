@@ -4,7 +4,13 @@ import { css } from 'lit';
 // for an example of how to use this, check /pages/about-about.ts
 export const sharedStyles = css`
   main {
-    padding: .5rem;
+    padding: .25rem 1.25rem 3rem 1.25rem;
+    background: var(--Windows-Glass);
+    backdrop-filter: blur(10px);
+    background-blend-mode: luminosity;
+    border: 1px solid var(--windows-stroke-glass-specular);
+    border-radius: 1.25rem;
+    margin: 0 .5rem;
   }
   .main {
     padding: .75rem;
@@ -87,16 +93,35 @@ export const sharedStyles = css`
   }
   .page-header {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
-    padding: .5rem 0;
   }
   sl-drawer::part(base) {
-    top: 36px !important;
+    top: -.5rem !important;
   }
   td {
     border-bottom: 1px solid var(--Separators-Separator, rgba(255, 255, 255, 0.07));
     background: var(--Views-Regular, linear-gradient(0deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.08) 100%), rgba(214, 214, 214, 0.45));
     background-blend-mode: luminosity, color-burn;
+  }
+  .toolbar {
+    /* same as sl-tab-group */
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+    background: linear-gradient(340deg, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0) 41%, rgba(255, 255, 255, 0) 57%, rgba(255, 255, 255, 0.40) 100%);
+    background-color: rgba(52, 52, 52, .9);
+    border-radius: 1rem;
+    border-width: 1.4px;
+    border-style: solid;
+    border-color: rgba(255, 255, 255, .2);
+  }
+  .toolbar sl-button-group::part(base) {
+    grid-gap: .75rem;
+  }
+  .toolbar sl-button::part(base) {
+    border-color: transparent;
+    background: var(--Controls-Idle, linear-gradient(0deg, rgba(94, 94, 94, 0.18) 0%, rgba(94, 94, 94, 0.18) 100%), rgba(255, 255, 255, 0.07));
+    background-blend-mode: color-dodge, normal;
+    border-radius: 1rem;
   }
 `;

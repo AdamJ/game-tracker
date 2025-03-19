@@ -418,280 +418,279 @@ export class MatchTracker extends LitElement {
     const menuContent = playerMenuItems.length > 0 ? playerMenuItems : emptyState;
 
     return html`
-      <app-header ?enableBack="${true}"></app-header>
       <main style="padding-bottom: 5rem;">
-      <div style="display: flex; flex-direction: column; grid-gap: 1rem;">
-        <sl-tab-group>
-          <sl-tab slot="nav" panel="tracker">Tracker</sl-tab>
-          <sl-tab slot="nav" panel="standings">Standings</sl-tab>
-          <sl-tab slot="nav" panel="results">Results</sl-tab>
-          <sl-tab slot="nav" panel="action-log">Log</sl-tab>
-          <sl-tab slot="nav" panel="setup">Setup</sl-tab>
-          <sl-tab-panel name="tracker">
-            <div style="display: flex; flex-direction: row;justify-content: around; flex-wrap: wrap;">
-              <div style="width: 50%;">
-                <sl-card class="player-one" id="topLeft">
-                  <form style="position: relative; height: 100%; justify-content: space-between;">
-                    <sl-button variant="default" size="large" class="life-counter player-one" @click=${() => this.updateLife(1, 1, 'Gain')}>
-                      <sl-icon library="mana" slot="prefix" name="loyalty-up" class="ms ms-loyalty-up ms-2x"></sl-icon>
-                      Gain
-                    </sl-button>
-                    <p class="text-center ms-4x" style="line-height: normal; margin: 0;">
-                      ${this.handle1.life}
-                    </p>
-                    <sl-button variant="default" size="large" class="life-counter player-one" @click=${() => this.updateLife(1, -1, 'Lose')}>
-                      <sl-icon library="mana" slot="prefix" name="loyalty-down" class="ms ms-loyalty-down ms-2x"></sl-icon>
-                      Lose
-                    </sl-button>
-                    <span class="hide-at-800" style="position: absolute; right: 8px; bottom: 8px;">
-                      <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-1 ms-4x"></sl-icon>
-                    </span>
-                  </form>
-                </sl-card>
-                <sl-card class="player-three" id="topRight">
-                  <form style="position: relative; height: 100%; justify-content: space-between;">
-                    <sl-button variant="default" size="large" class="life-counter player-three" @click=${() => this.updateLife(3, 1, 'Gain')}>
-                      <sl-icon library="mana" slot="prefix" name="loyalty-up" class="ms ms-loyalty-up ms-2x"></sl-icon>
-                      Gain
-                    </sl-button>
-                    <p class="text-center ms-4x" style="line-height: normal; margin: 0;">
-                      ${this.handle3.life}
-                    </p>
-                    <sl-button variant="default" size="large" class="life-counter player-three" @click=${() => this.updateLife(3, -1, 'Lose')}>
-                      <sl-icon library="mana" slot="prefix" name="loyalty-down" class="ms ms-loyalty-down ms-2x"></sl-icon>
-                      Lose
-                    </sl-button>
-                    <span class="hide-at-800" style="position: absolute; right: 8px; top: 8px;">
-                      <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-3 ms-4x"></sl-icon>
-                    </span>
-                  </form>
-                </sl-card>
+        <div style="display: flex; flex-direction: column; grid-gap: 1rem;">
+          <sl-tab-group>
+            <sl-tab slot="nav" panel="tracker">Tracker</sl-tab>
+            <sl-tab slot="nav" panel="standings">Standings</sl-tab>
+            <sl-tab slot="nav" panel="results">Results</sl-tab>
+            <sl-tab slot="nav" panel="action-log">Log</sl-tab>
+            <sl-tab slot="nav" panel="setup">Setup</sl-tab>
+            <sl-tab-panel name="tracker">
+              <div style="display: flex; flex-direction: row;justify-content: around; flex-wrap: wrap;">
+                <div style="width: 50%;">
+                  <sl-card class="player-one" id="topLeft">
+                    <form style="position: relative; height: 100%; justify-content: space-between;">
+                      <sl-button variant="default" size="large" class="life-counter player-one" @click=${() => this.updateLife(1, 1, 'Gain')}>
+                        <sl-icon library="mana" slot="prefix" name="loyalty-up" class="ms ms-loyalty-up ms-2x"></sl-icon>
+                        Gain
+                      </sl-button>
+                      <p class="text-center ms-4x" style="line-height: normal; margin: 0;">
+                        ${this.handle1.life}
+                      </p>
+                      <sl-button variant="default" size="large" class="life-counter player-one" @click=${() => this.updateLife(1, -1, 'Lose')}>
+                        <sl-icon library="mana" slot="prefix" name="loyalty-down" class="ms ms-loyalty-down ms-2x"></sl-icon>
+                        Lose
+                      </sl-button>
+                      <span class="hide-at-800" style="position: absolute; right: 8px; bottom: 8px;">
+                        <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-1 ms-4x"></sl-icon>
+                      </span>
+                    </form>
+                  </sl-card>
+                  <sl-card class="player-three" id="topRight">
+                    <form style="position: relative; height: 100%; justify-content: space-between;">
+                      <sl-button variant="default" size="large" class="life-counter player-three" @click=${() => this.updateLife(3, 1, 'Gain')}>
+                        <sl-icon library="mana" slot="prefix" name="loyalty-up" class="ms ms-loyalty-up ms-2x"></sl-icon>
+                        Gain
+                      </sl-button>
+                      <p class="text-center ms-4x" style="line-height: normal; margin: 0;">
+                        ${this.handle3.life}
+                      </p>
+                      <sl-button variant="default" size="large" class="life-counter player-three" @click=${() => this.updateLife(3, -1, 'Lose')}>
+                        <sl-icon library="mana" slot="prefix" name="loyalty-down" class="ms ms-loyalty-down ms-2x"></sl-icon>
+                        Lose
+                      </sl-button>
+                      <span class="hide-at-800" style="position: absolute; right: 8px; top: 8px;">
+                        <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-3 ms-4x"></sl-icon>
+                      </span>
+                    </form>
+                  </sl-card>
+                </div>
+                <div style="width: 50%;">
+                  <sl-card class="player-two" id="bottomLeft">
+                    <form style="position: relative; height: 100%; justify-content: space-between;">
+                      <sl-button variant="default" size="large" class="life-counter player-two" @click=${() => this.updateLife(2, 1, 'Gain')}>
+                        <sl-icon library="mana" slot="prefix" name="loyalty-up" class="ms ms-loyalty-up ms-2x"></sl-icon>
+                        Gain
+                      </sl-button>
+                      <p class="text-center ms-4x" style="line-height: normal; margin: 0;">
+                        ${this.handle2.life}
+                      </p>
+                      <sl-button variant="default" size="large" class="life-counter player-two" @click=${() => this.updateLife(2, -1, 'Lose')}>
+                        <sl-icon library="mana" slot="prefix" name="loyalty-down" class="ms ms-loyalty-down ms-2x"></sl-icon>
+                        Lose
+                      </sl-button>
+                      <span class="hide-at-800" style="position: absolute; left: 8px; bottom: 8px;">
+                        <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-2 ms-4x"></sl-icon>
+                      </span>
+                    </form>
+                  </sl-card>
+                  <sl-card class="player-four" id="bottomRight">
+                    <form style="position: relative; height: 100%; justify-content: space-between;">
+                      <sl-button variant="default" size="large" class="life-counter player-four" @click=${() => this.updateLife(4, 1, 'Gain')}>
+                        <sl-icon library="mana" slot="prefix" name="loyalty-up" class="ms ms-loyalty-up ms-2x"></sl-icon>
+                        Gain
+                      </sl-button>
+                      <p class="text-center ms-4x" style="line-height: normal; margin: 0;">
+                        ${this.handle4.life}
+                      </p>
+                      <sl-button variant="default" outline size="large" class="life-counter player-four" @click=${() => this.updateLife(4, -1, 'Lose')}>
+                        <sl-icon library="mana" slot="prefix" name="loyalty-down" class="ms ms-loyalty-down ms-2x"></sl-icon>
+                        Lose
+                      </sl-button>
+                      <span class="hide-at-800" style="position: absolute; left: 8px; top: 8px;">
+                        <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-4 ms-4x"></sl-icon>
+                      </span>
+                    </form>
+                  </sl-card>
+                </div>
+                <style>
+                sl-button.life-counter::part(base) {
+                  height: 4rem;
+                  justify-content: center;
+                  line-height: 4rem;
+                }
+                </style>
               </div>
-              <div style="width: 50%;">
-                <sl-card class="player-two" id="bottomLeft">
-                  <form style="position: relative; height: 100%; justify-content: space-between;">
-                    <sl-button variant="default" size="large" class="life-counter player-two" @click=${() => this.updateLife(2, 1, 'Gain')}>
-                      <sl-icon library="mana" slot="prefix" name="loyalty-up" class="ms ms-loyalty-up ms-2x"></sl-icon>
-                      Gain
-                    </sl-button>
-                    <p class="text-center ms-4x" style="line-height: normal; margin: 0;">
-                      ${this.handle2.life}
-                    </p>
-                    <sl-button variant="default" size="large" class="life-counter player-two" @click=${() => this.updateLife(2, -1, 'Lose')}>
-                      <sl-icon library="mana" slot="prefix" name="loyalty-down" class="ms ms-loyalty-down ms-2x"></sl-icon>
-                      Lose
-                    </sl-button>
-                    <span class="hide-at-800" style="position: absolute; left: 8px; bottom: 8px;">
-                      <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-2 ms-4x"></sl-icon>
-                    </span>
-                  </form>
-                </sl-card>
-                <sl-card class="player-four" id="bottomRight">
-                  <form style="position: relative; height: 100%; justify-content: space-between;">
-                    <sl-button variant="default" size="large" class="life-counter player-four" @click=${() => this.updateLife(4, 1, 'Gain')}>
-                      <sl-icon library="mana" slot="prefix" name="loyalty-up" class="ms ms-loyalty-up ms-2x"></sl-icon>
-                      Gain
-                    </sl-button>
-                    <p class="text-center ms-4x" style="line-height: normal; margin: 0;">
-                      ${this.handle4.life}
-                    </p>
-                    <sl-button variant="default" outline size="large" class="life-counter player-four" @click=${() => this.updateLife(4, -1, 'Lose')}>
-                      <sl-icon library="mana" slot="prefix" name="loyalty-down" class="ms ms-loyalty-down ms-2x"></sl-icon>
-                      Lose
-                    </sl-button>
-                    <span class="hide-at-800" style="position: absolute; left: 8px; top: 8px;">
-                      <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-4 ms-4x"></sl-icon>
-                    </span>
-                  </form>
-                </sl-card>
+            </sl-tab-panel>
+            <sl-tab-panel name="standings">
+              <table class="border table-striped">
+                <thead>
+                  <tr>
+                    <th>Player</th>
+                    <th>Wins</th>
+                    <th>Losses</th>
+                    <th>Draws</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>${this.playerHandle1}</td>
+                    <td>${this.getPlayerStats(this.playerHandle1).wins}</td>
+                    <td>${this.getPlayerStats(this.playerHandle1).losses}</td>
+                    <td>${this.getPlayerStats(this.playerHandle1).draws}</td>
+                  </tr>
+                  <tr>
+                    <td>${this.playerHandle2}</td>
+                    <td>${this.getPlayerStats(this.playerHandle2).wins}</td>
+                    <td>${this.getPlayerStats(this.playerHandle2).losses}</td>
+                    <td>${this.getPlayerStats(this.playerHandle2).draws}</td>
+                  </tr>
+                  <tr>
+                    <td>${this.playerHandle3}</td>
+                    <td>${this.getPlayerStats(this.playerHandle3).wins}</td>
+                    <td>${this.getPlayerStats(this.playerHandle3).losses}</td>
+                    <td>${this.getPlayerStats(this.playerHandle3).draws}</td>
+                  </tr>
+                  <tr>
+                    <td>${this.playerHandle4}</td>
+                    <td>${this.getPlayerStats(this.playerHandle4).wins}</td>
+                    <td>${this.getPlayerStats(this.playerHandle4).losses}</td>
+                    <td>${this.getPlayerStats(this.playerHandle4).draws}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </sl-tab-panel>
+            <sl-tab-panel name="setup">
+              <sl-alert variant="primary" open duration="1500" closable class="alert-closable" ?open=${this.isAlertOpen} @sl-after-hide=${this.closeAlert}>
+                <sl-icon slot="icon" name="info-circle"></sl-icon>
+                Resetting game data.
+              </sl-alert>
+              <div style="display: flex; flex-direction: row; justify-content: center; margin-bottom: .5rem;">
+                <sl-input
+                  type="number"
+                  label="Starting Life"
+                  size="medium"
+                  pill
+                  help-text="Enter a number greater than 0"
+                  type="number"
+                  value=${this.initialLifeTracker}
+                  @sl-change=${this.setInitialLifeTracker}
+                  min="0"
+                  style="width: 25%; text-align: center;"
+                >
+                </sl-input>
               </div>
-              <style>
-              sl-button.life-counter::part(base) {
-                height: 4rem;
-                justify-content: center;
-                line-height: 4rem;
-              }
-              </style>
-            </div>
-          </sl-tab-panel>
-          <sl-tab-panel name="standings">
-            <table class="border table-striped">
-              <thead>
-                <tr>
-                  <th>Player</th>
-                  <th>Wins</th>
-                  <th>Losses</th>
-                  <th>Draws</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>${this.playerHandle1}</td>
-                  <td>${this.getPlayerStats(this.playerHandle1).wins}</td>
-                  <td>${this.getPlayerStats(this.playerHandle1).losses}</td>
-                  <td>${this.getPlayerStats(this.playerHandle1).draws}</td>
-                </tr>
-                <tr>
-                  <td>${this.playerHandle2}</td>
-                  <td>${this.getPlayerStats(this.playerHandle2).wins}</td>
-                  <td>${this.getPlayerStats(this.playerHandle2).losses}</td>
-                  <td>${this.getPlayerStats(this.playerHandle2).draws}</td>
-                </tr>
-                <tr>
-                  <td>${this.playerHandle3}</td>
-                  <td>${this.getPlayerStats(this.playerHandle3).wins}</td>
-                  <td>${this.getPlayerStats(this.playerHandle3).losses}</td>
-                  <td>${this.getPlayerStats(this.playerHandle3).draws}</td>
-                </tr>
-                <tr>
-                  <td>${this.playerHandle4}</td>
-                  <td>${this.getPlayerStats(this.playerHandle4).wins}</td>
-                  <td>${this.getPlayerStats(this.playerHandle4).losses}</td>
-                  <td>${this.getPlayerStats(this.playerHandle4).draws}</td>
-                </tr>
-              </tbody>
-            </table>
-          </sl-tab-panel>
-          <sl-tab-panel name="setup">
-            <sl-alert variant="primary" open duration="1500" closable class="alert-closable" ?open=${this.isAlertOpen} @sl-after-hide=${this.closeAlert}>
-              <sl-icon slot="icon" name="info-circle"></sl-icon>
-              Resetting game data.
-            </sl-alert>
-            <div style="display: flex; flex-direction: row; justify-content: center; margin-bottom: .5rem;">
-              <sl-input
-                type="number"
-                label="Starting Life"
-                size="medium"
-                pill
-                help-text="Enter a number greater than 0"
-                type="number"
-                value=${this.initialLifeTracker}
-                @sl-change=${this.setInitialLifeTracker}
-                min="0"
-                style="width: 25%; text-align: center;"
-              >
-              </sl-input>
-            </div>
-            <div class="form-2-column">
-              <form class="form-player-input">
-                <sl-input
-                  type="text"
-                  label="Player 1"
-                  size="medium"
-                  pill
-                  clearable
-                  placeholder="Add player name"
-                  value=${this.playerHandle1}
-                  @sl-change=${(e: CustomEvent) => this.handlePlayerHandleChange(1, e)}
-                >
-                  <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-1 ms-small"></sl-icon>
-                </sl-input>
-                <sl-input
-                  type="text"
-                  label="Player 3"
-                  size="medium"
-                  clearable
-                  pill
-                  placeholder="Add player name"
-                  value=${this.playerHandle3}
-                  @sl-change=${(e: CustomEvent) => this.handlePlayerHandleChange(3, e)}
-                >
-                  <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-3 ms-small"></sl-icon>
-                </sl-input>
-              </form>
-              <form class="form-player-input">
-                <sl-input
-                  type="text"
-                  label="Player 2"
-                  size="medium"
-                  clearable
-                  pill
-                  placeholder="Add player name"
-                  value=${this.playerHandle2}
-                  @sl-change=${(e: CustomEvent) => this.handlePlayerHandleChange(2, e)}
-                >
-                  <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-2 ms-small"></sl-icon>
-                </sl-input>
-                <sl-input
-                  type="text"
-                  label="Player 4"
-                  size="medium"
-                  clearable
-                  pill
-                  placeholder="Add player name"
-                  value=${this.playerHandle4}
-                  @sl-change=${(e: CustomEvent) => this.handlePlayerHandleChange(4, e)}
-                >
-                  <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-4 ms-small"></sl-icon>
-                </sl-input>
-              </form>
-            </div>
-            <div style="display: flex; flex-direction: row; justify-content: center; padding-top: 1rem; gap: 1rem;">
-              <sl-button variant="success" pill @click=${this.exportToCSV}>
-                <sl-icon name="file-earmark-excel-fill" slot="prefix"></sl-icon>
-                Export to CSV
-              </sl-button>
-              <sl-button variant="danger" pill @click=${this.resetWithAlert}>
-                <sl-icon name="x-square-fill" slot="prefix"></sl-icon>
-                Reset All
-              </sl-button>
-            </div>
-          </sl-tab-panel>
-          <sl-tab-panel name="action-log">
-            <sl-menu>
+              <div class="form-2-column">
+                <form class="form-player-input">
+                  <sl-input
+                    type="text"
+                    label="Player 1"
+                    size="medium"
+                    pill
+                    clearable
+                    placeholder="Add player name"
+                    value=${this.playerHandle1}
+                    @sl-change=${(e: CustomEvent) => this.handlePlayerHandleChange(1, e)}
+                  >
+                    <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-1 ms-small"></sl-icon>
+                  </sl-input>
+                  <sl-input
+                    type="text"
+                    label="Player 3"
+                    size="medium"
+                    clearable
+                    pill
+                    placeholder="Add player name"
+                    value=${this.playerHandle3}
+                    @sl-change=${(e: CustomEvent) => this.handlePlayerHandleChange(3, e)}
+                  >
+                    <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-3 ms-small"></sl-icon>
+                  </sl-input>
+                </form>
+                <form class="form-player-input">
+                  <sl-input
+                    type="text"
+                    label="Player 2"
+                    size="medium"
+                    clearable
+                    pill
+                    placeholder="Add player name"
+                    value=${this.playerHandle2}
+                    @sl-change=${(e: CustomEvent) => this.handlePlayerHandleChange(2, e)}
+                  >
+                    <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-2 ms-small"></sl-icon>
+                  </sl-input>
+                  <sl-input
+                    type="text"
+                    label="Player 4"
+                    size="medium"
+                    clearable
+                    pill
+                    placeholder="Add player name"
+                    value=${this.playerHandle4}
+                    @sl-change=${(e: CustomEvent) => this.handlePlayerHandleChange(4, e)}
+                  >
+                    <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-4 ms-small"></sl-icon>
+                  </sl-input>
+                </form>
+              </div>
+              <div style="display: flex; flex-direction: row; justify-content: center; padding-top: 1rem; gap: 1rem;">
+                <sl-button variant="success" pill @click=${this.exportToCSV}>
+                  <sl-icon name="file-earmark-excel-fill" slot="prefix"></sl-icon>
+                  Export to CSV
+                </sl-button>
+                <sl-button variant="danger" pill @click=${this.resetWithAlert}>
+                  <sl-icon name="x-square-fill" slot="prefix"></sl-icon>
+                  Reset All
+                </sl-button>
+              </div>
+            </sl-tab-panel>
+            <sl-tab-panel name="action-log">
               <sl-menu>
-                ${menuContent}
+                <sl-menu>
+                  ${menuContent}
+                </sl-menu>
               </sl-menu>
-            </sl-menu>
-          </sl-tab-panel>
-          <sl-tab-panel name="results">
-            <div style="display: flex; justify-content: flex-end; align-items: center;">
-              <sl-button-group label="Alignment">
-                <sl-button size="medium" pill class="player-one-winner" @click=${() => this.recordResult(1)}>
-                  Winner
-                </sl-button>
-                <sl-button size="medium" pill class="player-two-winner" @click=${() => this.recordResult(2)}>
-                  Winner
-                </sl-button>
-                <sl-button size="medium" pill class="player-three-winner" @click=${() => this.recordResult(3)}>
-                  Winner
-                </sl-button>
-                <sl-button size="medium" pill class="player-four-winner" @click=${() => this.recordResult(4)}>
-                  Winner
-                </sl-button>
-              </sl-button-group>
-            </div>
-            <table class="border table-striped">
-              <thead>
-                <tr>
-                  <th>
-                    ${this.playerHandle1}
-                  <th>
-                    ${this.playerHandle2}
-                  </th>
-                  <th>
-                    ${this.playerHandle3}
-                  </th>
-                  <th>
-                    ${this.playerHandle4}
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                ${this.matchResults.map(
-                  (result) => html`
-                    <tr>
-                      <td>${result.player1Outcome}</td>
-                      <td>${result.player2Outcome}</td>
-                      <td>${result.player3Outcome}</td>
-                      <td>${result.player4Outcome}</td>
-                    </tr>
-                  `
-                )}
-              </tbody>
-            </table>
-          </sl-tab-panel>
-        </sl-tab-group>
+            </sl-tab-panel>
+            <sl-tab-panel name="results">
+              <div style="display: flex; justify-content: flex-end; align-items: center;">
+                <sl-button-group label="Alignment">
+                  <sl-button size="medium" pill class="player-one-winner" @click=${() => this.recordResult(1)}>
+                    Winner
+                  </sl-button>
+                  <sl-button size="medium" pill class="player-two-winner" @click=${() => this.recordResult(2)}>
+                    Winner
+                  </sl-button>
+                  <sl-button size="medium" pill class="player-three-winner" @click=${() => this.recordResult(3)}>
+                    Winner
+                  </sl-button>
+                  <sl-button size="medium" pill class="player-four-winner" @click=${() => this.recordResult(4)}>
+                    Winner
+                  </sl-button>
+                </sl-button-group>
+              </div>
+              <table class="border table-striped">
+                <thead>
+                  <tr>
+                    <th>
+                      ${this.playerHandle1}
+                    <th>
+                      ${this.playerHandle2}
+                    </th>
+                    <th>
+                      ${this.playerHandle3}
+                    </th>
+                    <th>
+                      ${this.playerHandle4}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${this.matchResults.map(
+                    (result) => html`
+                      <tr>
+                        <td>${result.player1Outcome}</td>
+                        <td>${result.player2Outcome}</td>
+                        <td>${result.player3Outcome}</td>
+                        <td>${result.player4Outcome}</td>
+                      </tr>
+                    `
+                  )}
+                </tbody>
+              </table>
+            </sl-tab-panel>
+          </sl-tab-group>
         </div>
       </main>
     `;

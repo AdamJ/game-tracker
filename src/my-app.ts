@@ -16,7 +16,8 @@ export class MyApp extends LitElement {
       app-standings,
       app-counter,
       app-about,
-      app-home {
+      app-home,
+      app-standard {
         padding-top: 0 !important;
       }
     }
@@ -24,9 +25,10 @@ export class MyApp extends LitElement {
       app-standings,
       app-counter,
       app-about,
-      app-home {
+      app-home,
+      app-standard {
         display: block;
-        padding-top: 55px;
+        padding-top: 2rem;
       }
     }
     @media (min-width: 1200px) {
@@ -37,16 +39,18 @@ export class MyApp extends LitElement {
         max-width: 1200px;
         display: block;
         margin: 0 auto;
-        padding-top: 55px;
+        padding-top: 2rem;
       }
+    }
+    app-standard {
+      padding-top: 0 !important;
+      height: calc(100vh - 55px);
     }
   `;
 
   constructor() {
     super();
-    // console.log('MyApp: constructor called');
     router.addEventListener('route-changed', () => {
-      // console.log('MyApp: route-changed event received', e);
       if ("startViewTransition" in document) {
         (document as any).startViewTransition(() => this.requestUpdate());
       }
@@ -57,12 +61,7 @@ export class MyApp extends LitElement {
   }
 
   render() {
-    // console.log("MyApp: render called");
     const result = router.render();
-    //log what the render function is returning
-    // console.log('MyApp: router.render() result:', result);
-    // New log statement
-    // console.log('MyApp: router.render() result type:', typeof result);
     return result;
   }
 }

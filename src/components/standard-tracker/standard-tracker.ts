@@ -79,6 +79,9 @@ export class MatchTracker extends LitElement {
     alertStyles,
     standardStyles,
     css`
+      sl-drawer {
+        --size: 90vh !important;
+      }
       @media screen and (max-width: 595px) {
         .standard-tracker,
         .side-one,
@@ -131,9 +134,6 @@ export class MatchTracker extends LitElement {
         }
         sl-button.reset-points-button::part(base) {
           margin-top: 1rem;
-        }
-        sl-drawer {
-          --size: 75vh !important;
         }
       }
       .standard-tracker,
@@ -364,8 +364,7 @@ export class MatchTracker extends LitElement {
   const menuContent = sideMenuItems.length > 0 ? sideMenuItems : emptyState;
 
   return html`
-    <app-header ?enableBack="${true}"></app-header>
-    <main style="height: 100%; padding: 0; margin: 0 .5rem; margin-top: 55px;">
+    <main style="height: 100%; padding: 0; margin: 0 .5rem; margin-top: .5rem;">
       <div class="standard-tracker">
         <sl-card class="side-one">
           <form class="card-form" style="position: relative;">
@@ -457,12 +456,11 @@ export class MatchTracker extends LitElement {
           // height: 56px;
           // width: 56px;
           top: calc(50% - 24px);
-          right: calc(50vw - 1.5rem);
+          right: calc(50vw - 2rem);
           box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, .5);
           border-radius: 50%;
         }
       </style>
-
     </main>
   `}
 }

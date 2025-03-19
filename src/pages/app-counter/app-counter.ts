@@ -33,8 +33,9 @@ export class AppCounter extends LitElement {
   `;
   render() {
     return html`
-      <app-header ?enableBack="${true}"></app-header>
+      <!-- <app-header ?enableBack="${true}"></app-header> -->
       <match-tracker></match-tracker>
+      <app-navigation></app-navigation>
     `;
   }
 }
