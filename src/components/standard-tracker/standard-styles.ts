@@ -68,4 +68,7 @@ export const standardStyles = css`
       transform: rotate(0deg);
     }
   }
+  sl-tree::part(base) {
+    height: 100%;
+  }
 `;

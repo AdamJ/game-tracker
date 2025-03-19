@@ -12,6 +12,7 @@ import '@shoelace-style/shoelace/dist/components/switch/switch.js';
 import '../components/icons/tabler';
 import '../components/icons/mtg-symbols';
 import "../components/header";
+import "../components/navigation";
 
 import { sharedStyles } from '../styles/shared-styles';
 import { shoelaceStyles } from '../styles/shoelace-styles';
@@ -77,14 +78,13 @@ export class AppHome extends LitElement {
 
   render() {
     return html`
-      <app-header ?enableShare="${true}" ?enableAbout=${true}></app-header>
-
+      <!-- <app-header ?enableShare="${true}" ?enableAbout=${true}></app-header> -->
       <main style="padding-bottom: 5rem;">
+        <h1>Moonsilver Waypoints</h1>
         <content class="main">
           <section>
             <sl-card style="position: relative;">
               <div slot="header">Tournament</div>
-              <!-- <p class="game-intro">For use with tracking games of Magic: The Gathering.</p> -->
               <p class="card-icon">
                 <sl-icon src="/assets/svg/xlcu.svg" style="font-size: 4rem;"></sl-icon>
               </p>
@@ -103,9 +103,6 @@ export class AppHome extends LitElement {
               <div slot="header">
                 EDH
               </div>
-              <!-- <p class="game-intro">
-                A customized tracker for matches of 4 player games such as Commander/EDH.
-              </p> -->
               <p class="card-icon">
                 <sl-icon src="/assets/svg/cmd.svg" style="font-size: 4rem;"></sl-icon>
               </p>
@@ -124,9 +121,6 @@ export class AppHome extends LitElement {
               <div slot="header">
                 Standard
               </div>
-              <!-- <p class="game-intro">
-                A simplified life counter for standard (head-to-head) matches. Each "side" is designed to face the user to provide the clearest view of their life total.
-              </p> -->
               <p class="card-icon">
                 <sl-icon src="/assets/svg/bcore.svg"></sl-icon>
               </p>
@@ -142,6 +136,7 @@ export class AppHome extends LitElement {
           </section>
         </content>
       </main>
+      <app-navigation></app-navigation>
       <style>
         sl-card.work-in-progress::part(base) {
           border-color: var(--sl-color-warning-600);

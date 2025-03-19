@@ -38,12 +38,6 @@ if (PROD && 'serviceWorker' in navigator) {
             })
           }
         });
-        // Remove this section of code.
-        // Track if a page is being controlled by a new service worker.
-        // navigator.serviceWorker.addEventListener("controllerchange", () => {
-        //   console.log("New Service Worker is controlling the page, reloading page.");
-        //   window.location.reload();
-        // });
 
         // If there is already a service worker waiting, let the user know.
         if(registration.waiting){

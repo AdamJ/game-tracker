@@ -1,8 +1,10 @@
 import { css } from 'lit';
 
 export const shoelaceStyles = css`
-  sl-button.custom-button::part(base) {
+  sl-button.rounded-angles::part(base) {
     border-radius: 1rem 0;
+  }
+  sl-button.custom-button::part(base) {
     border: 1px solid var(--windows-stroke-glass-specular);
     background: var(--Windows-Glass);
     background-blend-mode: luminosity;
@@ -33,11 +35,13 @@ export const shoelaceStyles = css`
   sl-tab-group::part(nav) {
     width: fit-content !important;
   }
+  sl-card::part(base) {
+    border: 1px solid var(--windows-stroke-glass-specular);
+  }
   sl-details::part(base),
   sl-card::part(base),
   sl-tab-panel::part(base) {
     border-radius: 1rem;
-    border: 1px solid var(--windows-stroke-glass-specular);
     background: var(--Windows-Glass);
     background-blend-mode: luminosity;
 
@@ -45,6 +49,10 @@ export const shoelaceStyles = css`
     backdrop-filter: blur(50px);
     */
     backdrop-filter: blur(10px);
+  }
+  sl-details::part(base),
+  sl-tab-panel::part(base) {
+    border: 0;
   }
   sl-tab::part(base) {
     border-color: transparent;
@@ -59,7 +67,7 @@ export const shoelaceStyles = css`
 
   sl-tab::part(base):hover,
   sl-tab::part(base):focus {
-    color: var(--sl-color-primary-400) !important;
+    color: var(--sl-color-primary-600) !important;
   }
   sl-tab::part(base):focus-visible,
   sl-tab.ios-tab::part(base):focus-visible {
@@ -84,6 +92,9 @@ export const shoelaceStyles = css`
     background-blend-mode: color-dodge, lighten;
     color: rgba(255, 255, 255, 0.96) !important;
     text-align: center;
+  }
+  sl-tag.tab.tab--active:not(.tab--disabled)::part(base) {
+    color: var(--sl-color-primary-600) !important;
   }
   sl-tag::part(remove-button) {
     color: rgba(255, 255, 255, 0.96) !important;

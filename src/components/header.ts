@@ -63,7 +63,6 @@ export class AppHeader extends LitElement {
           ${document.title}
         </div>
         <sl-button-group label="Navigation" style="margin-right: 1rem;">
-
         ${this.enableBack ? html`
           <sl-button variant="default" size="small" pill aria-label="Back to start" label="Back to start" href="${resolveRouterPath()}">
             <sl-icon slot="prefix" name="house"></sl-icon>

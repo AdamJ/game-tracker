@@ -266,20 +266,18 @@ export class StandingsTracker extends LitElement {
 
     return html `
       <div class="page-header">
-        <sl-button-group label="game actions">
-          <sl-button variant="success" size="small" pill label="export standings" @click=${this.exportStandings}>
-            <sl-icon slot="prefix" library="default" name="file-earmark-excel-fill" label="Export Standings"></sl-icon>
-            Export <span class="hide-at-800">Standings</span>
+        <h1>Tournament Tracker</h1>
+        <div class="button-group" label="game-actions">
+          <sl-button variant="success" size="medium" circle label="export standings" @click=${this.exportStandings}>
+            <sl-icon library="default" name="file-earmark-excel-fill" label="Export Standings"></sl-icon>
           </sl-button>
-          <sl-button variant="warning" size="small" pill label="action to clear standings"  @click=${this.clearStandingsConfirmed}>
-            <sl-icon slot="prefix" library="default" name="trash-fill" label="Clear Standings"></sl-icon>
-            <span class="hide-at-800">Clear</span> Standings
+          <sl-button variant="warning" size="medium" circle label="action to clear standings"  @click=${this.clearStandingsConfirmed}>
+            <sl-icon library="default" name="trash-fill" label="Clear Standings"></sl-icon>
           </sl-button>
-          <sl-button variant="danger" size="small" pill label="launch a modal to confirm clearing of match data" @click=${this.openConfirmationModal}>
-          <sl-icon slot="prefix" library="default" name="trash-fill" label="Clear All Data"></sl-icon>
-          <span class="hide-at-800">Clear All</span> Data
+          <sl-button variant="danger" size="medium" circle label="launch a modal to confirm clearing of match data" @click=${this.openConfirmationModal}>
+          <sl-icon library="default" name="trash-fill" label="Clear All Data"></sl-icon>
           </sl-button>
-        </sl-button-group>
+        </div>
       </div>
       <div style="display: flex; flex-direction: column; grid-gap: 1rem;">
         <sl-details summary="Match Results" open>
@@ -319,7 +317,7 @@ export class StandingsTracker extends LitElement {
       <edit-modal .match=${this.editMatchIndex !== null ? this.matchHistory[this.editMatchIndex] : null} .isOpen=${this.editModalOpen} @match-edited=${(e: CustomEvent) => this.editMatch(e.detail)} @close=${() => this.editModalOpen = false}></edit-modal>
       <confirmation-modal
         .isOpen=${this.confirmationModalOpen}
-        message="Are you sure you want to clear the match data? This will also clear all related information."
+        message="Are you sure you want to clear the match data? Standings and History will be deleted. Players must be removed individually."
         @confirm=${this.clearMatchResultsConfirmed}
         @close=${this.closeConfirmationModal}
       ></confirmation-modal>
