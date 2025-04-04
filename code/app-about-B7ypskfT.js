@@ -1,10 +1,4 @@
-import{i as n,r as d,x as p,s as c,a as h,t as m}from"./index-DNNqtv2-.js";import"https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.0/cdn/components/format-date/format-date.js";const u=n`
-  // .scorecard {
-  //   max-width: 500px;
-  // }
-  // sl-alert::part(base) {
-  //   background-color: var(--sl-color-primary-50);
-  // }
+import{i as p,s as h,a as u,r as d,x as c,t as m}from"./index-UiGfyZTX.js";import"https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.0/cdn/components/format-date/format-date.js";const g=p`
   .details-group-example > sl-details:first-of-type::part(base) {
     border-radius: 8px 8px 0 0;
   }
@@ -14,9 +8,8 @@ import{i as n,r as d,x as p,s as c,a as h,t as m}from"./index-DNNqtv2-.js";impor
   .details-group-example > sl-details:last-of-type::part(base) {
     border-radius: 0 0 8px 8px;
   }
-`;var f=Object.getOwnPropertyDescriptor,b=(r,s,o,i)=>{for(var a=i>1?void 0:i?f(s,o):s,e=r.length-1,l;e>=0;e--)(l=r[e])&&(a=l(a)||a);return a};let t=class extends d{render(){return p`
-      <app-header ?enableBack="${!0}" ?enableShare=${!0} ?enableAbout=${!1}></app-header>
-      <main>
+`;var f=Object.getOwnPropertyDescriptor,b=(t,r,l,s)=>{for(var a=s>1?void 0:s?f(r,l):r,e=t.length-1,i;e>=0;e--)(i=t[e])&&(a=i(a)||a);return a};let o=class extends d{render(){return c`
+      <main style="padding-bottom: 8rem;">
         <section>
           <div class="details-group-example">
             <sl-details summary="DISCLAIMER" open>
@@ -100,5 +93,11 @@ import{i as n,r as d,x as p,s as c,a as h,t as m}from"./index-DNNqtv2-.js";impor
           max-width: 350px;
         }
       </style>
-    `}};t.styles=[c,h,u];t=b([m("app-about")],t);export{t as AppAbout};
-//# sourceMappingURL=app-about-COgFDwip.js.map
+      <app-navigation></app-navigation>
+    `}};o.styles=[h,u,g];o=b([m("app-about")],o);var w=Object.getOwnPropertyDescriptor,y=(t,r,l,s)=>{for(var a=s>1?void 0:s?w(r,l):r,e=t.length-1,i;e>=0;e--)(i=t[e])&&(a=i(a)||a);return a};let n=class extends d{render(){return c`
+      <app-about></app-about>
+      <app-navigation></app-navigation>
+    `}};n.styles=p`
+
+  `;n=y([m("app-about")],n);export{n as AppAbout};
+//# sourceMappingURL=app-about-B7ypskfT.js.map
