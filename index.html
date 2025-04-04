@@ -105,6 +105,17 @@
       alert("Browser cache and local storage has been cleared.");
     });
   </script>
+      <script>
+        const navigationItems = document.querySelectorAll('.navigation-item');
+        const currentPageUrl = window.location.pathname; // Get the current page path
+
+        navigationItems.forEach(item => {
+          const linkButton = item.querySelector('sl-icon-button'); // Target the <sl-icon-button>
+          if (linkButton && linkButton.getAttribute('href') === currentPageUrl) {
+            item.classList.add('active');
+          }
+        });
+        </script>
 </body>
 
 </html>

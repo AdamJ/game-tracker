@@ -1,34 +1,175 @@
-import { LitElement, css, html } from 'lit';
-import { customElement } from 'lit/decorators.js';
-
-import '@shoelace-style/shoelace/dist/components/button/button.js';
-import '@shoelace-style/shoelace/dist/components/button-group/button-group.js';
-import '@shoelace-style/shoelace/dist/components/icon/icon.js';
-
-import { sharedStyles } from '../styles/shared-styles';
-import { shoelaceStyles } from '../styles/shoelace-styles';
+// Assuming this is a Lit component where your navigation is defined
+import { LitElement, html, css } from 'lit';
+import { state, queryAll, customElement } from 'lit/decorators.js';
+import { router, resolveRouterPath } from '../router'; // Adjust the path to your router.ts
 
 @customElement('app-navigation')
-export class AppNavigation extends LitElement {
-  static styles = [
-    sharedStyles,
-    shoelaceStyles,
-    css`
-    `
-  ]
+export class MyNavigation extends LitElement {
+  static styles = css`
+    /* Your navigation styles */
+    .navigation-item.active sl-icon-button {
+      --icon-color: blue; /* Example active style */
+    }
+    .navigation-item.active .navigation-text,
+    .navigation-item.active .navigation-icon {
+      color: var(--sl-color-primary-600);
+    }
+  `;
+
+  @state()
+  private currentPathname: string = window.location.pathname;
+
+  @queryAll('.navigation-item')
+  private navigationItems!: NodeListOf<HTMLElement>;
+
+  firstUpdated() {
+    router.addEventListener('route-change', () => {
+      this.currentPathname = window.location.pathname;
+      this._updateActiveLink();
+    });
+    this._updateActiveLink(); // Set initial active link on load
+  }
+
+  private _updateActiveLink() {
+    this.navigationItems.forEach(item => {
+      const linkButton = item.querySelector('sl-icon-button');
+      const href = linkButton?.getAttribute('href');
+      const resolvedHref = href ? resolveRouterPath(href.startsWith('/') ? href.substring(1) : href) : ''; // Resolve relative paths
+
+      if (resolvedHref === this.currentPathname) {
+        item.classList.add('active');
+      } else {
+        item.classList.remove('active');
+      }
+    });
+  }
+
   render() {
     return html`
-      <div class="toolbar" style="display: flex; flex-direction: row; grid-gap: 1rem; position: absolute; bottom: -2rem; left: 0; right: 0; padding: .75rem; margin: 0 auto; width: fit-content;">
-        <sl-button-group label="Navigation">
-          <sl-button variant="primary" size="medium" pill class="custom-button" href="/">
-            <sl-icon slot="prefix" name="house"></sl-icon>
+      <div class="navigation" style="position: fixed; bottom: 0; left: 0; right: 0;">
+        <div class="navigation-item">
+          <div class="icon-container">
+            <div class="state-layer">
+              <sl-icon-button href="/counter" library="fa" name="fas-dice-d6" class="navigation-icon" style="font-size: 2rem;"></sl-icon-button>
+            </div>
+          </div>
+          <div class="navigation-text">
+            EDH
+          </div>
+        </div>
+        <div class="navigation-item">
+          <div class="icon-container">
+            <div class="state-layer">
+              <sl-icon-button href="/about" library="fa" name="fas-info-circle" class="navigation-icon" style="font-size: 2rem;"></sl-icon-button>
+            </div>
+          </div>
+          <div class="navigation-text">
+            About
+          </div>
+        </div>
+        <div class="navigation-item">
+          <div class="icon-container">
+            <div class="state-layer">
+              <sl-icon-button href="/" library="fa" name="fab-wizards-of-the-coast" class="navigation-icon" style="font-size: 2rem;"></sl-icon-button>
+            </div>
+          </div>
+          <div class="navigation-text">
             Home
-          </sl-button>
-          <sl-button variant="primary" size="medium" pill class="custom-button" href="/game-tracker">Tournament</sl-button>
-          <sl-button variant="default" outline size="medium" pill class="custom-button" href="/counter">EDH</sl-button>
-          <sl-button variant="primary" size="medium" pill class="custom-button" href="/standard-tracker">1v1</sl-button>
-        </sl-button-group>
+          </div>
+        </div>
+        <div class="navigation-item">
+          <div class="icon-container">
+            <div class="state-layer">
+              <sl-icon-button href="/game-tracker" library="fa" name="fas-trophy" class="navigation-icon" style="font-size: 2rem;"></sl-icon-button>
+            </div>
+          </div>
+          <div class="navigation-text">
+            Tournament
+          </div>
+        </div>
+        <div class="navigation-item">
+          <div class="icon-container">
+            <div class="state-layer">
+              <sl-icon-button href="/standard-tracker" library="fa" name="fas-balance-scale" class="navigation-icon" style="font-size: 2rem;"></sl-icon-button>
+            </div>
+          </div>
+          <div class="navigation-text">
+            Standard
+          </div>
+        </div>
       </div>
-    `
+      <style>
+        .navigation {
+          display: flex;
+          padding: 0rem 0.5rem;
+          padding-bottom: 1.25rem;
+          align-items: flex-start;
+          gap: 0.5rem;
+          align-self: stretch;
+          background: #211F26;
+        }
+        @media (min-width: 768px) {
+          .navigation {
+            justify-content: center;
+          }
+        }
+        .navigation-item {
+          display: flex;
+          padding: 0.75rem 0rem 1rem 0rem;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 0.25rem;
+          flex: 1 0 0;
+          border-radius: 1rem;
+          border-color: transparent;
+        }
+        @media (min-width: 768px) {
+          .navigation-item {
+            flex: 0;
+          }
+        }
+        .navigation-item:hover .icon-container,
+        .navigation-item:focus-visible .icon-container,
+        .navigation-item:focus .icon-container {
+          box-shadow: 0px -0.5px 1px 0px rgba(255, 255, 255, 0.30) inset, 0px -0.5px 1px 0px rgba(255, 255, 255, 0.25) inset, 1px 1.5px 4px 0px rgba(0, 0, 0, 0.08) inset, 1px 1.5px 4px 0px rgba(0, 0, 0, 0.10) inset;
+          background: linear-gradient(0deg, rgba(94, 94, 94, 0.18) 0%, rgba(94, 94, 94, 0.18) 100%), rgba(255, 255, 255, 0.2);
+        }
+        .navigation-item:hover .navigation-text,
+        .navigation-item:hover .navigation-icon,
+        .navigation-item:focus .navigation-text,
+        .navigation-item:focus .navigation-icon,
+        .navigation-item:active .navigation-text,
+        .navigation-item:active .navigation-icon {
+          color: var(--sl-color-primary-600) !important;
+        }
+        .navigation-text {
+          color: #CAC4D0;
+          text-align: center;
+          align-self: stretch;
+        }
+        .icon-container {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          border-radius: 1rem;
+        }
+        .state-layer {
+          display: flex;
+          width: 2rem;
+          height: 2rem;
+          padding: 0.25rem 1.25rem;
+          justify-content: center;
+          align-items: center;
+        }
+        .navigation-icon {
+          flex-shrink: 0;
+        }
+        .navigation sl-icon::part(svg) {
+          fill: var(sl-color-neutral-400) !important;
+        }
+      </style>
+    `;
   }
 }

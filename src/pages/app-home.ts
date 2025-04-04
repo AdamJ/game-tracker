@@ -10,6 +10,7 @@ import '@shoelace-style/shoelace/dist/components/tooltip/tooltip.js';
 import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 import '@shoelace-style/shoelace/dist/components/switch/switch.js';
 import '../components/icons/tabler';
+import '../components/icons/font-awesome';
 import '../components/icons/mtg-symbols';
 import "../components/header";
 import "../components/navigation";
@@ -32,21 +33,21 @@ export class AppHome extends LitElement {
     alertStyles,
     homeStyles,
     css`
-      .main {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        grid-gap: 1rem;
-      }
-      sl-card::part(base) {
-        justify-content: space-between;
-        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 0 2px 0 rgba(0, 0, 0, 0.12);
-        border-radius: 1rem 1rem 1rem 0;
-      }
-      sl-card [slot='header'] {
-        font-weight: var(--sl-font-weight-bold);
-      }
+      // .main {
+      //   display: flex;
+      //   flex-direction: row;
+      //   flex-wrap: wrap;
+      //   justify-content: flex-start;
+      //   grid-gap: 1rem;
+      // }
+      // sl-card::part(base) {
+      //   justify-content: space-between;
+      //   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+      //   border-radius: 1rem 1rem 1rem 0;
+      // }
+      // sl-card [slot='header'] {
+      //   font-weight: var(--sl-font-weight-bold);
+      // }
       .font-toggle {
         position: fixed;
         bottom: 4rem;
@@ -79,58 +80,32 @@ export class AppHome extends LitElement {
   render() {
     return html`
       <!-- <app-header ?enableShare="${true}" ?enableAbout=${true}></app-header> -->
-      <main style="padding-bottom: 5rem;">
+      <main>
         <h1>Moonsilver Waypoints</h1>
         <content class="main">
-          <section>
-            <sl-card style="position: relative;">
-              <div slot="header">Tournament</div>
+          <section style="display: flex; padding: 0 1.5rem 2rem 1.5rem; align-items: start; align-content: flex-start; gap: 1rem 1.5rem; align-self: stretch; flex-wrap: wrap;">
+            <sl-card style="min-height: 10rem; min-width: 7.5rem; max-width: 10rem;">
               <p class="card-icon">
-                <sl-icon src="/assets/svg/xlcu.svg" style="font-size: 4rem;"></sl-icon>
+                <sl-icon-button href="${resolveRouterPath('game-tracker')}" src="/assets/svg/bcore.svg" style="font-size: 4rem;">Play</sl-icon-button>
               </p>
-              <div class="ribbon ribbon ribbon-top-right">
-                <span class="primary">
-                  Tournament
-                </span>
-              </div>
               <div slot="footer">
-                <sl-button href="${resolveRouterPath('game-tracker')}" variant="neutral" pill class="custom-button">Play</sl-button>
+                Tournament
               </div>
             </sl-card>
-          </section>
-          <section>
-            <sl-card class="card-header" style="position: relative;">
-              <div slot="header">
+            <sl-card style="min-height: 10rem; min-width: 7.5rem; max-width: 10rem;">
+              <p class="card-icon">
+                <sl-icon-button href="${resolveRouterPath('counter')}" src="/assets/svg/cmd.svg" style="font-size: 4rem;">Play</sl-icon-button>
+              </p>
+              <div slot="footer">
                 EDH
               </div>
-              <p class="card-icon">
-                <sl-icon src="/assets/svg/cmd.svg" style="font-size: 4rem;"></sl-icon>
-              </p>
-              <div class="ribbon ribbon ribbon-top-right">
-                <span class="edh">
-                  4 player
-                </span>
-              </div>
-              <div slot="footer">
-                <sl-button href="${resolveRouterPath('counter')}" variant="neutral" pill class="custom-button">Play</sl-button>
-              </div>
             </sl-card>
-          </section>
-          <section>
-            <sl-card class="card-header" style="position: relative;">
-              <div slot="header">
-                Standard
-              </div>
+            <sl-card style="min-height: 10rem; min-width: 7.5rem; max-width: 10rem;">
               <p class="card-icon">
-                <sl-icon src="/assets/svg/bcore.svg"></sl-icon>
+                <sl-icon-button href="${resolveRouterPath('standard-tracker')}" src="/assets/svg/xlcu.svg" style="font-size: 4rem;">Play</sl-icon-button>
               </p>
-              <div class="ribbon ribbon ribbon-top-right">
-                <span class="colorless">
-                  Standard 1v1
-                </span>
-              </div>
               <div slot="footer">
-                <sl-button href="${resolveRouterPath('standard-tracker')}" variant="neutral" pill class="custom-button">Play</sl-button>
+                Standard
               </div>
             </sl-card>
           </section>
@@ -141,11 +116,17 @@ export class AppHome extends LitElement {
         sl-card.work-in-progress::part(base) {
           border-color: var(--sl-color-warning-600);
         }
-        sl-card.ready::part(base) {
-          border-color: var(--sl-color-brand-600);
+        sl-card::part(base) {
+          background-color: transparent;
         }
+        sl-card::part(body) {
+          background-color: var(--sl-panel-background-color);
+        }
+        // sl-card.ready::part(base) {
+        //   border-color: var(--sl-color-brand-600);
+        // }
         sl-card::part(footer) {
-          padding: .5rem;
+           padding: .75rem 1rem;
         }
       </style>
     `;

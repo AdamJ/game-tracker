@@ -39,12 +39,13 @@ export class MyApp extends LitElement {
         max-width: 1200px;
         display: block;
         margin: 0 auto;
-        padding-top: 2rem;
       }
     }
-    app-standard {
+    app-standings,
+    app-standard,
+    app-standard main {
       padding-top: 0 !important;
-      height: calc(100vh - 55px);
+      height: calc(100vh - 8rem);
     }
   `;
 
