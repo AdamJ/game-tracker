@@ -101,9 +101,9 @@ export class MatchTracker extends LitElement {
         }
       }
       @media screen and (min-width: 600px) {
-        main {
-          height: calc(100vh - 55px) !important
-        }
+        // main {
+        //   height: calc(100vh - 55px) !important
+        // }
         .standard-tracker,
         .side-one,
         .side-two,

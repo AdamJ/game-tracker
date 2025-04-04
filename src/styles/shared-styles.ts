@@ -5,11 +5,11 @@ import { css } from 'lit';
 export const sharedStyles = css`
   main {
     padding: .25rem 1.25rem 3rem 1.25rem;
-    background: var(--Windows-Glass);
-    backdrop-filter: blur(10px);
-    background-blend-mode: luminosity;
-    border: 1px solid var(--windows-stroke-glass-specular);
-    border-radius: 1.25rem;
+    // background: var(--Windows-Glass);
+    // backdrop-filter: blur(10px);
+    // background-blend-mode: luminosity;
+    // border: 1px solid var(--windows-stroke-glass-specular);
+    // border-radius: 1.25rem;
     margin: 0 .5rem;
   }
   .main {

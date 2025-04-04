@@ -35,11 +35,11 @@ export const shoelaceStyles = css`
   sl-tab-group::part(nav) {
     width: fit-content !important;
   }
-  sl-card::part(base) {
-    border: 1px solid var(--windows-stroke-glass-specular);
-  }
+  // sl-card::part(base) {
+  //   border: 1px solid var(--windows-stroke-glass-specular);
+  // }
   sl-details::part(base),
-  sl-card::part(base),
+  // sl-card::part(base),
   sl-tab-panel::part(base) {
     border-radius: 1rem;
     background: var(--Windows-Glass);

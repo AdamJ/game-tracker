@@ -114,9 +114,6 @@ html, body {
   html, body, .main {
     padding: 0 !important;
   }
-  /* body {
-    margin-top: 55px !important;
-  } */
 }
 .background-image {
   background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(1, 1, 1, 0.9)), url("/assets/background-d20.jpg");
