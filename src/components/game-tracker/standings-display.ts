@@ -27,7 +27,7 @@ export class StandingsDisplay extends LitElement {
 
   render() {
     return html`
-      <table class="border table-striped">
+      <table class="border table-striped" style="margin-bottom: 2.5rem;">
         <thead>
           <tr>
             <th style="text-align: left;">Player</th>

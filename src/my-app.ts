@@ -41,11 +41,13 @@ export class MyApp extends LitElement {
         margin: 0 auto;
       }
     }
-    app-standings,
-    app-standard,
-    app-standard main {
-      padding-top: 0 !important;
-      height: calc(100vh - 8rem);
+    @media only screen and (min-width: 770px) {
+      app-standings,
+      app-standard,
+      app-standard main {
+        padding-top: 0 !important;
+        height: calc(100vh - 8rem);
+      }
     }
   `;
 

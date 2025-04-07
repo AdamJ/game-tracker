@@ -2,10 +2,22 @@
 import { LitElement, html, css } from 'lit';
 import { state, queryAll, customElement } from 'lit/decorators.js';
 import { router, resolveRouterPath } from '../router'; // Adjust the path to your router.ts
+import { ToggleGameplayInfo } from './dialogs/toggle-gameplay-info';
 
 @customElement('app-navigation')
 export class MyNavigation extends LitElement {
   static styles = css`
+    @media only screen and (max-width: 768px) {
+      .navigation {
+        display: none;
+      }
+      .fab {
+        display: block !important;
+      }
+    }
+    .fab {
+      display: none;
+    }
     /* Your navigation styles */
     .navigation-item.active sl-icon-button {
       --icon-color: blue; /* Example active style */
@@ -14,7 +26,14 @@ export class MyNavigation extends LitElement {
     .navigation-item.active .navigation-icon {
       color: var(--sl-color-primary-600);
     }
+    sl-button sl-icon[slot="prefix"] {
+      background: #fff;
+      border-radius: 50%;
+      padding: .25rem;
+    }
   `;
+
+  @state() isDrawerOpen = false; //Add a state to track if the drawer is open.
 
   @state()
   private currentPathname: string = window.location.pathname;
@@ -44,43 +63,26 @@ export class MyNavigation extends LitElement {
     });
   }
 
+  private toggleDrawer() {
+    this.isDrawerOpen = !this.isDrawerOpen;
+  }
+
+  private closeDrawer(){
+    this.isDrawerOpen = false;
+  }
+
   render() {
     return html`
+      <div class="fab" style="position: fixed; bottom: 1rem; right: 1rem; z-index: 10000;">
+        <sl-button variant="primary" size="large" circle @click=${this.toggleDrawer}>
+          <sl-icon library="fa" name="fas-bars"></sl-icon>
+        </sl-button>
+      </div>
       <div class="navigation" style="position: fixed; bottom: 0; left: 0; right: 0;">
         <div class="navigation-item">
           <div class="icon-container">
             <div class="state-layer">
-              <sl-icon-button href="/counter" library="fa" name="fas-dice-d6" class="navigation-icon" style="font-size: 2rem;"></sl-icon-button>
-            </div>
-          </div>
-          <div class="navigation-text">
-            EDH
-          </div>
-        </div>
-        <div class="navigation-item">
-          <div class="icon-container">
-            <div class="state-layer">
-              <sl-icon-button href="/about" library="fa" name="fas-info-circle" class="navigation-icon" style="font-size: 2rem;"></sl-icon-button>
-            </div>
-          </div>
-          <div class="navigation-text">
-            About
-          </div>
-        </div>
-        <div class="navigation-item">
-          <div class="icon-container">
-            <div class="state-layer">
-              <sl-icon-button href="/" library="fa" name="fab-wizards-of-the-coast" class="navigation-icon" style="font-size: 2rem;"></sl-icon-button>
-            </div>
-          </div>
-          <div class="navigation-text">
-            Home
-          </div>
-        </div>
-        <div class="navigation-item">
-          <div class="icon-container">
-            <div class="state-layer">
-              <sl-icon-button href="/game-tracker" library="fa" name="fas-trophy" class="navigation-icon" style="font-size: 2rem;"></sl-icon-button>
+              <sl-icon-button href="/game-tracker" library="fa" name="fas-trophy" class="navigation-icon" style="font-size: 1.75rem;"></sl-icon-button>
             </div>
           </div>
           <div class="navigation-text">
@@ -89,20 +91,56 @@ export class MyNavigation extends LitElement {
         </div>
         <div class="navigation-item">
           <div class="icon-container">
+            <sl-icon-button @click=${this.toggleDrawer} library="fa" name="fas-bars" class="navigation-icon" style="font-size: 1.75rem;"></sl-icon-button>
+          </div>
+          <div class="navigation-text">
+            Menu
+          </div>
+        </div>
+        <div class="navigation-item">
+          <div class="icon-container">
             <div class="state-layer">
-              <sl-icon-button href="/standard-tracker" library="fa" name="fas-balance-scale" class="navigation-icon" style="font-size: 2rem;"></sl-icon-button>
+              <sl-icon-button href="/standard-tracker" library="fa" name="fas-dice-d20" class="navigation-icon" style="font-size: 1.75rem;"></sl-icon-button>
             </div>
           </div>
           <div class="navigation-text">
-            Standard
+            1v1
           </div>
         </div>
       </div>
+      <sl-drawer
+       ?open=${this.isDrawerOpen} @sl-after-hide=${this.closeDrawer}
+        label="Moonsilver Waypoints" placement="start" class="site-menu-drawer"
+      >
+        <sl-button href="/" variant="neutral" size="large" pill style="width: 100%; margin-bottom: .5rem;">
+          Dashboard
+        </sl-button>
+        <sl-button href="/game-tracker" variant="neutral" size="large" pill style="width: 100%; margin-bottom: .5rem;">
+          Tournament
+        </sl-button>
+        <sl-button href="/counter" variant="neutral" size="large" pill style="width: 100%; margin-bottom: .5rem;">
+          Commander
+        </sl-button>
+        <sl-button href="/standard-tracker" variant="neutral" size="large" pill style="width: 100%; margin-bottom: .5rem;">
+          1v1
+        </sl-button>
+        <sl-button href="/about" variant="neutral" size="large" pill style="width: 100%;">
+          About
+        </sl-button>
+        <sl-button @click=${this.closeDrawer} slot="footer" variant="primary" pill class="close-menu">Close</sl-button>
+      </sl-drawer>
+      <script>
+        const drawer = document.querySelector('.site-menu-drawer');
+        const openButton = drawer.nextElementSibling;
+        const closeButton = drawer.querySelector('sl-button.close-menu[variant="primary"]');
+        openButton.addEventListener('click', () => drawer.show());
+        closeButton.addEventListener('click', () => drawer.hide());
+      </script>
       <style>
         .navigation {
           display: flex;
           padding: 0rem 0.5rem;
-          padding-bottom: 1.25rem;
+          padding-bottom: 0.5rem;
           align-items: flex-start;
           gap: 0.5rem;
           align-self: stretch;
@@ -147,6 +185,7 @@ export class MyNavigation extends LitElement {
           color: #CAC4D0;
           text-align: center;
           align-self: stretch;
+          font-size: .75rem;
         }
         .icon-container {
           display: flex;
@@ -154,6 +193,7 @@ export class MyNavigation extends LitElement {
           justify-content: center;
           align-items: center;
           border-radius: 1rem;
+          min-height: 45px;
         }
         .state-layer {
           display: flex;

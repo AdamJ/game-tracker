@@ -53,6 +53,7 @@ export class MatchTracker extends LitElement {
   @property({ type: Object }) handle3: Player = { life: 40 };
   @property({ type: Object }) handle4: Player = { life: 40 };
 
+  @state() activeTab: string = 'standings'; // Initial active tab
   @state() matchResults: MatchResult[] = []; // Array to store game results
   @state() playerHandle1: string = "Player 1";
   @state() playerHandle2: string = "Player 2";
@@ -115,6 +116,10 @@ export class MatchTracker extends LitElement {
   @state() playerHandle2Actions: string[] = []; // Array to store Player 2's actions
   @state() playerHandle3Actions: string[] = []; // Array to store Player 3's actions
   @state() playerHandle4Actions: string[] = []; // Array to store Player 4's actions
+
+  setActiveTab(tabName: string) {
+    this.activeTab = tabName;
+  }
 
   private updateLife(player: 1 | 2 | 3 | 4, change: number, action: 'Gain' | 'Lose') {
     // Define a map to quickly access player data
@@ -411,21 +416,21 @@ export class MatchTracker extends LitElement {
     const emptyState = html`
       <sl-menu-item disabled>
         <sl-icon slot="prefix" name="info-circle"></sl-icon>
-        No match actions to display.
+        No match information to display.
       </sl-menu-item>
     `;
 
     const menuContent = playerMenuItems.length > 0 ? playerMenuItems : emptyState;
 
     return html`
-      <main style="padding-bottom: 5rem;">
+      <main>
         <div style="display: flex; flex-direction: column; grid-gap: 1rem;">
-          <sl-tab-group>
-            <sl-tab slot="nav" panel="tracker">Tracker</sl-tab>
-            <sl-tab slot="nav" panel="standings">Standings</sl-tab>
-            <sl-tab slot="nav" panel="results">Results</sl-tab>
-            <sl-tab slot="nav" panel="action-log">Log</sl-tab>
-            <sl-tab slot="nav" panel="setup">Setup</sl-tab>
+          <sl-tab-group active-tab=${this.activeTab}>
+            <sl-tab slot="nav" panel="tracker" class="ios-tab">Life</sl-tab>
+            <sl-tab slot="nav" panel="results" class="ios-tab">Results</sl-tab>
+            <sl-tab slot="nav" panel="standings" class="ios-tab">Standings</sl-tab>
+            <sl-tab slot="nav" panel="action-log" class="ios-tab">Match Log</sl-tab>
+            <sl-tab slot="nav" panel="setup" class="ios-tab">Setup</sl-tab>
             <sl-tab-panel name="tracker">
               <div style="display: flex; flex-direction: row;justify-content: around; flex-wrap: wrap;">
                 <div style="width: 50%;">
@@ -435,9 +440,14 @@ export class MatchTracker extends LitElement {
                         <sl-icon library="mana" slot="prefix" name="loyalty-up" class="ms ms-loyalty-up ms-2x"></sl-icon>
                         Gain
                       </sl-button>
-                      <p class="text-center ms-4x" style="line-height: normal; margin: 0;">
-                        ${this.handle1.life}
-                      </p>
+                      <div>
+                        <p class="text-center ms-4x" style="line-height: normal; margin: 0;">
+                          ${this.handle1.life}
+                        </p>
+                        <p class="text-center" style="margin:0; padding:0;">
+                          ${this.playerHandle1}
+                        </p>
+                      </div>
                       <sl-button variant="default" size="large" class="life-counter player-one" @click=${() => this.updateLife(1, -1, 'Lose')}>
                         <sl-icon library="mana" slot="prefix" name="loyalty-down" class="ms ms-loyalty-down ms-2x"></sl-icon>
                         Lose
@@ -453,9 +463,14 @@ export class MatchTracker extends LitElement {
                         <sl-icon library="mana" slot="prefix" name="loyalty-up" class="ms ms-loyalty-up ms-2x"></sl-icon>
                         Gain
                       </sl-button>
-                      <p class="text-center ms-4x" style="line-height: normal; margin: 0;">
-                        ${this.handle3.life}
-                      </p>
+                      <div>
+                        <p class="text-center ms-4x" style="line-height: normal; margin: 0;">
+                          ${this.handle3.life}
+                        </p>
+                        <p class="text-center" style="margin:0; padding:0;">
+                          ${this.playerHandle3}
+                        </p>
+                      </div>
                       <sl-button variant="default" size="large" class="life-counter player-three" @click=${() => this.updateLife(3, -1, 'Lose')}>
                         <sl-icon library="mana" slot="prefix" name="loyalty-down" class="ms ms-loyalty-down ms-2x"></sl-icon>
                         Lose
@@ -473,9 +488,14 @@ export class MatchTracker extends LitElement {
                         <sl-icon library="mana" slot="prefix" name="loyalty-up" class="ms ms-loyalty-up ms-2x"></sl-icon>
                         Gain
                       </sl-button>
-                      <p class="text-center ms-4x" style="line-height: normal; margin: 0;">
-                        ${this.handle2.life}
-                      </p>
+                      <div>
+                        <p class="text-center ms-4x" style="line-height: normal; margin: 0;">
+                          ${this.handle2.life}
+                        </p>
+                        <p class="text-center" style="margin:0; padding:0;">
+                          ${this.playerHandle2}
+                        </p>
+                      </div>
                       <sl-button variant="default" size="large" class="life-counter player-two" @click=${() => this.updateLife(2, -1, 'Lose')}>
                         <sl-icon library="mana" slot="prefix" name="loyalty-down" class="ms ms-loyalty-down ms-2x"></sl-icon>
                         Lose
@@ -491,9 +511,14 @@ export class MatchTracker extends LitElement {
                         <sl-icon library="mana" slot="prefix" name="loyalty-up" class="ms ms-loyalty-up ms-2x"></sl-icon>
                         Gain
                       </sl-button>
-                      <p class="text-center ms-4x" style="line-height: normal; margin: 0;">
-                        ${this.handle4.life}
-                      </p>
+                      <div>
+                        <p class="text-center ms-4x" style="line-height: normal; margin: 0;">
+                          ${this.handle4.life}
+                        </p>
+                        <p class="text-center" style="margin:0; padding:0;">
+                          ${this.playerHandle4}
+                        </p>
+                      </div>
                       <sl-button variant="default" outline size="large" class="life-counter player-four" @click=${() => this.updateLife(4, -1, 'Lose')}>
                         <sl-icon library="mana" slot="prefix" name="loyalty-down" class="ms ms-loyalty-down ms-2x"></sl-icon>
                         Lose
@@ -567,7 +592,7 @@ export class MatchTracker extends LitElement {
                   value=${this.initialLifeTracker}
                   @sl-change=${this.setInitialLifeTracker}
                   min="0"
-                  style="width: 25%; text-align: center;"
+                  style="width: 15rem; text-align: center;"
                 >
                 </sl-input>
               </div>
@@ -638,9 +663,7 @@ export class MatchTracker extends LitElement {
             </sl-tab-panel>
             <sl-tab-panel name="action-log">
               <sl-menu>
-                <sl-menu>
-                  ${menuContent}
-                </sl-menu>
+                ${menuContent}
               </sl-menu>
             </sl-tab-panel>
             <sl-tab-panel name="results">

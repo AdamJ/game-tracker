@@ -266,16 +266,16 @@ export class StandingsTracker extends LitElement {
 
     return html `
       <div class="page-header">
-        <h1>Tournament Tracker</h1>
+        <h1 class="text-truncate">Tournament</h1>
         <div class="button-group" label="game-actions">
           <sl-button variant="success" size="medium" circle label="export standings" @click=${this.exportStandings}>
             <sl-icon library="default" name="file-earmark-excel-fill" label="Export Standings"></sl-icon>
           </sl-button>
           <sl-button variant="warning" size="medium" circle label="action to clear standings"  @click=${this.clearStandingsConfirmed}>
-            <sl-icon library="default" name="trash-fill" label="Clear Standings"></sl-icon>
+            <sl-icon library="fa" name="fas-timeline" label="Clear Standings"></sl-icon>
           </sl-button>
           <sl-button variant="danger" size="medium" circle label="launch a modal to confirm clearing of match data" @click=${this.openConfirmationModal}>
-          <sl-icon library="default" name="trash-fill" label="Clear All Data"></sl-icon>
+          <sl-icon library="fa" name="fas-clock-rotate-left" label="Clear All Data"></sl-icon>
           </sl-button>
         </div>
       </div>
