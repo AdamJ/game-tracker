@@ -85,7 +85,7 @@
   /* --ms-mana-w-bg: #fff; */
   --ms-mana-w-bg: #FEFDDF;
   --ms-mana-p-bg: #8F8A87;
-  /* @media (prefers-color-scheme: dark) {
+  @media (prefers-color-scheme: dark) {
     --ms-mana-b: #574f52;
     --ms-mana-b-bg: #5a5450;
     --ms-mana-c: #7c756e;
@@ -99,8 +99,7 @@
     --ms-mana-w: #b0ae8d;
     --ms-mana-w-bg: #a3a380;
     --sl-input-color: var(--sl-color-neutral-100);
-  } */
-
+  }
 }
 
 html, body {

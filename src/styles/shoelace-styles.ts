@@ -21,39 +21,41 @@ export const shoelaceStyles = css`
     color: var(--sl-color-primary-700);
     border-color: var(--sl-color-primary-700);
   }
-  sl-tab-group {
-    --indicator-color: var(--sl-color-primary-500);
-    --track-width: 0;
-    --track-color: var(--sl-color-neutral-500);
-  }
-  sl-tab-group::part(tabs) {
-    background: var(--Views-Recessed-Material-View);
-    padding-top: .25rem;
-    padding-bottom: .25rem;
-    border-radius: 1rem;
-  }
-  sl-tab-group::part(nav) {
-    width: fit-content !important;
-  }
+    sl-tab {
+    padding-bottom: .5rem; }
+  // sl-tab-group {
+  //   --indicator-color: var(--sl-color-primary-500);
+  //   --track-width: 0;
+  //   --track-color: var(--sl-color-neutral-500);
+  // }
+  // sl-tab-group::part(tabs) {
+  //   background: var(--Views-Recessed-Material-View);
+  //   padding-top: .25rem;
+  //   padding-bottom: .25rem;
+  //   border-radius: 1rem;
+  // }
+  // sl-tab-group::part(nav) {
+  //   width: fit-content !important;
+  // }
   // sl-card::part(base) {
   //   border: 1px solid var(--windows-stroke-glass-specular);
   // }
-  sl-details::part(base),
+  // sl-details::part(base),
   // sl-card::part(base),
-  sl-tab-panel::part(base) {
-    border-radius: 1rem;
-    background: var(--Windows-Glass);
-    background-blend-mode: luminosity;
+  // sl-tab-panel::part(base) {
+  //   border-radius: 1rem;
+  //   background: var(--Windows-Glass);
+  //   background-blend-mode: luminosity;
 
-    /* Blur
-    backdrop-filter: blur(50px);
-    */
-    backdrop-filter: blur(10px);
-  }
-  sl-details::part(base),
-  sl-tab-panel::part(base) {
-    border: 0;
-  }
+  //   /* Blur
+  //   backdrop-filter: blur(50px);
+  //   */
+  //   backdrop-filter: blur(10px);
+  // }
+  // sl-details::part(base),
+  // sl-tab-panel::part(base) {
+  //   border: 0;
+  // }
   sl-tab::part(base) {
     border-color: transparent;
     background: var(--Controls-Idle, linear-gradient(0deg, rgba(94, 94, 94, 0.18) 0%, rgba(94, 94, 94, 0.18) 100%), rgba(255, 255, 255, 0.07));
@@ -80,12 +82,12 @@ export const shoelaceStyles = css`
     margin-right: .5rem;
     padding: .75rem 1rem;
   }
-  sl-tab-panel {
-    margin-top: .25rem;
-  }
-  sl-tab-panel::part(base) {
-    padding: 1rem;
-  }
+  // sl-tab-panel {
+  //   margin-top: .25rem;
+  // }
+  // sl-tab-panel::part(base) {
+  //   padding: 1rem;
+  // }
   sl-tag::part(base) {
     border-radius: 0.625rem;
     background: var(--Windows-Glass);

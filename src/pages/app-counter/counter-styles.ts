@@ -2,10 +2,10 @@ import { css } from 'lit';
 
 export const counterStyles = css`
   @media (max-width: 950px) {
-    sl-tab-group {
-      --track-width: 0;
-      --track-color: transparent;
-    }
+    // sl-tab-group {
+    //   --track-width: 0;
+    //   --track-color: transparent;
+    // }
     sl-card.player-one::part(base),
     sl-card.player-two::part(base),
     sl-card.player-three::part(base),

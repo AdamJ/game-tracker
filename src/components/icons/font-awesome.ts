@@ -1,4 +1,3 @@
-
 import { registerIconLibrary } from "@shoelace-style/shoelace";
 
   registerIconLibrary('fa', {

@@ -4,16 +4,16 @@ import { css } from 'lit';
 // for an example of how to use this, check /pages/about-about.ts
 export const sharedStyles = css`
   main {
-    padding: .25rem 1.25rem 3rem 1.25rem;
-    // background: var(--Windows-Glass);
-    // backdrop-filter: blur(10px);
-    // background-blend-mode: luminosity;
-    // border: 1px solid var(--windows-stroke-glass-specular);
-    // border-radius: 1.25rem;
+    padding: .25rem 0 3rem 0;
     margin: 0 .5rem;
   }
   .main {
     padding: .75rem;
+  }
+  .text-truncate {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
   a {
     color: var(--sl-color-primary-500);
