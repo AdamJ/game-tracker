@@ -2,7 +2,6 @@
 import { LitElement, html, css } from 'lit';
 import { state, queryAll, customElement } from 'lit/decorators.js';
 import { router, resolveRouterPath } from '../router'; // Adjust the path to your router.ts
-import { ToggleGameplayInfo } from './dialogs/toggle-gameplay-info';
 
 @customElement('app-navigation')
 export class MyNavigation extends LitElement {
