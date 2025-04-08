@@ -188,44 +188,56 @@ const __WB_MANIFEST = [
     "revision": "2e9680930dfcf670059421e2b16eacca"
   },
   {
-    "url": "/code/app-about-B7ypskfT.js",
-    "revision": "2ad6c867502baf1ddf10d86f8e56e840"
+    "url": "/code/app-about-gIl-rUHV.js",
+    "revision": "2f67d636a5da8a5d9927e76e7decca18"
   },
   {
-    "url": "/code/app-about-B7ypskfT.js.map",
-    "revision": "ef828a4bb6d53a0a6b7afb5f4649869c"
+    "url": "/code/app-about-gIl-rUHV.js.map",
+    "revision": "447f96a1b6c49c191ebdbf28c63bdd2e"
   },
   {
-    "url": "/code/app-counter-ZQVoP8HJ.js",
-    "revision": "9c5a1f596e389de2490d7e3588a4e7e4"
+    "url": "/code/app-counter-Branx3NX.js",
+    "revision": "81e9737694ed8a4c423328bfa3f323ff"
   },
   {
-    "url": "/code/app-counter-ZQVoP8HJ.js.map",
-    "revision": "2bc1629ab534b0052103011f4e040c7d"
+    "url": "/code/app-counter-Branx3NX.js.map",
+    "revision": "090007d1cb63e25e3653331e57428461"
   },
   {
-    "url": "/code/app-game-tracker-CHeaPawY.js",
-    "revision": "911ac93c2fb9d38f409ab9869559dfdf"
+    "url": "/code/app-game-tracker-BXx8bLUx.js",
+    "revision": "433f5ce6d7350e0e1f925394e4b08d20"
   },
   {
-    "url": "/code/app-game-tracker-CHeaPawY.js.map",
-    "revision": "a8fd9ab44053e314501d458341e8978c"
+    "url": "/code/app-game-tracker-BXx8bLUx.js.map",
+    "revision": "9e63691e886671e5a28e2a20b6e9dced"
   },
   {
-    "url": "/code/app-standard-DnGTNkSD.js",
-    "revision": "2cf1dfacc212d030c51eda6295d6a29d"
+    "url": "/code/app-standard-D7uD8Ofg.js",
+    "revision": "b710f3224053a6e2f1d4d49dd7ea9b68"
   },
   {
-    "url": "/code/app-standard-DnGTNkSD.js.map",
-    "revision": "41eb0e07521e5a4eee78d96786a8a889"
+    "url": "/code/app-standard-D7uD8Ofg.js.map",
+    "revision": "21132d51d4c0be14feb4a92a171c556f"
   },
   {
-    "url": "/code/counter-styles-Cpguo-Ht.js",
-    "revision": "b04ccf63d004423f5a1b5b3be4ff8d9e"
+    "url": "/code/counter-styles-DBXzyNRt.js",
+    "revision": "1278ff43788f1b494e637276cc13fdfd"
   },
   {
-    "url": "/code/counter-styles-Cpguo-Ht.js.map",
-    "revision": "472cc5e10abb7c5de7b006225a65f556"
+    "url": "/code/counter-styles-DBXzyNRt.js.map",
+    "revision": "5c3c42fa646d7e841dc0e260f9cdce2a"
+  },
+  {
+    "url": "/code/index-CXvfQJIw.css",
+    "revision": "3c3710b043f7bea07c26c22a80bfe7c6"
+  },
+  {
+    "url": "/code/index-Dds4aBYs.js",
+    "revision": "150df0e5a47b92394b2a12341eba2bd1"
+  },
+  {
+    "url": "/code/index-Dds4aBYs.js.map",
+    "revision": "6d9bb5a7e8e17a6433fff27dc5811c5e"
   },
   {
     "url": "/code/index-DkuV2QLQ.js",
@@ -236,28 +248,16 @@ const __WB_MANIFEST = [
     "revision": "a7e6e43d145dceb5bfdf6819d416795c"
   },
   {
-    "url": "/code/index-DolP1zyV.css",
-    "revision": "477dfe42220ff25ae74bf0d6d3d7fa4d"
+    "url": "/code/table-styles-krSZy5O-.js",
+    "revision": "d256262014b55fb4b9c2ed1b646ecc7c"
   },
   {
-    "url": "/code/index-UiGfyZTX.js",
-    "revision": "79376c3b32bc8ba57caefe874158c13f"
-  },
-  {
-    "url": "/code/index-UiGfyZTX.js.map",
-    "revision": "34d85961cf180f7171186bfd6eff1847"
-  },
-  {
-    "url": "/code/table-styles-Ofqb7wq1.js",
-    "revision": "c9967e878a4e45cd3bd285ad676b9bee"
-  },
-  {
-    "url": "/code/table-styles-Ofqb7wq1.js.map",
-    "revision": "df80093afd86a53f4493fbd1f1c1b1d9"
+    "url": "/code/table-styles-krSZy5O-.js.map",
+    "revision": "bdb31b404e73eca0c60279f89e99ba54"
   },
   {
     "url": "/index.html",
-    "revision": "014739ad96263bf68e547dcde106d86c"
+    "revision": "4e070d5a8851d70ac05735c2c9deb334"
   },
   {
     "url": "/manifest.json",
@@ -285,7 +285,7 @@ const __WB_MANIFEST = [
   },
   {
     "url": "/sw.js",
-    "revision": "1afc6be19909219cda7385c019c78b6f"
+    "revision": "1549fccbc9404a13ee892437ab2a5dc4"
   },
   {
     "url": "/sw.js.map",

@@ -1,4 +1,4 @@
-import{s as x,a as f,i as P,n as d,b as o,r as h,x as n,t as y}from"./index-UiGfyZTX.js";import{t as D}from"./table-styles-Ofqb7wq1.js";var I=Object.defineProperty,j=Object.getOwnPropertyDescriptor,O=(e,t,s,l)=>{for(var a=l>1?void 0:l?j(t,s):t,r=e.length-1,i;r>=0;r--)(i=e[r])&&(a=(l?i(t,s,a):i(a))||a);return l&&a&&I(t,s,a),a};let m=class extends h{constructor(){super(...arguments),this.players=[],this.newPlayer="",this.errorMessage=""}handleSubmit(e){e.preventDefault(),this.addPlayer()}addPlayer(){if(console.log("addPlayer called"),this.newPlayer&&this.validatePlayerName(this.newPlayer)){this.dispatchEvent(new CustomEvent("player-added",{detail:this.newPlayer})),this.newPlayer="";const e=this.shadowRoot.querySelector("sl-input");e&&(e.helpText="")}else{const e=this.shadowRoot.querySelector("sl-input");e&&(e.helpText=this.errorMessage)}}handleInputChange(e){const t=e.target;this.newPlayer=t.value;const s=this.shadowRoot.querySelector("sl-input");s&&(this.validatePlayerName(this.newPlayer)?s.helpText="":s.helpText=this.errorMessage)}validatePlayerName(e){const t=/^[a-zA-Z0-9]+$/.test(e);return console.log("isValid:",t),t?(this.errorMessage="",!0):(this.errorMessage="Enter a Name containing only letters or numbers with no spaces or special characters.",!1)}removePlayer(e){this.dispatchEvent(new CustomEvent("remove-player",{detail:e}))}clearAllPlayers(){this.dispatchEvent(new CustomEvent("clear-all-players"))}render(){return n`
+import{s as x,a as f,i as P,n as d,b as o,r as h,x as n,t as y}from"./index-Dds4aBYs.js";import{t as D}from"./table-styles-krSZy5O-.js";var I=Object.defineProperty,j=Object.getOwnPropertyDescriptor,O=(e,t,s,l)=>{for(var a=l>1?void 0:l?j(t,s):t,r=e.length-1,i;r>=0;r--)(i=e[r])&&(a=(l?i(t,s,a):i(a))||a);return l&&a&&I(t,s,a),a};let m=class extends h{constructor(){super(...arguments),this.players=[],this.newPlayer="",this.errorMessage=""}handleSubmit(e){e.preventDefault(),this.addPlayer()}addPlayer(){if(console.log("addPlayer called"),this.newPlayer&&this.validatePlayerName(this.newPlayer)){this.dispatchEvent(new CustomEvent("player-added",{detail:this.newPlayer})),this.newPlayer="";const e=this.shadowRoot.querySelector("sl-input");e&&(e.helpText="")}else{const e=this.shadowRoot.querySelector("sl-input");e&&(e.helpText=this.errorMessage)}}handleInputChange(e){const t=e.target;this.newPlayer=t.value;const s=this.shadowRoot.querySelector("sl-input");s&&(this.validatePlayerName(this.newPlayer)?s.helpText="":s.helpText=this.errorMessage)}validatePlayerName(e){const t=/^[a-zA-Z0-9]+$/.test(e);return console.log("isValid:",t),t?(this.errorMessage="",!0):(this.errorMessage="Enter a Name containing only letters or numbers with no spaces or special characters.",!1)}removePlayer(e){this.dispatchEvent(new CustomEvent("remove-player",{detail:e}))}clearAllPlayers(){this.dispatchEvent(new CustomEvent("clear-all-players"))}render(){return n`
       <div style="display: flex; flex-direction: row; justify-content: space-between; flex-wrap: wrap; grid-gap: 1rem;">
         <form
           class="input-validation-custom"
@@ -145,7 +145,7 @@ import{s as x,a as f,i as P,n as d,b as o,r as h,x as n,t as y}from"./index-UiGf
           Record Result</sl-button>
       </form>
     `}};u.styles=[f,_];v([d({type:Array})],u.prototype,"players",2);v([o()],u.prototype,"player1",2);v([o()],u.prototype,"player2",2);v([o()],u.prototype,"winner",2);u=v([y("match-input")],u);var z=Object.defineProperty,N=Object.getOwnPropertyDescriptor,E=(e,t,s,l)=>{for(var a=l>1?void 0:l?N(t,s):t,r=e.length-1,i;r>=0;r--)(i=e[r])&&(a=(l?i(t,s,a):i(a))||a);return l&&a&&z(t,s,a),a};let b=class extends h{constructor(){super(...arguments),this.standings=[]}render(){return n`
-      <table class="border table-striped">
+      <table class="border table-striped" style="margin-bottom: 2.5rem;">
         <thead>
           <tr>
             <th style="text-align: left;">Player</th>
@@ -270,16 +270,16 @@ import{s as x,a as f,i as P,n as d,b as o,r as h,x as n,t as y}from"./index-UiGf
         <sl-spinner style="font-size: 3rem;"></sl-spinner>
       `:n`
       <div class="page-header">
-        <h1>Tournament Tracker</h1>
+        <h1 class="text-truncate">Tournament</h1>
         <div class="button-group" label="game-actions">
           <sl-button variant="success" size="medium" circle label="export standings" @click=${this.exportStandings}>
             <sl-icon library="default" name="file-earmark-excel-fill" label="Export Standings"></sl-icon>
           </sl-button>
           <sl-button variant="warning" size="medium" circle label="action to clear standings"  @click=${this.clearStandingsConfirmed}>
-            <sl-icon library="default" name="trash-fill" label="Clear Standings"></sl-icon>
+            <sl-icon library="fa" name="fas-timeline" label="Clear Standings"></sl-icon>
           </sl-button>
           <sl-button variant="danger" size="medium" circle label="launch a modal to confirm clearing of match data" @click=${this.openConfirmationModal}>
-          <sl-icon library="default" name="trash-fill" label="Clear All Data"></sl-icon>
+          <sl-icon library="fa" name="fas-clock-rotate-left" label="Clear All Data"></sl-icon>
           </sl-button>
         </div>
       </div>
@@ -346,4 +346,4 @@ import{s as x,a as f,i as P,n as d,b as o,r as h,x as n,t as y}from"./index-UiGf
       </style>
     `}};M.styles=[x,P`
     `];M=G([y("app-standings")],M);export{M as AppDashboard};
-//# sourceMappingURL=app-game-tracker-CHeaPawY.js.map
+//# sourceMappingURL=app-game-tracker-BXx8bLUx.js.map
