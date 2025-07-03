@@ -1,4 +1,4 @@
-import{f as r,i as e}from"./index-Dds4aBYs.js";r("mana",{resolver:t=>`https://cdn.jsdelivr.net/npm/mana-font@latest/svg/${t}.svg`});const a=e`
+import{f as r,i as e}from"./index-zhMqEYiN.js";r("mana",{resolver:t=>`https://cdn.jsdelivr.net/npm/mana-font@latest/svg/${t}.svg`});const a=e`
   table {
     width: 100%;
     border-spacing: 0 !important;
@@ -26,4 +26,4 @@ import{f as r,i as e}from"./index-Dds4aBYs.js";r("mana",{resolver:t=>`https://cd
     border-bottom-width: 1px;
   }
 `;export{a as t};
-//# sourceMappingURL=table-styles-krSZy5O-.js.map
+//# sourceMappingURL=table-styles-Br6u72Zu.js.map
