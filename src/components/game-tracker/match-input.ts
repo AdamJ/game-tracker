@@ -89,10 +89,10 @@ export class MatchInput extends LitElement {
           @sl-change=${this.handlePlayer1Change}
           label="Player 1"
           clearable
-          pill
-          class="ios-select"
+          class="label-on-left"
+          help-text="Select a player"
         >
-          <sl-option value="">Select a player</sl-option>
+          <!-- <sl-option value="">Select a player</sl-option> -->
           ${player1Options.map(
             (player) =>
               html`<sl-option value=${player.name}>${player.name}</sl-option>`
@@ -103,10 +103,10 @@ export class MatchInput extends LitElement {
           value=${this.player2}
           @sl-change=${this.handlePlayer2Change}
           label="Player 2"
+          class="label-on-left"
+          help-text="Select a player"
           clearable
-          pill
         >
-          <sl-option value="">Select a player</sl-option>
           ${player2Options.map(
             (player) =>
               html`<sl-option value=${player.name}>${player.name}</sl-option>`
@@ -126,7 +126,6 @@ export class MatchInput extends LitElement {
             value=${this.player1}
             ?disabled="${!playersSelected}"
             aria-label="select for player one"
-            pill
           >
             ${playerOneValue}
           </sl-radio>
@@ -134,7 +133,6 @@ export class MatchInput extends LitElement {
             value="draw"
             ?disabled="${!playersSelected}"
             aria-label="select for a draw"
-            pill
           >
             Draw
           </sl-radio>
@@ -142,15 +140,39 @@ export class MatchInput extends LitElement {
             value=${this.player2}
             ?disabled="${!playersSelected}"
             aria-label="select for player two"
-            pill
           >
             ${playerTwoValue}
           </sl-radio>
         </sl-radio-group>
         <br />
-        <sl-button variant="success" pill @click=${this.recordMatch} ?disabled=${!playersSelected}>
+        <sl-button variant="primary" @click=${this.recordMatch} ?disabled=${!playersSelected}>
           Record Result</sl-button>
       </form>
+      <style>
+          .label-on-left {
+            --label-width: 5rem;
+            --gap-width: 1rem;
+          }
+
+          .label-on-left + .label-on-left {
+            margin-top: var(--sl-spacing-medium);
+          }
+
+          .label-on-left::part(form-control) {
+            display: grid;
+            grid: auto / var(--label-width) 1fr;
+            gap: var(--sl-spacing-3x-small) var(--gap-width);
+            align-items: center;
+          }
+
+          .label-on-left::part(form-control-label) {
+            text-align: right;
+          }
+
+          .label-on-left::part(form-control-help-text) {
+            grid-column-start: 2;
+          }
+      </style>
     `;
   }
 }

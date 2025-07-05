@@ -75,7 +75,7 @@ export class PlayerInput extends LitElement {
 
   render() {
     return html`
-      <div style="display: flex; flex-direction: row; justify-content: space-between; flex-wrap: wrap; grid-gap: 1rem;">
+      <div style="display: flex; flex-direction: row; justify-content: space-between; flex-wrap: wrap; grid-gap: 1rem; padding-left: 1rem; padding-right: 1rem;">
         <form
           class="input-validation-custom"
           @submit=${this.handleSubmit}
@@ -86,7 +86,6 @@ export class PlayerInput extends LitElement {
             spellcheck="true"
             name="name"
             label="Name"
-            pill
             required
             clearable
             autofocus
@@ -100,7 +99,7 @@ export class PlayerInput extends LitElement {
           <sl-button
             type="button"
             variant="primary"
-            pill
+            outline
             @click=${this.addPlayer}
             class="larger-icon"
           >
@@ -112,9 +111,19 @@ export class PlayerInput extends LitElement {
           <p style="margin-top: .25rem; margin-bottom: .25rem;">
             <strong>Player List</strong>
           </p>
+          <sl-alert open closable class="alert-closable">
+            <sl-icon slot="icon" name="info-circle"></sl-icon>
+            Removing a player from the list does <u>not</u> remove them from the Standings or History.
+          </sl-alert>
+          <script>
+            const alert = document.querySelector('.alert-closable');
+            alert.addEventListener('sl-after-hide', () => {
+              setTimeout(() => (alert.open = true), 2000);
+            });
+          </script>
           <div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: flex-start; grid-gap: .5rem; width: 100%;">
             ${this.players.map(player => html`
-              <sl-tag removable @sl-remove=${() => this.removePlayer(player)}>
+              <sl-tag variant="primary" removable @sl-remove=${() => this.removePlayer(player)}>
                 ${player}
               </sl-tag>
             `)}
