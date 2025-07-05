@@ -99,11 +99,6 @@ export const sharedStyles = css`
   sl-drawer::part(base) {
     top: -.5rem !important;
   }
-  td {
-    border-bottom: 1px solid var(--Separators-Separator, rgba(255, 255, 255, 0.07));
-    background: var(--Views-Regular, linear-gradient(0deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.08) 100%), rgba(214, 214, 214, 0.45));
-    background-blend-mode: luminosity, color-burn;
-  }
   .toolbar {
     /* same as sl-tab-group */
     padding-top: .25rem;

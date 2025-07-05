@@ -12,6 +12,10 @@ export class MyApp extends LitElement {
       padding-right: 1rem;
       padding-bottom: 1rem;
     }
+    app-navigation {
+      display: flex;
+      justify-content: center;
+    }
     @media (max-width: 800px) {
       app-standings,
       app-counter,

@@ -47,7 +47,7 @@ export class AppHome extends LitElement {
         max-width: 300px;
       }
       sl-card::part(image) {
-        background-color: var(--sl-color-neutral-800);
+        background-color: var(--sl-color-neutral-100);
         display: flex;
         justify-content: center;
       }

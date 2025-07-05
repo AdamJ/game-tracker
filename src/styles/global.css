@@ -14,12 +14,12 @@
   --Separators-Separator: rgba(255, 255, 255, 0.07);
   --Views-Regular: linear-gradient(0deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.08) 100%), rgba(214, 214, 214, 0.45);
 
-  --sl-panel-background-color: rgb(39, 39, 39) !important;
+  /* --sl-panel-background-color: rgb(39, 39, 39) !important; */
   --sl-input-background-color: var(--Recessed) !important;
   --sl-input-background-color-hover: var(--Recessed) !important;
   --sl-input-background-color-focus: var(--Recessed) !important;
 
-  /* Form Inputs */
+  /* Form Inputs
   --sl-input-background-color: transparent;
   --sl-input-background-color-hover: var(--Recessed);
   --sl-input-background-color-focus: var(--Recessed);
@@ -37,7 +37,8 @@
   --sl-input-icon-color-focus: rgba(255, 255, 255, 0.8);
   --sl-input-icon-color-disabled: yellow;
   --sl-input-focus-ring-color: rgba(0, 156, 229, 0.859) inset;
-  /* Filled Form Inputs */
+  */
+  /* Filled Form Inputs
   --sl-input-filled-background-color: var(--Recessed) !important;
   --sl-input-filled-background-color-hover: var(--Recessed) !important;
   --sl-input-filled-background-color-focus: var(--Recessed) !important;
@@ -50,7 +51,7 @@
   --sl-input-placeholder-color-disabled: var(--sl-color-neutral-300);
   --sl-input-help-text-color: var(--sl-color-neutral-300);
   --sl-focus-ring: var(--sl-color-primary-600);
-
+*/
   --special-color-white: #fff;
   --special-color-black: #000;
   --sl-font-weight-light: 400;
@@ -101,13 +102,16 @@
     --sl-input-color: var(--sl-color-neutral-100);
   }
 }
+/* :root {
+  --sl-input-border-radius-medium: 6.25rem;
+} */
 
 html, body {
   font-family: var(--sl-font-sans) !important;
   font-size: 16px;
   padding: 0;
   margin: 0;
-  color: var(--special-color-white) !important;
+  /* color: var(--special-color-white) !important; */
 }
 @media (max-width: 800px) {
   html, body, .main {
@@ -115,7 +119,7 @@ html, body {
   }
 }
 .background-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(1, 1, 1, 0.9)), url("/assets/background-d20.jpg");
+  /* background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(1, 1, 1, 0.9)), url("/assets/background-d20.jpg"); */
   background-repeat: no-repeat;
   background-position: bottom;
   background-clip: border-box;
@@ -138,6 +142,6 @@ app-index {
 }
 html,
 body {
-  color: var(--sl-color-neutral-50);
+  /* color: var(--sl-color-neutral-50); */
 }
 
