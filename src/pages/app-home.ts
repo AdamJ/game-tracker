@@ -177,6 +177,28 @@ export class AppHome extends LitElement {
               <br />
               <sl-button variant="primary" pill href="${resolveRouterPath('standard-tracker')}" style="width: 100%;">Start</sl-button>
             </sl-card>
+            <sl-card class="dashboard-card">
+              <img
+                slot="image"
+                src="/assets/svg/dice-solid.svg"
+                alt="A die"
+                style="width: 50%; height: 10rem;"
+              />
+              <strong>Dice Roller</strong>
+              <br />
+              <br />
+              A simple D20 dice roller with history.
+              <sl-details summary="Features" class="gameplay-features">
+                <sl-icon library="fa" name="fas-dice-d20" slot="expand-icon"></sl-icon>
+                <sl-icon library="fa" name="fas-dice-d20" slot="collapse-icon" style="rotate: 180deg;"></sl-icon>
+                <ul>
+                  <li>Roll a D20</li>
+                  <li>View roll history</li>
+                </ul>
+              </sl-details>
+              <br />
+              <sl-button variant="primary" pill href="${resolveRouterPath('roll-dice')}" style="width: 100%;">Start</sl-button>
+            </sl-card>
           </section>
         </content>
       </main>
