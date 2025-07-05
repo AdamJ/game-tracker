@@ -100,7 +100,7 @@ export class MyNavigation extends LitElement {
         <div class="navbar-item">
           <div class="item-container">
             <div class="state-layer">
-              <sl-icon-button src="assets/svg/dice-d20-solid.svg" href="/standard-tracker" class="navbar-icon" style="font-size: 1.75rem;"></sl-icon-button>
+              <sl-icon-button src="assets/svg/shield-halved-solid.svg" href="/standard-tracker" class="navbar-icon" style="font-size: 1.75rem;"></sl-icon-button>
             </div>
           </div>
           <div class="item-container-label">
@@ -110,7 +110,7 @@ export class MyNavigation extends LitElement {
         <div class="navbar-item">
           <div class="item-container">
             <div class="state-layer">
-              <sl-icon-button src="/assets/svg/dice-solid.svg" href="/roll-dice" class="navbar-icon" style="font-size: 1.75rem;"></sl-icon-button>
+              <sl-icon-button src="/assets/svg/dice-d20-solid.svg" href="/app-roll-dice" class="navbar-icon" style="font-size: 1.75rem;"></sl-icon-button>
             </div>
           </div>
           <div class="item-container-label">

@@ -76,6 +76,14 @@ export const router = new Router({
         console.log("Router: Rendering offline-page");
         return html`<offline-page></offline-page>`
       }
+    },
+    {
+      path: resolveRouterPath('app-roll-dice'),
+      title: 'Roll Dice',
+      plugins: [
+        lazy(() => import('./pages/app-roll-dice.js')),
+      ],
+      render: () => html`<app-roll-dice></app-roll-dice>`
     }
   ]
 });
