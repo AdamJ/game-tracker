@@ -83,11 +83,16 @@ export class MatchInput extends LitElement {
       const playerTwoValue = this.player2 === '' ? 'Player 2' : this.player2;
 
     return html`
-      <form>
+      <form style="
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        align-content: center;
+      ">
         <sl-select
           value=${this.player1}
           @sl-change=${this.handlePlayer1Change}
-          label="Player 1"
           clearable
           class="label-on-left"
           help-text="Select a player"
@@ -102,7 +107,6 @@ export class MatchInput extends LitElement {
         <sl-select
           value=${this.player2}
           @sl-change=${this.handlePlayer2Change}
-          label="Player 2"
           class="label-on-left"
           help-text="Select a player"
           clearable
@@ -158,12 +162,12 @@ export class MatchInput extends LitElement {
             margin-top: var(--sl-spacing-medium);
           }
 
-          .label-on-left::part(form-control) {
-            display: grid;
-            grid: auto / var(--label-width) 1fr;
-            gap: var(--sl-spacing-3x-small) var(--gap-width);
-            align-items: center;
-          }
+          // .label-on-left::part(form-control) {
+          //   display: grid;
+          //   grid: auto / var(--label-width) 1fr;
+          //   gap: var(--sl-spacing-3x-small) var(--gap-width);
+          //   align-items: center;
+          // }
 
           .label-on-left::part(form-control-label) {
             text-align: right;
@@ -171,6 +175,9 @@ export class MatchInput extends LitElement {
 
           .label-on-left::part(form-control-help-text) {
             grid-column-start: 2;
+          }
+          sl-select::part(form-control-input) {
+            max-width: 550px;
           }
       </style>
     `;

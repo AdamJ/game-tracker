@@ -2,10 +2,6 @@ import { css } from 'lit';
 
 export const counterStyles = css`
   @media (max-width: 950px) {
-    // sl-tab-group {
-    //   --track-width: 0;
-    //   --track-color: transparent;
-    // }
     sl-card.player-one::part(base),
     sl-card.player-two::part(base),
     sl-card.player-three::part(base),
@@ -15,6 +11,9 @@ export const counterStyles = css`
     sl-card::part(body) {
       height: 100%;
     }
+  }
+  sl-tab-panel::part(base) {
+    width: 100%;
   }
   sl-card.player-one::part(base),
   sl-button.player-one::part(base),
@@ -50,7 +49,7 @@ export const counterStyles = css`
   sl-button.player-four::part(base),
   sl-button.player-four-winner::part(base) {
     background-color: var(--ms-mana-c-bg);
-    color: var(--sl-color-neutral-50);
+    color: var(--sl-color-neutral-900);
     border: 0 !important;
   }
   sl-card.player-four::part(base) {
@@ -77,10 +76,30 @@ export const counterStyles = css`
   sl-button.player-two-winner::part(base):hover,
   sl-button.player-three-winner::part(base):hover,
   sl-button.player-four-winner::part(base):hover {
-    filter: brightness(80%);
+    // filter: brightness(80%);
     box-shadow: 0px -0.5px 1px 0px rgba(255, 255, 255, 0.30) inset, 0px -0.5px 1px 0px rgba(255, 255, 255, 0.25) inset, 1px 1.5px 4px 0px rgba(0, 0, 0, 0.08) inset, 1px 1.5px 4px 0px rgba(0, 0, 0, 0.10) inset;
-    color: var(--sl-color-neutral-100);
+    // color: var(--sl-color-neutral-100);
   }
     /* @media (prefers-color-scheme: dark) {} */
     /* @media (min-width: 1200px) {} */
+  .results-buttons {
+    @media (max-width: 950px) {
+      display: none !important;
+    }
+    @media (min-width: 950px) {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+  }
+  .results-buttons-small {
+    @media (min-width: 950px) {
+      display: none !important;
+    }
+    @media (max-width: 950px) {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+  }
 `;

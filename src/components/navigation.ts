@@ -70,7 +70,7 @@ export class MyNavigation extends LitElement {
         <div class="navbar-item">
           <div class="item-container">
             <div class="state-layer">
-              <sl-icon-button src="/assets/svg/bcore.svg" href="/game-tracker" class="navbar-icon" style="font-size: 1.75rem;"></sl-icon-button>
+              <sl-icon-button src="/assets/svg/bcore.svg" href="/game-tracker" class="navbar-icon" style="font-size: 1.75rem;" alt="Link to game tracker"></sl-icon-button>
             </div>
           </div>
           <div class="item-container-label">
@@ -80,7 +80,7 @@ export class MyNavigation extends LitElement {
         <div class="navbar-item">
           <div class="item-container">
             <div class="state-layer">
-              <sl-icon-button src="/assets/svg/cmd.svg" href="/counter" class="navbar-icon" style="font-size: 1.75rem;"></sl-icon-button>
+              <sl-icon-button src="/assets/svg/cmd.svg" href="/counter" class="navbar-icon" style="font-size: 1.75rem;" alt="Link to counter"></sl-icon-button>
             </div>
           </div>
           <div class="item-container-label">
@@ -90,7 +90,7 @@ export class MyNavigation extends LitElement {
         <div class="navbar-item">
           <div class="item-container">
             <div class="state-layer">
-              <sl-icon-button src="/assets/svg/wizards-of-the-coast-brands.svg" href="/" class="navbar-icon" style="font-size: 1.75rem;"></sl-icon-button>
+              <sl-icon-button src="/assets/svg/wizards-of-the-coast-brands.svg" href="/" class="navbar-icon" style="font-size: 1.75rem;" alt="Link to dashboard"></sl-icon-button>
             </div>
           </div>
           <div class="item-container-label">
@@ -100,17 +100,17 @@ export class MyNavigation extends LitElement {
         <div class="navbar-item">
           <div class="item-container">
             <div class="state-layer">
-              <sl-icon-button src="assets/svg/shield-halved-solid.svg" href="/standard-tracker" class="navbar-icon" style="font-size: 1.75rem;"></sl-icon-button>
+              <sl-icon-button src="assets/svg/shield-halved-solid.svg" href="/standard-tracker" class="navbar-icon" style="font-size: 1.75rem;" alt="Link to match play"></sl-icon-button>
             </div>
           </div>
           <div class="item-container-label">
-            1 v 1
+            Match Play
           </div>
         </div>
         <div class="navbar-item">
           <div class="item-container">
             <div class="state-layer">
-              <sl-icon-button src="/assets/svg/dice-d20-solid.svg" href="/app-roll-dice" class="navbar-icon" style="font-size: 1.75rem;"></sl-icon-button>
+              <sl-icon-button src="/assets/svg/dice-d20-solid.svg" href="/app-roll-dice" class="navbar-icon" style="font-size: 1.75rem;" alt="Link to dice role"></sl-icon-button>
             </div>
           </div>
           <div class="item-container-label">
@@ -162,10 +162,16 @@ export class MyNavigation extends LitElement {
           align-self: stretch;
           color: #1a1b21;
           text-align: center;
+          @media (max-width: 950px) {
+            display: none !important;
+          }
         }
         .state-layer {
           display: flex;
           width: 4rem;
+          @media (max-width: 950px) {
+            width: 2rem !important;
+          }
           height: 2rem;
           padding: 0.25rem 1.25rem;
           justify-content: center;

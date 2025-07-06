@@ -432,12 +432,12 @@ export class MatchTracker extends LitElement {
             <sl-tab slot="nav" panel="action-log" class="ios-tab">Match Log</sl-tab>
             <sl-tab slot="nav" panel="setup" class="ios-tab">Setup</sl-tab>
             <sl-tab-panel name="tracker">
-              <div style="display: flex; flex-direction: row;justify-content: around; flex-wrap: wrap;">
+              <div style="display: flex; flex-wrap: wrap;">
                 <div style="width: 50%;">
                   <sl-card class="player-one" id="topLeft">
                     <form style="position: relative; height: 100%; justify-content: space-between;">
                       <sl-button variant="default" size="large" class="life-counter player-one" @click=${() => this.updateLife(1, 1, 'Gain')}>
-                        <sl-icon library="mana" slot="prefix" name="loyalty-up" class="ms ms-loyalty-up ms-2x"></sl-icon>
+                        <sl-icon src="/assets/icons/loyalty-up.svg" slot="prefix" class="ms ms-loyalty-up ms-2x"></sl-icon>
                         Gain
                       </sl-button>
                       <div>
@@ -449,18 +449,18 @@ export class MatchTracker extends LitElement {
                         </p>
                       </div>
                       <sl-button variant="default" size="large" class="life-counter player-one" @click=${() => this.updateLife(1, -1, 'Lose')}>
-                        <sl-icon library="mana" slot="prefix" name="loyalty-down" class="ms ms-loyalty-down ms-2x"></sl-icon>
+                        <sl-icon src="/assets/icons/loyalty-down.svg" slot="prefix" class="ms ms-loyalty-down ms-2x"></sl-icon>
                         Lose
                       </sl-button>
                       <span class="hide-at-800" style="position: absolute; right: 8px; bottom: 8px;">
-                        <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-1 ms-4x"></sl-icon>
+                        <sl-icon src="/assets/icons/saga.svg" slot="prefix" class="ms ms-saga-1 ms-4x"></sl-icon>
                       </span>
                     </form>
                   </sl-card>
                   <sl-card class="player-three" id="topRight">
                     <form style="position: relative; height: 100%; justify-content: space-between;">
                       <sl-button variant="default" size="large" class="life-counter player-three" @click=${() => this.updateLife(3, 1, 'Gain')}>
-                        <sl-icon library="mana" slot="prefix" name="loyalty-up" class="ms ms-loyalty-up ms-2x"></sl-icon>
+                        <sl-icon src="/assets/icons/loyalty-up.svg" slot="prefix" class="ms ms-loyalty-up ms-2x"></sl-icon>
                         Gain
                       </sl-button>
                       <div>
@@ -472,11 +472,11 @@ export class MatchTracker extends LitElement {
                         </p>
                       </div>
                       <sl-button variant="default" size="large" class="life-counter player-three" @click=${() => this.updateLife(3, -1, 'Lose')}>
-                        <sl-icon library="mana" slot="prefix" name="loyalty-down" class="ms ms-loyalty-down ms-2x"></sl-icon>
+                        <sl-icon src="/assets/icons/loyalty-down.svg" slot="prefix" class="ms ms-loyalty-down ms-2x"></sl-icon>
                         Lose
                       </sl-button>
                       <span class="hide-at-800" style="position: absolute; right: 8px; top: 8px;">
-                        <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-3 ms-4x"></sl-icon>
+                        <sl-icon src="/assets/icons/saga.svg" slot="prefix" class="ms ms-saga-3 ms-4x"></sl-icon>
                       </span>
                     </form>
                   </sl-card>
@@ -485,7 +485,7 @@ export class MatchTracker extends LitElement {
                   <sl-card class="player-two" id="bottomLeft">
                     <form style="position: relative; height: 100%; justify-content: space-between;">
                       <sl-button variant="default" size="large" class="life-counter player-two" @click=${() => this.updateLife(2, 1, 'Gain')}>
-                        <sl-icon library="mana" slot="prefix" name="loyalty-up" class="ms ms-loyalty-up ms-2x"></sl-icon>
+                        <sl-icon src="/assets/icons/loyalty-up.svg" slot="prefix" class="ms ms-loyalty-up ms-2x"></sl-icon>
                         Gain
                       </sl-button>
                       <div>
@@ -497,18 +497,18 @@ export class MatchTracker extends LitElement {
                         </p>
                       </div>
                       <sl-button variant="default" size="large" class="life-counter player-two" @click=${() => this.updateLife(2, -1, 'Lose')}>
-                        <sl-icon library="mana" slot="prefix" name="loyalty-down" class="ms ms-loyalty-down ms-2x"></sl-icon>
+                        <sl-icon src="/assets/icons/loyalty-down.svg" slot="prefix" class="ms ms-loyalty-down ms-2x"></sl-icon>
                         Lose
                       </sl-button>
                       <span class="hide-at-800" style="position: absolute; left: 8px; bottom: 8px;">
-                        <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-2 ms-4x"></sl-icon>
+                        <sl-icon src="/assets/icons/saga.svg" slot="prefix" class="ms ms-saga-2 ms-4x"></sl-icon>
                       </span>
                     </form>
                   </sl-card>
                   <sl-card class="player-four" id="bottomRight">
                     <form style="position: relative; height: 100%; justify-content: space-between;">
                       <sl-button variant="default" size="large" class="life-counter player-four" @click=${() => this.updateLife(4, 1, 'Gain')}>
-                        <sl-icon library="mana" slot="prefix" name="loyalty-up" class="ms ms-loyalty-up ms-2x"></sl-icon>
+                        <sl-icon src="/assets/icons/loyalty-up.svg" slot="prefix" class="ms ms-loyalty-up ms-2x"></sl-icon>
                         Gain
                       </sl-button>
                       <div>
@@ -520,11 +520,11 @@ export class MatchTracker extends LitElement {
                         </p>
                       </div>
                       <sl-button variant="default" outline size="large" class="life-counter player-four" @click=${() => this.updateLife(4, -1, 'Lose')}>
-                        <sl-icon library="mana" slot="prefix" name="loyalty-down" class="ms ms-loyalty-down ms-2x"></sl-icon>
+                        <sl-icon src="/assets/icons/loyalty-down.svg" slot="prefix" class="ms ms-loyalty-down ms-2x"></sl-icon>
                         Lose
                       </sl-button>
                       <span class="hide-at-800" style="position: absolute; left: 8px; top: 8px;">
-                        <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-4 ms-4x"></sl-icon>
+                        <sl-icon src="/assets/icons/saga.svg" slot="prefix" class="ms ms-saga-4 ms-4x"></sl-icon>
                       </span>
                     </form>
                   </sl-card>
@@ -542,10 +542,10 @@ export class MatchTracker extends LitElement {
               <table class="border table-striped">
                 <thead>
                   <tr>
-                    <th>Player</th>
-                    <th>Wins</th>
-                    <th>Losses</th>
-                    <th>Draws</th>
+                    <th style="text-align: left;">Player</th>
+                    <th style="text-align: left;">Wins</th>
+                    <th style="text-align: left;">Losses</th>
+                    <th style="text-align: left;">Draws</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -667,34 +667,38 @@ export class MatchTracker extends LitElement {
               </sl-menu>
             </sl-tab-panel>
             <sl-tab-panel name="results">
-              <div style="display: flex; justify-content: flex-end; align-items: center;">
-                <sl-button-group label="Alignment">
+              <div class="results-buttons">
                   <sl-button size="medium" pill class="player-one-winner" @click=${() => this.recordResult(1)}>
-                    Winner
+                     ${this.playerHandle1} Wins
                   </sl-button>
                   <sl-button size="medium" pill class="player-two-winner" @click=${() => this.recordResult(2)}>
-                    Winner
+                    ${this.playerHandle2} Wins
                   </sl-button>
                   <sl-button size="medium" pill class="player-three-winner" @click=${() => this.recordResult(3)}>
-                    Winner
+                    ${this.playerHandle3} Wins
                   </sl-button>
                   <sl-button size="medium" pill class="player-four-winner" @click=${() => this.recordResult(4)}>
-                    Winner
+                    ${this.playerHandle4} Wins
                   </sl-button>
-                </sl-button-group>
+              </div>
+              <div class="results-buttons-small">
+                  <sl-icon-button src="assets/svg/shield-halved-solid.svg" @click=${() => this.recordResult(1)}></sl-icon-button>
+                  <sl-icon-button src="assets/svg/shield-halved-solid.svg" @click=${() => this.recordResult(2)}></sl-icon-button>
+                  <sl-icon-button src="assets/svg/shield-halved-solid.svg" @click=${() => this.recordResult(3)}></sl-icon-button>
+                  <sl-icon-button src="assets/svg/shield-halved-solid.svg" @click=${() => this.recordResult(4)}></sl-icon-button>
               </div>
               <table class="border table-striped">
                 <thead>
                   <tr>
-                    <th>
+                    <th style="text-align: left;">
                       ${this.playerHandle1}
-                    <th>
+                    <th style="text-align: left;">
                       ${this.playerHandle2}
                     </th>
-                    <th>
+                    <th style="text-align: left;">
                       ${this.playerHandle3}
                     </th>
-                    <th>
+                    <th style="text-align: left;">
                       ${this.playerHandle4}
                     </th>
                   </tr>
