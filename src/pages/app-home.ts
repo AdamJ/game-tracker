@@ -38,22 +38,29 @@ export class AppHome extends LitElement {
         grid-auto-rows: 1fr;
         gap: 2rem;
       }
-      .grid sl-card {
+      .grid sl-card,
+      .flex sl-card {
         position: relative;
       }
-      .grid sl-card::part(base) {
+      .grid sl-card::part(base),
+      .flex sl-card::part(base) {
         height: 100%;
       }
-      .grid sl-card::part(body) {
+      .grid sl-card::part(body),
+      .flex sl-card::part(body) {
         flex: 1 1 auto;
       }
-      .grid sl-card > sl-button {
+      .grid sl-card > sl-button,
+      .flex sl-card > sl-button {
         padding-top: 2rem;
         position: absolute;
         bottom: 1rem;
         left: 1rem;
         right: 1rem;
       }
+        .dashboard-card { width: 100%; max-width: 250px;}
+        .dashboard-card p {
+        height: 100%;}
       sl-card::part(image) {
         background-color: var(--sl-color-neutral-100);
         display: flex;
@@ -115,7 +122,14 @@ export class AppHome extends LitElement {
           <p>
             Click on the "features" button of each item to learn more.
           </p>
-          <section class="grid">
+          <section style="
+              display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 2rem;
+    " class="flex">
             <sl-card class="dashboard-card">
               <img
                 slot="image"
@@ -124,10 +138,12 @@ export class AppHome extends LitElement {
                 style="width: 50%; height: 10rem;"
               />
               <div slot="header"><strong>Tournament</strong></div>
-              Running a tournament? Then this part is for you. Track Wins, Losses, Draws and match history.
               <sl-details summary="Features" class="gameplay-features">
-                <sl-icon library="fa" name="fas-dice-d20" slot="expand-icon"></sl-icon>
-                <sl-icon library="fa" name="fas-dice-d20" slot="collapse-icon" style="rotate: 180deg;"></sl-icon>
+              <sl-icon src="/assets/svg/dice-d20-solid.svg" slot="expand-icon"></sl-icon>
+              <sl-icon src="/assets/svg/dice-d20-solid.svg" slot="collapse-icon" style="rotate: 180deg;"></sl-icon>
+                <p>
+                Running a tournament? Then this part is for you. Track Wins, Losses, Draws and match history.
+                </p>
                 <ul>
                   <li>Custom player name entry</li>
                   <li>Track Wins, Losses, and Draws</li>
@@ -147,10 +163,12 @@ export class AppHome extends LitElement {
                 style="width: 50%; height: 10rem;"
               />
               <div slot="header"><strong>Commander</strong></div>
-              For use with 4 player games, complete with a results table, standings, match log, and personalization.
               <sl-details summary="Features" class="gameplay-features">
-                <sl-icon library="fa" name="fas-dice-d20" slot="expand-icon"></sl-icon>
-                <sl-icon library="fa" name="fas-dice-d20" slot="collapse-icon" style="rotate: 180deg;"></sl-icon>
+              <sl-icon src="/assets/svg/dice-d20-solid.svg" slot="expand-icon"></sl-icon>
+              <sl-icon src="/assets/svg/dice-d20-solid.svg" slot="collapse-icon" style="rotate: 180deg;"></sl-icon>
+                <p>
+                For use with 4 player games, complete with a results table, standings, match log, and personalization.
+                </p>
                 <ul>
                   <li>Custom player name entry</li>
                   <li>Track Wins, Losses, and Draws</li>
@@ -164,15 +182,17 @@ export class AppHome extends LitElement {
             <sl-card class="dashboard-card">
               <img
                 slot="image"
-                src="/assets/svg/xlcu.svg"
+                src="assets/svg/shield-halved-solid.svg"
                 alt="Generic image"
                 style="width: 50%; height: 10rem;"
               />
-              <div slot="header"><strong>1 v 1</strong></div>
-              For those playing 1v1 games. Simple life counter that adapts to your device orientation for use on monitors, tablets, and phones.
+              <div slot="header"><strong>Match Play</strong></div>
               <sl-details summary="Features" class="gameplay-features">
-                <sl-icon library="fa" name="fas-dice-d20" slot="expand-icon"></sl-icon>
-                <sl-icon library="fa" name="fas-dice-d20" slot="collapse-icon" style="rotate: 180deg;"></sl-icon>
+              <sl-icon src="/assets/svg/dice-d20-solid.svg" slot="expand-icon"></sl-icon>
+              <sl-icon src="/assets/svg/dice-d20-solid.svg" slot="collapse-icon" style="rotate: 180deg;"></sl-icon>
+                <p>
+                For those playing 1v1 games. Simple life counter that adapts to your device orientation for use on monitors, tablets, and phones.
+                </p>
                 <ul>
                   <li>Set starting life total</li>
                   <li>Simple +1 or -1 counter</li>
@@ -185,15 +205,17 @@ export class AppHome extends LitElement {
             <sl-card class="dashboard-card">
               <img
                 slot="image"
-                src="/assets/svg/dice-solid.svg"
+                src="/assets/svg/dice-d20-solid.svg"
                 alt="A die"
                 style="width: 50%; height: 10rem;"
               />
               <div slot="header"><strong>Dice Roller</strong></div>
-              A simple D20 dice roller with history.
               <sl-details summary="Features" class="gameplay-features">
-                <sl-icon library="fa" name="fas-dice-d20" slot="expand-icon"></sl-icon>
-                <sl-icon library="fa" name="fas-dice-d20" slot="collapse-icon" style="rotate: 180deg;"></sl-icon>
+              <sl-icon src="/assets/svg/dice-d20-solid.svg" slot="expand-icon"></sl-icon>
+              <sl-icon src="/assets/svg/dice-d20-solid.svg" slot="collapse-icon" style="rotate: 180deg;"></sl-icon>
+                <p>
+                A simple D20 dice roller with history.
+                </p>
                 <ul>
                   <li>Roll a D20</li>
                   <li>View roll history</li>
