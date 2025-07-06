@@ -40,7 +40,7 @@ export class MyApp extends LitElement {
       app-counter,
       app-about,
       app-home {
-        max-width: 1200px;
+        // max-width: 1200px;
         display: block;
         margin: 0 auto;
       }
