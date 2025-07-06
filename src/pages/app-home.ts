@@ -32,19 +32,27 @@ export class AppHome extends LitElement {
     alertStyles,
     homeStyles,
     css`
-      .font-toggle {
-        position: fixed;
-        bottom: 4rem;
-        left: 1rem;
-        z-index: 10000;
-        padding: 0.5rem .5rem .75rem;
-        background-color: var(--sl-color-neutral-50);
-        color: var(--sl-color-neutral-900);
-        border: 1px solid var(--sl-color-primary-700);
-        border-radius: var(--sl-input-height-medium);
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 1fr;
+        gap: 2rem;
       }
-      sl-card.dashboard-card {
-        max-width: 300px;
+      .grid sl-card {
+        position: relative;
+      }
+      .grid sl-card::part(base) {
+        height: 100%;
+      }
+      .grid sl-card::part(body) {
+        flex: 1 1 auto;
+      }
+      .grid sl-card > sl-button {
+        padding-top: 2rem;
+        position: absolute;
+        bottom: 1rem;
+        left: 1rem;
+        right: 1rem;
       }
       sl-card::part(image) {
         background-color: var(--sl-color-neutral-100);
@@ -56,15 +64,18 @@ export class AppHome extends LitElement {
       }
       sl-card::part(base) {
         background-color: transparent;
+        height: 100%;
       }
       sl-card::part(body) {
         background-color: var(--sl-panel-background-color);
+        flex: 1 1 auto;
       }
       sl-card::part(footer) {
           padding: .75rem 1rem;
       }
       .gameplay-features {
         margin-top: .75rem;
+        margin-bottom: 2rem;
       }
       .gameplay-features ul {
         margin-block-start: 0 !important;
@@ -104,7 +115,7 @@ export class AppHome extends LitElement {
           <p>
             Click on the "features" button of each item to learn more.
           </p>
-          <section style="display: flex; margin-top: 2rem; align-items: start; align-content: flex-start; gap: 1rem 1.5rem; align-self: stretch; justify-content: center; flex-wrap: wrap;">
+          <section class="grid">
             <sl-card class="dashboard-card">
               <img
                 slot="image"
@@ -112,9 +123,7 @@ export class AppHome extends LitElement {
                 alt="Image of a stack of cards"
                 style="width: 50%; height: 10rem;"
               />
-              <strong>Tournament</strong>
-              <br />
-              <br />
+              <div slot="header"><strong>Tournament</strong></div>
               Running a tournament? Then this part is for you. Track Wins, Losses, Draws and match history.
               <sl-details summary="Features" class="gameplay-features">
                 <sl-icon library="fa" name="fas-dice-d20" slot="expand-icon"></sl-icon>
@@ -128,7 +137,7 @@ export class AppHome extends LitElement {
                 </ul>
               </sl-details>
               <br />
-              <sl-button variant="primary" pill href="${resolveRouterPath('game-tracker')}" style="width: 100%;">Start</sl-button>
+              <sl-button variant="primary" pill href="${resolveRouterPath('game-tracker')}">Start</sl-button>
             </sl-card>
             <sl-card class="dashboard-card">
               <img
@@ -137,9 +146,7 @@ export class AppHome extends LitElement {
                 alt="Commander logo"
                 style="width: 50%; height: 10rem;"
               />
-              <strong>Commander</strong>
-              <br />
-              <br />
+              <div slot="header"><strong>Commander</strong></div>
               For use with 4 player games, complete with a results table, standings, match log, and personalization.
               <sl-details summary="Features" class="gameplay-features">
                 <sl-icon library="fa" name="fas-dice-d20" slot="expand-icon"></sl-icon>
@@ -152,7 +159,7 @@ export class AppHome extends LitElement {
                 </ul>
               </sl-details>
               <br />
-              <sl-button variant="primary" pill href="${resolveRouterPath('counter')}" style="width: 100%;">Start</sl-button>
+              <sl-button variant="primary" pill href="${resolveRouterPath('counter')}">Start</sl-button>
             </sl-card>
             <sl-card class="dashboard-card">
               <img
@@ -161,9 +168,7 @@ export class AppHome extends LitElement {
                 alt="Generic image"
                 style="width: 50%; height: 10rem;"
               />
-              <strong>1v1</strong>
-              <br />
-              <br />
+              <div slot="header"><strong>1 v 1</strong></div>
               For those playing 1v1 games. Simple life counter that adapts to your device orientation for use on monitors, tablets, and phones.
               <sl-details summary="Features" class="gameplay-features">
                 <sl-icon library="fa" name="fas-dice-d20" slot="expand-icon"></sl-icon>
@@ -175,7 +180,7 @@ export class AppHome extends LitElement {
                 </ul>
               </sl-details>
               <br />
-              <sl-button variant="primary" pill href="${resolveRouterPath('standard-tracker')}" style="width: 100%;">Start</sl-button>
+              <sl-button variant="primary" pill href="${resolveRouterPath('standard-tracker')}">Start</sl-button>
             </sl-card>
             <sl-card class="dashboard-card">
               <img
@@ -184,9 +189,7 @@ export class AppHome extends LitElement {
                 alt="A die"
                 style="width: 50%; height: 10rem;"
               />
-              <strong>Dice Roller</strong>
-              <br />
-              <br />
+              <div slot="header"><strong>Dice Roller</strong></div>
               A simple D20 dice roller with history.
               <sl-details summary="Features" class="gameplay-features">
                 <sl-icon library="fa" name="fas-dice-d20" slot="expand-icon"></sl-icon>
@@ -197,7 +200,7 @@ export class AppHome extends LitElement {
                 </ul>
               </sl-details>
               <br />
-              <sl-button variant="primary" pill href="${resolveRouterPath('roll-dice')}" style="width: 100%;">Start</sl-button>
+              <sl-button variant="primary" pill href="${resolveRouterPath('roll-dice')}">Start</sl-button>
             </sl-card>
           </section>
         </content>
