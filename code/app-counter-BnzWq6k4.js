@@ -1,4 +1,4 @@
-import{i as f,s as w,a as $,n as d,r as p,e as L,b as u,E as g,x as c,t as b,c as O}from"./index-zhMqEYiN.js";import{t as P}from"./table-styles-Br6u72Zu.js";import{c as k,l as v}from"./counter-styles-BB8CW6bA.js";const T=f`
+import{i as f,s as $,a as w,n as d,r as p,e as L,b as u,E as b,x as c,t as g,c as O}from"./index-iV2mvn9b.js";import{t as P}from"./table-styles-BZ0nevQi.js";import{c as k,l as v}from"./counter-styles-D7tY3dUR.js";const T=f`
 .ms {
   position: relative;
 }
@@ -97,25 +97,25 @@ import{i as f,s as w,a as $,n as d,r as p,e as L,b as u,E as g,x as c,t as b,c a
 .ms-c .ms-cost {
   background-color: var(--ms-mana-c-bg);
 }
-`;var S=Object.defineProperty,A=Object.getOwnPropertyDescriptor,n=(e,s,l,i)=>{for(var t=i>1?void 0:i?A(s,l):s,a=e.length-1,o;a>=0;a--)(o=e[a])&&(t=(i?o(s,l,t):o(t))||t);return i&&t&&S(s,l,t),t};let r=class extends u{constructor(){super(),this.handle1={life:40},this.handle2={life:40},this.handle3={life:40},this.handle4={life:40},this.activeTab="standings",this.matchResults=[],this.playerHandle1="Player 1",this.playerHandle2="Player 2",this.playerHandle3="Player 3",this.playerHandle4="Player 4",this.initialLifeTracker=40,this.isAlertOpen=!1,this.storageKey="playerData",this.gameHistory=[],this.playerLogs=[],this.playerHandle1Actions=[],this.playerHandle2Actions=[],this.playerHandle3Actions=[],this.playerHandle4Actions=[],this.loadFromStorage()}firstUpdated(){this.saveToStorage()}setActiveTab(e){this.activeTab=e}updateLife(e,s,l){const t={1:{handle:this.handle1,playerHandle:this.playerHandle1,setter:a=>{this.handle1=a}},2:{handle:this.handle2,playerHandle:this.playerHandle2,setter:a=>{this.handle2=a}},3:{handle:this.handle3,playerHandle:this.playerHandle3,setter:a=>{this.handle3=a}},4:{handle:this.handle4,playerHandle:this.playerHandle4,setter:a=>{this.handle4=a}}}[e];if(t){const a=Math.max(0,t.handle.life+s);t.setter({...t.handle,life:a}),console.log(`${l} ${Math.abs(s)} to ${a} for ${t.playerHandle}`),this.playerLogs=[...this.playerLogs,{player:t.playerHandle,action:`${l}`,life:a}],this.saveToStorage()}}getPlayerIconVariant(e){return e.action.includes("Lose")?"loyalty-down":e.action.includes("Gain")?"loyalty-up":void 0}getPlayerBadgeVariant(e){return e.action.includes("Lose")?"danger":e.action.includes("Gain")?"success":void 0}setInitialLifeTracker(e){const s=e.target,l=parseInt(s.value,10);!isNaN(l)&&l>=0?(this.initialLifeTracker=l,this.handle1={life:l},this.handle2={life:l},this.handle3={life:l},this.handle4={life:l},this.saveToStorage()):(alert("Please enter a valid positive number for starting life."),s.value=this.initialLifeTracker.toString())}handlePlayerHandleChange(e,s){const i={1:{name:"Player 1",setter:t=>{this.playerHandle1=t}},2:{name:"Player 2",setter:t=>{this.playerHandle2=t}},3:{name:"Player 3",setter:t=>{this.playerHandle3=t}},4:{name:"Player 4",setter:t=>{this.playerHandle4=t}}}[e];if(i){const t=s.target.value||i.name;i.setter(t),this.saveToStorage()}}recordResult(e){let s="loss",l="loss",i="loss",t="loss";e===1?(s="win",l="loss",i="loss",t="loss"):e===2?(s="loss",l="win",i="loss",t="loss"):e===3?(s="loss",l="loss",i="win",t="loss"):e===4?(s="loss",l="loss",i="loss",t="win"):e==="draw"&&(s="draw",l="draw",i="draw",t="draw");const a={player1Handle:this.playerHandle1,player2Handle:this.playerHandle2,player3Handle:this.playerHandle3,player4Handle:this.playerHandle4,player1LifeTracker:this.handle1.life,player2LifeTracker:this.handle2.life,player3LifeTracker:this.handle3.life,player4LifeTracker:this.handle4.life,player1Outcome:s,player2Outcome:l,player3Outcome:i,player4Outcome:t};this.matchResults=[...this.matchResults,a],this.saveToStorage(),this.resetLife()}closeAlert(){this.isAlertOpen=!1}resetWithAlert(){this.resetGame(),this.isAlertOpen=!0}resetGame(){this.handle1={life:this.initialLifeTracker},this.handle2={life:this.initialLifeTracker},this.handle3={life:this.initialLifeTracker},this.handle4={life:this.initialLifeTracker},this.playerLogs=[],this.playerHandle1="Player 1",this.playerHandle2="Player 2",this.playerHandle3="Player 3",this.playerHandle4="Player 4",this.matchResults=[]}resetLife(){this.handle1={life:this.initialLifeTracker},this.handle2={life:this.initialLifeTracker},this.handle3={life:this.initialLifeTracker},this.handle4={life:this.initialLifeTracker},this.playerLogs=[]}saveToStorage(){const e={initialLifeTracker:this.initialLifeTracker,matchResults:this.matchResults,handle1:this.handle1,handle2:this.handle2,handle3:this.handle3,handle4:this.handle4,playerHandle1:this.playerHandle1,playerHandle2:this.playerHandle2,playerHandle3:this.playerHandle3,playerHandle4:this.playerHandle4,playerLogs:this.playerLogs};v.setItem(this.storageKey,e).catch(console.error)}loadFromStorage(){v.getItem(this.storageKey).then(e=>{e&&(this.initialLifeTracker=e.initialLifeTracker||20,this.matchResults=e.matchResults||[],this.handle1=e.handle1||{life:20},this.handle2=e.handle2||{life:20},this.handle3=e.handle3||{life:20},this.handle4=e.handle4||{life:20},this.playerHandle1=e.playerHandle1||"Player 1",this.playerHandle2=e.playerHandle2||"Player 2",this.playerHandle3=e.playerHandle3||"Player 3",this.playerHandle4=e.playerHandle4||"Player 4",this.playerHandle1Actions=e.playerHandle1Actions||[],this.playerHandle2Actions=e.playerHandle2Actions||[],this.playerHandle3Actions=e.playerHandle3Actions||[],this.playerHandle4Actions=e.playerHandle4Actions||[],this.playerLogs=e.playerLogs)}).catch(console.error)}getPlayerStats(e){const s=this.matchResults.filter(a=>a.player1Handle===e||a.player2Handle===e||a.player3Handle===e||a.player4Handle===e),l=s.filter(a=>a.player1Handle===e&&a.player1Outcome==="win"||a.player2Handle===e&&a.player2Outcome==="win"||a.player3Handle===e&&a.player3Outcome==="win"||a.player4Handle===e&&a.player4Outcome==="win").length,i=s.filter(a=>a.player1Handle===e&&a.player1Outcome==="loss"||a.player2Handle===e&&a.player2Outcome==="loss"||a.player3Handle===e&&a.player3Outcome==="loss"||a.player4Handle===e&&a.player4Outcome==="loss").length,t=s.filter(a=>a.player1Handle===e&&a.player1Outcome==="draw"||a.player2Handle===e&&a.player2Outcome==="draw"||a.player3Handle===e&&a.player3Outcome==="draw"||a.player4Handle===e&&a.player4Outcome==="draw").length;return{wins:l,losses:i,draws:t}}exportToCSV(){const e="data:text/csv;charset=utf-8,"+this.convertArrayOfObjectsToCSV(this.matchResults),s=encodeURI(e),l=document.createElement("a");l.setAttribute("href",s),l.setAttribute("download","game_results.csv"),document.body.appendChild(l),l.click(),document.body.removeChild(l)}convertArrayOfObjectsToCSV(e){if(!e||e.length===0)return"";const s=Object.keys(e[0]).join(","),l=e.map(i=>Object.values(i).map(t=>`"${t}"`).join(",")).join(`
-`);return s+`
-`+l}render(){const e=new Map;this.playerLogs.forEach(t=>{e.has(t.player)||e.set(t.player,[]);const a=this.getPlayerIconVariant(t),o=this.getPlayerBadgeVariant(t),H=c`
+`;var S=Object.defineProperty,A=Object.getOwnPropertyDescriptor,r=(e,l,a,i)=>{for(var t=i>1?void 0:i?A(l,a):l,s=e.length-1,o;s>=0;s--)(o=e[s])&&(t=(i?o(l,a,t):o(t))||t);return i&&t&&S(l,a,t),t};let n=class extends u{constructor(){super(),this.handle1={life:40},this.handle2={life:40},this.handle3={life:40},this.handle4={life:40},this.activeTab="standings",this.matchResults=[],this.playerHandle1="Player 1",this.playerHandle2="Player 2",this.playerHandle3="Player 3",this.playerHandle4="Player 4",this.initialLifeTracker=40,this.isAlertOpen=!1,this.storageKey="playerData",this.gameHistory=[],this.playerLogs=[],this.playerHandle1Actions=[],this.playerHandle2Actions=[],this.playerHandle3Actions=[],this.playerHandle4Actions=[],this.loadFromStorage()}firstUpdated(){this.saveToStorage()}setActiveTab(e){this.activeTab=e}updateLife(e,l,a){const t={1:{handle:this.handle1,playerHandle:this.playerHandle1,setter:s=>{this.handle1=s}},2:{handle:this.handle2,playerHandle:this.playerHandle2,setter:s=>{this.handle2=s}},3:{handle:this.handle3,playerHandle:this.playerHandle3,setter:s=>{this.handle3=s}},4:{handle:this.handle4,playerHandle:this.playerHandle4,setter:s=>{this.handle4=s}}}[e];if(t){const s=Math.max(0,t.handle.life+l);t.setter({...t.handle,life:s}),console.log(`${a} ${Math.abs(l)} to ${s} for ${t.playerHandle}`),this.playerLogs=[...this.playerLogs,{player:t.playerHandle,action:`${a}`,life:s}],this.saveToStorage()}}getPlayerIconVariant(e){return e.action.includes("Lose")?"loyalty-down":e.action.includes("Gain")?"loyalty-up":void 0}getPlayerBadgeVariant(e){return e.action.includes("Lose")?"danger":e.action.includes("Gain")?"success":void 0}setInitialLifeTracker(e){const l=e.target,a=parseInt(l.value,10);!isNaN(a)&&a>=0?(this.initialLifeTracker=a,this.handle1={life:a},this.handle2={life:a},this.handle3={life:a},this.handle4={life:a},this.saveToStorage()):(alert("Please enter a valid positive number for starting life."),l.value=this.initialLifeTracker.toString())}handlePlayerHandleChange(e,l){const i={1:{name:"Player 1",setter:t=>{this.playerHandle1=t}},2:{name:"Player 2",setter:t=>{this.playerHandle2=t}},3:{name:"Player 3",setter:t=>{this.playerHandle3=t}},4:{name:"Player 4",setter:t=>{this.playerHandle4=t}}}[e];if(i){const t=l.target.value||i.name;i.setter(t),this.saveToStorage()}}recordResult(e){let l="loss",a="loss",i="loss",t="loss";e===1?(l="win",a="loss",i="loss",t="loss"):e===2?(l="loss",a="win",i="loss",t="loss"):e===3?(l="loss",a="loss",i="win",t="loss"):e===4?(l="loss",a="loss",i="loss",t="win"):e==="draw"&&(l="draw",a="draw",i="draw",t="draw");const s={player1Handle:this.playerHandle1,player2Handle:this.playerHandle2,player3Handle:this.playerHandle3,player4Handle:this.playerHandle4,player1LifeTracker:this.handle1.life,player2LifeTracker:this.handle2.life,player3LifeTracker:this.handle3.life,player4LifeTracker:this.handle4.life,player1Outcome:l,player2Outcome:a,player3Outcome:i,player4Outcome:t};this.matchResults=[...this.matchResults,s],this.saveToStorage(),this.resetLife()}closeAlert(){this.isAlertOpen=!1}resetWithAlert(){this.resetGame(),this.isAlertOpen=!0}resetGame(){this.handle1={life:this.initialLifeTracker},this.handle2={life:this.initialLifeTracker},this.handle3={life:this.initialLifeTracker},this.handle4={life:this.initialLifeTracker},this.playerLogs=[],this.playerHandle1="Player 1",this.playerHandle2="Player 2",this.playerHandle3="Player 3",this.playerHandle4="Player 4",this.matchResults=[]}resetLife(){this.handle1={life:this.initialLifeTracker},this.handle2={life:this.initialLifeTracker},this.handle3={life:this.initialLifeTracker},this.handle4={life:this.initialLifeTracker},this.playerLogs=[]}saveToStorage(){const e={initialLifeTracker:this.initialLifeTracker,matchResults:this.matchResults,handle1:this.handle1,handle2:this.handle2,handle3:this.handle3,handle4:this.handle4,playerHandle1:this.playerHandle1,playerHandle2:this.playerHandle2,playerHandle3:this.playerHandle3,playerHandle4:this.playerHandle4,playerLogs:this.playerLogs};v.setItem(this.storageKey,e).catch(console.error)}loadFromStorage(){v.getItem(this.storageKey).then(e=>{e&&(this.initialLifeTracker=e.initialLifeTracker||20,this.matchResults=e.matchResults||[],this.handle1=e.handle1||{life:20},this.handle2=e.handle2||{life:20},this.handle3=e.handle3||{life:20},this.handle4=e.handle4||{life:20},this.playerHandle1=e.playerHandle1||"Player 1",this.playerHandle2=e.playerHandle2||"Player 2",this.playerHandle3=e.playerHandle3||"Player 3",this.playerHandle4=e.playerHandle4||"Player 4",this.playerHandle1Actions=e.playerHandle1Actions||[],this.playerHandle2Actions=e.playerHandle2Actions||[],this.playerHandle3Actions=e.playerHandle3Actions||[],this.playerHandle4Actions=e.playerHandle4Actions||[],this.playerLogs=e.playerLogs)}).catch(console.error)}getPlayerStats(e){const l=this.matchResults.filter(s=>s.player1Handle===e||s.player2Handle===e||s.player3Handle===e||s.player4Handle===e),a=l.filter(s=>s.player1Handle===e&&s.player1Outcome==="win"||s.player2Handle===e&&s.player2Outcome==="win"||s.player3Handle===e&&s.player3Outcome==="win"||s.player4Handle===e&&s.player4Outcome==="win").length,i=l.filter(s=>s.player1Handle===e&&s.player1Outcome==="loss"||s.player2Handle===e&&s.player2Outcome==="loss"||s.player3Handle===e&&s.player3Outcome==="loss"||s.player4Handle===e&&s.player4Outcome==="loss").length,t=l.filter(s=>s.player1Handle===e&&s.player1Outcome==="draw"||s.player2Handle===e&&s.player2Outcome==="draw"||s.player3Handle===e&&s.player3Outcome==="draw"||s.player4Handle===e&&s.player4Outcome==="draw").length;return{wins:a,losses:i,draws:t}}exportToCSV(){const e="data:text/csv;charset=utf-8,"+this.convertArrayOfObjectsToCSV(this.matchResults),l=encodeURI(e),a=document.createElement("a");a.setAttribute("href",l),a.setAttribute("download","game_results.csv"),document.body.appendChild(a),a.click(),document.body.removeChild(a)}convertArrayOfObjectsToCSV(e){if(!e||e.length===0)return"";const l=Object.keys(e[0]).join(","),a=e.map(i=>Object.values(i).map(t=>`"${t}"`).join(",")).join(`
+`);return l+`
+`+a}render(){const e=new Map;this.playerLogs.forEach(t=>{e.has(t.player)||e.set(t.player,[]);const s=this.getPlayerIconVariant(t),o=this.getPlayerBadgeVariant(t),H=c`
           <sl-menu-item>
-            ${a?c`<sl-icon slot="prefix" library="mana" name=${String(a)}></sl-icon>`:g}
+            ${s?c`<sl-icon slot="prefix" library="mana" name=${String(s)}></sl-icon>`:b}
             ${t.action}
-            ${o?c`<sl-badge variant=${String(o)} pill>1</sl-badge>`:g} life to <sl-badge variant="neutral">${t.life}</sl-badge>
+            ${o?c`<sl-badge variant=${String(o)} pill>1</sl-badge>`:b} life to <sl-badge variant="neutral">${t.life}</sl-badge>
           </sl-menu-item>
-        `;e.get(t.player)?.push(H)});const s=[];for(const[t,a]of e)s.push(c`
+        `;e.get(t.player)?.push(H)});const l=[];for(const[t,s]of e)l.push(c`
            <sl-menu-label>${t}</sl-menu-label>
-           ${a.map(o=>c`
+           ${s.map(o=>c`
             ${o}
            `)}
-        `);const l=c`
+        `);const a=c`
       <sl-menu-item disabled>
         <sl-icon slot="prefix" name="info-circle"></sl-icon>
         No match information to display.
       </sl-menu-item>
-    `,i=s.length>0?s:l;return c`
+    `,i=l.length>0?l:a;return c`
       <main>
         <div style="display: flex; flex-direction: column; grid-gap: 1rem;">
           <sl-tab-group active-tab=${this.activeTab}>
@@ -125,12 +125,12 @@ import{i as f,s as w,a as $,n as d,r as p,e as L,b as u,E as g,x as c,t as b,c a
             <sl-tab slot="nav" panel="action-log" class="ios-tab">Match Log</sl-tab>
             <sl-tab slot="nav" panel="setup" class="ios-tab">Setup</sl-tab>
             <sl-tab-panel name="tracker">
-              <div style="display: flex; flex-direction: row;justify-content: around; flex-wrap: wrap;">
+              <div style="display: flex; flex-wrap: wrap;">
                 <div style="width: 50%;">
                   <sl-card class="player-one" id="topLeft">
                     <form style="position: relative; height: 100%; justify-content: space-between;">
                       <sl-button variant="default" size="large" class="life-counter player-one" @click=${()=>this.updateLife(1,1,"Gain")}>
-                        <sl-icon library="mana" slot="prefix" name="loyalty-up" class="ms ms-loyalty-up ms-2x"></sl-icon>
+                        <sl-icon src="/assets/icons/loyalty-up.svg" slot="prefix" class="ms ms-loyalty-up ms-2x"></sl-icon>
                         Gain
                       </sl-button>
                       <div>
@@ -142,18 +142,18 @@ import{i as f,s as w,a as $,n as d,r as p,e as L,b as u,E as g,x as c,t as b,c a
                         </p>
                       </div>
                       <sl-button variant="default" size="large" class="life-counter player-one" @click=${()=>this.updateLife(1,-1,"Lose")}>
-                        <sl-icon library="mana" slot="prefix" name="loyalty-down" class="ms ms-loyalty-down ms-2x"></sl-icon>
+                        <sl-icon src="/assets/icons/loyalty-down.svg" slot="prefix" class="ms ms-loyalty-down ms-2x"></sl-icon>
                         Lose
                       </sl-button>
                       <span class="hide-at-800" style="position: absolute; right: 8px; bottom: 8px;">
-                        <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-1 ms-4x"></sl-icon>
+                        <sl-icon src="/assets/icons/saga.svg" slot="prefix" class="ms ms-saga-1 ms-4x"></sl-icon>
                       </span>
                     </form>
                   </sl-card>
                   <sl-card class="player-three" id="topRight">
                     <form style="position: relative; height: 100%; justify-content: space-between;">
                       <sl-button variant="default" size="large" class="life-counter player-three" @click=${()=>this.updateLife(3,1,"Gain")}>
-                        <sl-icon library="mana" slot="prefix" name="loyalty-up" class="ms ms-loyalty-up ms-2x"></sl-icon>
+                        <sl-icon src="/assets/icons/loyalty-up.svg" slot="prefix" class="ms ms-loyalty-up ms-2x"></sl-icon>
                         Gain
                       </sl-button>
                       <div>
@@ -165,11 +165,11 @@ import{i as f,s as w,a as $,n as d,r as p,e as L,b as u,E as g,x as c,t as b,c a
                         </p>
                       </div>
                       <sl-button variant="default" size="large" class="life-counter player-three" @click=${()=>this.updateLife(3,-1,"Lose")}>
-                        <sl-icon library="mana" slot="prefix" name="loyalty-down" class="ms ms-loyalty-down ms-2x"></sl-icon>
+                        <sl-icon src="/assets/icons/loyalty-down.svg" slot="prefix" class="ms ms-loyalty-down ms-2x"></sl-icon>
                         Lose
                       </sl-button>
                       <span class="hide-at-800" style="position: absolute; right: 8px; top: 8px;">
-                        <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-3 ms-4x"></sl-icon>
+                        <sl-icon src="/assets/icons/saga.svg" slot="prefix" class="ms ms-saga-3 ms-4x"></sl-icon>
                       </span>
                     </form>
                   </sl-card>
@@ -178,7 +178,7 @@ import{i as f,s as w,a as $,n as d,r as p,e as L,b as u,E as g,x as c,t as b,c a
                   <sl-card class="player-two" id="bottomLeft">
                     <form style="position: relative; height: 100%; justify-content: space-between;">
                       <sl-button variant="default" size="large" class="life-counter player-two" @click=${()=>this.updateLife(2,1,"Gain")}>
-                        <sl-icon library="mana" slot="prefix" name="loyalty-up" class="ms ms-loyalty-up ms-2x"></sl-icon>
+                        <sl-icon src="/assets/icons/loyalty-up.svg" slot="prefix" class="ms ms-loyalty-up ms-2x"></sl-icon>
                         Gain
                       </sl-button>
                       <div>
@@ -190,18 +190,18 @@ import{i as f,s as w,a as $,n as d,r as p,e as L,b as u,E as g,x as c,t as b,c a
                         </p>
                       </div>
                       <sl-button variant="default" size="large" class="life-counter player-two" @click=${()=>this.updateLife(2,-1,"Lose")}>
-                        <sl-icon library="mana" slot="prefix" name="loyalty-down" class="ms ms-loyalty-down ms-2x"></sl-icon>
+                        <sl-icon src="/assets/icons/loyalty-down.svg" slot="prefix" class="ms ms-loyalty-down ms-2x"></sl-icon>
                         Lose
                       </sl-button>
                       <span class="hide-at-800" style="position: absolute; left: 8px; bottom: 8px;">
-                        <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-2 ms-4x"></sl-icon>
+                        <sl-icon src="/assets/icons/saga.svg" slot="prefix" class="ms ms-saga-2 ms-4x"></sl-icon>
                       </span>
                     </form>
                   </sl-card>
                   <sl-card class="player-four" id="bottomRight">
                     <form style="position: relative; height: 100%; justify-content: space-between;">
                       <sl-button variant="default" size="large" class="life-counter player-four" @click=${()=>this.updateLife(4,1,"Gain")}>
-                        <sl-icon library="mana" slot="prefix" name="loyalty-up" class="ms ms-loyalty-up ms-2x"></sl-icon>
+                        <sl-icon src="/assets/icons/loyalty-up.svg" slot="prefix" class="ms ms-loyalty-up ms-2x"></sl-icon>
                         Gain
                       </sl-button>
                       <div>
@@ -213,11 +213,11 @@ import{i as f,s as w,a as $,n as d,r as p,e as L,b as u,E as g,x as c,t as b,c a
                         </p>
                       </div>
                       <sl-button variant="default" outline size="large" class="life-counter player-four" @click=${()=>this.updateLife(4,-1,"Lose")}>
-                        <sl-icon library="mana" slot="prefix" name="loyalty-down" class="ms ms-loyalty-down ms-2x"></sl-icon>
+                        <sl-icon src="/assets/icons/loyalty-down.svg" slot="prefix" class="ms ms-loyalty-down ms-2x"></sl-icon>
                         Lose
                       </sl-button>
                       <span class="hide-at-800" style="position: absolute; left: 8px; top: 8px;">
-                        <sl-icon library="mana" slot="prefix" name="saga" class="ms ms-saga-4 ms-4x"></sl-icon>
+                        <sl-icon src="/assets/icons/saga.svg" slot="prefix" class="ms ms-saga-4 ms-4x"></sl-icon>
                       </span>
                     </form>
                   </sl-card>
@@ -235,10 +235,10 @@ import{i as f,s as w,a as $,n as d,r as p,e as L,b as u,E as g,x as c,t as b,c a
               <table class="border table-striped">
                 <thead>
                   <tr>
-                    <th>Player</th>
-                    <th>Wins</th>
-                    <th>Losses</th>
-                    <th>Draws</th>
+                    <th style="text-align: left;">Player</th>
+                    <th style="text-align: left;">Wins</th>
+                    <th style="text-align: left;">Losses</th>
+                    <th style="text-align: left;">Draws</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -360,34 +360,38 @@ import{i as f,s as w,a as $,n as d,r as p,e as L,b as u,E as g,x as c,t as b,c a
               </sl-menu>
             </sl-tab-panel>
             <sl-tab-panel name="results">
-              <div style="display: flex; justify-content: flex-end; align-items: center;">
-                <sl-button-group label="Alignment">
+              <div class="results-buttons">
                   <sl-button size="medium" pill class="player-one-winner" @click=${()=>this.recordResult(1)}>
-                    Winner
+                     ${this.playerHandle1} Wins
                   </sl-button>
                   <sl-button size="medium" pill class="player-two-winner" @click=${()=>this.recordResult(2)}>
-                    Winner
+                    ${this.playerHandle2} Wins
                   </sl-button>
                   <sl-button size="medium" pill class="player-three-winner" @click=${()=>this.recordResult(3)}>
-                    Winner
+                    ${this.playerHandle3} Wins
                   </sl-button>
                   <sl-button size="medium" pill class="player-four-winner" @click=${()=>this.recordResult(4)}>
-                    Winner
+                    ${this.playerHandle4} Wins
                   </sl-button>
-                </sl-button-group>
+              </div>
+              <div class="results-buttons-small">
+                  <sl-icon-button src="assets/svg/shield-halved-solid.svg" @click=${()=>this.recordResult(1)}></sl-icon-button>
+                  <sl-icon-button src="assets/svg/shield-halved-solid.svg" @click=${()=>this.recordResult(2)}></sl-icon-button>
+                  <sl-icon-button src="assets/svg/shield-halved-solid.svg" @click=${()=>this.recordResult(3)}></sl-icon-button>
+                  <sl-icon-button src="assets/svg/shield-halved-solid.svg" @click=${()=>this.recordResult(4)}></sl-icon-button>
               </div>
               <table class="border table-striped">
                 <thead>
                   <tr>
-                    <th>
+                    <th style="text-align: left;">
                       ${this.playerHandle1}
-                    <th>
+                    <th style="text-align: left;">
                       ${this.playerHandle2}
                     </th>
-                    <th>
+                    <th style="text-align: left;">
                       ${this.playerHandle3}
                     </th>
-                    <th>
+                    <th style="text-align: left;">
                       ${this.playerHandle4}
                     </th>
                   </tr>
@@ -407,7 +411,7 @@ import{i as f,s as w,a as $,n as d,r as p,e as L,b as u,E as g,x as c,t as b,c a
           </sl-tab-group>
         </div>
       </main>
-    `}};r.styles=[w,$,P,k,T,f`
+    `}};n.styles=[$,w,P,k,T,f`
       sl-input::part(form-control-help-text) {
         color: var(--sl-color-neutral-700);
       }
@@ -432,7 +436,7 @@ import{i as f,s as w,a as $,n as d,r as p,e as L,b as u,E as g,x as c,t as b,c a
           margin-left: 0;
         }
       }
-    `];n([d({type:Object})],r.prototype,"handle1",2);n([d({type:Object})],r.prototype,"handle2",2);n([d({type:Object})],r.prototype,"handle3",2);n([d({type:Object})],r.prototype,"handle4",2);n([p()],r.prototype,"activeTab",2);n([p()],r.prototype,"matchResults",2);n([p()],r.prototype,"playerHandle1",2);n([p()],r.prototype,"playerHandle2",2);n([p()],r.prototype,"playerHandle3",2);n([p()],r.prototype,"playerHandle4",2);n([p()],r.prototype,"initialLifeTracker",2);n([p()],r.prototype,"isAlertOpen",2);n([L(".alert-closable")],r.prototype,"alert",2);n([d({type:Array})],r.prototype,"gameHistory",2);n([p()],r.prototype,"playerLogs",2);n([p()],r.prototype,"playerHandle1Actions",2);n([p()],r.prototype,"playerHandle2Actions",2);n([p()],r.prototype,"playerHandle3Actions",2);n([p()],r.prototype,"playerHandle4Actions",2);r=n([b("match-tracker")],r);var R=Object.defineProperty,j=Object.getOwnPropertyDescriptor,y=(e,s,l,i)=>{for(var t=i>1?void 0:i?j(s,l):s,a=e.length-1,o;a>=0;a--)(o=e[a])&&(t=(i?o(s,l,t):o(t))||t);return i&&t&&R(s,l,t),t};let h=class extends u{constructor(){super(...arguments),this.icon="arrow-left",this.isOpen=!1,this.message="",this.pointsTracker=""}openFab(e){this.pointsTracker=e,this.isOpen=!0}open(e){this.message=e,this.isOpen=!0}close(){this.dispatchEvent(new CustomEvent("close")),this.isOpen=!1}render(){return this.isOpen?c`
+    `];r([d({type:Object})],n.prototype,"handle1",2);r([d({type:Object})],n.prototype,"handle2",2);r([d({type:Object})],n.prototype,"handle3",2);r([d({type:Object})],n.prototype,"handle4",2);r([p()],n.prototype,"activeTab",2);r([p()],n.prototype,"matchResults",2);r([p()],n.prototype,"playerHandle1",2);r([p()],n.prototype,"playerHandle2",2);r([p()],n.prototype,"playerHandle3",2);r([p()],n.prototype,"playerHandle4",2);r([p()],n.prototype,"initialLifeTracker",2);r([p()],n.prototype,"isAlertOpen",2);r([L(".alert-closable")],n.prototype,"alert",2);r([d({type:Array})],n.prototype,"gameHistory",2);r([p()],n.prototype,"playerLogs",2);r([p()],n.prototype,"playerHandle1Actions",2);r([p()],n.prototype,"playerHandle2Actions",2);r([p()],n.prototype,"playerHandle3Actions",2);r([p()],n.prototype,"playerHandle4Actions",2);n=r([g("match-tracker")],n);var R=Object.defineProperty,z=Object.getOwnPropertyDescriptor,y=(e,l,a,i)=>{for(var t=i>1?void 0:i?z(l,a):l,s=e.length-1,o;s>=0;s--)(o=e[s])&&(t=(i?o(l,a,t):o(t))||t);return i&&t&&R(l,a,t),t};let h=class extends u{constructor(){super(...arguments),this.icon="arrow-left",this.isOpen=!1,this.message="",this.pointsTracker=""}openFab(e){this.pointsTracker=e,this.isOpen=!0}open(e){this.message=e,this.isOpen=!0}close(){this.dispatchEvent(new CustomEvent("close")),this.isOpen=!1}render(){return this.isOpen?c`
       <sl-drawer
         placement="top"
         label="Drawer"
@@ -460,7 +464,7 @@ import{i as f,s as w,a as $,n as d,r as p,e as L,b as u,E as g,x as c,t as b,c a
         ${this.message}
         <sl-button slot="footer" variant="primary" data-drawer="close" @click=${this.close}>Close</sl-button>
       </sl-drawer>
-    `:c``}};y([d({type:String})],h.prototype,"icon",2);y([d({type:Boolean})],h.prototype,"isOpen",2);y([d({type:String})],h.prototype,"message",2);y([d({type:String})],h.prototype,"pointsTracker",2);h=y([b("fab-drawer")],h);var z=Object.defineProperty,C=Object.getOwnPropertyDescriptor,x=(e,s,l,i)=>{for(var t=i>1?void 0:i?C(s,l):s,a=e.length-1,o;a>=0;a--)(o=e[a])&&(t=(i?o(s,l,t):o(t))||t);return i&&t&&z(s,l,t),t};let m=class extends u{constructor(){super(...arguments),this.fabDrawerOpen=!1}openFabDrawer(){this.fabDrawerOpen=!0}closeFabDrawer(){this.fabDrawerOpen=!1}fabTab(){return c`
+    `:c``}};y([d({type:String})],h.prototype,"icon",2);y([d({type:Boolean})],h.prototype,"isOpen",2);y([d({type:String})],h.prototype,"message",2);y([d({type:String})],h.prototype,"pointsTracker",2);h=y([g("fab-drawer")],h);var j=Object.defineProperty,C=Object.getOwnPropertyDescriptor,x=(e,l,a,i)=>{for(var t=i>1?void 0:i?C(l,a):l,s=e.length-1,o;s>=0;s--)(o=e[s])&&(t=(i?o(l,a,t):o(t))||t);return i&&t&&j(l,a,t),t};let m=class extends u{constructor(){super(...arguments),this.fabDrawerOpen=!1}openFabDrawer(){this.fabDrawerOpen=!0}closeFabDrawer(){this.fabDrawerOpen=!1}fabTab(){return c`
       <sl-tab slot="nav" panel="total">Total</sl-tab>
       <sl-tab slot="nav" panel="standings">Standings</sl-tab>
       <sl-tab slot="nav" panel="results">Results</sl-tab>
@@ -477,5 +481,5 @@ import{i as f,s as w,a as $,n as d,r as p,e as L,b as u,E as g,x as c,t as b,c a
       right: 16px;
       z-index: 1000;
     }
-  `;x([p()],m.prototype,"fabDrawerOpen",2);m=x([b("app-counter")],m);export{m as AppCounter};
-//# sourceMappingURL=app-counter-nOrQrTOJ.js.map
+  `;x([p()],m.prototype,"fabDrawerOpen",2);m=x([g("app-counter")],m);export{m as AppCounter};
+//# sourceMappingURL=app-counter-BnzWq6k4.js.map

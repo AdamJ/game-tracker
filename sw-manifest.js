@@ -92,6 +92,18 @@ const __WB_MANIFEST = [
     "revision": "3d40312bd537e100d5e251123790dc05"
   },
   {
+    "url": "/assets/icons/loyalty-down.svg",
+    "revision": "5b19f5b0211fcbe5a7a32a94029b71bc"
+  },
+  {
+    "url": "/assets/icons/loyalty-up.svg",
+    "revision": "cb03420046ecf1f12d514cbb8281868a"
+  },
+  {
+    "url": "/assets/icons/saga.svg",
+    "revision": "d1121948a6cd542e9807854a58ddfba9"
+  },
+  {
     "url": "/assets/mana.min.css",
     "revision": "f33870df1345d8d27c5cee9ab9bef1b5"
   },
@@ -176,6 +188,14 @@ const __WB_MANIFEST = [
     "revision": "14dc50bb5b50d0269d6c5645e2c64101"
   },
   {
+    "url": "/assets/shoelace/shoelace-autoloader.js",
+    "revision": "68adeba884580638aadeeecba4496d19"
+  },
+  {
+    "url": "/assets/shoelace/themes/light.css",
+    "revision": "449790d2e0ac49f31fd9dbf6f5646231"
+  },
+  {
     "url": "/assets/svg/bcore.svg",
     "revision": "e4837acff55e5ed2bfb65aa51405f3dc"
   },
@@ -184,52 +204,88 @@ const __WB_MANIFEST = [
     "revision": "d051f031edef94c4fd701614e9a16a07"
   },
   {
+    "url": "/assets/svg/dice-d20-solid.svg",
+    "revision": "940bf4df422198d988c9c88595750417"
+  },
+  {
+    "url": "/assets/svg/dice-solid.svg",
+    "revision": "5c745b04c41fb3bde9c1814763c6e30c"
+  },
+  {
+    "url": "/assets/svg/ranking-star-solid.svg",
+    "revision": "3862f871bf170abfdae4a842b3c19a58"
+  },
+  {
+    "url": "/assets/svg/shield-halved-solid.svg",
+    "revision": "2e37919cebd0cec6c32c50ab9c2d24e2"
+  },
+  {
+    "url": "/assets/svg/timeline-solid.svg",
+    "revision": "c4903b9368db3813a1e24ef263c74844"
+  },
+  {
+    "url": "/assets/svg/users-solid.svg",
+    "revision": "62aaa5605771461424ec64053a3fd45c"
+  },
+  {
+    "url": "/assets/svg/wizards-of-the-coast-brands.svg",
+    "revision": "287317a95f6c4d62386359de6dcc0cb6"
+  },
+  {
     "url": "/assets/svg/xlcu.svg",
     "revision": "2e9680930dfcf670059421e2b16eacca"
   },
   {
-    "url": "/code/app-about-DDD_SPcT.js",
-    "revision": "a51aa5e7787ff1a1b738a8c39c8ab0ea"
+    "url": "/code/app-about-DFafDXmg.js",
+    "revision": "30e44794ed99594198330e7dc1073047"
   },
   {
-    "url": "/code/app-about-DDD_SPcT.js.map",
-    "revision": "0a4eb56b2614b16c338333a9045e4bf8"
+    "url": "/code/app-about-DFafDXmg.js.map",
+    "revision": "24d2c6b88424e13b42b899c932b440d9"
   },
   {
-    "url": "/code/app-counter-nOrQrTOJ.js",
-    "revision": "6fb33d15c1c6a7b663e5f8ef0c3ae4cd"
+    "url": "/code/app-counter-BnzWq6k4.js",
+    "revision": "3aabcf6aadfedee12de334fd9cd97cee"
   },
   {
-    "url": "/code/app-counter-nOrQrTOJ.js.map",
-    "revision": "ba16ff193109fee8bc598dc56276d0a1"
+    "url": "/code/app-counter-BnzWq6k4.js.map",
+    "revision": "4a70d714aec4c94585003558948de1a3"
   },
   {
-    "url": "/code/app-game-tracker-CRf3Rnst.js",
-    "revision": "966566ff4f67839359c32a7456e19205"
+    "url": "/code/app-game-tracker-CbG5Ecc6.js",
+    "revision": "b61e216ce0abd35de291ea4ddb1f8442"
   },
   {
-    "url": "/code/app-game-tracker-CRf3Rnst.js.map",
-    "revision": "b76b0b64d0517dcc5937c7de395c2a94"
+    "url": "/code/app-game-tracker-CbG5Ecc6.js.map",
+    "revision": "fdf4a1c4d45ebd586c411eebe5d78fe0"
   },
   {
-    "url": "/code/app-standard-BwW6eP1r.js",
-    "revision": "880a6b6490247f02ea3184872ecac672"
+    "url": "/code/app-roll-dice-ykP65etx.js",
+    "revision": "df60f8d251829751dd022281346e2249"
   },
   {
-    "url": "/code/app-standard-BwW6eP1r.js.map",
-    "revision": "d9223b4f893aa40724032f1719b5877a"
+    "url": "/code/app-roll-dice-ykP65etx.js.map",
+    "revision": "fe2775fea1ea1064c24ab6a4d188cbe5"
   },
   {
-    "url": "/code/counter-styles-BB8CW6bA.js",
-    "revision": "94b260c01dc3a87ff2d0d3784aac0598"
+    "url": "/code/app-standard-BaWxEEEC.js",
+    "revision": "04739211a4cbf501f9f3b16fc6083b25"
   },
   {
-    "url": "/code/counter-styles-BB8CW6bA.js.map",
-    "revision": "b006c7b6f6fd7035b9f55816c001342c"
+    "url": "/code/app-standard-BaWxEEEC.js.map",
+    "revision": "d75ae4bf642b25ba2eee14dc0a8e7825"
   },
   {
-    "url": "/code/index-CXvfQJIw.css",
-    "revision": "3c3710b043f7bea07c26c22a80bfe7c6"
+    "url": "/code/counter-styles-D7tY3dUR.js",
+    "revision": "b9b25037d671573069bfd7b019dd0319"
+  },
+  {
+    "url": "/code/counter-styles-D7tY3dUR.js.map",
+    "revision": "6973de82dbda2dd7557b3a4eec98b641"
+  },
+  {
+    "url": "/code/index-BhaxQKVe.css",
+    "revision": "8f00dfacf98f98a54b0e4f2a9092b2f0"
   },
   {
     "url": "/code/index-DPyTNidZ.js",
@@ -240,24 +296,24 @@ const __WB_MANIFEST = [
     "revision": "2a3b207df19e6795556c5c8461e5cffb"
   },
   {
-    "url": "/code/index-zhMqEYiN.js",
-    "revision": "b3aa7b2d13d490af73ac0bdc03397cf0"
+    "url": "/code/index-iV2mvn9b.js",
+    "revision": "c00c6ea08c029d048686129b413c9c63"
   },
   {
-    "url": "/code/index-zhMqEYiN.js.map",
-    "revision": "b1f0efc0eff5b729c58920c0c31bc764"
+    "url": "/code/index-iV2mvn9b.js.map",
+    "revision": "8a1f66c4780b64e70af67b9283ecc213"
   },
   {
-    "url": "/code/table-styles-Br6u72Zu.js",
-    "revision": "83e01fb2e6a403eb2a6d3bc3376af7d6"
+    "url": "/code/table-styles-BZ0nevQi.js",
+    "revision": "5486a35cf38cce006a5e26f421349f18"
   },
   {
-    "url": "/code/table-styles-Br6u72Zu.js.map",
-    "revision": "9a4ede1ec0e1dd855e29e96b3ae595ee"
+    "url": "/code/table-styles-BZ0nevQi.js.map",
+    "revision": "c6a053aeab98c094b70d8b59edac0269"
   },
   {
     "url": "/index.html",
-    "revision": "a230bd6dc5e954fb6126996852ba7ecd"
+    "revision": "e3bfa952bd6c49826b06392b618e8505"
   },
   {
     "url": "/manifest.json",
@@ -285,11 +341,11 @@ const __WB_MANIFEST = [
   },
   {
     "url": "/sw.js",
-    "revision": "aef5e0dc6d833d513768546a73a26898"
+    "revision": "24d1b20783a360f1dfdbf32d225937d3"
   },
   {
     "url": "/sw.js.map",
-    "revision": "8ace0c3dbd95324ce501e83cc19402f5"
+    "revision": "84696c0423051d0222566953ee0a951d"
   },
   {
     "url": "/widget/ac.json",

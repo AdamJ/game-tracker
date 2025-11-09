@@ -1,4 +1,4 @@
-import{i as p,s as h,a as u,b as d,x as c,t as m}from"./index-zhMqEYiN.js";import"https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.0/cdn/components/format-date/format-date.js";const g=p`
+import{i as p,s as h,a as u,b as d,x as c,t as m}from"./index-iV2mvn9b.js";import"https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.0/cdn/components/format-date/format-date.js";const g=p`
   .details-group-example > sl-details:first-of-type::part(base) {
     border-radius: 8px 8px 0 0;
   }
@@ -100,4 +100,4 @@ import{i as p,s as h,a as u,b as d,x as c,t as m}from"./index-zhMqEYiN.js";impor
     `}};n.styles=p`
 
   `;n=y([m("app-about")],n);export{n as AppAbout};
-//# sourceMappingURL=app-about-DDD_SPcT.js.map
+//# sourceMappingURL=app-about-DFafDXmg.js.map
