@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 # etc etc
-Sitemap: https://www.adamjolicoeur.me/sitemap_index.xml
+Sitemap: https://gametracker.productdesigns.net/sitemap_index.xml
