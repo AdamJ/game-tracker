@@ -53,7 +53,7 @@ template: |
   $CHANGES
 
   ### Links
-  **Full Changelog**: https://github.com/$OWNER/$REPOSITORY/comapre/$PREVIOUS_TAG...$RESOLVED_VERSION
+  **Full Changelog**: [$PREVIOUS_TAG...$RESOLVED_VERSION](https://github.com/$OWNER/$REPOSITORY/compare/$PREVIOUS_TAG...$RESOLVED_VERSION)
 
   Current Tag: [$RESOLVED_VERSION](https://github.com/AdamJ/task-it/releases/tag/$RESOLVED_VERSION)
 
