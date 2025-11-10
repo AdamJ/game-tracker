@@ -325,7 +325,7 @@ const __WB_MANIFEST = [
   },
   {
     "url": "/robots.txt",
-    "revision": "d9aad6e35664e961493d06ab55dccbb2"
+    "revision": "ecf0a96f3083127d27295918731beda4"
   },
   {
     "url": "/sitemap.xml",
