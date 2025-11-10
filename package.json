@@ -30,6 +30,8 @@
     "workbox-build": "^7.3.0"
   },
   "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
     "@types/node": "^24.0.10",
     "gh-pages": "^6.3.0",
     "typescript": "^5.8.3",
@@ -51,5 +53,18 @@
     "trailingComma": "es5",
     "endOfLine": "crlf",
     "bracketSpacing": true
+  },
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/npm",
+      "@semantic-release/git",
+      "@semantic-release/changelog",
+      "@semantic-release/github"
+    ]
   }
 }

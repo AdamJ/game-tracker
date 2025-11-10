@@ -8,3 +8,4 @@ types
 .vscode
 gh-pages
 gh-pages.pub
+.env
