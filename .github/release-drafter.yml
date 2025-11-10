@@ -1,20 +1,37 @@
 name-template: 'v$RESOLVED_VERSION'
 tag-template: 'v$RESOLVED_VERSION'
+prerelease-identifier: 'prerelease' # will create a prerelease with version number x.x.x-prerelease.x
 categories:
-  - title: 'feat:'
+  - title: '🏆 Major:'
     labels:
-      - 'feature'
+      - 'major'
+  - title: '🚨 Breaking Change:'
+    labels:
+      - 'breaking change'
+  - title: '🏅 Minor:'
+    labels:
+      - 'minor'
       - 'enhancement'
-  - title: 'fix:'
+      - 'feature'
+  - title: '🚧 Fix:'
     labels:
       - 'bug'
-  - title: 'patch:'
+  - title: '🩹 Patch:'
+    labels:
+      - 'patch'
+  - title: 'github-action:'
+    labels:
+      - 'github-action'
+  - title: '🪨 Dependencies:'
+    collapse-after: 3
     labels:
       - 'dependencies'
 exclude-labels:
   - 'invalid'
   - 'duplicate'
   - 'wontfix'
+change-template: '- #$NUMBER $TITLE (@$AUTHOR)'
+change-title-escapes: '\<*_&' # You can add # and @ to disable mentions, and add ` to disable code blocks.
 version-resolver:
   major:
     labels:
@@ -30,17 +47,20 @@ version-resolver:
       - 'patch'
       - 'github-action'
   default: patch
-change-template: '- #$NUMBER $TITLE (@$AUTHOR)'
 template: |
+  ## v$RESOLVED_VERSION - $DATE
+
   $CHANGES
 
   Contributors:
   $CONTRIBUTORS
+
 
   Previous Tag:
   [$PREVIOUS_TAG](https://github.com/AdamJ/task-it/releases/tag/$PREVIOUS_TAG)
 
   [All Tags](https://github.com/AdamJ/task-it/tags)
   [All Releases](https://github.com/AdamJ/task-it/releases)
+  [$OWNER](https://github.com/$OWNER)
 no-changes-template: |
   Nothing to see here...
