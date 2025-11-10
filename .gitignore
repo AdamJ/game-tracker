@@ -9,3 +9,5 @@ types
 gh-pages
 gh-pages.pub
 .env
+.secrets
+test-markdown.md
