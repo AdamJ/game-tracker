@@ -1,5 +1,6 @@
 import { LitElement, html } from 'lit';
 import { customElement, state } from 'lit/decorators.js';
+import { storageService, StorageKeys } from '../../services/storage.service.js';
 import './player-input.js';
 import './match-input.js';
 import './standings-display.js';
@@ -54,7 +55,7 @@ export class StandingsTracker extends LitElement {
 
   @state() activeTab: string = 'standings'; // Initial active tab
   @state() players: string[] = [];
-  @state() matchHistory: Match[] = JSON.parse(localStorage.getItem('matchHistory') || '[]');
+  @state() matchHistory: Match[] = [];
   @state() standings: Standing[] = [];
   @state() isLoading: boolean = true;
   @state() editModalOpen = false;
@@ -68,45 +69,56 @@ export class StandingsTracker extends LitElement {
 
   async loadData() {
     try {
-      const playersData = localStorage.getItem('players');
-      const matchHistoryData = localStorage.getItem('matchHistory');
+      // Try to migrate data from localStorage if this is first time using new storage
+      const playersDataLocal = localStorage.getItem('players');
+      const matchHistoryDataLocal = localStorage.getItem('matchHistory');
 
-      this.players = playersData ? JSON.parse(playersData) : [];
-      this.matchHistory = matchHistoryData ? JSON.parse(matchHistoryData) : [];
+      if (playersDataLocal || matchHistoryDataLocal) {
+        console.log('Migrating data from localStorage to centralizedStorage');
+        await storageService.migrateFromLocalStorage();
+        // Clear old localStorage data after successful migration
+        localStorage.removeItem('players');
+        localStorage.removeItem('matchHistory');
+      }
+
+      // Load data from centralized storage
+      this.players = await storageService.getPlayers();
+      this.matchHistory = await storageService.getMatchHistory();
     } catch (error) {
       console.error('Error loading data:', error);
       this.players = [];
-      localStorage.setItem('players', JSON.stringify(this.players));
+      this.matchHistory = [];
+      await storageService.savePlayers(this.players);
     } finally {
       this.isLoading = false;
       this.calculateStandings();
     }
   }
 
-  addPlayer(playerName: string) {
+  async addPlayer(playerName: string) {
     this.players = [...this.players, playerName];
-    localStorage.setItem('players', JSON.stringify(this.players));
+    await storageService.savePlayers(this.players);
     this.calculateStandings();
     this.requestUpdate();
   }
 
-  removePlayer(playerName: string) {
+  async removePlayer(playerName: string) {
     this.players = this.players.filter(p => p !== playerName);
-    localStorage.setItem('players', JSON.stringify(this.players));
+    await storageService.savePlayers(this.players);
     this.calculateStandings();
     this.requestUpdate();
   }
 
-  clearAllPlayers() {
+  async clearAllPlayers() {
     this.players = [];
-    localStorage.setItem('players', JSON.stringify(this.players));
+    await storageService.savePlayers(this.players);
     this.calculateStandings();
     this.requestUpdate();
   }
 
-  recordMatch(match: Match) {
+  async recordMatch(match: Match) {
     this.matchHistory = [...this.matchHistory, match];
-    localStorage.setItem('matchHistory', JSON.stringify(this.matchHistory));
+    await storageService.saveMatchHistory(this.matchHistory);
     this.calculateStandings();
     this.requestUpdate();
   }
@@ -190,12 +202,12 @@ export class StandingsTracker extends LitElement {
     this.editModalOpen = true;
   }
 
-  editMatch(editedMatch: Match) {
+  async editMatch(editedMatch: Match) {
     if (this.editMatchIndex !== null) {
       this.matchHistory = this.matchHistory.map((match, index) =>
         index === this.editMatchIndex ? editedMatch : match
       );
-      localStorage.setItem('matchHistory', JSON.stringify(this.matchHistory));
+      await storageService.saveMatchHistory(this.matchHistory);
       this.calculateStandings();
       this.editMatchIndex = null;
       this.editModalOpen = false;
@@ -228,9 +240,9 @@ export class StandingsTracker extends LitElement {
     document.body.removeChild(link);
   }
 
-  clearMatchResultsConfirmed() {
+  async clearMatchResultsConfirmed() {
     this.matchHistory = [];
-    localStorage.setItem('matchHistory', JSON.stringify(this.matchHistory));
+    await storageService.saveMatchHistory(this.matchHistory);
     this.calculateStandings();
     this.requestUpdate();
   }
@@ -243,11 +255,11 @@ export class StandingsTracker extends LitElement {
     this.confirmationModalOpen = false;
   }
 
-  clearStandingsConfirmed() {
+  async clearStandingsConfirmed() {
     this.standings = [];
-    // this.players = [];
-    localStorage.removeItem('matchHistory'); // Remove the old localStorage
-    // localStorage.removeItem('players'); // remove the old players data
+    this.matchHistory = [];
+    await storageService.removeItem(StorageKeys.MATCH_HISTORY);
+    this.calculateStandings();
     this.requestUpdate();
     this.closeConfirmationModal();
   }
