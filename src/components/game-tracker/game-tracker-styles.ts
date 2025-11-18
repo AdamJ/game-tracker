@@ -10,6 +10,6 @@ export const gameTrackerStyles = css`
   sl-radio-group::part(form-control-input) {
     display: flex;
     flex-direction: row;
-    grid-gap: 1rem;
+    gap: 1rem;
   }
 `;

@@ -289,7 +289,7 @@ export class StandingsTracker extends LitElement {
           </sl-button>
         </sl-button-group>
       </div>
-      <div style="display: flex; flex-direction: column; grid-gap: 1rem;">
+      <div style="display: flex; flex-direction: column; gap: 1rem;">
         <sl-details summary="Match details" open>
           <match-input .players=${this.players.map(player => ({ name: player }))} @match-recorded=${(e: CustomEvent) => this.recordMatch(e.detail)}></match-input>
         </sl-details>
@@ -307,12 +307,12 @@ export class StandingsTracker extends LitElement {
           </sl-tab-panel>
           <sl-tab-panel name="history">
             <div slot="header">
-              <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; grid-gap: .5rem; width: 100%;">
+              <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; gap: .5rem; width: 100%;">
                 Match results
                 <sl-tooltip content="Export Results">
                   <sl-button variant="success" size="small" pill label="export match results" @click=${this.exportMatchResults}>
                     <sl-icon slot="prefix" library="default" name="file-earmark-excel-fill" label="Export Results"></sl-icon>
-                    Export <span class="hide-at-800">Standings</span>
+                    Export <span class="hide-at-950">Standings</span>
                   </sl-button>
                 </sl-tooltip>
               </div>

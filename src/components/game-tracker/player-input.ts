@@ -73,7 +73,7 @@ export class PlayerInput extends LitElement {
 
   render() {
     return html`
-      <div style="display: flex; flex-direction: row; justify-content: space-between; flex-wrap: wrap; grid-gap: 1rem; padding-left: 1rem; padding-right: 1rem;">
+      <div style="display: flex; flex-direction: row; justify-content: space-between; flex-wrap: wrap; gap: 1rem; padding-left: 1rem; padding-right: 1rem;">
         <form
           class="input-validation-custom"
           @submit=${this.handleSubmit}
@@ -105,7 +105,7 @@ export class PlayerInput extends LitElement {
             Add Player
           </sl-button>
         </form>
-        <div style="display: flex; flex-direction: column; grid-gap: .5rem; flex: 1;">
+        <div style="display: flex; flex-direction: column; gap: .5rem; flex: 1;">
           <p style="margin-top: .25rem; margin-bottom: .25rem;">
             <strong>Player List</strong>
           </p>
@@ -119,7 +119,7 @@ export class PlayerInput extends LitElement {
               setTimeout(() => (alert.open = true), 2000);
             });
           </script>
-          <div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: flex-start; grid-gap: .5rem; width: 100%;">
+          <div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: flex-start; gap: .5rem; width: 100%;">
             ${this.players.map(player => html`
               <sl-tag variant="primary" removable @sl-remove=${() => this.removePlayer(player)}>
                 ${player}

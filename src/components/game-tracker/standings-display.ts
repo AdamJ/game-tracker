@@ -35,7 +35,7 @@ export class StandingsDisplay extends LitElement {
             <th>Losses</th>
             <th>Draws</th>
             <th>Points</th>
-            <th class="hide-at-800">Win Percentage</th>
+            <th class="hide-at-950">Win Percentage</th>
           </tr>
         </thead>
         <tbody>
@@ -46,7 +46,7 @@ export class StandingsDisplay extends LitElement {
               <td style="text-align: center;">${standing.losses}</td>
               <td style="text-align: center;">${standing.draws}</td>
               <td style="text-align: center;">${standing.points}</td>
-              <td class="hide-at-800" style="text-align: center;">${standing.winPercentage || 0}</td>
+              <td class="hide-at-950" style="text-align: center;">${standing.winPercentage || 0}</td>
             </tr>
           `)}
         </tbody>

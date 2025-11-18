@@ -97,16 +97,21 @@ export class MatchTracker extends LitElement {
         margin-right: 1rem;
         margin-left: 1rem;
       }
-      @media (min-width: 900px) {
+      @media (min-width: 950px) {
         .form-2-column {
           flex-direction: row;
         }
       }
-      @media (max-width: 900px) {
+      @media (max-width: 950px) {
         .form-player-input {
           margin-right: 0;
           margin-left: 0;
         }
+      }
+      sl-button.life-counter::part(base) {
+        height: 4rem;
+        justify-content: center;
+        line-height: 4rem;
       }
     `
   ]
@@ -424,7 +429,7 @@ export class MatchTracker extends LitElement {
 
     return html`
       <main>
-        <div style="display: flex; flex-direction: column; grid-gap: 1rem;">
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
           <sl-tab-group active-tab=${this.activeTab}>
             <sl-tab slot="nav" panel="tracker" class="ios-tab">Life</sl-tab>
             <sl-tab slot="nav" panel="results" class="ios-tab">Results</sl-tab>
@@ -452,7 +457,7 @@ export class MatchTracker extends LitElement {
                         <sl-icon src="/assets/icons/loyalty-down.svg" slot="prefix" class="ms ms-loyalty-down ms-2x"></sl-icon>
                         Lose
                       </sl-button>
-                      <span class="hide-at-800" style="position: absolute; right: 8px; bottom: 8px;">
+                      <span class="hide-at-950" style="position: absolute; right: 8px; bottom: 8px;">
                         <sl-icon src="/assets/icons/saga.svg" slot="prefix" class="ms ms-saga-1 ms-4x"></sl-icon>
                       </span>
                     </form>
@@ -475,7 +480,7 @@ export class MatchTracker extends LitElement {
                         <sl-icon src="/assets/icons/loyalty-down.svg" slot="prefix" class="ms ms-loyalty-down ms-2x"></sl-icon>
                         Lose
                       </sl-button>
-                      <span class="hide-at-800" style="position: absolute; right: 8px; top: 8px;">
+                      <span class="hide-at-950" style="position: absolute; right: 8px; top: 8px;">
                         <sl-icon src="/assets/icons/saga.svg" slot="prefix" class="ms ms-saga-3 ms-4x"></sl-icon>
                       </span>
                     </form>
@@ -500,7 +505,7 @@ export class MatchTracker extends LitElement {
                         <sl-icon src="/assets/icons/loyalty-down.svg" slot="prefix" class="ms ms-loyalty-down ms-2x"></sl-icon>
                         Lose
                       </sl-button>
-                      <span class="hide-at-800" style="position: absolute; left: 8px; bottom: 8px;">
+                      <span class="hide-at-950" style="position: absolute; left: 8px; bottom: 8px;">
                         <sl-icon src="/assets/icons/saga.svg" slot="prefix" class="ms ms-saga-2 ms-4x"></sl-icon>
                       </span>
                     </form>
@@ -523,19 +528,12 @@ export class MatchTracker extends LitElement {
                         <sl-icon src="/assets/icons/loyalty-down.svg" slot="prefix" class="ms ms-loyalty-down ms-2x"></sl-icon>
                         Lose
                       </sl-button>
-                      <span class="hide-at-800" style="position: absolute; left: 8px; top: 8px;">
+                      <span class="hide-at-950" style="position: absolute; left: 8px; top: 8px;">
                         <sl-icon src="/assets/icons/saga.svg" slot="prefix" class="ms ms-saga-4 ms-4x"></sl-icon>
                       </span>
                     </form>
                   </sl-card>
                 </div>
-                <style>
-                sl-button.life-counter::part(base) {
-                  height: 4rem;
-                  justify-content: center;
-                  line-height: 4rem;
-                }
-                </style>
               </div>
             </sl-tab-panel>
             <sl-tab-panel name="standings">

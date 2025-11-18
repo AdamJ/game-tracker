@@ -26,11 +26,6 @@ export class AboutModal extends LitElement {
     this.isOpen = false;
   }
 
-  // confirm() {
-  //   this.dispatchEvent(new CustomEvent('close'));
-  //   this.close();
-  // }
-
   render() {
     if (!this.isOpen) {
       return html``;

@@ -33,11 +33,11 @@ export class ConfirmationModal extends LitElement {
         @sl-after-close=${this.close}
       >
         <p>${this.message}</p>
-        <sl-button slot="footer" variant="danger" @click=${this.confirm}>
-          Confirm
-        </sl-button>
         <sl-button slot="footer" variant="default" @click=${this.close}>
           Cancel
+        </sl-button>
+        <sl-button slot="footer" variant="danger" @click=${this.confirm}>
+          Confirm
         </sl-button>
       </sl-dialog>
     `;

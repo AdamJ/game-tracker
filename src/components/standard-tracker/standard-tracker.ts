@@ -82,7 +82,7 @@ export class MatchTracker extends LitElement {
       sl-drawer {
         --size: 90vh !important;
       }
-      @media screen and (max-width: 595px) {
+      @media screen and (max-width: 600px) {
         .standard-tracker,
         .side-one,
         .side-two,
@@ -130,7 +130,7 @@ export class MatchTracker extends LitElement {
           flex-direction: row;
           justify-content: center;
           align-items: center;
-          grid-gap: 1rem;
+          gap: 1rem;
         }
         sl-button.reset-points-button::part(base) {
           margin-top: 1rem;
@@ -159,6 +159,18 @@ export class MatchTracker extends LitElement {
         top: 50%;
         right: 50%;
         width: 16px;
+      }
+      @media screen and (max-width: 600px) {
+        .fab-container {
+          top: calc(50vh - 72px) !important;
+        }
+      }
+      .fab-container {
+        position: absolute;
+        top: calc(50% - 24px);
+        right: calc(50vw - 2rem);
+        box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, .5);
+        border-radius: 50%;
       }
     `
   ]
@@ -388,7 +400,7 @@ export class MatchTracker extends LitElement {
         <sl-card class="side-two">
           <form class="card-form" style="position: relative;">
             <sl-button variant="default" size="large" class="life-counter side-two" @click=${() => this.updatePoints(2, 1, 'Plus')}>
-              <span style="font-size: 1.75rem; color: orange;">
+              <span style="font-size: 1.75rem; color: var(--sl-color-warning-600);">
                 <sl-icon slot="prefix" name="shield-fill-plus"></sl-icon>
               </span>
               Plus
@@ -445,22 +457,6 @@ export class MatchTracker extends LitElement {
           <sl-icon name="gear" label="settings"></sl-icon>
         </sl-button>
       </div>
-      <style>
-        @media screen and (max-width: 600px) {
-          .fab-container {
-            top: calc(50vh - 72px) !important;
-          }
-        }
-        .fab-container {
-          position: absolute;
-          // height: 56px;
-          // width: 56px;
-          top: calc(50% - 24px);
-          right: calc(50vw - 2rem);
-          box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, .5);
-          border-radius: 50%;
-        }
-      </style>
     </main>
   `}
 }

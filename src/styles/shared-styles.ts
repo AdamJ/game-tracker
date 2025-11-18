@@ -27,7 +27,7 @@ export const sharedStyles = css`
     color: var(--sl-color-violet-800);
   }
   @media (max-width: 950px) {
-    .hide-at-800 {
+    .hide-at-950 {
       flex-direction: column !important;
       display: none !important;
     }
@@ -111,7 +111,7 @@ export const sharedStyles = css`
     border-color: rgba(255, 255, 255, .2);
   }
   .toolbar sl-button-group::part(base) {
-    grid-gap: .75rem;
+    gap: .75rem;
   }
   .toolbar sl-button::part(base) {
     border-color: transparent;

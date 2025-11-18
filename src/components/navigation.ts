@@ -26,9 +26,70 @@ export class MyNavigation extends LitElement {
       color: var(--sl-color-primary-600);
     }
     sl-button sl-icon[slot="prefix"] {
-      background: #fff;
+      background: var(--sl-color-neutral-0);
       border-radius: 50%;
       padding: .25rem;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: center;
+      padding: 0rem 0.5rem;
+      align-items: flex-start;
+      gap: 0.5rem;
+      background: var(--sl-color-neutral-100);
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+    .navbar-item {
+      display: flex;
+      padding: 1rem 0;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0.25rem;
+      flex: 1 0 0;
+    }
+    .item-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 1rem;
+      background: transparent;
+      border: 2px solid transparent;
+    }
+    .navbar-item.active .item-container {
+      background: var(--sl-color-primary-100) !important;
+      border: 2px solid var(--sl-color-primary-600);
+    }
+    .navbar-item:hover .item-container,
+    .navbar-item.active:hover .item-container {
+      background: var(--sl-color-neutral-200) !important;
+    }
+    .item-container-label {
+      align-self: stretch;
+      color: var(--sl-color-neutral-950);
+      text-align: center;
+      @media (max-width: 950px) {
+        display: none !important;
+      }
+    }
+    .state-layer {
+      display: flex;
+      width: 4rem;
+      @media (max-width: 950px) {
+        width: 2rem !important;
+      }
+      height: 2rem;
+      padding: 0.25rem 1.25rem;
+      justify-content: center;
+      align-items: center;
+    }
+    .navbar-icon {
+      flex-shrink: 0;
     }
   `;
 
@@ -118,69 +179,6 @@ export class MyNavigation extends LitElement {
           </div>
         </div>
       </div>
-
-      <style>
-        .navbar {
-          display: flex;
-          justify-content: center;
-          padding: 0rem 0.5rem;
-          align-items: flex-start;
-          gap: 0.5rem;
-          background: #F4F6F7;
-          position: fixed;
-          bottom: 0;
-          left: 0;
-          right: 0;
-        }
-        .navbar-item {
-          display: flex;
-          padding: 1rem 0;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          gap: 0.25rem;
-          flex 1 0 0;
-        }
-        .item-container {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          border-radius: 1rem;
-          background: transparent;
-          border: 2px solid transparent;
-        }
-        .navbar-item.active .item-container {
-          background: #e0f1fe !important;
-          border: 2px solid #0163A3;
-          }
-          .navbar-item:hover .item-container,
-          .navbar-item.active:hover .item-container {
-          background: #e2e8eb !important;
-        }
-        .item-container-label {
-          align-self: stretch;
-          color: #1a1b21;
-          text-align: center;
-          @media (max-width: 950px) {
-            display: none !important;
-          }
-        }
-        .state-layer {
-          display: flex;
-          width: 4rem;
-          @media (max-width: 950px) {
-            width: 2rem !important;
-          }
-          height: 2rem;
-          padding: 0.25rem 1.25rem;
-          justify-content: center;
-          align-items: center;
-        }
-        .navbar-icon {
-          flex-shrink: 0;
-        }
-      </style>
     `;
   }
 }
