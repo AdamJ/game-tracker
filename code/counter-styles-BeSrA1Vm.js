@@ -1,4 +1,4 @@
-import{i as r}from"./index-B8TZnMyR.js";const e=r`
+import{i as r}from"./index-BXUZZy4M.js";const e=r`
   @media (max-width: 950px) {
     sl-card.player-one::part(base),
     sl-card.player-two::part(base),
@@ -101,4 +101,4 @@ import{i as r}from"./index-B8TZnMyR.js";const e=r`
     }
   }
 `;export{e as c};
-//# sourceMappingURL=counter-styles-CLmoqlDB.js.map
+//# sourceMappingURL=counter-styles-BeSrA1Vm.js.map

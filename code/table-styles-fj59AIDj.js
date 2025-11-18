@@ -1,4 +1,4 @@
-import{f as Ur,i as Yr}from"./index-B8TZnMyR.js";Ur("mana",{resolver:M=>`https://cdn.jsdelivr.net/npm/mana-font@latest/svg/${M}.svg`});var ne=typeof globalThis<"u"?globalThis:typeof window<"u"?window:typeof global<"u"?global:typeof self<"u"?self:{};function zr(M){return M&&M.__esModule&&Object.prototype.hasOwnProperty.call(M,"default")?M.default:M}function oe(M){throw new Error('Could not dynamically require "'+M+'". Please configure the dynamicRequireTargets or/and ignoreDynamicRequires option of @rollup/plugin-commonjs appropriately for this require call to work.')}var ye={exports:{}};/*!
+import{f as Ur,i as Yr}from"./index-BXUZZy4M.js";Ur("mana",{resolver:M=>`https://cdn.jsdelivr.net/npm/mana-font@latest/svg/${M}.svg`});var ne=typeof globalThis<"u"?globalThis:typeof window<"u"?window:typeof global<"u"?global:typeof self<"u"?self:{};function zr(M){return M&&M.__esModule&&Object.prototype.hasOwnProperty.call(M,"default")?M.default:M}function oe(M){throw new Error('Could not dynamically require "'+M+'". Please configure the dynamicRequireTargets or/and ignoreDynamicRequires option of @rollup/plugin-commonjs appropriately for this require call to work.')}var ye={exports:{}};/*!
     localForage -- Offline Storage, Improved
     Version 1.10.0
     https://localforage.github.io/localForage
@@ -31,4 +31,4 @@ import{f as Ur,i as Yr}from"./index-B8TZnMyR.js";Ur("mana",{resolver:M=>`https:/
     border-bottom-width: 1px;
   }
 `;export{Gr as l,Hr as t};
-//# sourceMappingURL=table-styles-Bk4h-LBZ.js.map
+//# sourceMappingURL=table-styles-fj59AIDj.js.map
