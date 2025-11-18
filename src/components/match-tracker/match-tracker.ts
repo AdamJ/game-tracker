@@ -89,10 +89,38 @@ export class MatchTracker extends LitElement {
         height: calc(100vh - 80px);
         padding: 0;
         margin: 0;
+        overflow: hidden;
+      }
+
+      .wrapper {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      sl-tab-group {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
       }
 
       sl-tab-panel[name="tracker"] {
         height: 100%;
+        overflow: auto;
+      }
+
+      .tracker-grid {
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .player-column {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
       }
 
       sl-input::part(form-control-help-text) {
@@ -440,7 +468,7 @@ export class MatchTracker extends LitElement {
 
     return html`
       <main>
-        <div style="display: flex; flex-direction: column; gap: 1rem; height: 100%;">
+        <div class="wrapper">
           <sl-tab-group active-tab=${this.activeTab}>
             <sl-tab slot="nav" panel="tracker" class="ios-tab">Life</sl-tab>
             <sl-tab slot="nav" panel="results" class="ios-tab">Results</sl-tab>
@@ -448,8 +476,8 @@ export class MatchTracker extends LitElement {
             <sl-tab slot="nav" panel="action-log" class="ios-tab">Match Log</sl-tab>
             <sl-tab slot="nav" panel="setup" class="ios-tab">Setup</sl-tab>
             <sl-tab-panel name="tracker">
-              <div style="display: flex; flex-wrap: wrap; height: 100%;">
-                <div style="width: 50%; display: flex; flex-direction: column;">
+              <div class="tracker-grid">
+                <div class="player-column">
                   <sl-card class="player-one" id="topLeft">
                     <form style="position: relative; height: 100%; justify-content: space-between;">
                       <sl-button variant="default" size="large" class="life-counter player-one" @click=${() => this.updateLife(1, 1, 'Gain')}>
@@ -497,7 +525,7 @@ export class MatchTracker extends LitElement {
                     </form>
                   </sl-card>
                 </div>
-                <div style="width: 50%; display: flex; flex-direction: column;">
+                <div class="player-column">
                   <sl-card class="player-two" id="bottomLeft">
                     <form style="position: relative; height: 100%; justify-content: space-between;">
                       <sl-button variant="default" size="large" class="life-counter player-two" @click=${() => this.updateLife(2, 1, 'Gain')}>
