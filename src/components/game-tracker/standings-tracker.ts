@@ -124,11 +124,9 @@ export class StandingsTracker extends LitElement {
   }
 
   calculateStandings() {
-    console.log('calculateStandings called');
     const standingsMap = this.initializeStandings();
     this.matchHistory.forEach(match => this.applyMatchResult(match, standingsMap));
     this.finalizeStandings(standingsMap);
-    console.log('standings:', this.standings);
   }
 
   initializeStandings() {
