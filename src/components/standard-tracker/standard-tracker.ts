@@ -79,98 +79,150 @@ export class MatchTracker extends LitElement {
     alertStyles,
     standardStyles,
     css`
+      main {
+        height: calc(100vh - 80px);
+        padding: 0 !important;
+        margin: 0 !important;
+        position: relative;
+        overflow: hidden;
+      }
+
       sl-drawer {
         --size: 90vh !important;
       }
-      @media screen and (max-width: 600px) {
-        .standard-tracker,
-        .side-one,
-        .side-two,
-        sl-card::part(base) {
-          height: 45vh !important;
-        }
-        .card-form > p {
-          font-size: calc(16px * 3);
-        }
-       .settings-fab {
-          position: absolute;
-          display: block;
-          top: 50%;
-          right: 50%;
-          width: 28px;
-        }
+
+      .standard-tracker {
+        height: 100%;
+        width: 100%;
       }
-      @media screen and (min-width: 600px) {
-        // main {
-        //   height: calc(100vh - 55px) !important
-        // }
-        .standard-tracker,
-        .side-one,
-        .side-two,
-        sl-card::part(base) {
-          height: 100%;
-        }
-        sl-card::part(body) {
-          height: 100%;
-          display: flex;
-          justify-content: center;
-        }
-        .card-form {
-          justify-content: space-between;
-        }
-        .card-form > sl-button {
-          width: 40vw;
-          display: flex;
-          align-items: center;
-        }
-        .card-form > p {
-          font-size: calc(16px * 4);
-        }
-        .reset-points-form {
-          flex-direction: row;
-          justify-content: center;
-          align-items: center;
-          gap: 1rem;
-        }
-        sl-button.reset-points-button::part(base) {
-          margin-top: 1rem;
-        }
-      }
-      .standard-tracker,
+
       .side-one,
       .side-two,
       sl-card::part(base) {
         height: 100%;
         align-items: center;
         align-content: center;
-        color: var(--sl-color-neutral-50);
       }
-      sl-button [slot="prefix"] {
-        color: var(--sl-color-neutral-50) !important;
-      }
+
       sl-card::part(body) {
         height: 100%;
         display: flex;
         justify-content: center;
+        padding: 0;
       }
-      .settings-fab {
-        position: absolute;
-        display: block;
-        top: 50%;
-        right: 50%;
-        width: 16px;
+
+      .card-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        padding: 1rem;
       }
+
+      .card-form > sl-button {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .card-form > p {
+        font-size: calc(16px * 4);
+        line-height: normal;
+        margin: 0;
+        color: var(--sl-color-neutral-950);
+        font-weight: bold;
+      }
+
+      /* Icon colors - override for visibility */
+      .side-one sl-icon {
+        color: var(--sl-color-neutral-950);
+        font-size: 1.75rem;
+      }
+
+      .side-two sl-icon {
+        font-size: 1.75rem;
+      }
+
+      .side-two .icon-plus {
+        color: var(--sl-color-warning-600);
+      }
+
+      .side-two .icon-minus {
+        color: var(--sl-color-neutral-50);
+      }
+
       @media screen and (max-width: 600px) {
-        .fab-container {
-          top: calc(50vh - 72px) !important;
+        main {
+          height: calc(100vh - 80px);
+        }
+
+        .standard-tracker {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .side-one,
+        .side-two {
+          flex: 1;
+          min-height: 50%;
+        }
+
+        .card-form > p {
+          font-size: calc(16px * 3);
         }
       }
+
+      @media screen and (min-width: 600px) {
+        main {
+          height: calc(100vh - 80px);
+        }
+
+        .card-form > sl-button {
+          width: 40vw;
+          max-width: 400px;
+        }
+      }
+
+      /* Drawer styles */
+      .reset-points-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .reset-points-form sl-input {
+        text-align: center;
+      }
+
+      .tree-with-lines {
+        color: var(--sl-color-neutral-50);
+      }
+
+      @media screen and (min-width: 600px) {
+        .reset-points-form {
+          flex-direction: row;
+          justify-content: center;
+          align-items: flex-end;
+        }
+      }
+
+      /* FAB positioning - centered horizontally */
       .fab-container {
-        position: absolute;
-        top: calc(50% - 24px);
-        right: calc(50vw - 2rem);
-        box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, .5);
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1000;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         border-radius: 50%;
+      }
+
+      @media screen and (max-width: 600px) {
+        .fab-container {
+          top: 50%;
+        }
       }
     `
   ]
@@ -376,42 +428,34 @@ export class MatchTracker extends LitElement {
   const menuContent = sideMenuItems.length > 0 ? sideMenuItems : emptyState;
 
   return html`
-    <main style="height: 100%; padding: 0; margin: 0 .5rem; margin-top: .5rem;">
+    <main>
       <div class="standard-tracker">
         <sl-card class="side-one">
-          <form class="card-form" style="position: relative;">
+          <form class="card-form">
             <sl-button variant="default" size="large" class="life-counter side-one" @click=${() => this.updatePoints(1, 1, 'Plus')}>
-              <span style="font-size: 1.75rem; color: var(--sl-color-neutral-950);">
-                <sl-icon slot="prefix" name="shield-fill-plus"></sl-icon>
-              </span>
+              <sl-icon slot="prefix" name="shield-fill-plus"></sl-icon>
               Plus
             </sl-button>
-            <p class="text-center ms-4x" style="line-height: normal; margin: 0;">
+            <p class="text-center ms-4x">
               ${this.side1.points}
             </p>
             <sl-button variant="default" size="large" class="life-counter side-one" @click=${() => this.updatePoints(1, -1, 'Minus')}>
-              <span style="font-size: 1.75rem; color: var(--sl-color-neutral-950);">
-                <sl-icon slot="prefix" name="shield-fill-minus"></sl-icon>
-              </span>
+              <sl-icon slot="prefix" name="shield-fill-minus"></sl-icon>
               Minus
             </sl-button>
           </form>
         </sl-card>
         <sl-card class="side-two">
-          <form class="card-form" style="position: relative;">
+          <form class="card-form">
             <sl-button variant="default" size="large" class="life-counter side-two" @click=${() => this.updatePoints(2, 1, 'Plus')}>
-              <span style="font-size: 1.75rem; color: var(--sl-color-warning-600);">
-                <sl-icon slot="prefix" name="shield-fill-plus"></sl-icon>
-              </span>
+              <sl-icon slot="prefix" name="shield-fill-plus" class="icon-plus"></sl-icon>
               Plus
             </sl-button>
-            <p class="text-center ms-4x" style="line-height: normal; margin: 0;">
+            <p class="text-center ms-4x">
               ${this.side2.points}
             </p>
             <sl-button variant="default" size="large" class="life-counter side-two" @click=${() => this.updatePoints(2, -1, 'Minus')}>
-              <span style="font-size: 1.75rem; color: var(--sl-color-neutral-50);">
-                <sl-icon slot="prefix" name="shield-fill-minus"></sl-icon>
-              </span>
+              <sl-icon slot="prefix" name="shield-fill-minus" class="icon-minus"></sl-icon>
               Minus
             </sl-button>
           </form>
@@ -425,11 +469,9 @@ export class MatchTracker extends LitElement {
               size="medium"
               pill
               placeholder="Starting points must be greater than 0"
-              type="number"
               value=${this.initialPointsTracker}
               @sl-change=${this.setInitialPointsTracker}
               min="0"
-              style="text-align: center; margin-bottom: .5rem;"
             >
             </sl-input>
             <sl-button
@@ -447,7 +489,7 @@ export class MatchTracker extends LitElement {
             Starting points have been reset to ${this.initialPointsTracker}.
           </sl-alert>
           <h3>History</h3>
-          <sl-tree class="tree-with-lines" style="color: var(--sl-color-neutral-50);">
+          <sl-tree class="tree-with-lines">
             ${menuContent}
           </sl-tree>
         <sl-button slot="footer" variant="primary" pill @click=${this.closeDrawer}>Close</sl-button>
