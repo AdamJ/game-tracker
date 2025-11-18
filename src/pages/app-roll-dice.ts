@@ -90,6 +90,10 @@ export class AppRollDice extends LitElement {
       sl-card::part(body) {
         padding-top: var(--sl-spacing-medium);
       }
+      sl-badge::part(base) {
+        height: 2rem;
+        width: 2rem;
+      }
     `,
   ];
 
@@ -152,12 +156,6 @@ export class AppRollDice extends LitElement {
         </sl-card>
       </main>
       <app-navigation></app-navigation>
-      <style>
-        sl-badge::part(base) {
-          height: 2rem;
-          width: 2rem;
-        }
-      </style>
     `;
   }
 }

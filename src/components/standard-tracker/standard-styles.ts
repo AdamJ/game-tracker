@@ -6,7 +6,7 @@ export const standardStyles = css`
       display: flex;
       flex-direction: row;
       justify-content: space-evenly;
-      grid-gap: 1rem;
+      gap: 1rem;
     }
     sl-card.side-one::part(base),
     sl-card.side-two::part(base) {
@@ -44,7 +44,7 @@ export const standardStyles = css`
   .form-player-input {
     width: 100%;
   }
-  @media (min-width: 1000px) {
+  @media (min-width: 1200px) {
     .form-2-column {
       flex-direction: row;
     }

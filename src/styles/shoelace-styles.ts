@@ -26,7 +26,7 @@ export const shoelaceStyles = css`
     padding-bottom: .5rem;
   }
   sl-tab::part(base) {
-    background: #E0F1FE;
+    background: var(--sl-color-primary-100);
   }
   sl-tab[active] sl-icon {
     fill: var(--sl-color-primary-50) !important;
@@ -36,7 +36,7 @@ export const shoelaceStyles = css`
   sl-tab:hover sl-icon {
     color: var(--sl-color-primary-50) !important;
     fill: var(--sl-color-primary-50) !important;
-    background: #0163a3 !important;
+    background: var(--sl-color-primary-600) !important;
   }
   sl-tab::part(base):focus-visible,
   sl-tab.ios-tab::part(base):focus-visible {
@@ -48,20 +48,10 @@ export const shoelaceStyles = css`
     padding: .75rem 1rem;
   }
   sl-tab[active]::part(base) {
-    background: #0163a3 !important;
+    background: var(--sl-color-primary-600) !important;
     color: var(--sl-color-primary-50) !important;
   }
 
-  // sl-tag::part(base) {
-  //   border-radius: 0.625rem;
-  //   background: var(--Windows-Glass);
-  //   background-blend-mode: color-dodge, lighten;
-  //   color: rgba(255, 255, 255, 0.96) !important;
-  //   text-align: center;
-  // }
-  // sl-tag::part(remove-button) {
-  //   color: rgba(255, 255, 255, 0.96) !important;
-  // }
   sl-tree-item::part(base) {
     color: var(--sl-color-neutral-950);
   }
