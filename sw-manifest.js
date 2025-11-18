@@ -236,64 +236,64 @@ const __WB_MANIFEST = [
     "revision": "2e9680930dfcf670059421e2b16eacca"
   },
   {
-    "url": "/code/app-about-BZ5VcT7W.js",
-    "revision": "819961105b1f54e42b303ab607db3c01"
+    "url": "/code/app-about-CXCgvzr7.js",
+    "revision": "ce2850bef20b6038e909ea06fcbb8778"
   },
   {
-    "url": "/code/app-about-BZ5VcT7W.js.map",
-    "revision": "095fa5f4f87af1deef65d943416f0808"
+    "url": "/code/app-about-CXCgvzr7.js.map",
+    "revision": "3f9f23afec10d86eaa0d7978fce7ce19"
   },
   {
-    "url": "/code/app-counter-CRp-ybeD.js",
-    "revision": "6a7da3d0652620ace61ca5bf0ac0f44d"
+    "url": "/code/app-counter-CBjYzmAz.js",
+    "revision": "d69392f196bb71483e00ace1ef065203"
   },
   {
-    "url": "/code/app-counter-CRp-ybeD.js.map",
-    "revision": "c8399ff90906012bca7284351113243a"
+    "url": "/code/app-counter-CBjYzmAz.js.map",
+    "revision": "8c955b4c6e7f0b797a93ae75e9fa9be8"
   },
   {
-    "url": "/code/app-game-tracker-6uF4HlNH.js",
-    "revision": "f540f080bcc89f61efc7b8b29e21857e"
+    "url": "/code/app-game-tracker-Dei1fohb.js",
+    "revision": "d2238d432ae4a059a9f537a86940bd30"
   },
   {
-    "url": "/code/app-game-tracker-6uF4HlNH.js.map",
-    "revision": "212481f176ed160b6094a490e14a8985"
+    "url": "/code/app-game-tracker-Dei1fohb.js.map",
+    "revision": "66ee0b9914a8246b068bc79d0c183e9a"
   },
   {
-    "url": "/code/app-roll-dice-C9bCIu8_.js",
-    "revision": "720d3e21956c1932a1437da2d92c3165"
+    "url": "/code/app-roll-dice-BZI71AhT.js",
+    "revision": "ee8eae1226b5b1120a839ee0bac75e6c"
   },
   {
-    "url": "/code/app-roll-dice-C9bCIu8_.js.map",
-    "revision": "b5a8b6d79f58fd9dfeec684f36a0d310"
+    "url": "/code/app-roll-dice-BZI71AhT.js.map",
+    "revision": "5aa5af0513eb42220556bcb158075ac6"
   },
   {
-    "url": "/code/app-standard-Cc2mmV4z.js",
-    "revision": "32a7adb5463a21b619104d0e19772f64"
+    "url": "/code/app-standard-CWIYOMbh.js",
+    "revision": "78cc012f9afaec2a7f94dc198be756ea"
   },
   {
-    "url": "/code/app-standard-Cc2mmV4z.js.map",
-    "revision": "19b0d0119a9383d76d42383b92ca1e7b"
+    "url": "/code/app-standard-CWIYOMbh.js.map",
+    "revision": "470606f7ab2b00ac479dd067eb10b385"
   },
   {
-    "url": "/code/counter-styles-BeSrA1Vm.js",
-    "revision": "fa961b9ae5ac7418aa952533b7855d3d"
+    "url": "/code/counter-styles-B2XUwgq6.js",
+    "revision": "a531f2e1c061c5b3f7a89abb369d8983"
   },
   {
-    "url": "/code/counter-styles-BeSrA1Vm.js.map",
-    "revision": "29afe1f801182a933430b8f3bb8305aa"
+    "url": "/code/counter-styles-B2XUwgq6.js.map",
+    "revision": "75629f4a9618fe6302ca79153f5a9eb9"
   },
   {
-    "url": "/code/index-BXUZZy4M.js",
-    "revision": "44c36138d77d42f1847b85ebfc55e809"
+    "url": "/code/index-BeFMyCkN.css",
+    "revision": "6903f07e4d875e953134853e4d1e6fee"
   },
   {
-    "url": "/code/index-BXUZZy4M.js.map",
-    "revision": "be156e919036900d19c089c25c090bc7"
+    "url": "/code/index-CcTr4ZfK.js",
+    "revision": "16322c4431d708cff6278d960db9d6c0"
   },
   {
-    "url": "/code/index-BhaxQKVe.css",
-    "revision": "8f00dfacf98f98a54b0e4f2a9092b2f0"
+    "url": "/code/index-CcTr4ZfK.js.map",
+    "revision": "d8f99ca88bb5e74afa3bb33c61743b70"
   },
   {
     "url": "/code/index-DPyTNidZ.js",
@@ -304,16 +304,16 @@ const __WB_MANIFEST = [
     "revision": "2a3b207df19e6795556c5c8461e5cffb"
   },
   {
-    "url": "/code/table-styles-fj59AIDj.js",
-    "revision": "1a1f5772894d790bd765e87968bcbed4"
+    "url": "/code/table-styles-DGActeWR.js",
+    "revision": "a85d898b9307468bbcb22e1f5392f8c8"
   },
   {
-    "url": "/code/table-styles-fj59AIDj.js.map",
-    "revision": "02b663dc5f2e3970a64b4d05a0fa1ce8"
+    "url": "/code/table-styles-DGActeWR.js.map",
+    "revision": "ac3a4ac42e9612d0b0e23811f44f4aa9"
   },
   {
     "url": "/index.html",
-    "revision": "d83b7fde2d77c0736c57569a06c48a5e"
+    "revision": "4287960d0579c378a3e50b7775890657"
   },
   {
     "url": "/manifest.json",
@@ -345,7 +345,7 @@ const __WB_MANIFEST = [
   },
   {
     "url": "/sw.js",
-    "revision": "e600c4ca9d254ed88a746851860504a6"
+    "revision": "9b04e3d17030ed36ab3c410489c144a0"
   },
   {
     "url": "/sw.js.map",

@@ -1,10 +1,21 @@
-import{i as r}from"./index-BXUZZy4M.js";const e=r`
+import{i as r}from"./index-CcTr4ZfK.js";const e=r`
   @media (max-width: 950px) {
     sl-card.player-one::part(base),
     sl-card.player-two::part(base),
     sl-card.player-three::part(base),
     sl-card.player-four::part(base) {
       height: 40vh;
+    }
+    sl-card::part(body) {
+      height: 100%;
+    }
+  }
+  @media (min-width: 950px) {
+    sl-card.player-one,
+    sl-card.player-two,
+    sl-card.player-three,
+    sl-card.player-four {
+      flex: 1;
     }
     sl-card::part(body) {
       height: 100%;
@@ -101,4 +112,4 @@ import{i as r}from"./index-BXUZZy4M.js";const e=r`
     }
   }
 `;export{e as c};
-//# sourceMappingURL=counter-styles-BeSrA1Vm.js.map
+//# sourceMappingURL=counter-styles-B2XUwgq6.js.map

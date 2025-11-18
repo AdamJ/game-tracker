@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["code/app-counter-CRp-ybeD.js","code/table-styles-fj59AIDj.js","code/counter-styles-BeSrA1Vm.js","code/app-game-tracker-6uF4HlNH.js","code/app-standard-Cc2mmV4z.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["code/app-counter-CBjYzmAz.js","code/table-styles-DGActeWR.js","code/counter-styles-B2XUwgq6.js","code/app-game-tracker-Dei1fohb.js","code/app-standard-CWIYOMbh.js"])))=>i.map(i=>d[i]);
 (function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const s of document.querySelectorAll('link[rel="modulepreload"]'))o(s);new MutationObserver(s=>{for(const a of s)if(a.type==="childList")for(const n of a.addedNodes)n.tagName==="LINK"&&n.rel==="modulepreload"&&o(n)}).observe(document,{childList:!0,subtree:!0});function i(s){const a={};return s.integrity&&(a.integrity=s.integrity),s.referrerPolicy&&(a.referrerPolicy=s.referrerPolicy),s.crossOrigin==="use-credentials"?a.credentials="include":s.crossOrigin==="anonymous"?a.credentials="omit":a.credentials="same-origin",a}function o(s){if(s.ep)return;s.ep=!0;const a=i(s);fetch(s.href,a)}})();Notification.permission!=="granted"&&Notification.requestPermission().then(t=>{console.log(t==="granted"?"Notification Permission Granted":"Notification Permission not granted")}).catch(t=>{console.error("Error requesting notification permission:",t)});"serviceWorker"in navigator&&window.addEventListener("load",()=>{navigator.serviceWorker.register("/sw.js",{scope:"./"}).then(t=>{console.log("Service worker registered:",t),t.addEventListener("updatefound",()=>{console.log("Service Worker update found!");const e=t.installing;e&&e.addEventListener("statechange",()=>{e.state==="installed"&&(console.log("New service worker is installed, letting user know."),Ko(t))})}),t.waiting&&(console.log("There is a waiting service worker."),Ko(t))}).catch(t=>{console.error("Service worker registration failed:",t)})});let Qe;window.addEventListener("load",()=>{const t=document.querySelector(".install-dialog");if(t){t.addEventListener("sl-request-close",()=>{console.log("Modal close requested")});const e=t.querySelector(".install-button");e&&e.addEventListener("click",()=>{Qe&&(Qe.prompt(),Qe.userChoice.then(i=>{i.outcome==="accepted"?console.log("User accepted the install prompt"):console.log("User dismissed the install prompt"),Qe=null,t.hide()}))})}});window.addEventListener("beforeinstallprompt",t=>{if(console.log("PWA is considered installable by the browser."),t.preventDefault(),Qe=t,!window.matchMedia("(display-mode: standalone)").matches&&!sessionStorage.getItem("installModalShown")){const e=document.querySelector(".install-dialog");e&&(e.show(),sessionStorage.setItem("installModalShown","true"))}});window.addEventListener("appinstalled",()=>{console.log("PWA installed!")});function Ko(t){console.log("Attempting to show the update ui to the user.");const e=document.querySelector(".update-dialog");if(e){e.show();const i=e.querySelector(".update-button");i&&i.addEventListener("click",()=>{t.waiting&&(console.log("Telling waiting service worker to skip waiting."),t.waiting.postMessage({type:"SKIP_WAITING"})),e.hide()})}}/**
  * @license
  * Copyright 2019 Google LLC
@@ -52,7 +52,7 @@ const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["code/app-counter-CRp-y
  */function Gr(t){return(e,i)=>To(e,i,{async get(){return await this.updateComplete,this.renderRoot?.querySelector(t)??null}})}const Qr="modulepreload",Zr=function(t){return"/"+t},ss={},ze=function(e,i,o){let s=Promise.resolve();if(i&&i.length>0){let n=function(h){return Promise.all(h.map(f=>Promise.resolve(f).then(u=>({status:"fulfilled",value:u}),u=>({status:"rejected",reason:u}))))};document.getElementsByTagName("link");const c=document.querySelector("meta[property=csp-nonce]"),d=c?.nonce||c?.getAttribute("nonce");s=n(i.map(h=>{if(h=Zr(h),h in ss)return;ss[h]=!0;const f=h.endsWith(".css"),u=f?'[rel="stylesheet"]':"";if(document.querySelector(`link[href="${h}"]${u}`))return;const p=document.createElement("link");if(p.rel=f?"stylesheet":Qr,f||(p.as="script"),p.crossOrigin="",p.href=h,d&&p.setAttribute("nonce",d),document.head.appendChild(p),f)return new Promise((m,g)=>{p.addEventListener("load",m),p.addEventListener("error",()=>g(new Error(`Unable to preload CSS for ${h}`)))})}))}function a(n){const c=new Event("vite:preloadError",{cancelable:!0});if(c.payload=n,window.dispatchEvent(c),!c.defaultPrevented)throw n}return s.then(n=>{for(const c of n||[])c.status==="rejected"&&a(c.reason);return e().catch(a)})},Lo=Symbol.for("app-tools::log::1.x");globalThis[Lo]={setDebug:Jr,debug:"window"in globalThis?new URL(window.location.href).searchParams.has("app-tools-debug"):!1};function Jr(t){globalThis[Lo].debug=!!t}function ta(t,e){globalThis[Lo].debug&&(console.groupCollapsed(`[app-tools] ${t}`),e&&console.log(e),console.groupEnd())}function ea(t){return(e,i)=>{ta(`${t}: ${e}`,i)}}const se=ea("router");class ia extends Event{constructor(e){super("route-changed"),this.context=e}}class oa extends EventTarget{context={params:{},query:{},title:"",url:new URL(window.location.href)};constructor(e){super(),this.config=e,this.routes=e.routes.map(i=>({...i,urlPattern:new URLPattern({pathname:i.path,baseURL:window.location.href,search:"*",hash:"*"})})),se("Initialized routes",this.routes),queueMicrotask(()=>{this.navigate(new URL(window.location.href),{replace:!0})}),window.addEventListener("popstate",this._onPopState),window.addEventListener("click",this._onAnchorClick)}uninstall(){window.removeEventListener("popstate",this._onPopState),window.removeEventListener("click",this._onAnchorClick)}get url(){return new URL(window.location.href)}get fallback(){return new URL(this.config?.fallback||this.baseUrl.href.substring(window.location.origin.length),this.baseUrl)}get baseUrl(){return new URL("./",document.baseURI)}render(){return se(`Rendering route ${this.context.url.pathname}${this.context.url.search}${this.context.url.hash}`,{context:this.context,route:this.route}),this.route?.render?.(this.context)}_matchRoute(e){for(const i of this.routes){const o=i.urlPattern.exec(e);if(o){const{title:s}=i,a=Object.fromEntries(new URLSearchParams(e.search)),n=o?.pathname?.groups??{};return this.context={url:e,title:typeof s=="function"?s({params:n,query:a,url:e}):s,params:n,query:a},i}}return se(`No route matched for ${e.pathname}${e.search}${e.hash}`,e),null}_notifyUrlChanged(){this.dispatchEvent(new ia(this.context))}_onPopState=()=>{this.navigate(new URL(window.location.href),{backNav:!0})};_onAnchorClick=e=>{if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey)return;const i=e.composedPath().find(a=>a.tagName==="A");if(!i||!i.href)return;const o=new URL(i.href);if(this.url.href===o.href||o.host!==window.location.host||i.hasAttribute("download")||i.href.includes("mailto:"))return;const s=i.getAttribute("target");s&&s!==""&&s!=="_self"||(e.preventDefault(),this.navigate(o))};_collectPlugins(e){return[...this.config?.plugins??[],...e?.plugins??[]]}async navigate(e,i={}){typeof e=="string"&&(e=new URL(e,this.baseUrl));let o=this._matchRoute(e)||this._matchRoute(this.fallback);se(`Navigating to ${e.pathname}${e.search}${e.hash}`,{context:this.context,route:this.route});let s=this._collectPlugins(o),a;do{a=!1;for(const n of s)try{const c=await n?.shouldNavigate?.(this.context);if(c&&!await c.condition()){e=new URL(c.redirect,this.baseUrl),o=this._matchRoute(e)||this._matchRoute(this.fallback),s=this._collectPlugins(o),se("Redirecting",{context:this.context,route:this.route}),a=!0;break}}catch(c){throw se(`Plugin "${n.name}" error on shouldNavigate hook`,c),c}}while(a);if(this.route=o,!this.route)throw new Error(`[ROUTER] No route or fallback matched for url ${e}`);for(const n of s)try{await n?.beforeNavigation?.(this.context)}catch(c){throw se(`Plugin "${n.name}" error on beforeNavigation hook`,c),c}i?.replace?window.history.replaceState(null,"",`${e.pathname}${e.search}${e.hash}`):i.backNav||window.history.pushState(null,"",`${e.pathname}${e.search}${e.hash}`),document.title=this.context.title,this._notifyUrlChanged();for(const n of s)try{await n?.afterNavigation?.(this.context)}catch(c){throw se(`Plugin "${n.name}" error on afterNavigation hook`,c),c}}}function sa(t){return{name:"appName",beforeNavigation:e=>{e.title=`${t} ${e.title}`}}}function We(t){return{name:"lazy",beforeNavigation:()=>{t()}}}const rs="app-tools",as="1.x",ns="router-focus",ra="position:absolute;top:0;width:1px;height:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);clip-path:inset(50%);margin:-1px;",aa={name:"resetFocus",afterNavigation:({title:t})=>{let e=document.querySelector(`div[${rs}][version="${as}"]#${ns}`);e||(e=document.createElement("div"),e.setAttribute(rs,""),e.setAttribute("version",as),e.id=ns,e.setAttribute("tabindex","-1"),e.setAttribute("aria-live","polite"),e.setAttribute("style",ra),e.addEventListener("blur",()=>{e?.style.setProperty("display","none")}),document.body.insertBefore(e,document.body.firstChild)),e.textContent=t,e.style.removeProperty("display"),e.focus()}},na={name:"scrollToTop",beforeNavigation:()=>{window.scrollTo(0,0)}},la={name:"checkServiceWorkerUpdate",beforeNavigation:()=>{"serviceWorker"in navigator&&navigator.serviceWorker.getRegistration().then(t=>{t&&t.update()})}};var ca=Object.getOwnPropertyDescriptor,da=(t,e,i,o)=>{for(var s=o>1?void 0:o?ca(e,i):e,a=t.length-1,n;a>=0;a--)(n=t[a])&&(s=n(s)||s);return s};let ls=class extends Rt{render(){return b`
         <h1>You are offline</h1>
         <p>Reconnect to a network and refresh the page</p>
-      `}};ls=da([Ie("offline-page")],ls);globalThis.URLPattern||await ze(()=>import("./index-DPyTNidZ.js"),[]);const ha="/",co=new oa({plugins:[la,na,aa,sa("Moonsilver Waypoints -")],routes:[{path:bt(),title:"Home",render:()=>(console.log("Router: Rendering app-home"),b`<app-home></app-home>`)},{path:bt("about"),title:"About",plugins:[We(()=>ze(()=>import("./app-about-BZ5VcT7W.js"),[]))],render:()=>b`<app-about></app-about>`},{path:bt("counter"),title:"EDH Event Tracker",plugins:[We(()=>ze(()=>import("./app-counter-CRp-ybeD.js"),__vite__mapDeps([0,1,2])))],render:()=>b`<app-counter></app-counter>`},{path:bt("game-tracker"),title:"Tournament Tracker",plugins:[We(()=>ze(()=>import("./app-game-tracker-6uF4HlNH.js"),__vite__mapDeps([3,1])))],render:()=>b`<app-standings></app-standings>`},{path:bt("standard-tracker"),title:"Standard Counter",plugins:[We(()=>ze(()=>import("./app-standard-Cc2mmV4z.js"),__vite__mapDeps([4,1,2])))],render:()=>b`<app-standard></app-standard>`},{path:"offline.html",title:"Offline",render:()=>(console.log("Router: Rendering offline-page"),b`<offline-page></offline-page>`)},{path:bt("app-roll-dice"),title:"Roll Dice",plugins:[We(()=>ze(()=>import("./app-roll-dice-C9bCIu8_.js"),[]))],render:()=>b`<app-roll-dice></app-roll-dice>`}]});function bt(t){var e=ha;return e.startsWith("/")||(e="/"+e),t&&(e=e+t),e}var Oo=t=>{var e;const{activeElement:i}=document;i&&t.contains(i)&&((e=document.activeElement)==null||e.blur())},ua=S`
+      `}};ls=da([Ie("offline-page")],ls);globalThis.URLPattern||await ze(()=>import("./index-DPyTNidZ.js"),[]);const ha="/",co=new oa({plugins:[la,na,aa,sa("Moonsilver Waypoints -")],routes:[{path:bt(),title:"Home",render:()=>(console.log("Router: Rendering app-home"),b`<app-home></app-home>`)},{path:bt("about"),title:"About",plugins:[We(()=>ze(()=>import("./app-about-CXCgvzr7.js"),[]))],render:()=>b`<app-about></app-about>`},{path:bt("counter"),title:"EDH Event Tracker",plugins:[We(()=>ze(()=>import("./app-counter-CBjYzmAz.js"),__vite__mapDeps([0,1,2])))],render:()=>b`<app-counter></app-counter>`},{path:bt("game-tracker"),title:"Tournament Tracker",plugins:[We(()=>ze(()=>import("./app-game-tracker-Dei1fohb.js"),__vite__mapDeps([3,1])))],render:()=>b`<app-standings></app-standings>`},{path:bt("standard-tracker"),title:"Standard Counter",plugins:[We(()=>ze(()=>import("./app-standard-CWIYOMbh.js"),__vite__mapDeps([4,1,2])))],render:()=>b`<app-standard></app-standard>`},{path:"offline.html",title:"Offline",render:()=>(console.log("Router: Rendering offline-page"),b`<offline-page></offline-page>`)},{path:bt("app-roll-dice"),title:"Roll Dice",plugins:[We(()=>ze(()=>import("./app-roll-dice-BZI71AhT.js"),[]))],render:()=>b`<app-roll-dice></app-roll-dice>`}]});function bt(t){var e=ha;return e.startsWith("/")||(e="/"+e),t&&(e=e+t),e}var Oo=t=>{var e;const{activeElement:i}=document;i&&t.contains(i)&&((e=document.activeElement)==null||e.blur())},ua=S`
   :host {
     display: inline-block;
     color: var(--sl-color-neutral-600);
@@ -7085,7 +7085,7 @@ const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["code/app-counter-CRp-y
     padding-bottom: .5rem;
   }
   sl-tab::part(base) {
-    background: #E0F1FE;
+    background: var(--sl-color-primary-100);
   }
   sl-tab[active] sl-icon {
     fill: var(--sl-color-primary-50) !important;
@@ -7095,7 +7095,7 @@ const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["code/app-counter-CRp-y
   sl-tab:hover sl-icon {
     color: var(--sl-color-primary-50) !important;
     fill: var(--sl-color-primary-50) !important;
-    background: #0163a3 !important;
+    background: var(--sl-color-primary-600) !important;
   }
   sl-tab::part(base):focus-visible,
   sl-tab.ios-tab::part(base):focus-visible {
@@ -7107,20 +7107,10 @@ const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["code/app-counter-CRp-y
     padding: .75rem 1rem;
   }
   sl-tab[active]::part(base) {
-    background: #0163a3 !important;
+    background: var(--sl-color-primary-600) !important;
     color: var(--sl-color-primary-50) !important;
   }
 
-  // sl-tag::part(base) {
-  //   border-radius: 0.625rem;
-  //   background: var(--Windows-Glass);
-  //   background-blend-mode: color-dodge, lighten;
-  //   color: rgba(255, 255, 255, 0.96) !important;
-  //   text-align: center;
-  // }
-  // sl-tag::part(remove-button) {
-  //   color: rgba(255, 255, 255, 0.96) !important;
-  // }
   sl-tree-item::part(base) {
     color: var(--sl-color-neutral-950);
   }
@@ -7163,7 +7153,7 @@ const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["code/app-counter-CRp-y
     color: var(--sl-color-violet-800);
   }
   @media (max-width: 950px) {
-    .hide-at-800 {
+    .hide-at-950 {
       flex-direction: column !important;
       display: none !important;
     }
@@ -7247,7 +7237,7 @@ const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["code/app-counter-CRp-y
     border-color: rgba(255, 255, 255, .2);
   }
   .toolbar sl-button-group::part(base) {
-    grid-gap: .75rem;
+    gap: .75rem;
   }
   .toolbar sl-button::part(base) {
     border-color: transparent;
@@ -7357,69 +7347,6 @@ const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["code/app-counter-CRp-y
           </div>
         </div>
       </div>
-
-      <style>
-        .navbar {
-          display: flex;
-          justify-content: center;
-          padding: 0rem 0.5rem;
-          align-items: flex-start;
-          gap: 0.5rem;
-          background: #F4F6F7;
-          position: fixed;
-          bottom: 0;
-          left: 0;
-          right: 0;
-        }
-        .navbar-item {
-          display: flex;
-          padding: 1rem 0;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          gap: 0.25rem;
-          flex 1 0 0;
-        }
-        .item-container {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          border-radius: 1rem;
-          background: transparent;
-          border: 2px solid transparent;
-        }
-        .navbar-item.active .item-container {
-          background: #e0f1fe !important;
-          border: 2px solid #0163A3;
-          }
-          .navbar-item:hover .item-container,
-          .navbar-item.active:hover .item-container {
-          background: #e2e8eb !important;
-        }
-        .item-container-label {
-          align-self: stretch;
-          color: #1a1b21;
-          text-align: center;
-          @media (max-width: 950px) {
-            display: none !important;
-          }
-        }
-        .state-layer {
-          display: flex;
-          width: 4rem;
-          @media (max-width: 950px) {
-            width: 2rem !important;
-          }
-          height: 2rem;
-          padding: 0.25rem 1.25rem;
-          justify-content: center;
-          align-items: center;
-        }
-        .navbar-icon {
-          flex-shrink: 0;
-        }
-      </style>
     `}};Pe.styles=S`
     @media only screen and (max-width: 768px) {
       .navigation {
@@ -7441,9 +7368,70 @@ const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["code/app-counter-CRp-y
       color: var(--sl-color-primary-600);
     }
     sl-button sl-icon[slot="prefix"] {
-      background: #fff;
+      background: var(--sl-color-neutral-0);
       border-radius: 50%;
       padding: .25rem;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: center;
+      padding: 0rem 0.5rem;
+      align-items: flex-start;
+      gap: 0.5rem;
+      background: var(--sl-color-neutral-100);
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+    .navbar-item {
+      display: flex;
+      padding: 1rem 0;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0.25rem;
+      flex: 1 0 0;
+    }
+    .item-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 1rem;
+      background: transparent;
+      border: 2px solid transparent;
+    }
+    .navbar-item.active .item-container {
+      background: var(--sl-color-primary-100) !important;
+      border: 2px solid var(--sl-color-primary-600);
+    }
+    .navbar-item:hover .item-container,
+    .navbar-item.active:hover .item-container {
+      background: var(--sl-color-neutral-200) !important;
+    }
+    .item-container-label {
+      align-self: stretch;
+      color: var(--sl-color-neutral-950);
+      text-align: center;
+      @media (max-width: 950px) {
+        display: none !important;
+      }
+    }
+    .state-layer {
+      display: flex;
+      width: 4rem;
+      @media (max-width: 950px) {
+        width: 2rem !important;
+      }
+      height: 2rem;
+      padding: 0.25rem 1.25rem;
+      justify-content: center;
+      align-items: center;
+    }
+    .navbar-icon {
+      flex-shrink: 0;
     }
   `;Qi([T()],Pe.prototype,"isDrawerOpen",2);Qi([T()],Pe.prototype,"currentPathname",2);Qi([Xr(".navbar-item")],Pe.prototype,"navigationItems",2);Pe=Qi([Ie("app-navigation")],Pe);const xh=S`
   /* RIBBON STYLING */
@@ -7835,4 +7823,4 @@ const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["code/app-counter-CRp-y
   `;ko=Ah([Ie("my-app")],ko);S`
 
 `;/iPad|iPhone|iPod/.test(navigator.userAgent)&&!window.navigator.standalone&&document.body.classList.add("safari-ios.safari-ios-message");function Eh(){const t=navigator.userAgent;return/firefox/i.test(t)?"Firefox":/edg/i.test(t)?"Edge":/chrome/i.test(t)&&!/edg/i.test(t)?"Chrome":/safari/i.test(t)&&!/chrome/i.test(t)?"Safari":/opr|opera/i.test(t)?"Opera":"Unknown"}console.log(`User is using: ${Eh()}`);export{K as E,wr as a,Rt as b,bt as c,kh as d,k as e,Ns as f,S as i,l as n,T as r,_r as s,Ie as t,b as x};
-//# sourceMappingURL=index-BXUZZy4M.js.map
+//# sourceMappingURL=index-CcTr4ZfK.js.map

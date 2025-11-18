@@ -1,5 +1,5 @@
-import{s as S,a as w,i as M,n as y,r as o,b as u,x as n,t as m}from"./index-BXUZZy4M.js";import{l as j,t as z}from"./table-styles-fj59AIDj.js";const h={PLAYERS:"players",MATCH_HISTORY:"matchHistory",PLAYER_DATA:"playerData",APP_SETTINGS:"appSettings"};class L{constructor(){this.store=j.createInstance({name:"game-tracker-db",storeName:"game_data",description:"Game tracker application data"})}async getItem(t){try{return await this.store.getItem(t)}catch(s){return console.error(`Error getting item ${t}:`,s),null}}async setItem(t,s){try{return await this.store.setItem(t,s),!0}catch(r){return console.error(`Error setting item ${t}:`,r),!1}}async removeItem(t){try{return await this.store.removeItem(t),!0}catch(s){return console.error(`Error removing item ${t}:`,s),!1}}async clear(){try{return await this.store.clear(),!0}catch(t){return console.error("Error clearing storage:",t),!1}}async keys(){try{return await this.store.keys()}catch(t){return console.error("Error getting keys:",t),[]}}async length(){try{return await this.store.length()}catch(t){return console.error("Error getting length:",t),0}}async getPlayers(){return await this.getItem(h.PLAYERS)||[]}async savePlayers(t){return await this.setItem(h.PLAYERS,t)}async getMatchHistory(){return await this.getItem(h.MATCH_HISTORY)||[]}async saveMatchHistory(t){return await this.setItem(h.MATCH_HISTORY,t)}async getPlayerData(){return await this.getItem(h.PLAYER_DATA)}async savePlayerData(t){return await this.setItem(h.PLAYER_DATA,t)}async getAppSettings(){return await this.getItem(h.APP_SETTINGS)||{theme:"auto",defaultLifeTotal:40,enableNotifications:!0}}async saveAppSettings(t){return await this.setItem(h.APP_SETTINGS,t)}async migrateFromLocalStorage(){try{const t=localStorage.getItem("players");if(t){const r=JSON.parse(t);await this.savePlayers(r),console.log("Migrated players from localStorage")}const s=localStorage.getItem("matchHistory");if(s){const r=JSON.parse(s);await this.saveMatchHistory(r),console.log("Migrated match history from localStorage")}}catch(t){console.error("Error migrating from localStorage:",t)}}async exportAllData(){const t={},s=await this.keys();for(const r of s)t[r]=await this.store.getItem(r);return t}async importData(t){try{for(const[s,r]of Object.entries(t))await this.store.setItem(s,r);return!0}catch(s){return console.error("Error importing data:",s),!1}}}const c=new L;var H=Object.freeze,A=Object.defineProperty,W=Object.getOwnPropertyDescriptor,O=(e,t,s,r)=>{for(var a=r>1?void 0:r?W(t,s):t,l=e.length-1,i;l>=0;l--)(i=e[l])&&(a=(r?i(t,s,a):i(a))||a);return r&&a&&A(t,s,a),a},q=(e,t)=>H(A(e,"raw",{value:H(e.slice())})),I;let f=class extends u{constructor(){super(...arguments),this.players=[],this.newPlayer="",this.errorMessage=""}handleSubmit(e){e.preventDefault(),this.addPlayer()}addPlayer(){if(this.newPlayer&&this.validatePlayerName(this.newPlayer)){this.dispatchEvent(new CustomEvent("player-added",{detail:this.newPlayer})),this.newPlayer="";const e=this.shadowRoot.querySelector("sl-input");e&&(e.helpText="")}else{const e=this.shadowRoot.querySelector("sl-input");e&&(e.helpText=this.errorMessage)}}handleInputChange(e){const t=e.target;this.newPlayer=t.value;const s=this.shadowRoot.querySelector("sl-input");s&&(this.validatePlayerName(this.newPlayer)?s.helpText="":s.helpText=this.errorMessage)}validatePlayerName(e){return/^[a-zA-Z0-9]+$/.test(e)?(this.errorMessage="",!0):(this.errorMessage="Enter a Name containing only letters or numbers with no spaces or special characters.",!1)}removePlayer(e){this.dispatchEvent(new CustomEvent("remove-player",{detail:e}))}clearAllPlayers(){this.dispatchEvent(new CustomEvent("clear-all-players"))}render(){return n(I||(I=q([`
-      <div style="display: flex; flex-direction: row; justify-content: space-between; flex-wrap: wrap; grid-gap: 1rem; padding-left: 1rem; padding-right: 1rem;">
+import{s as S,a as w,i as M,n as y,r as o,b as u,x as n,t as m}from"./index-CcTr4ZfK.js";import{l as j,t as z}from"./table-styles-DGActeWR.js";const h={PLAYERS:"players",MATCH_HISTORY:"matchHistory",PLAYER_DATA:"playerData",APP_SETTINGS:"appSettings"};class L{constructor(){this.store=j.createInstance({name:"game-tracker-db",storeName:"game_data",description:"Game tracker application data"})}async getItem(t){try{return await this.store.getItem(t)}catch(s){return console.error(`Error getting item ${t}:`,s),null}}async setItem(t,s){try{return await this.store.setItem(t,s),!0}catch(r){return console.error(`Error setting item ${t}:`,r),!1}}async removeItem(t){try{return await this.store.removeItem(t),!0}catch(s){return console.error(`Error removing item ${t}:`,s),!1}}async clear(){try{return await this.store.clear(),!0}catch(t){return console.error("Error clearing storage:",t),!1}}async keys(){try{return await this.store.keys()}catch(t){return console.error("Error getting keys:",t),[]}}async length(){try{return await this.store.length()}catch(t){return console.error("Error getting length:",t),0}}async getPlayers(){return await this.getItem(h.PLAYERS)||[]}async savePlayers(t){return await this.setItem(h.PLAYERS,t)}async getMatchHistory(){return await this.getItem(h.MATCH_HISTORY)||[]}async saveMatchHistory(t){return await this.setItem(h.MATCH_HISTORY,t)}async getPlayerData(){return await this.getItem(h.PLAYER_DATA)}async savePlayerData(t){return await this.setItem(h.PLAYER_DATA,t)}async getAppSettings(){return await this.getItem(h.APP_SETTINGS)||{theme:"auto",defaultLifeTotal:40,enableNotifications:!0}}async saveAppSettings(t){return await this.setItem(h.APP_SETTINGS,t)}async migrateFromLocalStorage(){try{const t=localStorage.getItem("players");if(t){const r=JSON.parse(t);await this.savePlayers(r),console.log("Migrated players from localStorage")}const s=localStorage.getItem("matchHistory");if(s){const r=JSON.parse(s);await this.saveMatchHistory(r),console.log("Migrated match history from localStorage")}}catch(t){console.error("Error migrating from localStorage:",t)}}async exportAllData(){const t={},s=await this.keys();for(const r of s)t[r]=await this.store.getItem(r);return t}async importData(t){try{for(const[s,r]of Object.entries(t))await this.store.setItem(s,r);return!0}catch(s){return console.error("Error importing data:",s),!1}}}const c=new L;var H=Object.freeze,A=Object.defineProperty,W=Object.getOwnPropertyDescriptor,O=(e,t,s,r)=>{for(var a=r>1?void 0:r?W(t,s):t,l=e.length-1,i;l>=0;l--)(i=e[l])&&(a=(r?i(t,s,a):i(a))||a);return r&&a&&A(t,s,a),a},q=(e,t)=>H(A(e,"raw",{value:H(e.slice())})),I;let f=class extends u{constructor(){super(...arguments),this.players=[],this.newPlayer="",this.errorMessage=""}handleSubmit(e){e.preventDefault(),this.addPlayer()}addPlayer(){if(this.newPlayer&&this.validatePlayerName(this.newPlayer)){this.dispatchEvent(new CustomEvent("player-added",{detail:this.newPlayer})),this.newPlayer="";const e=this.shadowRoot.querySelector("sl-input");e&&(e.helpText="")}else{const e=this.shadowRoot.querySelector("sl-input");e&&(e.helpText=this.errorMessage)}}handleInputChange(e){const t=e.target;this.newPlayer=t.value;const s=this.shadowRoot.querySelector("sl-input");s&&(this.validatePlayerName(this.newPlayer)?s.helpText="":s.helpText=this.errorMessage)}validatePlayerName(e){return/^[a-zA-Z0-9]+$/.test(e)?(this.errorMessage="",!0):(this.errorMessage="Enter a Name containing only letters or numbers with no spaces or special characters.",!1)}removePlayer(e){this.dispatchEvent(new CustomEvent("remove-player",{detail:e}))}clearAllPlayers(){this.dispatchEvent(new CustomEvent("clear-all-players"))}render(){return n(I||(I=q([`
+      <div style="display: flex; flex-direction: row; justify-content: space-between; flex-wrap: wrap; gap: 1rem; padding-left: 1rem; padding-right: 1rem;">
         <form
           class="input-validation-custom"
           @submit=`,`
@@ -31,7 +31,7 @@ import{s as S,a as w,i as M,n as y,r as o,b as u,x as n,t as m}from"./index-BXUZ
             Add Player
           </sl-button>
         </form>
-        <div style="display: flex; flex-direction: column; grid-gap: .5rem; flex: 1;">
+        <div style="display: flex; flex-direction: column; gap: .5rem; flex: 1;">
           <p style="margin-top: .25rem; margin-bottom: .25rem;">
             <strong>Player List</strong>
           </p>
@@ -45,7 +45,7 @@ import{s as S,a as w,i as M,n as y,r as o,b as u,x as n,t as m}from"./index-BXUZ
               setTimeout(() => (alert.open = true), 2000);
             });
           <\/script>
-          <div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: flex-start; grid-gap: .5rem; width: 100%;">
+          <div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: flex-start; gap: .5rem; width: 100%;">
             `,`
           </div>
         </div>
@@ -88,7 +88,7 @@ import{s as S,a as w,i as M,n as y,r as o,b as u,x as n,t as m}from"./index-BXUZ
   sl-radio-group::part(form-control-input) {
     display: flex;
     flex-direction: row;
-    grid-gap: 1rem;
+    gap: 1rem;
   }
 `;var N=Object.defineProperty,V=Object.getOwnPropertyDescriptor,b=(e,t,s,r)=>{for(var a=r>1?void 0:r?V(t,s):t,l=e.length-1,i;l>=0;l--)(i=e[l])&&(a=(r?i(t,s,a):i(a))||a);return r&&a&&N(t,s,a),a};let g=class extends u{constructor(){super(...arguments),this.players=[],this.player1="",this.player2="",this.winner="draw"}recordMatch(){if(this.player1&&this.player2&&this.player1!==this.player2){let e;this.winner==="draw"?e="draw":this.winner===this.player1?e="win":e="loss",this.dispatchEvent(new CustomEvent("match-recorded",{detail:{player1:this.player1,player2:this.player2,result:e,winner:this.winner}}))}}handlePlayer1Change(e){const t=e.target;this.player1=t.value,(this.winner===this.player2||this.winner===this.player1)&&(this.winner="draw")}handlePlayer2Change(e){const t=e.target;this.player2=t.value,(this.winner===this.player1||this.winner===this.player2)&&(this.winner="draw")}handleWinnerChange(e){const t=e.target;this.winner=t.value==="draw"?"draw":t.value}render(){const e=this.players.filter(l=>l.name!==this.player2),t=this.players.filter(l=>l.name!==this.player1),s=this.player1!==""&&this.player2!=="",r=this.player1===""?"Player 1":this.player1,a=this.player2===""?"Player 2":this.player2;return n`
       <form style="
@@ -191,7 +191,7 @@ import{s as S,a as w,i as M,n as y,r as o,b as u,x as n,t as m}from"./index-BXUZ
             <th>Losses</th>
             <th>Draws</th>
             <th>Points</th>
-            <th class="hide-at-800">Win Percentage</th>
+            <th class="hide-at-950">Win Percentage</th>
           </tr>
         </thead>
         <tbody>
@@ -202,7 +202,7 @@ import{s as S,a as w,i as M,n as y,r as o,b as u,x as n,t as m}from"./index-BXUZ
               <td style="text-align: center;">${e.losses}</td>
               <td style="text-align: center;">${e.draws}</td>
               <td style="text-align: center;">${e.points}</td>
-              <td class="hide-at-800" style="text-align: center;">${e.winPercentage||0}</td>
+              <td class="hide-at-950" style="text-align: center;">${e.winPercentage||0}</td>
             </tr>
           `)}
         </tbody>
@@ -294,11 +294,11 @@ import{s as S,a as w,i as M,n as y,r as o,b as u,x as n,t as m}from"./index-BXUZ
         @sl-after-close=${this.close}
       >
         <p>${this.message}</p>
-        <sl-button slot="footer" variant="danger" @click=${this.confirm}>
-          Confirm
-        </sl-button>
         <sl-button slot="footer" variant="default" @click=${this.close}>
           Cancel
+        </sl-button>
+        <sl-button slot="footer" variant="danger" @click=${this.confirm}>
+          Confirm
         </sl-button>
       </sl-dialog>
     `:n``}};E([y({type:Boolean})],x.prototype,"isOpen",2);E([y({type:String})],x.prototype,"message",2);x=E([m("confirmation-modal")],x);var Q=Object.defineProperty,X=Object.getOwnPropertyDescriptor,d=(e,t,s,r)=>{for(var a=r>1?void 0:r?X(t,s):t,l=e.length-1,i;l>=0;l--)(i=e[l])&&(a=(r?i(t,s,a):i(a))||a);return r&&a&&Q(t,s,a),a};let p=class extends u{constructor(){super(...arguments),this.activeTab="standings",this.players=[],this.matchHistory=[],this.standings=[],this.isLoading=!0,this.editModalOpen=!1,this.editMatchIndex=null,this.confirmationModalOpen=!1}connectedCallback(){super.connectedCallback(),this.loadData()}async loadData(){try{const e=localStorage.getItem("players"),t=localStorage.getItem("matchHistory");(e||t)&&(console.log("Migrating data from localStorage to centralizedStorage"),await c.migrateFromLocalStorage(),localStorage.removeItem("players"),localStorage.removeItem("matchHistory")),this.players=await c.getPlayers(),this.matchHistory=await c.getMatchHistory()}catch(e){console.error("Error loading data:",e),this.players=[],this.matchHistory=[],await c.savePlayers(this.players)}finally{this.isLoading=!1,this.calculateStandings()}}async addPlayer(e){this.players=[...this.players,e],await c.savePlayers(this.players),this.calculateStandings(),this.requestUpdate()}async removePlayer(e){this.players=this.players.filter(t=>t!==e),await c.savePlayers(this.players),this.calculateStandings(),this.requestUpdate()}async clearAllPlayers(){this.players=[],await c.savePlayers(this.players),this.calculateStandings(),this.requestUpdate()}async recordMatch(e){this.matchHistory=[...this.matchHistory,e],await c.saveMatchHistory(this.matchHistory),this.calculateStandings(),this.requestUpdate()}calculateStandings(){const e=this.initializeStandings();this.matchHistory.forEach(t=>this.applyMatchResult(t,e)),this.finalizeStandings(e)}initializeStandings(){const e=new Map;return this.players.forEach(t=>{e.set(t,{wins:0,losses:0,draws:0,points:0,winPercentage:0})}),e}applyMatchResult(e,t){const s=t.get(e.player1),r=t.get(e.player2);s&&r?e.result==="win"?(s.wins++,s.points+=3,r.losses++):e.result==="loss"?(r.wins++,r.points+=3,s.losses++):(s.draws++,s.points++,r.draws++,r.points++):(s||console.error(`Player not found in standings: ${e.player1}`),r||console.error(`Player not found in standings: ${e.player2}`))}finalizeStandings(e){this.players.forEach(t=>{const s=e.get(t),r=s.wins+s.losses+s.draws;s.winPercentage=r>0?s.wins/r*100:0,s.winPercentage=parseFloat(s.winPercentage.toFixed(2))}),this.standings=Array.from(e.entries()).map(([t,s])=>({name:t,wins:s.wins,losses:s.losses,draws:s.draws,points:s.points,winPercentage:s.winPercentage})),this.standings.sort((t,s)=>s.points!==t.points?s.points-t.points:(s.winPercentage||0)-(t.winPercentage||0))}openEditModal(e){this.editMatchIndex=e,this.editModalOpen=!0}async editMatch(e){this.editMatchIndex!==null&&(this.matchHistory=this.matchHistory.map((t,s)=>s===this.editMatchIndex?e:t),await c.saveMatchHistory(this.matchHistory),this.calculateStandings(),this.editMatchIndex=null,this.editModalOpen=!1,this.requestUpdate())}exportMatchResults(){const e=this.matchHistory.map(t=>`${t.player1},${t.player2},${t.result}`).join(`
@@ -321,7 +321,7 @@ import{s as S,a as w,i as M,n as y,r as o,b as u,x as n,t as m}from"./index-BXUZ
           </sl-button>
         </sl-button-group>
       </div>
-      <div style="display: flex; flex-direction: column; grid-gap: 1rem;">
+      <div style="display: flex; flex-direction: column; gap: 1rem;">
         <sl-details summary="Match details" open>
           <match-input .players=${this.players.map(e=>({name:e}))} @match-recorded=${e=>this.recordMatch(e.detail)}></match-input>
         </sl-details>
@@ -339,12 +339,12 @@ import{s as S,a as w,i as M,n as y,r as o,b as u,x as n,t as m}from"./index-BXUZ
           </sl-tab-panel>
           <sl-tab-panel name="history">
             <div slot="header">
-              <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; grid-gap: .5rem; width: 100%;">
+              <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; gap: .5rem; width: 100%;">
                 Match results
                 <sl-tooltip content="Export Results">
                   <sl-button variant="success" size="small" pill label="export match results" @click=${this.exportMatchResults}>
                     <sl-icon slot="prefix" library="default" name="file-earmark-excel-fill" label="Export Results"></sl-icon>
-                    Export <span class="hide-at-800">Standings</span>
+                    Export <span class="hide-at-950">Standings</span>
                   </sl-button>
                 </sl-tooltip>
               </div>
@@ -377,15 +377,16 @@ import{s as S,a as w,i as M,n as y,r as o,b as u,x as n,t as m}from"./index-BXUZ
         }
       </style>
     `}};p.styles=[S,w,D];d([o()],p.prototype,"activeTab",2);d([o()],p.prototype,"players",2);d([o()],p.prototype,"matchHistory",2);d([o()],p.prototype,"standings",2);d([o()],p.prototype,"isLoading",2);d([o()],p.prototype,"editModalOpen",2);d([o()],p.prototype,"editMatchIndex",2);d([o()],p.prototype,"confirmationModalOpen",2);p=d([m("standings-tracker")],p);var k=Object.getOwnPropertyDescriptor,ee=(e,t,s,r)=>{for(var a=r>1?void 0:r?k(t,s):t,l=e.length-1,i;l>=0;l--)(i=e[l])&&(a=i(a)||a);return a};let C=class extends u{render(){return n`
-      <main style="margin: 0 .5rem">
+      <main>
         <standings-tracker></standings-tracker>
       </main>
       <app-navigation></app-navigation>
-      <style>
-        sl-button::part(prefix) sl-icon {
-          font-size: 1.125rem;
-        }
-      </style>
     `}};C.styles=[S,M`
+      main {
+        margin: 0 .5rem;
+      }
+      sl-button::part(prefix) sl-icon {
+        font-size: 1.125rem;
+      }
     `];C=ee([m("app-standings")],C);export{C as AppDashboard};
-//# sourceMappingURL=app-game-tracker-6uF4HlNH.js.map
+//# sourceMappingURL=app-game-tracker-Dei1fohb.js.map

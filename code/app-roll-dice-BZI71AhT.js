@@ -1,4 +1,4 @@
-import{b as d,x as l,s as m,a as h,i as y,r as c,e as u,t as g}from"./index-BXUZZy4M.js";var f=Object.defineProperty,v=Object.getOwnPropertyDescriptor,a=(t,s,o,r)=>{for(var e=r>1?void 0:r?v(s,o):s,n=t.length-1,p;n>=0;n--)(p=t[n])&&(e=(r?p(s,o,e):p(e))||e);return r&&e&&f(s,o,e),e};let i=class extends d{constructor(){super(...arguments),this.result=null,this.history=[]}connectedCallback(){super.connectedCallback();const t=localStorage.getItem("diceRollHistory");t&&(this.history=JSON.parse(t))}rollDice(){this.result=Math.floor(Math.random()*20)+1,this.history=[this.result,...this.history].slice(0,50),localStorage.setItem("diceRollHistory",JSON.stringify(this.history)),this.resultDisplay&&(this.resultDisplay.classList.add("animate"),this.resultDisplay.addEventListener("animationend",()=>{this.resultDisplay.classList.remove("animate")},{once:!0}))}clearHistory(){this.result=null,this.history=[],localStorage.removeItem("diceRollHistory")}render(){return l`
+import{b as d,x as l,s as m,a as h,i as y,r as c,e as u,t as g}from"./index-CcTr4ZfK.js";var f=Object.defineProperty,v=Object.getOwnPropertyDescriptor,a=(t,s,o,r)=>{for(var e=r>1?void 0:r?v(s,o):s,n=t.length-1,p;n>=0;n--)(p=t[n])&&(e=(r?p(s,o,e):p(e))||e);return r&&e&&f(s,o,e),e};let i=class extends d{constructor(){super(...arguments),this.result=null,this.history=[]}connectedCallback(){super.connectedCallback();const t=localStorage.getItem("diceRollHistory");t&&(this.history=JSON.parse(t))}rollDice(){this.result=Math.floor(Math.random()*20)+1,this.history=[this.result,...this.history].slice(0,50),localStorage.setItem("diceRollHistory",JSON.stringify(this.history)),this.resultDisplay&&(this.resultDisplay.classList.add("animate"),this.resultDisplay.addEventListener("animationend",()=>{this.resultDisplay.classList.remove("animate")},{once:!0}))}clearHistory(){this.result=null,this.history=[],localStorage.removeItem("diceRollHistory")}render(){return l`
       <main>
         <h1>Roll a D20</h1>
         <div class="result-display">${this.result!==null?this.result:"?"}</div>
@@ -24,12 +24,6 @@ import{b as d,x as l,s as m,a as h,i as y,r as c,e as u,t as g}from"./index-BXUZ
         </sl-card>
       </main>
       <app-navigation></app-navigation>
-      <style>
-        sl-badge::part(base) {
-          height: 2rem;
-          width: 2rem;
-        }
-      </style>
     `}};i.styles=[m,h,y`
       main {
         display: flex;
@@ -102,5 +96,9 @@ import{b as d,x as l,s as m,a as h,i as y,r as c,e as u,t as g}from"./index-BXUZ
       sl-card::part(body) {
         padding-top: var(--sl-spacing-medium);
       }
+      sl-badge::part(base) {
+        height: 2rem;
+        width: 2rem;
+      }
     `];a([c()],i.prototype,"result",2);a([c()],i.prototype,"history",2);a([u(".result-display")],i.prototype,"resultDisplay",2);i=a([g("app-roll-dice")],i);export{i as AppRollDice};
-//# sourceMappingURL=app-roll-dice-C9bCIu8_.js.map
+//# sourceMappingURL=app-roll-dice-BZI71AhT.js.map
