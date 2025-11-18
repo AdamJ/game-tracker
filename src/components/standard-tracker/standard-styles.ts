@@ -58,7 +58,7 @@ export const standardStyles = css`
       transform: rotate(180deg);
     }
   }
-  @media (orientation: landscape): {
+  @media (orientation: landscape) {
     sl-card.side-one {
       transform: rotate(180deg);
     }
