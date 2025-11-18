@@ -24,7 +24,6 @@ export class PlayerInput extends LitElement {
   }
 
   addPlayer() { // Add the event parameter
-    console.log('addPlayer called');
     if (this.newPlayer && this.validatePlayerName(this.newPlayer)) {
         this.dispatchEvent(new CustomEvent('player-added', { detail: this.newPlayer }));
         this.newPlayer = '';
@@ -55,7 +54,6 @@ export class PlayerInput extends LitElement {
 
   validatePlayerName(playerName: string){
     const isValid = /^[a-zA-Z0-9]+$/.test(playerName);
-    console.log('isValid:', isValid);
     if (isValid) {
       this.errorMessage = '';
       return true;
