@@ -12,6 +12,17 @@ export const counterStyles = css`
       height: 100%;
     }
   }
+  @media (min-width: 950px) {
+    sl-card.player-one,
+    sl-card.player-two,
+    sl-card.player-three,
+    sl-card.player-four {
+      flex: 1;
+    }
+    sl-card::part(body) {
+      height: 100%;
+    }
+  }
   sl-tab-panel::part(base) {
     width: 100%;
   }
