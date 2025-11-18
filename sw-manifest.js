@@ -236,52 +236,60 @@ const __WB_MANIFEST = [
     "revision": "2e9680930dfcf670059421e2b16eacca"
   },
   {
-    "url": "/code/app-about-DFafDXmg.js",
-    "revision": "30e44794ed99594198330e7dc1073047"
+    "url": "/code/app-about-C5dfHLj3.js",
+    "revision": "b7cb0f810992a6b04ceb3a1b1793af55"
   },
   {
-    "url": "/code/app-about-DFafDXmg.js.map",
-    "revision": "24d2c6b88424e13b42b899c932b440d9"
+    "url": "/code/app-about-C5dfHLj3.js.map",
+    "revision": "f4e5e8d5c4c984659a7efe8d01aaa953"
   },
   {
-    "url": "/code/app-counter-BnzWq6k4.js",
-    "revision": "3aabcf6aadfedee12de334fd9cd97cee"
+    "url": "/code/app-counter-By8jz9av.js",
+    "revision": "91383e2311936b390e511de4fbeb6e32"
   },
   {
-    "url": "/code/app-counter-BnzWq6k4.js.map",
-    "revision": "4a70d714aec4c94585003558948de1a3"
+    "url": "/code/app-counter-By8jz9av.js.map",
+    "revision": "322029283975fb5bd8f8bc1b86806d23"
   },
   {
-    "url": "/code/app-game-tracker-CbG5Ecc6.js",
-    "revision": "b61e216ce0abd35de291ea4ddb1f8442"
+    "url": "/code/app-game-tracker-AUc_sOOy.js",
+    "revision": "37e5cb668612ceb470e012dc699d7e72"
   },
   {
-    "url": "/code/app-game-tracker-CbG5Ecc6.js.map",
-    "revision": "fdf4a1c4d45ebd586c411eebe5d78fe0"
+    "url": "/code/app-game-tracker-AUc_sOOy.js.map",
+    "revision": "40efb42e39e1d857862af3ae9e1b6174"
   },
   {
-    "url": "/code/app-roll-dice-ykP65etx.js",
-    "revision": "df60f8d251829751dd022281346e2249"
+    "url": "/code/app-roll-dice-DArElL_J.js",
+    "revision": "c924d56b081d4748721fef294330e852"
   },
   {
-    "url": "/code/app-roll-dice-ykP65etx.js.map",
-    "revision": "fe2775fea1ea1064c24ab6a4d188cbe5"
+    "url": "/code/app-roll-dice-DArElL_J.js.map",
+    "revision": "142335c7595c3cb9360efc3c30cde57b"
   },
   {
-    "url": "/code/app-standard-BaWxEEEC.js",
-    "revision": "04739211a4cbf501f9f3b16fc6083b25"
+    "url": "/code/app-standard-CSVq2QG1.js",
+    "revision": "b8d68cc3345b1f7fa1503fcce091a294"
   },
   {
-    "url": "/code/app-standard-BaWxEEEC.js.map",
-    "revision": "d75ae4bf642b25ba2eee14dc0a8e7825"
+    "url": "/code/app-standard-CSVq2QG1.js.map",
+    "revision": "22f1d57221278a20e845f1a1fd2ad821"
   },
   {
-    "url": "/code/counter-styles-D7tY3dUR.js",
-    "revision": "b9b25037d671573069bfd7b019dd0319"
+    "url": "/code/counter-styles-CLmoqlDB.js",
+    "revision": "94dfd76370efaf9819b7d8de9831c99a"
   },
   {
-    "url": "/code/counter-styles-D7tY3dUR.js.map",
-    "revision": "6973de82dbda2dd7557b3a4eec98b641"
+    "url": "/code/counter-styles-CLmoqlDB.js.map",
+    "revision": "1300c3ceba0e876961dac43261f9f368"
+  },
+  {
+    "url": "/code/index-B8TZnMyR.js",
+    "revision": "813a237447869f320ebdfd6dcbf6723e"
+  },
+  {
+    "url": "/code/index-B8TZnMyR.js.map",
+    "revision": "d7050ac8e5312f3bcc99448005547bc6"
   },
   {
     "url": "/code/index-BhaxQKVe.css",
@@ -296,24 +304,16 @@ const __WB_MANIFEST = [
     "revision": "2a3b207df19e6795556c5c8461e5cffb"
   },
   {
-    "url": "/code/index-iV2mvn9b.js",
-    "revision": "c00c6ea08c029d048686129b413c9c63"
+    "url": "/code/table-styles-Bk4h-LBZ.js",
+    "revision": "ce513e60d4803aec1c9198040696cf19"
   },
   {
-    "url": "/code/index-iV2mvn9b.js.map",
-    "revision": "8a1f66c4780b64e70af67b9283ecc213"
-  },
-  {
-    "url": "/code/table-styles-BZ0nevQi.js",
-    "revision": "5486a35cf38cce006a5e26f421349f18"
-  },
-  {
-    "url": "/code/table-styles-BZ0nevQi.js.map",
-    "revision": "c6a053aeab98c094b70d8b59edac0269"
+    "url": "/code/table-styles-Bk4h-LBZ.js.map",
+    "revision": "874c8fea3669e138cfc33bf334f58636"
   },
   {
     "url": "/index.html",
-    "revision": "e3bfa952bd6c49826b06392b618e8505"
+    "revision": "1111cff72cf9f253d30ca5e8138b2dc6"
   },
   {
     "url": "/manifest.json",
@@ -322,6 +322,10 @@ const __WB_MANIFEST = [
   {
     "url": "/offline-fallback.html",
     "revision": "a4aa446cf4c9e144d7f3cdb6c50b0067"
+  },
+  {
+    "url": "/offline.html",
+    "revision": "6e7562526360ccdc7acd241d5a787081"
   },
   {
     "url": "/robots.txt",
@@ -341,11 +345,11 @@ const __WB_MANIFEST = [
   },
   {
     "url": "/sw.js",
-    "revision": "24d1b20783a360f1dfdbf32d225937d3"
+    "revision": "1ea5a3db6bd527e2018dcb66ac486e34"
   },
   {
     "url": "/sw.js.map",
-    "revision": "84696c0423051d0222566953ee0a951d"
+    "revision": "fe222393b99d9a1f3bf370f8e5c0f874"
   },
   {
     "url": "/widget/ac.json",
