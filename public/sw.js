@@ -108,10 +108,36 @@ if (workbox) {
     new StaleWhileRevalidate()
   );
 
-  // Navigation Routing
+  // Navigation Routing with Offline Fallback
+  const navigationHandler = async ({ event }) => {
+    const networkFirst = new NetworkFirst({
+      cacheName: 'pages-cache',
+      plugins: [
+        new workbox.cacheableResponse.CacheableResponsePlugin({
+          statuses: [0, 200],
+        }),
+      ],
+    });
+
+    try {
+      return await networkFirst.handle({ event, request: event.request });
+    } catch (error) {
+      // If network fails and page not in cache, show offline page
+      const cache = await caches.open('offline-page');
+      const cachedResponse = await cache.match('/offline.html');
+      return cachedResponse || new Response('Offline - Network unavailable', {
+        status: 503,
+        statusText: 'Service Unavailable',
+        headers: new Headers({
+          'Content-Type': 'text/html',
+        }),
+      });
+    }
+  };
+
   registerRoute(
     ({ request }) => request.mode === 'navigate',
-    new NetworkFirst()
+    navigationHandler
   );
 
   self.addEventListener('push', function (event) {
@@ -145,7 +171,49 @@ if (workbox) {
   });
 
   self.addEventListener("install", (event) => {
-    console.log("Service Worker install:", event)
+    console.log("Service Worker install:", event);
+
+    // Pre-cache the offline page during installation
+    event.waitUntil(
+      caches.open('offline-page').then((cache) => {
+        return cache.add('/offline.html');
+      })
+    );
+  });
+
+  // Handle failed fetches gracefully
+  self.addEventListener('fetch', (event) => {
+    // Skip for Chrome extension requests
+    if (event.request.url.startsWith('chrome-extension://')) {
+      return;
+    }
+
+    // Let Workbox handle the request, but add error handling
+    if (event.request.method === 'GET') {
+      event.respondWith(
+        fetch(event.request).catch((error) => {
+          console.log('Fetch failed; returning offline page instead.', error);
+
+          // For navigation requests, return offline page
+          if (event.request.mode === 'navigate') {
+            return caches.match('/offline.html');
+          }
+
+          // For other requests, try to get from cache
+          return caches.match(event.request).then((response) => {
+            if (response) {
+              return response;
+            }
+
+            // Return a generic offline response for failed asset requests
+            return new Response('Network error', {
+              status: 408,
+              headers: { 'Content-Type': 'text/plain' },
+            });
+          });
+        })
+      );
+    }
   });
 
   precacheAndRoute(self.__WB_MANIFEST || []); // Ensure your manifest also includes icon files if they are part of your build
