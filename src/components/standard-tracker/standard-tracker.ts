@@ -214,9 +214,15 @@ export class MatchTracker extends LitElement {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        z-index: 1000;
+        z-index: 100;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         border-radius: 50%;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+
+      .fab-container.hidden {
+        opacity: 0;
+        visibility: hidden;
       }
 
       @media screen and (max-width: 600px) {
@@ -494,7 +500,7 @@ export class MatchTracker extends LitElement {
           </sl-tree>
         <sl-button slot="footer" variant="primary" pill @click=${this.closeDrawer}>Close</sl-button>
       </sl-drawer>
-      <div class="fab-container">
+      <div class="fab-container ${this.isDrawerOpen ? 'hidden' : ''}">
         <sl-button variant="neutral" size="large" circle @click=${this.toggleDrawer}>
           <sl-icon name="gear" label="settings"></sl-icon>
         </sl-button>
