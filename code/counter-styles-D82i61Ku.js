@@ -1,4 +1,4 @@
-import{i as r}from"./index-CcTr4ZfK.js";const e=r`
+import{a as r}from"./shoelace-styles-DuBzW-jG.js";const e=r`
   @media (max-width: 950px) {
     sl-card.player-one::part(base),
     sl-card.player-two::part(base),
@@ -112,4 +112,4 @@ import{i as r}from"./index-CcTr4ZfK.js";const e=r`
     }
   }
 `;export{e as c};
-//# sourceMappingURL=counter-styles-B2XUwgq6.js.map
+//# sourceMappingURL=counter-styles-D82i61Ku.js.map
