@@ -1,51 +1,51 @@
-name-template: 'v$RESOLVED_VERSION'
-tag-template: 'v$RESOLVED_VERSION' # will create a prerelease with version number x.x.x-prerelease.x
+name-template: "v$RESOLVED_VERSION"
+tag-template: "v$RESOLVED_VERSION" # will create a prerelease with version number x.x.x-prerelease.x
 categories:
-  - title: '🏆 Major:'
+  - title: "🏆 Major:"
     labels:
-      - 'major'
-  - title: '🚨 Breaking Change:'
+      - "major"
+  - title: "🚨 Breaking Change:"
     labels:
-      - 'breaking change'
-  - title: '🏅 Minor:'
+      - "breaking change"
+  - title: "🏅 Minor:"
     labels:
-      - 'minor'
-      - 'enhancement'
-      - 'feature'
-  - title: '🚧 Fix:'
+      - "minor"
+      - "enhancement"
+      - "feature"
+  - title: "🚧 Fix:"
     labels:
-      - 'bug'
-  - title: '🩹 Patch:'
+      - "bug"
+  - title: "🩹 Patch:"
     labels:
-      - 'patch'
-  - title: '🤖 GitHub Action:'
+      - "patch"
+  - title: "🤖 GitHub Action:"
     labels:
-      - 'github-action'
-  - title: '🪨 Dependencies:'
+      - "github-action"
+  - title: "🪨 Dependencies:"
     collapse-after: 3
     labels:
-      - 'dependencies'
+      - "dependencies"
 exclude-labels:
-  - 'invalid'
-  - 'duplicate'
-  - 'wontfix'
-change-template: '- $TITLE by @$AUTHOR (#$NUMBER)'
+  - "invalid"
+  - "duplicate"
+  - "wontfix"
+change-template: "- $TITLE by @$AUTHOR (#$NUMBER)"
 change-title-escapes: '\<*_&' # You can add # and @ to disable mentions, and add ` to disable code blocks.
 version-resolver:
   major:
     labels:
-      - 'major'
-      - 'breaking change'
+      - "major"
+      - "breaking change"
   minor:
     labels:
-      - 'enhancement'
-      - 'bug'
-      - 'minor'
+      - "enhancement"
+      - "bug"
+      - "minor"
   patch:
     labels:
-      - 'dependencies'
-      - 'patch'
-      - 'github-action'
+      - "dependencies"
+      - "patch"
+      - "github-action"
   default: patch
 template: |
   # What's Changed in v$RESOLVED_VERSION

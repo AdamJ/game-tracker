@@ -26,13 +26,13 @@ export const standardStyles = css`
   }
   sl-card.side-one::part(base),
   sl-button.side-one::part(base) {
-    background-color: var(--ms-mana-p-bg);
+    background-color: var(--ms-mana-r-bg);
     color: var(--sl-color-neutral-50);
     border: 0;
   }
   sl-card.side-two::part(base),
   sl-button.side-two::part(base) {
-    background-color: var(--ms-mana-b-bg);
+    background-color: var(--ms-mana-u-bg);
     color: var(--sl-color-neutral-100);
     border: 0;
   }

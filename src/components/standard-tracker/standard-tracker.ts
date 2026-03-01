@@ -26,7 +26,7 @@ interface Game {
   sideOne: string;
   sideTwo: string;
   result: 'win' | 'loss' | 'draw';
-  victor: string | "draw" | null;
+  victor: string | 'draw' | null;
 }
 
 interface MatchResult {
@@ -50,8 +50,8 @@ export class MatchTracker extends LitElement {
   @property({ type: Object }) side2: Side = { points: 20 };
 
   @state() matchResults: MatchResult[] = []; // Array to store game results
-  @state() sideHandle1: string = "Side 1";
-  @state() sideHandle2: string = "Side 2";
+  @state() sideHandle1: string = 'Side 1';
+  @state() sideHandle2: string = 'Side 2';
   @state() initialPointsTracker: number = 20;
   @state() isDrawerOpen = false; //Add a state to track if the drawer is open.
   @state() isAlertOpen = false; //Add a state to track if the drawer is open.
@@ -68,7 +68,8 @@ export class MatchTracker extends LitElement {
     this.loadFromStorage(); // Load data when component initializes
   }
 
-  firstUpdated() { // Called after the first render
+  firstUpdated() {
+    // Called after the first render
     this.saveToStorage(); // Save initial data to storage.
   }
 
@@ -172,11 +173,25 @@ export class MatchTracker extends LitElement {
         .card-form > p {
           font-size: calc(16px * 3);
         }
+        .settings-fab {
+          position: absolute;
+          display: block;
+          top: 50%;
+          right: 50%;
+          width: 28px;
+        }
       }
-
       @media screen and (min-width: 600px) {
-        main {
-          height: calc(100vh - 80px);
+        .standard-tracker,
+        .side-one,
+        .side-two,
+        sl-card::part(base) {
+          height: 100%;
+        }
+        sl-card::part(body) {
+          height: 100%;
+          display: flex;
+          justify-content: center;
         }
 
         .card-form > sl-button {
@@ -205,20 +220,24 @@ export class MatchTracker extends LitElement {
         .reset-points-form {
           flex-direction: row;
           justify-content: center;
-          align-items: flex-end;
+          align-items: center;
+          grid-gap: 1rem;
+        }
+        sl-button.reset-points-button::part(base) {
+          margin-top: 1rem;
         }
       }
-
-      /* FAB positioning - centered horizontally */
-      .fab-container {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 100;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        border-radius: 50%;
-        transition: opacity 0.3s ease, visibility 0.3s ease;
+      .standard-tracker,
+      .side-one,
+      .side-two,
+      sl-card::part(base) {
+        height: 100%;
+        align-items: center;
+        align-content: center;
+        color: var(--sl-color-neutral-50);
+      }
+      sl-button [slot='prefix'] {
+        color: var(--sl-color-neutral-50) !important;
       }
 
       .fab-container.hidden {
@@ -231,8 +250,8 @@ export class MatchTracker extends LitElement {
           top: 50%;
         }
       }
-    `
-  ]
+    `,
+  ];
   @state() sideLogs: LogEntry[] = [];
 
   @state() sideHandle1Actions: string[] = [];
@@ -240,27 +259,44 @@ export class MatchTracker extends LitElement {
 
   private updatePoints(side: 1 | 2, change: number, action: 'Plus' | 'Minus') {
     const sideMap = {
-      1: { side: this.side1, sideHandle: this.sideHandle1, setter: (value: Side) => { this.side1 = value; } },
-      2: { side: this.side2, sideHandle: this.sideHandle2, setter: (value: Side) => { this.side2 = value; } },
+      1: {
+        side: this.side1,
+        sideHandle: this.sideHandle1,
+        setter: (value: Side) => {
+          this.side1 = value;
+        },
+      },
+      2: {
+        side: this.side2,
+        sideHandle: this.sideHandle2,
+        setter: (value: Side) => {
+          this.side2 = value;
+        },
+      },
     };
 
     const sideData = sideMap[side];
 
     if (sideData) {
-        // Update the life total, ensuring it doesn't go below 0
-        const newPoints = Math.max(0, sideData.side.points + change);
+      // Update the life total, ensuring it doesn't go below 0
+      const newPoints = Math.max(0, sideData.side.points + change);
 
-        // Update the side state
-        sideData.setter({...sideData.side, points: newPoints});
+      // Update the side state
+      sideData.setter({ ...sideData.side, points: newPoints });
 
-        // Log the action
-        console.log(`${action} ${Math.abs(change)} to ${newPoints} for ${sideData.sideHandle}`);
+      // Log the action
+      console.log(
+        `${action} ${Math.abs(change)} to ${newPoints} for ${sideData.sideHandle}`
+      );
 
-        // Record the action
-        this.sideLogs = [...this.sideLogs, { side: sideData.sideHandle, action: `${action}`, points: newPoints }];
+      // Record the action
+      this.sideLogs = [
+        ...this.sideLogs,
+        { side: sideData.sideHandle, action: `${action}`, points: newPoints },
+      ];
 
-        //Update the main storage
-        this.saveToStorage();
+      //Update the main storage
+      this.saveToStorage();
     }
   }
 
@@ -274,7 +310,7 @@ export class MatchTracker extends LitElement {
       this.side2 = { points: newPoints };
       this.saveToStorage(); // Save after initial points change
     } else {
-      alert("Please enter a valid positive number for starting points.");
+      alert('Please enter a valid positive number for starting points.');
       input.value = this.initialPointsTracker.toString();
     }
   }
@@ -298,13 +334,13 @@ export class MatchTracker extends LitElement {
     this.isDrawerOpen = !this.isDrawerOpen;
   }
 
-  private closeDrawer(){
+  private closeDrawer() {
     this.isDrawerOpen = false;
   }
-  private closeAlert(){
+  private closeAlert() {
     this.isAlertOpen = false;
   }
-  private resetWithAlert(){
+  private resetWithAlert() {
     this.resetGame();
     this.isAlertOpen = true;
   }
@@ -339,8 +375,8 @@ export class MatchTracker extends LitElement {
   // }
 
   private resetGame() {
-      this.side1 = { points: this.initialPointsTracker };
-      this.side2 = { points: this.initialPointsTracker };
+    this.side1 = { points: this.initialPointsTracker };
+    this.side2 = { points: this.initialPointsTracker };
   }
 
   private saveToStorage() {
@@ -357,18 +393,21 @@ export class MatchTracker extends LitElement {
   }
 
   private loadFromStorage() {
-    localForage.getItem(this.storageKey).then((data: any) => {
-      if (data) {
-        this.initialPointsTracker = data.initialPointsTracker || 20;
-        this.matchResults = data.matchResults || [];
-        this.side1 = data.side1 || { points: 20 };
-        this.side2 = data.side2 || { points: 20 };
-        this.sideHandle1 = data.sideHandle1 || "Side 1";
-        this.sideHandle2 = data.sideHandle2 || "Side 2";
-        this.sideHandle1Actions = data.sideHandle1Actions || [];
-        this.sideHandle2Actions = data.sideHandle2Actions || [];
-      }
-    }).catch(console.error);
+    localForage
+      .getItem(this.storageKey)
+      .then((data: any) => {
+        if (data) {
+          this.initialPointsTracker = data.initialPointsTracker || 20;
+          this.matchResults = data.matchResults || [];
+          this.side1 = data.side1 || { points: 20 };
+          this.side2 = data.side2 || { points: 20 };
+          this.sideHandle1 = data.sideHandle1 || 'Side 1';
+          this.sideHandle2 = data.sideHandle2 || 'Side 2';
+          this.sideHandle1Actions = data.sideHandle1Actions || [];
+          this.sideHandle2Actions = data.sideHandle2Actions || [];
+        }
+      })
+      .catch(console.error);
   }
   // private getSideStats(playerHandle: string) {
   //   const sideResults = this.matchResults.filter(
@@ -396,79 +435,129 @@ export class MatchTracker extends LitElement {
   //   return { wins, losses, draws };
   // }
   render() {
-  // Clear previous log items
-  const sideLogItems = new Map<string, string[]>();
+    // Clear previous log items
+    const sideLogItems = new Map<string, string[]>();
 
-  this.sideLogs.forEach(log => {
-    if (!sideLogItems.has(log.side)) {
-      sideLogItems.set(log.side, []);
-    }
-    // const iconName = this.getSideIconVariant(log);
-    // const badgeName = this.getSideBadgeVariant(log);
-    const logItem = html`
-      <sl-tree-item>
-        ${log.action}
-        to <sl-badge variant="neutral" pill style="padding-left: 2px;">${log.points}</sl-badge>
-      </sl-tree-item>
-    `;
-    // @ts-ignore
-    sideLogItems.get(log.side)?.push(logItem);
-  });
-  // Render menu items for each player
-  const sideMenuItems = [];
-  for (const [player, logs] of sideLogItems) {
+    this.sideLogs.forEach((log) => {
+      if (!sideLogItems.has(log.side)) {
+        sideLogItems.set(log.side, []);
+      }
+      // const iconName = this.getSideIconVariant(log);
+      // const badgeName = this.getSideBadgeVariant(log);
+      const logItem = html`
+        <sl-tree-item>
+          ${log.action} to
+          <sl-badge variant="neutral" pill style="padding-left: 2px;"
+            >${log.points}</sl-badge
+          >
+        </sl-tree-item>
+      `;
+      // @ts-ignore
+      sideLogItems.get(log.side)?.push(logItem);
+    });
+    // Render menu items for each player
+    const sideMenuItems = [];
+    for (const [player, logs] of sideLogItems) {
       sideMenuItems.push(html`
-        <sl-tree-item>${player}
-        ${logs.map(log => html`
+        <sl-tree-item
+          >${player}
+          ${logs.map(
+            (log) => html`
           ${log}
         </sl-tree-item>
-        `)}
+        `
+          )}
+        </sl-tree-item>
       `);
-  }
-  // Empty state logic
-  const emptyState = html`
-    <sl-tree-item>
-      No match history to display.
-    </sl-tree-item>
-  `;
+    }
+    // Empty state logic
+    const emptyState = html`
+      <sl-tree-item> No match history to display. </sl-tree-item>
+    `;
 
-  const menuContent = sideMenuItems.length > 0 ? sideMenuItems : emptyState;
+    const menuContent = sideMenuItems.length > 0 ? sideMenuItems : emptyState;
 
-  return html`
-    <main>
-      <div class="standard-tracker">
-        <sl-card class="side-one">
-          <form class="card-form">
-            <sl-button variant="default" size="large" class="life-counter side-one" @click=${() => this.updatePoints(1, 1, 'Plus')}>
-              <sl-icon slot="prefix" name="shield-fill-plus"></sl-icon>
-              Plus
-            </sl-button>
-            <p class="text-center ms-4x">
-              ${this.side1.points}
-            </p>
-            <sl-button variant="default" size="large" class="life-counter side-one" @click=${() => this.updatePoints(1, -1, 'Minus')}>
-              <sl-icon slot="prefix" name="shield-fill-minus"></sl-icon>
-              Minus
-            </sl-button>
-          </form>
-        </sl-card>
-        <sl-card class="side-two">
-          <form class="card-form">
-            <sl-button variant="default" size="large" class="life-counter side-two" @click=${() => this.updatePoints(2, 1, 'Plus')}>
-              <sl-icon slot="prefix" name="shield-fill-plus" class="icon-plus"></sl-icon>
-              Plus
-            </sl-button>
-            <p class="text-center ms-4x">
-              ${this.side2.points}
-            </p>
-            <sl-button variant="default" size="large" class="life-counter side-two" @click=${() => this.updatePoints(2, -1, 'Minus')}>
-              <sl-icon slot="prefix" name="shield-fill-minus" class="icon-minus"></sl-icon>
-              Minus
-            </sl-button>
-          </form>
-        </sl-card>
-      </div>
-      <sl-drawer label="Configuration" placement="top" class="drawer-custom-size" ?open=${this.isDrawerOpen} @sl-after-hide=${this.closeDrawer}>
+    return html`
+      <main
+        style="height: calc(100vh - 125px); padding: 0; margin: 0 .5rem; margin-top: .5rem;"
+      >
+        <div class="standard-tracker">
+          <sl-card class="side-one">
+            <form class="card-form" style="position: relative;">
+              <sl-button
+                variant="default"
+                size="large"
+                class="life-counter side-one"
+                @click=${() => this.updatePoints(1, 1, 'Plus')}
+              >
+                <div style="display: flex; align-items: center; gap: 0.5rem; flex-direction: column; font-size: 1.25rem;">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="32" width="32" viewBox="0 0 640 640"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(244, 244, 244)" d="M160 96C124.7 96 96 124.7 96 160L96 480C96 515.3 124.7 544 160 544L480 544C515.3 544 544 515.3 544 480L544 160C544 124.7 515.3 96 480 96L160 96zM296 408L296 344L232 344C218.7 344 208 333.3 208 320C208 306.7 218.7 296 232 296L296 296L296 232C296 218.7 306.7 208 320 208C333.3 208 344 218.7 344 232L344 296L408 296C421.3 296 432 306.7 432 320C432 333.3 421.3 344 408 344L344 344L344 408C344 421.3 333.3 432 320 432C306.7 432 296 421.3 296 408z"/></svg>
+
+                  Plus
+                </div>
+              </sl-button>
+              <p
+                class="text-center ms-4x"
+                style="line-height: normal; margin: 0;"
+              >
+                ${this.side1.points}
+              </p>
+              <sl-button
+                variant="default"
+                size="large"
+                class="life-counter side-one"
+                @click=${() => this.updatePoints(1, -1, 'Minus')}
+              >
+                <div style="display: flex; align-items: center; gap: 0.5rem; flex-direction: column;">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="32" width="32" viewBox="0 0 640 640"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(244, 244, 244)" d="M160 96C124.7 96 96 124.7 96 160L96 480C96 515.3 124.7 544 160 544L480 544C515.3 544 544 515.3 544 480L544 160C544 124.7 515.3 96 480 96L160 96zM232 296L408 296C421.3 296 432 306.7 432 320C432 333.3 421.3 344 408 344L232 344C218.7 344 208 333.3 208 320C208 306.7 218.7 296 232 296z"/></svg>
+
+                  Minus
+                </div>
+              </sl-button>
+            </form>
+          </sl-card>
+          <sl-card class="side-two">
+            <form class="card-form" style="position: relative;">
+              <sl-button
+                variant="default"
+                size="large"
+                class="life-counter side-two"
+                @click=${() => this.updatePoints(2, 1, 'Plus')}
+              >
+                <div style="display: flex; align-items: center; gap: 0.5rem; flex-direction: column; font-size: 1.25rem;">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="32" width="32" viewBox="0 0 640 640"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(244, 244, 244)" d="M160 96C124.7 96 96 124.7 96 160L96 480C96 515.3 124.7 544 160 544L480 544C515.3 544 544 515.3 544 480L544 160C544 124.7 515.3 96 480 96L160 96zM296 408L296 344L232 344C218.7 344 208 333.3 208 320C208 306.7 218.7 296 232 296L296 296L296 232C296 218.7 306.7 208 320 208C333.3 208 344 218.7 344 232L344 296L408 296C421.3 296 432 306.7 432 320C432 333.3 421.3 344 408 344L344 344L344 408C344 421.3 333.3 432 320 432C306.7 432 296 421.3 296 408z"/></svg>
+
+                  Plus
+                </div>
+              </sl-button>
+              <p
+                class="text-center ms-4x"
+                style="line-height: normal; margin: 0;"
+              >
+                ${this.side2.points}
+              </p>
+              <sl-button
+                variant="default"
+                size="large"
+                class="life-counter side-two"
+                @click=${() => this.updatePoints(2, -1, 'Minus')}
+              >
+                <div style="display: flex; align-items: center; gap: 0.5rem; flex-direction: column;">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="32" width="32" viewBox="0 0 640 640"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(244, 244, 244)" d="M160 96C124.7 96 96 124.7 96 160L96 480C96 515.3 124.7 544 160 544L480 544C515.3 544 544 515.3 544 480L544 160C544 124.7 515.3 96 480 96L160 96zM232 296L408 296C421.3 296 432 306.7 432 320C432 333.3 421.3 344 408 344L232 344C218.7 344 208 333.3 208 320C208 306.7 218.7 296 232 296z"/></svg>
+
+                  Minus
+                </div>
+              </sl-button>
+            </form>
+          </sl-card>
+        </div>
+        <sl-drawer
+          label="Configuration"
+          placement="top"
+          class="drawer-custom-size"
+          ?open=${this.isDrawerOpen}
+          @sl-after-hide=${this.closeDrawer}
+        >
           <form class="reset-points-form">
             <sl-input
               type="number"
@@ -491,21 +580,62 @@ export class MatchTracker extends LitElement {
               Reset Starting Points
             </sl-button>
           </form>
-          <sl-alert variant="primary" open duration="1500" closable class="alert-closable" ?open=${this.isAlertOpen} @sl-after-hide=${this.closeAlert}>
+          <sl-alert
+            variant="primary"
+            open
+            duration="1500"
+            closable
+            class="alert-closable"
+            ?open=${this.isAlertOpen}
+            @sl-after-hide=${this.closeAlert}
+          >
             <sl-icon slot="icon" name="info-circle"></sl-icon>
             Starting points have been reset to ${this.initialPointsTracker}.
           </sl-alert>
           <h3>History</h3>
-          <sl-tree class="tree-with-lines">
+          <sl-tree
+            class="tree-with-lines"
+            style="color: var(--sl-color-neutral-50);"
+          >
             ${menuContent}
           </sl-tree>
-        <sl-button slot="footer" variant="primary" pill @click=${this.closeDrawer}>Close</sl-button>
-      </sl-drawer>
-      <div class="fab-container ${this.isDrawerOpen ? 'hidden' : ''}">
-        <sl-button variant="neutral" size="large" circle @click=${this.toggleDrawer}>
-          <sl-icon name="gear" label="settings"></sl-icon>
-        </sl-button>
-      </div>
-    </main>
-  `}
+          <sl-button
+            slot="footer"
+            variant="primary"
+            pill
+            @click=${this.closeDrawer}
+            >Close</sl-button
+          >
+        </sl-drawer>
+        <div class="fab-container">
+          <sl-button
+            variant="neutral"
+            size="large"
+            circle
+            @click=${this.toggleDrawer}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 640 640"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(244, 244, 244)" d="M102.8 57.3C108.2 51.9 116.6 51.1 123 55.3L241.9 134.5C250.8 140.4 256.1 150.4 256.1 161.1L256.1 210.7L346.9 301.5C380.2 286.5 420.8 292.6 448.1 320L574.2 446.1C592.9 464.8 592.9 495.2 574.2 514L514.1 574.1C495.4 592.8 465 592.8 446.2 574.1L320.1 448C292.7 420.6 286.6 380.1 301.6 346.8L210.8 256L161.2 256C150.5 256 140.5 250.7 134.6 241.8L55.4 122.9C51.2 116.6 52 108.1 57.4 102.7L102.8 57.3zM247.8 360.8C241.5 397.7 250.1 436.7 274 468L179.1 563C151 591.1 105.4 591.1 77.3 563C49.2 534.9 49.2 489.3 77.3 461.2L212.7 325.7L247.9 360.8zM416.1 64C436.2 64 455.5 67.7 473.2 74.5C483.2 78.3 485 91 477.5 98.6L420.8 155.3C417.8 158.3 416.1 162.4 416.1 166.6L416.1 208C416.1 216.8 423.3 224 432.1 224L473.5 224C477.7 224 481.8 222.3 484.8 219.3L541.5 162.6C549.1 155.1 561.8 156.9 565.6 166.9C572.4 184.6 576.1 203.9 576.1 224C576.1 267.2 558.9 306.3 531.1 335.1L482 286C448.9 253 403.5 240.3 360.9 247.6L304.1 190.8L304.1 161.1L303.9 156.1C303.1 143.7 299.5 131.8 293.4 121.2C322.8 86.2 366.8 64 416.1 63.9z"/></svg>
+          </sl-button>
+        </div>
+        <style>
+          @media screen and (max-width: 600px) {
+            .fab-container {
+              top: calc(50vh - 72px) !important;
+            }
+          }
+          .fab-container {
+            position: absolute;
+            top: calc(50% - 24px);
+            right: calc(50vw - 1.5rem);
+            box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, .5);
+            border-radius: 50%;
+          }
+          .fab-container svg {
+            vertical-align: text-top;
+          }
+        </style>
+      </main>
+    `;
+  }
 }
+

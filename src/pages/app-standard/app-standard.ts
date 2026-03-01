@@ -21,3 +21,4 @@ export class PvpCounter extends LitElement {
     `;
   }
 }
+
