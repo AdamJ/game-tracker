@@ -4,10 +4,10 @@
   "display": "standalone",
   "start_url": "/",
   "short_name": "GameTracker",
-  "theme_color": "#212121",
+  "theme_color": "#0f172a",
   "description": "Tracking games of Magic: The Gathering and other TCG scores.",
   "orientation": "any",
-  "background_color": "#212121",
+  "background_color": "#0f172a",
   "prefer_related_applications": false,
   "display_override": [
     "window-controls-overlay",
@@ -105,7 +105,7 @@
   "shortcuts": [
     {
       "name": "Standings",
-      "url": "/standings",
+      "url": "/game-tracker",
       "description": "For tracking tournament standings and head-to-head match-ups.",
       "icons": [
         {

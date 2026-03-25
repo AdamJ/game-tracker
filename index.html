@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="sl-theme-light">
+<html lang="en" class="dark">
 
 <head>
   <meta charset="UTF-8" />
@@ -7,10 +7,10 @@
 
   <base href="/" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <meta name="description" content="Tracking games of Magic: The Gathering and other TCG scores." />
   <meta name="robots" content="noindex, nofollow">
-  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#181818" />
+  <meta name="theme-color" content="#0f172a" />
   <meta name="color-scheme" content="dark" />
   <meta property="og:title" content="Moonsilver Waypoints" />
   <meta property="og:url" content="https://www.adamjolicoeur.me" />
@@ -18,104 +18,19 @@
   <meta property="og:site_name" content="Moonsilver Waypoints">
   <meta property="og:type" content="website">
 
-  <!-- These meta tags are Apple-specific, and set the web application to run in full-screen mode with a black status bar. Learn more at https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html-->
   <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Moonsilver Waypoints" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
   <link rel="icon" href="/assets/icons/icon_24.png" type="image/png" />
   <link rel="manifest" href="manifest.json" />
   <link href="/assets/mana.min.css" rel="stylesheet" type="text/css" />
-  <link rel="stylesheet" href="/assets/shoelace/themes/light.css" />
-  <script type="module" src="/assets/shoelace/shoelace-autoloader.js"></script>
-
-  <style>
-    /* Hide the message by default */
-    .safari-ios-message {
-      display: none;
-    }
-
-    /* Show it when the 'safari-ios' class is added to the body */
-    body.safari-ios .safari-ios-message {
-      position: absolute;
-      z-index: 10000;
-      display: block;
-    }
-    body.safari-ios .safari-ios-message p {
-      text-align: center;
-      padding: 1rem;
-    }
-    .hide {
-      display: none;
-    }
-  </style>
 </head>
 
 <body>
-  <div class="safari-ios-message">
-    <sl-card>
-      <p>
-        It looks like you're using Safari on iOS. To use this web-app, tap the "Share"
-        button below, then select "Add to Home Screen".
-        <span class="result"></span>
-      </p>
-    </sl-card>
-    <br /><br />
-    <sl-card>
-      <p>
-        Having issues? Click "clear cache" to clear all cache, local storage, and refresh the site.
-        <br />
-      </p>
-      <sl-button slot="footer" variant="primary" id="clear-cache">Clear Cache</sl-button>
-    </sl-card>
-  </div>
-
-  <div class="background-image"></div>
-  <my-app style="position: relative;"></my-app>
-  <script type="module" src="/src/main.ts"></script>
-
-  <sl-dialog label="Install App" class="install-dialog">
-    <p>
-      Moonsilver Waypoints is now available as an installable web-app! Click the "install" button to get started.
-    </p>
-    <sl-button slot="footer" variant="primary" class="install-button">Install</sl-button>
-  </sl-dialog>
-
-  <sl-dialog label="Update Dialog" class="update-dialog">
-    <p>A new version of the app is available!</p>
-    <sl-button slot="footer" variant="primary" class="update-button">Update Now</sl-button>
-  </sl-dialog>
-
-  <!--
-  -- Add a listener that adds 'safari-ios' to the <body> so that the message to install the site as a local 'app' (i.e. Add to Home Screen) displays only for iOS Safari users.
-  -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const isIphone = /iPhone/i.test(navigator.userAgent);
-      const isStandalone = window.navigator.standalone || window.matchMedia('(display-mode: standalone)').matches;
-
-        if (isIphone && !isStandalone) {
-            document.body.classList.add("safari-ios");
-        }
-    });
-
-    document.getElementById("clear-cache").addEventListener("click", function () {
-      window.location.href = window.location.pathname + "?nocache=" + new Date().getTime();
-      window.localStorage.clear();
-      alert("Browser cache and local storage has been cleared.");
-    });
-  </script>
-      <script>
-        const navigationItems = document.querySelectorAll('.navigation-item');
-        const currentPageUrl = window.location.pathname; // Get the current page path
-
-        navigationItems.forEach(item => {
-          const linkButton = item.querySelector('sl-icon-button'); // Target the <sl-icon-button>
-          if (linkButton && linkButton.getAttribute('href') === currentPageUrl) {
-            item.classList.add('active');
-          }
-        });
-        </script>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
 </body>
 
 </html>
