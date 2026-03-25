@@ -1,54 +1,48 @@
 import { defineConfig } from 'vite';
-import { resolve } from 'path'
-import { fileURLToPath } from 'url'
+import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
-import Icons from 'unplugin-icons/vite'
+import path from 'path';
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = resolve()
-const isProd = process.env.NODE_ENV === 'production';
-
-// https://vitejs.dev/config/
 export default defineConfig({
-  base: "/",
+  base: '/',
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
+  },
   build: {
     sourcemap: true,
-    assetsDir: "code",
-    target: ["esnext"],
-    outDir: "dist/",
+    assetsDir: 'code',
+    target: ['esnext'],
+    outDir: 'dist/',
     cssMinify: true,
-    lib: false,
-    minify: isProd,
+    minify: true,
     emptyOutDir: false,
   },
   plugins: [
-    Icons({
-      autoInstall: true,
-    }),
+    react(),
     VitePWA({
       registerType: 'autoUpdate',
-      strategies: "injectManifest",
+      strategies: 'injectManifest',
       injectManifest: {
         swSrc: 'public/sw.js',
         swDest: 'dist/sw.js',
         globDirectory: 'dist',
-        globPatterns: [
-          '**/*.{html,js,css,json,png,jpg, svg}',
-        ],
+        globPatterns: ['**/*.{html,js,css,json,png,jpg,svg}'],
       },
       injectRegister: null,
       manifest: false,
       devOptions: {
-        enabled: true
+        enabled: true,
       },
       workbox: {
         cleanupOutdatedCaches: true,
-        sourcemap: true
-      }
-    })
+        sourcemap: true,
+      },
+    }),
   ],
   server: {
     port: 7160,
     host: true,
-  }
-})
+  },
+});
